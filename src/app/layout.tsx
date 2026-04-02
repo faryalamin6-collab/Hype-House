@@ -1,0 +1,137 @@
+import type { Metadata } from 'next'
+import dynamic from 'next/dynamic'
+import './globals.css'
+import LenisWrapper from '@/components/layout/LenisWrapper'
+import Navigation from '@/components/layout/Navigation'
+import Footer from '@/components/layout/Footer'
+import PageTransition from './PageTransition'
+
+const BackgroundCanvas = dynamic(
+  () => import('@/components/canvas/BackgroundCanvas'),
+  { ssr: false }
+)
+
+const CustomCursor = dynamic(
+  () => import('@/components/cursor/CustomCursor'),
+  { ssr: false }
+)
+
+export const metadata: Metadata = {
+  metadataBase: new URL('https://hypehouse.digital'),
+  title: {
+    default: 'HypeHouse Digital — AI-Powered Creative Agency in Karachi',
+    template: '%s | HypeHouse Digital',
+  },
+  description:
+    'HypeHouse Digital is a full-service AI-powered creative agency in Karachi, Pakistan. Branding, social media, digital advertising, web design, SEO & AI automation.',
+  keywords: [
+    'digital marketing agency Karachi',
+    'AI creative agency Pakistan',
+    'social media management Karachi',
+    'branding agency Pakistan',
+    'SEO agency Karachi',
+    'automation agency Pakistan',
+    'creative agency Karachi',
+  ],
+  openGraph: {
+    type: 'website',
+    locale: 'en_US',
+    url: 'https://hypehouse.digital',
+    siteName: 'HypeHouse Digital',
+    title: 'HypeHouse Digital — AI-Powered Creative Agency in Karachi',
+    description:
+      'Full-service AI-powered creative agency. Strategy. Systems. Creative. Unified.',
+    images: [
+      {
+        url: '/og-image.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'HypeHouse Digital',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'HypeHouse Digital — AI-Powered Creative Agency in Karachi',
+    description:
+      'Full-service AI-powered creative agency. Strategy. Systems. Creative. Unified.',
+    images: ['/og-image.jpg'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+    },
+  },
+  alternates: {
+    canonical: 'https://hypehouse.digital',
+  },
+}
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode
+}) {
+  return (
+    <html lang="en">
+      <head>
+        {/* Google Fonts — Poppins */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        {/* eslint-disable-next-line @next/next/no-page-custom-font */}
+        <link
+          href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+          rel="stylesheet"
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'LocalBusiness',
+              name: 'HypeHouse Digital',
+              description:
+                'Full-service AI-powered creative agency in Karachi, Pakistan.',
+              url: 'https://hypehouse.digital',
+              email: 'hello@hypehouse.digital',
+              address: {
+                '@type': 'PostalAddress',
+                addressLocality: 'Karachi',
+                addressCountry: 'PK',
+              },
+              areaServed: ['Karachi', 'Pakistan', 'Dubai', 'London'],
+            }),
+          }}
+        />
+      </head>
+      <body
+        style={{
+          background: 'linear-gradient(180deg, #020008 0%, #0c0026 100%)',
+          backgroundAttachment: 'fixed',
+          minHeight: '100vh',
+        }}
+      >
+        {/* Three.js background — persistent across routes */}
+        <BackgroundCanvas />
+
+        {/* Custom cursor — persistent across routes */}
+        <CustomCursor />
+
+        <LenisWrapper>
+          {/* Navigation — persistent */}
+          <Navigation />
+
+          {/* Page content with Framer Motion transitions */}
+          <main style={{ position: 'relative', zIndex: 10 }}>
+            <PageTransition>{children}</PageTransition>
+          </main>
+
+          <Footer />
+        </LenisWrapper>
+      </body>
+    </html>
+  )
+}
