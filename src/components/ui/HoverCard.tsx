@@ -1,0 +1,49 @@
+'use client'
+
+import { ReactNode, CSSProperties } from 'react'
+
+interface HoverCardProps {
+  children: ReactNode
+  className?: string
+  style?: CSSProperties
+  hoverStyle?: CSSProperties
+  baseStyle?: CSSProperties
+}
+
+export default function HoverCard({
+  children,
+  className = '',
+  style,
+  hoverStyle = {
+    borderColor: 'rgba(124,58,237,0.35)',
+    transform: 'translateY(-4px)',
+    boxShadow: '0 20px 60px rgba(159,1,246,0.12)',
+  },
+  baseStyle = {
+    borderColor: 'rgba(255,255,255,0.10)',
+    transform: 'translateY(0)',
+    boxShadow: 'none',
+  },
+}: HoverCardProps) {
+  return (
+    <div
+      className={className}
+      style={{
+        background: 'rgba(255,255,255,0.04)',
+        backdropFilter: 'blur(12px)',
+        border: '1px solid rgba(255,255,255,0.10)',
+        borderRadius: '16px',
+        transition: 'border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease',
+        ...style,
+      }}
+      onMouseEnter={e => {
+        Object.assign((e.currentTarget as HTMLDivElement).style, hoverStyle)
+      }}
+      onMouseLeave={e => {
+        Object.assign((e.currentTarget as HTMLDivElement).style, baseStyle)
+      }}
+    >
+      {children}
+    </div>
+  )
+}
