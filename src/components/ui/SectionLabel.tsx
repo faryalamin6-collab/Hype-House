@@ -17,14 +17,14 @@ export default function SectionLabel({ children, className = '' }: SectionLabelP
         background: 'rgba(159,1,246,0.08)',
         backdropFilter: 'blur(8px)',
         fontFamily: 'var(--font-poppins)',
-        fontWeight: 500,
+        fontWeight: 700,
         fontSize: '11px',
-        letterSpacing: '0.2em',
+        letterSpacing: '0.28em',
         textTransform: 'uppercase',
-        color: 'rgba(192,132,252,0.9)',
+        color: '#9f01f6',
       }}
     >
-      <span style={{ color: '#C084FC' }}>✦</span>
+      <span style={{ color: '#9f01f6', fontSize: '10px' }}>✦</span>
       {children}
     </div>
   )

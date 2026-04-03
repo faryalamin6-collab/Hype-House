@@ -3,6 +3,7 @@ import SectionLabel from '@/components/ui/SectionLabel'
 import ScrollReveal from '@/components/ui/ScrollReveal'
 import Button from '@/components/ui/Button'
 import HoverCard from '@/components/ui/HoverCard'
+import ImagePlaceholder from '@/components/ui/ImagePlaceholder'
 
 export const metadata: Metadata = {
   title: 'About HypeHouse Digital — AI Creative Agency Karachi',
@@ -145,46 +146,7 @@ export default function AboutPage() {
           </ScrollReveal>
 
           <ScrollReveal delay={150}>
-            <div
-              style={{
-                display: 'grid',
-                gridTemplateColumns: '1fr 1fr',
-                gap: '16px',
-              }}
-            >
-              {[
-                { n: '6+', label: 'Service Pillars' },
-                { n: '∞', label: 'Ambition' },
-                { n: 'AI', label: 'Powered Workflows' },
-                { n: '24/7', label: 'Systems Running' },
-              ].map(item => (
-                <HoverCard
-                  key={item.label}
-                  style={{ padding: '24px', textAlign: 'center', borderRadius: '12px' }}
-                >
-                  <div
-                    className="gradient-text"
-                    style={{
-                      fontFamily: 'var(--font-poppins)',
-                      fontWeight: 800,
-                      fontSize: '36px',
-                      marginBottom: '8px',
-                    }}
-                  >
-                    {item.n}
-                  </div>
-                  <div
-                    style={{
-                      fontFamily: 'var(--font-poppins)',
-                      fontSize: '13px',
-                      color: 'rgba(255,255,255,0.5)',
-                    }}
-                  >
-                    {item.label}
-                  </div>
-                </HoverCard>
-              ))}
-            </div>
+            <ImagePlaceholder height={400} label="Agency brand imagery coming soon" />
           </ScrollReveal>
         </div>
       </section>

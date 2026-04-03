@@ -66,7 +66,7 @@ export default function Footer() {
               style={{
                 fontFamily: 'var(--font-poppins)',
                 fontSize: '14px',
-                color: 'rgba(255,255,255,0.5)',
+                color: 'rgba(255,255,255,0.72)',
                 lineHeight: 1.7,
                 maxWidth: '260px',
                 marginBottom: '24px',
@@ -79,7 +79,7 @@ export default function Footer() {
               style={{
                 fontFamily: 'var(--font-poppins)',
                 fontSize: '13px',
-                color: 'rgba(255,255,255,0.35)',
+                color: 'rgba(255,255,255,0.60)',
                 lineHeight: 1.8,
               }}
             >
@@ -105,7 +105,7 @@ export default function Footer() {
                   fontSize: '12px',
                   letterSpacing: '0.15em',
                   textTransform: 'uppercase',
-                  color: 'rgba(255,255,255,0.35)',
+                  color: 'rgba(255,255,255,0.55)',
                   marginBottom: '20px',
                 }}
               >
@@ -156,7 +156,7 @@ export default function Footer() {
               style={{
                 fontFamily: 'var(--font-poppins)',
                 fontSize: '14px',
-                color: 'rgba(255,255,255,0.55)',
+                color: 'rgba(255,255,255,0.72)',
                 lineHeight: 1.7,
                 marginBottom: '20px',
               }}
@@ -205,7 +205,7 @@ export default function Footer() {
             style={{
               fontFamily: 'var(--font-poppins)',
               fontSize: '13px',
-              color: 'rgba(255,255,255,0.3)',
+              color: 'rgba(255,255,255,0.45)',
             }}
           >
             © {new Date().getFullYear()} HypeHouse Digital. All rights reserved.
@@ -222,7 +222,7 @@ export default function Footer() {
                 style={{
                   fontFamily: 'var(--font-poppins)',
                   fontSize: '13px',
-                  color: 'rgba(255,255,255,0.3)',
+                  color: 'rgba(255,255,255,0.45)',
                   cursor: 'pointer',
                   transition: 'color 0.2s ease',
                 }}

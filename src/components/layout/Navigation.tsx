@@ -116,8 +116,8 @@ export default function Navigation() {
                   fontWeight: 500,
                   fontSize: '14px',
                   color: pathname === link.href
-                    ? 'rgba(255,255,255,0.95)'
-                    : 'rgba(255,255,255,0.6)',
+                    ? '#ffffff'
+                    : 'rgba(255,255,255,0.80)',
                   textDecoration: 'none',
                   padding: '8px 14px',
                   borderRadius: '8px',
@@ -132,13 +132,13 @@ export default function Navigation() {
                 }}
                 onMouseEnter={e => {
                   if (pathname !== link.href) {
-                    (e.target as HTMLElement).style.color = 'rgba(255,255,255,0.9)'
+                    (e.target as HTMLElement).style.color = '#ffffff'
                     ;(e.target as HTMLElement).style.background = 'rgba(255,255,255,0.05)'
                   }
                 }}
                 onMouseLeave={e => {
                   if (pathname !== link.href) {
-                    (e.target as HTMLElement).style.color = 'rgba(255,255,255,0.6)'
+                    (e.target as HTMLElement).style.color = 'rgba(255,255,255,0.80)'
                     ;(e.target as HTMLElement).style.background = 'transparent'
                   }
                 }}

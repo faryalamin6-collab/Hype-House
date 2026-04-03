@@ -10,7 +10,7 @@
   --color-bg-start: #020008;
   --color-bg-end: #0c0026;
   --font-poppins: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  --gradient-brand: linear-gradient(90deg, #c084fc, #818cf8, #049dff, #34d399);
+  --gradient-brand: linear-gradient(135deg, #C084FC 0%, #818CF8 30%, #049DFF 65%, #34D399 100%);
 }
 
 * {
@@ -21,7 +21,7 @@
 
 html {
   overflow-x: hidden;
-  scroll-behavior: auto; /* Lenis handles scrolling */
+  scroll-behavior: auto;
 }
 
 body {
@@ -33,30 +33,55 @@ body {
   min-height: 100vh;
 }
 
-/* Custom scrollbar */
-::-webkit-scrollbar {
-  width: 6px;
+/* ── HEADINGS — always white ─────────────────────────────────────────────── */
+h1, h2, h3, h4, h5, h6 {
+  color: #ffffff;
+  font-family: var(--font-poppins), sans-serif;
 }
-::-webkit-scrollbar-track {
-  background: #020008;
-}
-::-webkit-scrollbar-thumb {
-  background: rgba(159, 1, 246, 0.5);
-  border-radius: 3px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: rgba(159, 1, 246, 0.8);
-}
+h1 { font-weight: 800; }
+h2 { font-weight: 800; }
+h3 { font-weight: 700; }
 
-/* Animated gradient text */
+/* ── ANIMATED GRADIENT TEXT ─────────────────────────────────────────────── */
+/* Exact spec: 135deg, C084FC → 818CF8 → 049DFF → 34D399, 4s ease infinite */
 .gradient-text {
-  background: linear-gradient(90deg, #c084fc, #818cf8, #049dff, #34d399, #c084fc);
-  background-size: 300% 100%;
+  background: linear-gradient(
+    135deg,
+    #C084FC 0%,
+    #818CF8 30%,
+    #049DFF 65%,
+    #34D399 100%
+  );
+  background-size: 200% 200%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  animation: gradient-x 6s ease infinite;
+  color: transparent;
+  animation: gradient-shift 4s ease infinite;
+  display: inline;
 }
+
+/* ── SECTION LABELS ─────────────────────────────────────────────────────── */
+/* ✦ LABEL — Electric Violet, Poppins 700, 11px, letter-spacing 0.28em */
+.section-label {
+  color: #9f01f6;
+  font-family: var(--font-poppins), sans-serif;
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+}
+
+/* ── BODY TEXT FLOOR ─────────────────────────────────────────────────────── */
+p, li, span:not(.gradient-text):not(.section-label) {
+  color: rgba(255, 255, 255, 0.80);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #020008; }
+::-webkit-scrollbar-thumb { background: rgba(159, 1, 246, 0.5); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(159, 1, 246, 0.8); }
 
 /* Glass card base */
 .glass-card {
@@ -73,112 +98,75 @@ body {
 }
 
 /* Section base padding */
-.section-pad {
-  padding: 96px 0;
-}
-
-@media (max-width: 768px) {
-  .section-pad {
-    padding: 64px 0;
-  }
-}
+.section-pad { padding: 96px 0; }
+@media (max-width: 768px) { .section-pad { padding: 64px 0; } }
 
 /* Magnetic button base */
 .btn-primary {
-  position: relative;
-  overflow: hidden;
+  position: relative; overflow: hidden;
   background: linear-gradient(135deg, #9f01f6, #021fc3);
-  border: none;
-  border-radius: 8px;
-  padding: 14px 32px;
-  color: white;
-  font-family: var(--font-poppins);
-  font-weight: 600;
-  font-size: 15px;
-  cursor: none;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border: none; border-radius: 8px; padding: 14px 32px;
+  color: white; font-family: var(--font-poppins); font-weight: 600; font-size: 15px;
+  cursor: pointer; transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 .btn-primary::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -200%;
-  width: 200%;
-  height: 100%;
+  content: ''; position: absolute; top: 0; left: -200%; width: 200%; height: 100%;
   background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
   animation: shimmer 2.5s linear infinite;
 }
-.btn-primary:hover {
-  box-shadow: 0 0 32px rgba(159, 1, 246, 0.5);
-}
+.btn-primary:hover { box-shadow: 0 0 32px rgba(159, 1, 246, 0.5); }
 
 .btn-secondary {
-  position: relative;
-  background: transparent;
-  border: 1px solid rgba(159, 1, 246, 0.5);
-  border-radius: 8px;
-  padding: 14px 32px;
-  color: rgba(255, 255, 255, 0.88);
-  font-family: var(--font-poppins);
-  font-weight: 600;
-  font-size: 15px;
-  cursor: none;
+  position: relative; background: transparent;
+  border: 1px solid rgba(159, 1, 246, 0.5); border-radius: 8px; padding: 14px 32px;
+  color: rgba(255, 255, 255, 0.88); font-family: var(--font-poppins);
+  font-weight: 600; font-size: 15px; cursor: pointer;
   transition: border-color 0.3s ease, background 0.3s ease;
 }
-.btn-secondary:hover {
-  border-color: rgba(159, 1, 246, 0.8);
-  background: rgba(159, 1, 246, 0.08);
-}
+.btn-secondary:hover { border-color: rgba(159, 1, 246, 0.8); background: rgba(159, 1, 246, 0.08); }
 
-/* Selection colour */
-::selection {
-  background: rgba(159, 1, 246, 0.3);
-  color: white;
-}
+/* Selection */
+::selection { background: rgba(159, 1, 246, 0.3); color: white; }
 
 /* Hide cursor on touch */
-@media (pointer: coarse) {
-  * {
-    cursor: auto !important;
-  }
-}
+@media (pointer: coarse) { * { cursor: auto !important; } }
 
-/* Keyframes */
-@keyframes gradient-x {
-  0%, 100% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
+/* ── KEYFRAMES ───────────────────────────────────────────────────────────── */
+/* Gradient text animation: 0%→100%→0% background-position, 4s */
+@keyframes gradient-shift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 @keyframes ticker {
-  0% { transform: translateX(0); }
+  0%   { transform: translateX(0); }
   100% { transform: translateX(-50%); }
 }
 
 @keyframes shimmer {
-  0% { left: -200%; }
+  0%   { left: -200%; }
   100% { left: 200%; }
 }
 
 @keyframes fade-up {
-  0% { opacity: 0; transform: translateY(30px); }
+  0%   { opacity: 0; transform: translateY(30px); }
   100% { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes chevron-bounce {
   0%, 100% { transform: translateY(0); opacity: 0.5; }
-  50% { transform: translateY(8px); opacity: 1; }
+  50%       { transform: translateY(8px); opacity: 1; }
 }
 
-/* Plasma / conic gradient animation */
 @keyframes plasma-rotate {
-  0% { transform: rotate(0deg) scale(1.5); }
+  0%   { transform: rotate(0deg) scale(1.5); }
   100% { transform: rotate(360deg) scale(1.5); }
 }
 
 .plasma-bg::before {
   content: '';
-  position: absolute;
-  inset: -50%;
+  position: absolute; inset: -50%;
   background: conic-gradient(
     from 0deg,
     transparent 0deg,
