@@ -10,8 +10,8 @@ export const metadata: Metadata = {
 }
 
 const contactDetails = [
-  { label: 'Email', value: 'hello@hypehouse.digital', href: 'mailto:hello@hypehouse.digital' },
   { label: 'Location', value: 'Karachi, Pakistan', href: null },
+  { label: 'Enquiries', value: 'Use the intake form →', href: 'https://hypehouse-client-intake-form.netlify.app' },
   { label: 'Response Time', value: 'Within 24 hours', href: null },
 ]
 

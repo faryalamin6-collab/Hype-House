@@ -96,7 +96,7 @@ export default function RootLayout({
               description:
                 'Full-service AI-powered creative agency in Karachi, Pakistan.',
               url: 'https://hypehouse.digital',
-              email: 'hello@hypehouse.digital',
+              contactPoint: 'https://hypehouse-client-intake-form.netlify.app',
               address: {
                 '@type': 'PostalAddress',
                 addressLocality: 'Karachi',

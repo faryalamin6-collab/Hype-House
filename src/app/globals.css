@@ -29,6 +29,8 @@ body {
   background-attachment: fixed;
   color: rgba(255, 255, 255, 0.88);
   font-family: var(--font-poppins), sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
   overflow-x: hidden;
   min-height: 100vh;
 }
@@ -98,8 +100,37 @@ p, li, span:not(.gradient-text):not(.section-label) {
 }
 
 /* Section base padding */
-.section-pad { padding: 96px 0; }
-@media (max-width: 768px) { .section-pad { padding: 64px 0; } }
+.section-pad { padding: 140px 0; }
+@media (max-width: 768px) { .section-pad { padding: 80px 0; } }
+
+/* ── MOBILE TYPOGRAPHY ───────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  h1 { font-size: clamp(32px, 9vw, 52px); line-height: 1.1; }
+  h2 { font-size: clamp(28px, 7vw, 42px); line-height: 1.15; }
+  h3 { font-size: clamp(20px, 5vw, 28px); line-height: 1.2; }
+  p  { font-size: 16px; line-height: 1.75; }
+  .section-label { font-size: 12px; letter-spacing: 0.2em; }
+}
+
+/* ── MOBILE BUTTONS ──────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .btn-primary, .btn-secondary {
+    min-height: 52px;
+    font-size: 16px;
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* ── CONTENT MAX WIDTH ───────────────────────────────────────────────────── */
+.content-wrap {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 48px;
+}
+@media (max-width: 768px) {
+  .content-wrap { padding: 0 24px; }
+}
 
 /* Magnetic button base */
 .btn-primary {

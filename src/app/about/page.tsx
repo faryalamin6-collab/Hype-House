@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
+import Link from 'next/link'
 import SectionLabel from '@/components/ui/SectionLabel'
 import ScrollReveal from '@/components/ui/ScrollReveal'
 import Button from '@/components/ui/Button'
@@ -8,226 +9,149 @@ import HoverCard from '@/components/ui/HoverCard'
 export const metadata: Metadata = {
   title: 'About HypeHouse Digital — AI Creative Agency Karachi',
   description:
-    'Learn about HypeHouse Digital — the AI-powered creative agency from Karachi redefining how brands are built. Our story, philosophy, and the team behind the hype.',
-  alternates: {
-    canonical: 'https://hypehouse.digital/about',
-  },
+    'HypeHouse Digital is a full-service AI-powered creative agency in Karachi. Strategy, creative, automation — one partner who owns the outcome.',
+  alternates: { canonical: 'https://hypehouse.digital/about' },
 }
 
-const philosophyItems = [
+const codeValues = [
   {
-    title: 'Built Different',
-    desc: 'We launched HypeHouse because we saw a gap: agencies that talk strategy but deliver execution. We refused to be that agency.',
+    title: 'Freedom',
+    body: 'Creative freedom is not optional. It is the condition under which great work becomes possible. We don\'t do templates. We don\'t do safe. We chase the ideas that scare us.',
   },
   {
-    title: 'AI at the Core',
-    desc: 'We don\'t use AI as a gimmick. It\'s woven into every workflow — from research and strategy to production and reporting.',
+    title: 'Partnership',
+    body: 'When we work with a brand we treat it like our own. We listen. We challenge. We stay up. We are not a vendor you brief and forget — we are the partner who tells you when you\'re wrong.',
   },
   {
-    title: 'Karachi Built',
-    desc: 'Born in Pakistan\'s most dynamic city, we understand the energy, the ambition, and the appetite for something world-class.',
+    title: 'Quality',
+    body: 'If it is not exceptional it does not leave the room. This is not a standard. It is a filter. Average work from HypeHouse is not possible because average work is not HypeHouse.',
   },
   {
-    title: 'Global Standard',
-    desc: 'Our work holds up against any agency in London, Dubai, or New York. Geography doesn\'t limit quality. Neither do we.',
+    title: 'Hype',
+    body: 'Hype is not noise. Hype is not likes. Hype is momentum — the kind that compounds, that makes markets move, that builds brands people remember long after the campaign ends.',
   },
 ]
 
 export default function AboutPage() {
   return (
     <>
-      {/* Hero */}
-      <section
-        style={{
-          position: 'relative',
-          zIndex: 10,
-          padding: '160px 24px 80px',
-          textAlign: 'center',
-        }}
-      >
+      {/* ── HERO ─────────────────────────────────────────────────────────── */}
+      <section style={{ position: 'relative', zIndex: 10, padding: '180px 24px 100px', textAlign: 'center' }}>
         <div style={{ maxWidth: '800px', margin: '0 auto' }}>
-          <SectionLabel>About Us</SectionLabel>
-          <h1
-            style={{
-              fontFamily: 'var(--font-poppins)',
-              fontWeight: 800,
-              fontSize: 'clamp(36px, 6vw, 80px)',
-              color: 'white',
-              marginTop: '24px',
-              letterSpacing: '-0.02em',
-              lineHeight: 1.1,
-              marginBottom: '24px',
-            }}
-          >
-            We are{' '}
-            <span className="gradient-text">HypeHouse.</span>
-          </h1>
-          <p
-            style={{
-              fontFamily: 'var(--font-poppins)',
-              fontSize: '18px',
-              color: 'rgba(255,255,255,0.72)',
-              lineHeight: 1.75,
-              maxWidth: '600px',
-              margin: '0 auto',
-            }}
-          >
-            A full-service AI-powered creative agency built for brands that refuse
-            to be ordinary. We don&apos;t just run campaigns — we build systems that
-            compound, brands that endure, and reputations that precede you.
-          </p>
+          <ScrollReveal>
+            <SectionLabel>Who We Are</SectionLabel>
+            <h1 style={{
+              fontFamily: 'var(--font-poppins)', fontWeight: 800,
+              fontSize: 'clamp(32px, 6vw, 76px)', color: 'white',
+              marginTop: '24px', marginBottom: '24px',
+              letterSpacing: '-0.02em', lineHeight: 1.1,
+            }}>
+              Not an agency.{' '}
+              <span className="gradient-text">A creative intelligence partner.</span>
+            </h1>
+            <p style={{
+              fontSize: '20px', color: 'rgba(255,255,255,0.80)',
+              lineHeight: 1.7, maxWidth: '580px', margin: '0 auto',
+            }}>
+              HypeHouse was built because the market deserved better. Better thinking. Better creative. Better results.
+            </p>
+          </ScrollReveal>
         </div>
       </section>
 
-      {/* Brand story — two column */}
-      <section
-        style={{
-          position: 'relative',
-          zIndex: 10,
-          padding: '80px 24px',
-        }}
-      >
-        <div
-          style={{
-            maxWidth: '1280px',
-            margin: '0 auto',
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-            gap: '64px',
-            alignItems: 'center',
-          }}
-        >
+      {/* ── BRAND STORY — two column ─────────────────────────────────────── */}
+      <section style={{ position: 'relative', zIndex: 10, padding: '100px 48px' }}>
+        <div style={{
+          maxWidth: '1200px', margin: '0 auto',
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))',
+          gap: '64px', alignItems: 'center',
+        }}>
+          {/* Left: text */}
           <ScrollReveal>
             <SectionLabel>Our Story</SectionLabel>
-            <h2
-              style={{
-                fontFamily: 'var(--font-poppins)',
-                fontWeight: 800,
-                fontSize: 'clamp(24px, 3.5vw, 44px)',
-                color: 'white',
-                marginTop: '20px',
-                marginBottom: '20px',
-                letterSpacing: '-0.02em',
-                lineHeight: 1.2,
-              }}
-            >
-              Born from frustration.
-              <br />
-              <span className="gradient-text">Built with purpose.</span>
+            <h2 style={{
+              fontFamily: 'var(--font-poppins)', fontWeight: 800,
+              fontSize: 'clamp(28px, 4vw, 48px)', color: 'white',
+              marginTop: '20px', marginBottom: '28px',
+              letterSpacing: '-0.02em', lineHeight: 1.15,
+            }}>
+              Built in Karachi.{' '}
+              <span className="gradient-text">Built for ambition.</span>
             </h2>
-            <p
-              style={{
-                fontFamily: 'var(--font-poppins)',
-                fontSize: '16px',
-                color: 'rgba(255,255,255,0.72)',
-                lineHeight: 1.8,
-                marginBottom: '16px',
-              }}
-            >
-              HypeHouse was born from a simple belief: Pakistani brands deserve world-class
-              creative strategy — not cookie-cutter packages and vague promises. We saw
-              founders across Karachi burning budgets on agencies that delivered activity
-              without results.
-            </p>
-            <p
-              style={{
-                fontFamily: 'var(--font-poppins)',
-                fontSize: '16px',
-                color: 'rgba(255,255,255,0.72)',
-                lineHeight: 1.8,
-                marginBottom: '32px',
-              }}
-            >
-              So we built the agency we always wanted to work with. One obsessed with
-              outcomes, powered by AI, and committed to making every client feel like
-              our only client.
-            </p>
-            <Button href="https://hypehouse-client-intake-form.netlify.app" variant="primary" external>Work With Us →</Button>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+              <p style={{ fontSize: '16px', color: 'rgba(255,255,255,0.80)', lineHeight: 1.75 }}>
+                HypeHouse Digital is a full-service AI-powered creative agency based in Karachi. We were built on a simple belief — that brands in Pakistan deserve the same quality of strategic and creative thinking that global brands receive from world-class agencies.
+              </p>
+              <p style={{ fontSize: '16px', color: 'rgba(255,255,255,0.80)', lineHeight: 1.75 }}>
+                We combine strategy, creative, technology, and automation into one unified system. Not six disconnected vendors. One partner who owns the outcome.
+              </p>
+              <p style={{ fontSize: '16px', color: 'rgba(255,255,255,0.80)', lineHeight: 1.75 }}>
+                Every service we offer exists inside a connected architecture. Branding informs copy. Copy informs content. Content informs campaigns. Campaigns inform SEO. And automation makes the whole system run without burning your team out.
+              </p>
+              <p style={{ fontSize: '16px', color: 'rgba(255,255,255,0.80)', lineHeight: 1.75, fontStyle: 'italic' }}>
+                This is not how most agencies work. This is how HypeHouse works.
+              </p>
+            </div>
+            <div style={{ marginTop: '40px' }}>
+              <Button href="https://hypehouse-client-intake-form.netlify.app" variant="primary" external>Work With Us →</Button>
+            </div>
           </ScrollReveal>
 
+          {/* Right: image */}
           <ScrollReveal delay={150}>
-            <div style={{ position: 'relative', width: '100%', borderRadius: '12px', overflow: 'hidden', border: '1px solid rgba(4,157,255,0.18)', aspectRatio: '4/3' }}>
-              <Image src="/images/additional-1.png" alt="HypeHouse Digital Agency" fill style={{ objectFit: 'cover' }} />
+            <div style={{ position: 'relative', width: '100%', minHeight: '500px', borderRadius: '12px', overflow: 'hidden', border: '1px solid rgba(4,157,255,0.18)' }}>
+              <Image src="/images/additional-1.png" alt="HypeHouse Digital Agency" fill style={{ objectFit: 'cover', objectPosition: 'center' }} />
             </div>
           </ScrollReveal>
         </div>
       </section>
 
-      {/* Philosophy 2×2 grid */}
-      <section
-        style={{
-          position: 'relative',
-          zIndex: 10,
-          padding: '80px 24px',
-        }}
-      >
-        <div style={{ maxWidth: '1280px', margin: '0 auto' }}>
+      {/* ── THE CODE — dark panel ─────────────────────────────────────────── */}
+      <section style={{
+        position: 'relative', zIndex: 10,
+        background: 'rgba(255,255,255,0.02)',
+        borderTop: '1px solid rgba(255,255,255,0.06)',
+        borderBottom: '1px solid rgba(255,255,255,0.06)',
+        padding: '120px 48px',
+      }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
           <ScrollReveal>
-            <div style={{ textAlign: 'center', marginBottom: '48px' }}>
-              <SectionLabel>Our Principles</SectionLabel>
-              <h2
-                style={{
-                  fontFamily: 'var(--font-poppins)',
-                  fontWeight: 800,
-                  fontSize: 'clamp(24px, 4vw, 48px)',
-                  color: 'white',
-                  marginTop: '20px',
-                  letterSpacing: '-0.02em',
-                }}
-              >
-                What drives{' '}
-                <span className="gradient-text">everything we do.</span>
-              </h2>
+            <div style={{ textAlign: 'center', marginBottom: '20px' }}>
+              <SectionLabel>The Code</SectionLabel>
             </div>
+            <h2 style={{
+              fontFamily: 'var(--font-poppins)', fontWeight: 800,
+              fontSize: 'clamp(28px, 4vw, 52px)', color: 'white',
+              textAlign: 'center', letterSpacing: '-0.02em',
+              marginBottom: '20px',
+            }}>
+              Freedom. Partnership. Quality. Hype.
+            </h2>
+            <p style={{
+              fontSize: '18px', color: 'rgba(255,255,255,0.72)',
+              textAlign: 'center', maxWidth: '600px', margin: '0 auto 56px', lineHeight: 1.75,
+            }}>
+              These are not values on a wall. They are operating principles. Every decision we make runs through this filter.
+            </p>
           </ScrollReveal>
 
-          <div
-            style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-              gap: '24px',
-            }}
-          >
-            {philosophyItems.map((item, i) => (
-              <ScrollReveal key={item.title} delay={i * 80}>
-                <HoverCard style={{ padding: '32px', height: '100%' }}>
-                  <div
-                    style={{
-                      width: '40px',
-                      height: '40px',
-                      borderRadius: '10px',
-                      background: 'rgba(166,20,178,0.15)',
-                      border: '1px solid rgba(166,20,178,0.25)',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      marginBottom: '20px',
-                      fontSize: '16px',
-                      color: '#C084FC',
-                    }}
-                  >
-                    ✦
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
+            gap: '24px',
+          }}>
+            {codeValues.map((v, i) => (
+              <ScrollReveal key={v.title} delay={i * 80}>
+                <HoverCard style={{ padding: '40px 32px', height: '100%' }}>
+                  <div style={{
+                    fontFamily: 'var(--font-poppins)', fontWeight: 800,
+                    fontSize: '22px', color: 'white', marginBottom: '16px',
+                  }}>
+                    <span className="gradient-text">{v.title}</span>
                   </div>
-                  <h3
-                    style={{
-                      fontFamily: 'var(--font-poppins)',
-                      fontWeight: 700,
-                      fontSize: '20px',
-                      color: 'white',
-                      marginBottom: '12px',
-                    }}
-                  >
-                    {item.title}
-                  </h3>
-                  <p
-                    style={{
-                      fontFamily: 'var(--font-poppins)',
-                      fontSize: '15px',
-                      color: 'rgba(255,255,255,0.72)',
-                      lineHeight: 1.7,
-                    }}
-                  >
-                    {item.desc}
+                  <p style={{ fontSize: '15px', color: 'rgba(255,255,255,0.75)', lineHeight: 1.75 }}>
+                    {v.body}
                   </p>
                 </HoverCard>
               </ScrollReveal>
@@ -236,56 +160,48 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Tachyon mention panel */}
-      <section
-        style={{
-          position: 'relative',
-          zIndex: 10,
-          padding: '40px 24px 100px',
-          textAlign: 'center',
-        }}
-      >
+      {/* ── TACHYON MENTION ──────────────────────────────────────────────── */}
+      <section style={{ position: 'relative', zIndex: 10, padding: '100px 48px' }}>
+        <div style={{ maxWidth: '800px', margin: '0 auto', textAlign: 'center' }}>
+          <ScrollReveal>
+            <div style={{
+              background: 'rgba(4,157,255,0.05)',
+              border: '1px solid rgba(4,157,255,0.2)',
+              borderRadius: '16px', padding: '48px 40px',
+            }}>
+              <div style={{
+                fontFamily: 'var(--font-poppins)', fontWeight: 800,
+                fontSize: '28px', color: '#049DFF', letterSpacing: '-0.01em', marginBottom: '16px',
+              }}>
+                TACHYON
+              </div>
+              <p style={{ fontSize: '17px', color: 'rgba(255,255,255,0.80)', lineHeight: 1.75, marginBottom: '28px' }}>
+                We also built Tachyon — our automation and AI intelligence sub-brand. Because great creative deserves intelligent systems behind it.
+              </p>
+              <Link href="/tachyon" style={{
+                fontFamily: 'var(--font-poppins)', fontWeight: 600,
+                fontSize: '15px', color: '#049DFF', textDecoration: 'none',
+                borderBottom: '1px solid rgba(4,157,255,0.4)',
+                paddingBottom: '2px',
+              }}>
+                Explore Tachyon →
+              </Link>
+            </div>
+          </ScrollReveal>
+        </div>
+      </section>
+
+      {/* ── PHILOSOPHY QUOTE ─────────────────────────────────────────────── */}
+      <section style={{ position: 'relative', zIndex: 10, padding: '80px 48px 140px', textAlign: 'center' }}>
         <ScrollReveal>
-          <div
-            style={{
-              maxWidth: '720px',
-              margin: '0 auto',
-              background: 'rgba(166,20,178,0.06)',
-              border: '1px solid rgba(166,20,178,0.2)',
-              borderRadius: '20px',
-              padding: '48px',
-            }}
-          >
-            <SectionLabel>Tachyon AI</SectionLabel>
-            <h2
-              style={{
-                fontFamily: 'var(--font-poppins)',
-                fontWeight: 800,
-                fontSize: 'clamp(22px, 3.5vw, 40px)',
-                color: 'white',
-                marginTop: '20px',
-                marginBottom: '16px',
-                letterSpacing: '-0.02em',
-              }}
-            >
-              Our proprietary{' '}
-              <span className="gradient-text">AI backbone.</span>
-            </h2>
-            <p
-              style={{
-                fontFamily: 'var(--font-poppins)',
-                fontSize: '16px',
-                color: 'rgba(255,255,255,0.72)',
-                lineHeight: 1.7,
-                marginBottom: '32px',
-              }}
-            >
-              Every HypeHouse retainer comes with access to Tachyon — our suite of
-              AI workflows that automate the repetitive, accelerate the creative, and
-              keep your brand operating at machine speed.
-            </p>
-            <Button href="/tachyon" variant="primary">Discover Tachyon →</Button>
-          </div>
+          <blockquote style={{
+            fontFamily: 'var(--font-poppins)', fontWeight: 800,
+            fontSize: 'clamp(22px, 4vw, 48px)', lineHeight: 1.2,
+            letterSpacing: '-0.02em', maxWidth: '900px', margin: '0 auto',
+            color: 'rgba(255,255,255,0.90)',
+          }}>
+            &ldquo;We don&apos;t build brands. We engineer hype. And we don&apos;t stop until the market feels it.&rdquo;
+          </blockquote>
         </ScrollReveal>
       </section>
     </>

@@ -94,7 +94,7 @@ export default function ServicesOverview() {
 
   return (
     <section
-      style={{ position: 'relative', zIndex: 10, padding: '96px 24px' }}
+      style={{ position: 'relative', zIndex: 10, padding: '140px 48px' }}
     >
       <div style={{ maxWidth: '1280px', margin: '0 auto' }}>
         <div style={{ textAlign: 'center', marginBottom: '64px' }}>
@@ -187,18 +187,7 @@ export default function ServicesOverview() {
                 >
                   {service.name}
                 </h3>
-                <p
-                  style={{
-                    fontFamily: 'var(--font-poppins)',
-                    fontSize: '14px',
-                    color: 'rgba(255,255,255,0.72)',
-                    lineHeight: 1.7,
-                    flex: 1,
-                    marginBottom: '20px',
-                  }}
-                >
-                  {service.description}
-                </p>
+                <div style={{ flex: 1 }} />
                 <Link
                   href={service.href}
                   style={{

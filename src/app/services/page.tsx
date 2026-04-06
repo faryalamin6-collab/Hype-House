@@ -160,7 +160,7 @@ export default function ServicesPage() {
               marginBottom: '24px',
             }}
           >
-            Six pillars.{' '}
+            Strategy. Systems. Creative.{' '}
             <span className="gradient-text">One agency.</span>
           </h1>
           <p

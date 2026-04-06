@@ -77,17 +77,20 @@ export default function Footer() {
                 fontSize: '13px',
                 color: 'rgba(255,255,255,0.60)',
                 lineHeight: 1.8,
+                display: 'flex', flexDirection: 'column', gap: '8px',
               }}
             >
-              <div>Karachi, Pakistan</div>
+              <div>📍 Karachi, Pakistan</div>
               <div>
                 <a
-                  href="mailto:hello@hypehouse.digital"
-                  style={{ color: 'rgba(166,20,178,0.8)', textDecoration: 'none' }}
+                  href="https://hypehouse-client-intake-form.netlify.app"
+                  target="_blank" rel="noopener noreferrer"
+                  style={{ color: 'rgba(4,157,255,0.8)', textDecoration: 'none' }}
                 >
-                  hello@hypehouse.digital
+                  📋 Start a project
                 </a>
               </div>
+              <div style={{ color: 'rgba(255,255,255,0.45)' }}>💬 WhatsApp: available on request</div>
             </div>
           </div>
 

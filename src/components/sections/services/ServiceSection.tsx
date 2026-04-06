@@ -37,7 +37,7 @@ export default function ServiceSection({
       style={{
         position: 'relative',
         zIndex: 10,
-        padding: '80px 24px',
+        padding: '120px 48px',
         borderBottom: '1px solid rgba(255,255,255,0.05)',
       }}
     >
@@ -46,8 +46,8 @@ export default function ServiceSection({
           maxWidth: '1280px',
           margin: '0 auto',
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-          gap: '64px',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))',
+          gap: '48px',
           alignItems: 'center',
           direction: reverse ? 'rtl' : 'ltr',
         }}
@@ -146,7 +146,7 @@ export default function ServiceSection({
               style={{
                 position: 'relative',
                 width: '100%',
-                aspectRatio: '4/3',
+                minHeight: '420px',
                 borderRadius: '12px',
                 overflow: 'hidden',
                 border: '1px solid rgba(4,157,255,0.18)',
@@ -156,7 +156,7 @@ export default function ServiceSection({
                 src={imageSrc}
                 alt={title}
                 fill
-                style={{ objectFit: 'cover' }}
+                style={{ objectFit: 'cover', objectPosition: 'center' }}
               />
             </div>
           ) : (

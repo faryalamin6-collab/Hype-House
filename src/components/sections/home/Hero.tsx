@@ -86,7 +86,7 @@ export default function Hero() {
           style={{
             fontFamily: 'var(--font-poppins)',
             fontWeight: 800,
-            fontSize: 'clamp(38px, 8vw, 96px)',
+            fontSize: 'clamp(32px, 7vw, 88px)',
             lineHeight: 1.05,
             letterSpacing: '-0.02em',
             marginBottom: '24px',
@@ -103,7 +103,7 @@ export default function Hero() {
             className="gradient-text"
             style={{ marginTop: '4px' }}
           >
-            An AI Powered
+            An AI Powered Creative Revolution.
           </div>
         </h1>
 

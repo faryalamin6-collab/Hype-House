@@ -52,6 +52,7 @@ export default function Button({
     fontFamily: 'var(--font-poppins)',
     fontWeight: 600,
     fontSize: '15px',
+    minHeight: '52px',
     padding: '14px 32px',
     borderRadius: '8px',
     textDecoration: 'none',

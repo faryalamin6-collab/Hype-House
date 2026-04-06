@@ -230,7 +230,7 @@ export default function RateCardPage() {
       </section>
 
       {/* ── BRANDING PACKAGES ─────────────────────────────────────────────── */}
-      <section style={{ position: 'relative', zIndex: 10, padding: '80px 24px' }}>
+      <section style={{ position: 'relative', zIndex: 10, padding: '120px 48px' }}>
         <div style={{ maxWidth: '900px', margin: '0 auto' }}>
           <ScrollReveal>
             <div style={{ textAlign: 'center', marginBottom: '48px' }}>
@@ -281,7 +281,7 @@ export default function RateCardPage() {
       </section>
 
       {/* ── ONE-TIME SERVICES ─────────────────────────────────────────────── */}
-      <section style={{ position: 'relative', zIndex: 10, padding: '80px 24px' }}>
+      <section style={{ position: 'relative', zIndex: 10, padding: '120px 48px' }}>
         <div style={{ maxWidth: '960px', margin: '0 auto' }}>
           <ScrollReveal>
             <div style={{ textAlign: 'center', marginBottom: '48px' }}>
