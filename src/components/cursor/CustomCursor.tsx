@@ -35,7 +35,7 @@ export default function CustomCursor() {
 
     const onMouseLeaveInteractive = () => {
       dot.style.transform = 'translate(-50%, -50%) scale(1)'
-      dot.style.backgroundColor = '#9f01f6'
+      dot.style.backgroundColor = '#A614B2'
       ring.style.transform = 'translate(-50%, -50%) scale(1)'
     }
 
@@ -87,7 +87,7 @@ export default function CustomCursor() {
           position: 'fixed',
           width: '8px',
           height: '8px',
-          background: '#9f01f6',
+          background: '#A614B2',
           borderRadius: '50%',
           pointerEvents: 'none',
           zIndex: 99999,
@@ -105,7 +105,7 @@ export default function CustomCursor() {
           position: 'fixed',
           width: '36px',
           height: '36px',
-          border: '1px solid #9f01f6',
+          border: '1px solid #A614B2',
           borderRadius: '50%',
           pointerEvents: 'none',
           zIndex: 99998,

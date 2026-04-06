@@ -29,6 +29,8 @@ const services = [
       { item: 'Social media visual templates' },
     ],
     pricing: 'Starting from PKR 85,000',
+    reverse: true,
+    imageSrc: '/images/branding-header.png',
   },
   {
     id: 'copywriting',
@@ -47,7 +49,8 @@ const services = [
       { item: 'Product descriptions & sales pages' },
     ],
     pricing: 'Starting from PKR 25,000/month',
-    reverse: true,
+    reverse: false,
+    imageSrc: '/images/copywriting-header.png',
   },
   {
     id: 'social-media',
@@ -66,6 +69,8 @@ const services = [
       { item: 'Influencer outreach & collaboration management' },
     ],
     pricing: 'Starting from PKR 45,000/month',
+    reverse: true,
+    imageSrc: '/images/social-media-header.png',
   },
   {
     id: 'advertising',
@@ -84,7 +89,8 @@ const services = [
       { item: 'Pixel setup, conversion tracking & attribution' },
     ],
     pricing: 'Starting from PKR 55,000/month + ad spend',
-    reverse: true,
+    reverse: false,
+    imageSrc: '/images/digital-adverts-header.png',
   },
   {
     id: 'web',
@@ -103,6 +109,8 @@ const services = [
       { item: '3 months post-launch support' },
     ],
     pricing: 'Starting from PKR 120,000',
+    reverse: true,
+    imageSrc: '/images/web-design-header.png',
   },
   {
     id: 'seo',
@@ -121,7 +129,8 @@ const services = [
       { item: 'Monthly ranking & traffic reports' },
     ],
     pricing: 'Starting from PKR 40,000/month',
-    reverse: true,
+    reverse: false,
+    imageSrc: '/images/seo-header.png',
   },
 ]
 
@@ -182,6 +191,7 @@ export default function ServicesPage() {
           inclusions={service.inclusions}
           pricing={service.pricing}
           reverse={service.reverse}
+          imageSrc={service.imageSrc}
         />
       ))}
     </>

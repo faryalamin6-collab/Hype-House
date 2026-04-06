@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import SectionLabel from '@/components/ui/SectionLabel'
 import ScrollReveal from '@/components/ui/ScrollReveal'
 import HoverCard from '@/components/ui/HoverCard'
@@ -22,6 +23,13 @@ export default function Philosophy() {
         <ScrollReveal>
           <div style={{ textAlign: 'center', marginBottom: '48px' }}>
             <SectionLabel>Our Philosophy</SectionLabel>
+          </div>
+        </ScrollReveal>
+
+        {/* Philosophy header image */}
+        <ScrollReveal delay={60}>
+          <div style={{ position: 'relative', width: '100%', maxWidth: '800px', margin: '0 auto 48px', aspectRatio: '16/9', borderRadius: '12px', overflow: 'hidden', border: '1px solid rgba(4,157,255,0.18)' }}>
+            <Image src="/images/our-philosophy-header.png" alt="Our Philosophy" fill style={{ objectFit: 'cover' }} />
           </div>
         </ScrollReveal>
 
@@ -66,7 +74,7 @@ export default function Philosophy() {
                     marginBottom: '12px',
                   }}
                 >
-                  <span style={{ color: '#9f01f6', fontSize: '12px' }}>✦</span>
+                  <span style={{ color: '#A614B2', fontSize: '12px' }}>✦</span>
                   <span
                     style={{
                       fontFamily: 'var(--font-poppins)',

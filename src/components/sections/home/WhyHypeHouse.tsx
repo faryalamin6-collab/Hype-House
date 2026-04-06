@@ -101,9 +101,9 @@ export default function WhyHypeHouse() {
               style={{ opacity: 0 }}
               onMouseEnter={e => {
                 const el = e.currentTarget
-                el.style.borderColor = 'rgba(124,58,237,0.35)'
+                el.style.borderColor = 'rgba(4,157,255,0.35)'
                 el.style.transform = 'translateY(-4px)'
-                el.style.boxShadow = '0 20px 60px rgba(159,1,246,0.15)'
+                el.style.boxShadow = '0 20px 60px rgba(166,20,178,0.15)'
               }}
               onMouseLeave={e => {
                 const el = e.currentTarget
@@ -121,7 +121,7 @@ export default function WhyHypeHouse() {
                   padding: '36px 32px',
                   height: '100%',
                   transition: 'border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease',
-                  borderTop: '1px solid rgba(159,1,246,0)',
+                  borderTop: '1px solid rgba(166,20,178,0)',
                 }}
               >
                 <div

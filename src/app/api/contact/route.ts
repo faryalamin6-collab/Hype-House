@@ -37,7 +37,7 @@ export async function POST(req: Request) {
               <td style="padding: 10px 0; color: white;">${service || '—'}</td>
             </tr>
           </table>
-          <div style="margin-top: 24px; padding: 20px; background: rgba(255,255,255,0.05); border-radius: 8px; border-left: 3px solid #9f01f6;">
+          <div style="margin-top: 24px; padding: 20px; background: rgba(255,255,255,0.05); border-radius: 8px; border-left: 3px solid #A614B2;">
             <p style="color: rgba(255,255,255,0.5); margin: 0 0 8px; font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em;">Message</p>
             <p style="color: white; line-height: 1.6; margin: 0;">${message}</p>
           </div>

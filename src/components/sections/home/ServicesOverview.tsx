@@ -142,9 +142,9 @@ export default function ServicesOverview() {
                 }}
                 onMouseEnter={e => {
                   const el = e.currentTarget
-                  el.style.borderColor = 'rgba(124,58,237,0.35)'
+                  el.style.borderColor = 'rgba(4,157,255,0.35)'
                   el.style.transform = 'translateY(-4px)'
-                  el.style.boxShadow = '0 20px 60px rgba(159,1,246,0.12)'
+                  el.style.boxShadow = '0 20px 60px rgba(166,20,178,0.12)'
                 }}
                 onMouseLeave={e => {
                   const el = e.currentTarget
@@ -157,7 +157,7 @@ export default function ServicesOverview() {
                   style={{
                     fontSize: '28px',
                     marginBottom: '16px',
-                    color: '#9f01f6',
+                    color: '#A614B2',
                   }}
                 >
                   {service.icon}

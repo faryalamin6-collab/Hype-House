@@ -158,7 +158,7 @@ export default function ContactForm() {
             onChange={handleChange}
             placeholder="Faryal Amin"
             style={inputStyle}
-            onFocus={e => (e.target.style.borderColor = 'rgba(159,1,246,0.5)')}
+            onFocus={e => (e.target.style.borderColor = 'rgba(166,20,178,0.5)')}
             onBlur={e => (e.target.style.borderColor = 'rgba(255,255,255,0.12)')}
           />
         </div>
@@ -175,7 +175,7 @@ export default function ContactForm() {
             onChange={handleChange}
             placeholder="hello@yourbrand.com"
             style={inputStyle}
-            onFocus={e => (e.target.style.borderColor = 'rgba(159,1,246,0.5)')}
+            onFocus={e => (e.target.style.borderColor = 'rgba(166,20,178,0.5)')}
             onBlur={e => (e.target.style.borderColor = 'rgba(255,255,255,0.12)')}
           />
         </div>
@@ -199,7 +199,7 @@ export default function ContactForm() {
             onChange={handleChange}
             placeholder="Your Brand Name"
             style={inputStyle}
-            onFocus={e => (e.target.style.borderColor = 'rgba(159,1,246,0.5)')}
+            onFocus={e => (e.target.style.borderColor = 'rgba(166,20,178,0.5)')}
             onBlur={e => (e.target.style.borderColor = 'rgba(255,255,255,0.12)')}
           />
         </div>
@@ -241,7 +241,7 @@ export default function ContactForm() {
           placeholder="Tell us about your brand, your goals, and what you're looking to achieve..."
           rows={5}
           style={{ ...inputStyle, resize: 'vertical', minHeight: '120px' }}
-          onFocus={e => (e.target.style.borderColor = 'rgba(159,1,246,0.5)')}
+          onFocus={e => (e.target.style.borderColor = 'rgba(166,20,178,0.5)')}
           onBlur={e => (e.target.style.borderColor = 'rgba(255,255,255,0.12)')}
         />
       </div>
@@ -267,8 +267,8 @@ export default function ContactForm() {
           width: '100%',
           padding: '16px',
           background: state === 'loading'
-            ? 'rgba(159,1,246,0.5)'
-            : 'linear-gradient(135deg, #9f01f6, #021FC3)',
+            ? 'rgba(166,20,178,0.5)'
+            : 'linear-gradient(135deg, #A614B2, #0C128D)',
           border: 'none',
           borderRadius: '8px',
           fontFamily: 'var(--font-poppins)',
@@ -284,7 +284,7 @@ export default function ContactForm() {
         }}
         onMouseEnter={e => {
           if (state !== 'loading') {
-            (e.currentTarget).style.boxShadow = '0 0 32px rgba(159,1,246,0.5)'
+            (e.currentTarget).style.boxShadow = '0 0 32px rgba(166,20,178,0.5)'
             ;(e.currentTarget).style.transform = 'translateY(-1px)'
           }
         }}

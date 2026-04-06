@@ -17,7 +17,7 @@ export default function FinalCTA() {
         style={{
           position: 'absolute',
           inset: 0,
-          background: 'radial-gradient(ellipse 70% 80% at 50% 50%, rgba(159,1,246,0.1) 0%, transparent 70%)',
+          background: 'radial-gradient(ellipse 70% 80% at 50% 50%, rgba(166,20,178,0.1) 0%, transparent 70%)',
           pointerEvents: 'none',
         }}
       />
@@ -73,7 +73,7 @@ export default function FinalCTA() {
               flexWrap: 'wrap',
             }}
           >
-            <Button href="/contact" variant="primary">Start a Project →</Button>
+            <Button href="https://hypehouse-client-intake-form.netlify.app" variant="primary" external>Start a Project →</Button>
             <Button href="/rate-card" variant="secondary">View Rate Card</Button>
           </div>
         </ScrollReveal>
