@@ -68,7 +68,7 @@ export default function Footer() {
                 marginBottom: '24px',
               }}
             >
-              Full-service AI-powered creative agency based in Karachi, Pakistan.
+              Full-service AI-powered creative agency.
               Strategy. Systems. Creative. Unified.
             </p>
             <div
@@ -80,7 +80,7 @@ export default function Footer() {
                 display: 'flex', flexDirection: 'column', gap: '8px',
               }}
             >
-              <div>📍 Karachi, Pakistan</div>
+              <div>📍 Headquartered in Karachi · Operating globally</div>
               <div>
                 <a
                   href="https://hypehouse-client-intake-form.netlify.app"
@@ -90,7 +90,15 @@ export default function Footer() {
                   📋 Start a project
                 </a>
               </div>
-              <div style={{ color: 'rgba(255,255,255,0.45)' }}>💬 WhatsApp: available on request</div>
+              <div>
+                <a
+                  href="https://wa.me/971509790412?text=Hi%20HypeHouse%2C%20I%27d%20like%20to%20discuss%20a%20project"
+                  target="_blank" rel="noopener noreferrer"
+                  style={{ color: 'rgba(37,211,102,0.8)', textDecoration: 'none' }}
+                >
+                  💬 WhatsApp us
+                </a>
+              </div>
             </div>
           </div>
 

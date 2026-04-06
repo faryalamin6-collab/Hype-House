@@ -8,9 +8,9 @@ import Philosophy from '@/components/sections/home/Philosophy'
 import FinalCTA from '@/components/sections/home/FinalCTA'
 
 export const metadata: Metadata = {
-  title: 'HypeHouse Digital — AI-Powered Creative Agency in Karachi, Pakistan',
+  title: 'HypeHouse Digital — AI-Powered Creative Agency',
   description:
-    'HypeHouse Digital is a full-service AI-powered creative agency in Karachi. We engineer brand hype through strategy, AI systems, and world-class creative. Start your project today.',
+    'HypeHouse Digital is a full-service AI-powered creative agency. We engineer brand hype through strategy, AI systems, and world-class creative. Serving the Middle East, South Asia, and Europe.',
   alternates: {
     canonical: 'https://hypehouse.digital',
   },

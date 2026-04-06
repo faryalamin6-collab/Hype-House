@@ -10,7 +10,8 @@ interface Inclusion {
 
 interface ServiceSectionProps {
   id: string
-  icon: string
+  icon?: string
+  svgPath?: string
   label: string
   title: string
   description: string
@@ -22,7 +23,7 @@ interface ServiceSectionProps {
 
 export default function ServiceSection({
   id,
-  icon,
+  svgPath,
   label,
   title,
   description,
@@ -58,11 +59,38 @@ export default function ServiceSection({
             style={{
               display: 'inline-flex',
               alignItems: 'center',
-              gap: '8px',
-              marginBottom: '16px',
+              gap: '12px',
+              marginBottom: '20px',
             }}
           >
-            <span style={{ fontSize: '24px', color: '#A614B2' }}>{icon}</span>
+            {svgPath && (
+              <div
+                style={{
+                  width: '48px',
+                  height: '48px',
+                  background: 'rgba(4,157,255,0.12)',
+                  border: '1px solid rgba(4,157,255,0.2)',
+                  borderRadius: '10px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  flexShrink: 0,
+                }}
+              >
+                <svg
+                  width="22"
+                  height="22"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="#049DFF"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d={svgPath} />
+                </svg>
+              </div>
+            )}
             <span
               style={{
                 fontFamily: 'var(--font-poppins)',

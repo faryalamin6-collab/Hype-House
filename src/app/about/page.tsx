@@ -7,9 +7,9 @@ import Button from '@/components/ui/Button'
 import HoverCard from '@/components/ui/HoverCard'
 
 export const metadata: Metadata = {
-  title: 'About HypeHouse Digital — AI Creative Agency Karachi',
+  title: 'About HypeHouse Digital — AI Creative Agency',
   description:
-    'HypeHouse Digital is a full-service AI-powered creative agency in Karachi. Strategy, creative, automation — one partner who owns the outcome.',
+    'HypeHouse Digital is a full-service AI-powered creative agency. Strategy, creative, automation — one partner who owns the outcome. Serving the Middle East, South Asia, and Europe.',
   alternates: { canonical: 'https://hypehouse.digital/about' },
 }
 
@@ -36,7 +36,7 @@ export default function AboutPage() {
   return (
     <>
       {/* ── HERO ─────────────────────────────────────────────────────────── */}
-      <section style={{ position: 'relative', zIndex: 10, padding: '180px 24px 100px', textAlign: 'center' }}>
+      <section style={{ position: 'relative', zIndex: 10, padding: '100px 24px 80px', textAlign: 'center' }}>
         <div style={{ maxWidth: '800px', margin: '0 auto' }}>
           <ScrollReveal>
             <SectionLabel>Who We Are</SectionLabel>

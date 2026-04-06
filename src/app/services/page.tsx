@@ -3,9 +3,9 @@ import SectionLabel from '@/components/ui/SectionLabel'
 import ServiceSection from '@/components/sections/services/ServiceSection'
 
 export const metadata: Metadata = {
-  title: 'Services — Digital Marketing, Branding & AI Agency Karachi',
+  title: 'Services — AI Creative Agency | Branding, Digital Marketing & Automation',
   description:
-    'Explore HypeHouse Digital\'s full service offering: branding, copywriting, social media, digital advertising, web & UX/UI design, SEO, and AI automation in Karachi.',
+    'Explore HypeHouse Digital\'s full service offering: branding, copywriting, social media, digital advertising, web & UX/UI design, SEO, and AI automation. Serving clients across the Middle East, South Asia, and Europe.',
   alternates: {
     canonical: 'https://hypehouse.digital/services',
   },
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 const services = [
   {
     id: 'branding',
-    icon: '◈',
+    svgPath: 'M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z',
     label: 'Brand Identity',
     title: 'Branding That Commands Attention',
     description:
@@ -28,13 +28,13 @@ const services = [
       { item: 'Collateral design (business cards, letterhead, presentations)' },
       { item: 'Social media visual templates' },
     ],
-    pricing: 'Starting from PKR 85,000',
+    pricing: 'Contact us for pricing',
     reverse: true,
     imageSrc: '/images/branding-header.png',
   },
   {
     id: 'copywriting',
-    icon: '✎',
+    svgPath: 'M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125',
     label: 'Copy & Content',
     title: 'Words That Move People to Act',
     description:
@@ -48,13 +48,13 @@ const services = [
       { item: 'Blog articles & SEO content' },
       { item: 'Product descriptions & sales pages' },
     ],
-    pricing: 'Starting from PKR 25,000/month',
+    pricing: 'Contact us for pricing',
     reverse: false,
     imageSrc: '/images/copywriting-header.png',
   },
   {
     id: 'social-media',
-    icon: '◉',
+    svgPath: 'M7.217 10.907a2.25 2.25 0 100 2.186m0-2.186c.18.324.283.696.283 1.093s-.103.77-.283 1.093m0-2.186l9.566-5.314m-9.566 7.5l9.566 5.314m0 0a2.25 2.25 0 103.935 2.186 2.25 2.25 0 00-3.935-2.186zm0-12.814a2.25 2.25 0 103.933-2.185 2.25 2.25 0 00-3.933 2.185z',
     label: 'Social Media',
     title: 'Presence That Builds Loyal Audiences',
     description:
@@ -68,15 +68,15 @@ const services = [
       { item: 'Monthly performance reports & insights' },
       { item: 'Influencer outreach & collaboration management' },
     ],
-    pricing: 'Starting from PKR 45,000/month',
+    pricing: 'Contact us for pricing',
     reverse: true,
     imageSrc: '/images/social-media-header.png',
   },
   {
     id: 'advertising',
-    icon: '⬡',
+    svgPath: 'M15.59 14.37a6 6 0 01-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 006.16-12.12A14.98 14.98 0 009.631 8.41m5.96 5.96a14.926 14.926 0 01-5.841 2.58m-.119-8.54a6 6 0 00-7.381 5.84h4.8m2.581-5.84a14.927 14.927 0 00-2.58 5.84m2.699 2.7c-.103.021-.207.041-.311.06a15.09 15.09 0 01-2.448-2.448 14.9 14.9 0 01.06-.312m-2.24 2.39a4.493 4.493 0 00-1.757 4.306 4.493 4.493 0 004.306-1.758M16.5 9a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z',
     label: 'Paid Media',
-    title: 'Every Rupee Optimised For Maximum Return',
+    title: 'Every Penny Optimised For Maximum Return',
     description:
       'Data-driven paid advertising campaigns that acquire customers at the lowest possible cost. We manage campaigns across Meta, Google, TikTok, and LinkedIn — with rigorous A/B testing, conversion tracking, and weekly optimisation cycles.',
     inclusions: [
@@ -88,13 +88,13 @@ const services = [
       { item: 'Weekly performance reporting' },
       { item: 'Pixel setup, conversion tracking & attribution' },
     ],
-    pricing: 'Starting from PKR 55,000/month + ad spend',
+    pricing: 'Contact us for pricing',
     reverse: false,
     imageSrc: '/images/digital-adverts-header.png',
   },
   {
     id: 'web',
-    icon: '⬤',
+    svgPath: 'M9 17.25v1.007a3 3 0 01-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0115 18.257V17.25m6-12V15a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 15V5.25m18 0A2.25 2.25 0 0018.75 3H5.25A2.25 2.25 0 003 5.25m18 0V12a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 12V5.25',
     label: 'Web & UX/UI',
     title: 'Websites That Convert. Always.',
     description:
@@ -108,13 +108,13 @@ const services = [
       { item: 'SEO-ready structure & metadata' },
       { item: '3 months post-launch support' },
     ],
-    pricing: 'Starting from PKR 120,000',
+    pricing: 'Contact us for pricing',
     reverse: true,
     imageSrc: '/images/web-design-header.png',
   },
   {
     id: 'seo',
-    icon: '◆',
+    svgPath: 'M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 15.803a7.5 7.5 0 0010.607 10.607z',
     label: 'SEO & Visibility',
     title: 'Organic Growth That Compounds',
     description:
@@ -128,7 +128,7 @@ const services = [
       { item: 'Backlink acquisition strategy & outreach' },
       { item: 'Monthly ranking & traffic reports' },
     ],
-    pricing: 'Starting from PKR 40,000/month',
+    pricing: 'Contact us for pricing',
     reverse: false,
     imageSrc: '/images/seo-header.png',
   },
@@ -142,7 +142,7 @@ export default function ServicesPage() {
         style={{
           position: 'relative',
           zIndex: 10,
-          padding: '160px 24px 80px',
+          padding: '100px 24px 60px',
           textAlign: 'center',
         }}
       >
@@ -184,7 +184,7 @@ export default function ServicesPage() {
         <ServiceSection
           key={service.id}
           id={service.id}
-          icon={service.icon}
+          svgPath={service.svgPath}
           label={service.label}
           title={service.title}
           description={service.description}

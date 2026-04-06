@@ -4,53 +4,42 @@ import { useEffect, useRef } from 'react'
 import Link from 'next/link'
 import SectionLabel from '@/components/ui/SectionLabel'
 
+// SVG paths (Heroicons v2 outline, 24px viewBox)
 const services = [
   {
-    icon: '◈',
+    svgPath: 'M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z',
     name: 'Branding',
     manifesto: 'Identity is destiny.',
-    description:
-      'We craft brand identities that command attention — from strategy and naming to visual systems that scale across every touchpoint.',
     href: '/services#branding',
   },
   {
-    icon: '✎',
+    svgPath: 'M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125',
     name: 'Copywriting',
     manifesto: 'Words that convert.',
-    description:
-      'AI-augmented copy that speaks directly to your audience\'s psychology. Brand voice, campaigns, web copy, and content that moves people to act.',
     href: '/services#copywriting',
   },
   {
-    icon: '◉',
+    svgPath: 'M7.217 10.907a2.25 2.25 0 100 2.186m0-2.186c.18.324.283.696.283 1.093s-.103.77-.283 1.093m0-2.186l9.566-5.314m-9.566 7.5l9.566 5.314m0 0a2.25 2.25 0 103.935 2.186 2.25 2.25 0 00-3.935-2.186zm0-12.814a2.25 2.25 0 103.933-2.185 2.25 2.25 0 00-3.933 2.185z',
     name: 'Social Media',
     manifesto: 'Presence is power.',
-    description:
-      'Strategic content systems and community management that builds loyal audiences and drives consistent engagement across every platform.',
     href: '/services#social-media',
   },
   {
-    icon: '⬡',
+    svgPath: 'M15.59 14.37a6 6 0 01-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 006.16-12.12A14.98 14.98 0 009.631 8.41m5.96 5.96a14.926 14.926 0 01-5.841 2.58m-.119-8.54a6 6 0 00-7.381 5.84h4.8m2.581-5.84a14.927 14.927 0 00-2.58 5.84m2.699 2.7c-.103.021-.207.041-.311.06a15.09 15.09 0 01-2.448-2.448 14.9 14.9 0 01.06-.312m-2.24 2.39a4.493 4.493 0 00-1.757 4.306 4.493 4.493 0 004.306-1.758M16.5 9a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z',
     name: 'Digital Advertising',
-    manifesto: 'Every rupee, optimised.',
-    description:
-      'Data-driven paid campaigns across Meta, Google, and TikTok — built to acquire customers at the lowest possible cost per acquisition.',
+    manifesto: 'Every penny, optimised.',
     href: '/services#advertising',
   },
   {
-    icon: '⬤',
+    svgPath: 'M9 17.25v1.007a3 3 0 01-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0115 18.257V17.25m6-12V15a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 15V5.25m18 0A2.25 2.25 0 0018.75 3H5.25A2.25 2.25 0 003 5.25m18 0V12a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 12V5.25',
     name: 'Web & UX/UI',
     manifesto: 'First impressions convert.',
-    description:
-      'Conversion-optimised websites and digital experiences that turn visitors into customers. Performance-first, pixel-perfect, always.',
     href: '/services#web',
   },
   {
-    icon: '◆',
+    svgPath: 'M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 15.803a7.5 7.5 0 0010.607 10.607z',
     name: 'SEO & AI Systems',
     manifesto: 'Visibility that compounds.',
-    description:
-      'Long-term organic growth paired with intelligent automation — so your brand keeps performing even when you\'re not in the room.',
     href: '/services#seo',
   },
 ]
@@ -153,15 +142,35 @@ export default function ServicesOverview() {
                   el.style.boxShadow = 'none'
                 }}
               >
+                {/* Icon container */}
                 <div
                   style={{
-                    fontSize: '28px',
-                    marginBottom: '16px',
-                    color: '#A614B2',
+                    width: '48px',
+                    height: '48px',
+                    background: 'rgba(4,157,255,0.12)',
+                    border: '1px solid rgba(4,157,255,0.2)',
+                    borderRadius: '10px',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    marginBottom: '20px',
+                    flexShrink: 0,
                   }}
                 >
-                  {service.icon}
+                  <svg
+                    width="22"
+                    height="22"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="#049DFF"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path d={service.svgPath} />
+                  </svg>
                 </div>
+
                 <div
                   style={{
                     fontFamily: 'var(--font-poppins)',

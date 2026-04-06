@@ -19,26 +19,27 @@ const CustomCursor = dynamic(
 export const metadata: Metadata = {
   metadataBase: new URL('https://hypehouse.digital'),
   title: {
-    default: 'HypeHouse Digital — AI-Powered Creative Agency in Karachi',
+    default: 'HypeHouse Digital — AI-Powered Creative Agency',
     template: '%s | HypeHouse Digital',
   },
   description:
-    'HypeHouse Digital is a full-service AI-powered creative agency in Karachi, Pakistan. Branding, social media, digital advertising, web design, SEO & AI automation.',
+    'HypeHouse Digital is a full-service AI-powered creative agency. Branding, social media, digital advertising, web design, SEO & AI automation. Serving the Middle East, South Asia, and Europe.',
   keywords: [
-    'digital marketing agency Karachi',
-    'AI creative agency Pakistan',
-    'social media management Karachi',
-    'branding agency Pakistan',
-    'SEO agency Karachi',
-    'automation agency Pakistan',
-    'creative agency Karachi',
+    'AI creative agency',
+    'digital marketing agency',
+    'branding agency',
+    'social media management',
+    'SEO agency',
+    'automation agency',
+    'creative agency Middle East',
+    'AI agency Dubai',
   ],
   openGraph: {
     type: 'website',
     locale: 'en_US',
     url: 'https://hypehouse.digital',
     siteName: 'HypeHouse Digital',
-    title: 'HypeHouse Digital — AI-Powered Creative Agency in Karachi',
+    title: 'HypeHouse Digital — AI-Powered Creative Agency',
     description:
       'Full-service AI-powered creative agency. Strategy. Systems. Creative. Unified.',
     images: [
@@ -52,7 +53,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'HypeHouse Digital — AI-Powered Creative Agency in Karachi',
+    title: 'HypeHouse Digital — AI-Powered Creative Agency',
     description:
       'Full-service AI-powered creative agency. Strategy. Systems. Creative. Unified.',
     images: ['/og-image.jpg'],
@@ -94,15 +95,10 @@ export default function RootLayout({
               '@type': 'LocalBusiness',
               name: 'HypeHouse Digital',
               description:
-                'Full-service AI-powered creative agency in Karachi, Pakistan.',
+                'Full-service AI-powered creative agency. Strategy. Systems. Creative. Unified.',
               url: 'https://hypehouse.digital',
               contactPoint: 'https://hypehouse-client-intake-form.netlify.app',
-              address: {
-                '@type': 'PostalAddress',
-                addressLocality: 'Karachi',
-                addressCountry: 'PK',
-              },
-              areaServed: ['Karachi', 'Pakistan', 'Dubai', 'London'],
+              areaServed: ['Middle East', 'South Asia', 'Europe', 'Dubai', 'London'],
             }),
           }}
         />
