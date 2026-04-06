@@ -1,9 +1,9 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import SectionLabel from '@/components/ui/SectionLabel'
 import ScrollReveal from '@/components/ui/ScrollReveal'
 import Button from '@/components/ui/Button'
 import HoverCard from '@/components/ui/HoverCard'
-import ImagePlaceholder from '@/components/ui/ImagePlaceholder'
 
 export const metadata: Metadata = {
   title: 'About HypeHouse Digital — AI Creative Agency Karachi',
@@ -142,11 +142,13 @@ export default function AboutPage() {
               outcomes, powered by AI, and committed to making every client feel like
               our only client.
             </p>
-            <Button href="/contact" variant="primary">Work With Us →</Button>
+            <Button href="https://hypehouse-client-intake-form.netlify.app" variant="primary" external>Work With Us →</Button>
           </ScrollReveal>
 
           <ScrollReveal delay={150}>
-            <ImagePlaceholder height={400} label="Agency brand imagery coming soon" />
+            <div style={{ position: 'relative', width: '100%', borderRadius: '12px', overflow: 'hidden', border: '1px solid rgba(4,157,255,0.18)', aspectRatio: '4/3' }}>
+              <Image src="/images/additional-1.jpg" alt="HypeHouse Digital Agency" fill style={{ objectFit: 'cover' }} />
+            </div>
           </ScrollReveal>
         </div>
       </section>
@@ -194,8 +196,8 @@ export default function AboutPage() {
                       width: '40px',
                       height: '40px',
                       borderRadius: '10px',
-                      background: 'rgba(159,1,246,0.15)',
-                      border: '1px solid rgba(159,1,246,0.25)',
+                      background: 'rgba(166,20,178,0.15)',
+                      border: '1px solid rgba(166,20,178,0.25)',
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
@@ -248,8 +250,8 @@ export default function AboutPage() {
             style={{
               maxWidth: '720px',
               margin: '0 auto',
-              background: 'rgba(159,1,246,0.06)',
-              border: '1px solid rgba(159,1,246,0.2)',
+              background: 'rgba(166,20,178,0.06)',
+              border: '1px solid rgba(166,20,178,0.2)',
               borderRadius: '20px',
               padding: '48px',
             }}

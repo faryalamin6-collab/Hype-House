@@ -17,8 +17,8 @@ export default function ImagePlaceholder({
       style={{
         width,
         height,
-        background: 'linear-gradient(135deg, rgba(159,1,246,0.15) 0%, rgba(2,31,195,0.15) 100%)',
-        border: '1px solid rgba(159,1,246,0.3)',
+        background: 'linear-gradient(135deg, rgba(166,20,178,0.15) 0%, rgba(12,18,141,0.15) 100%)',
+        border: '1px solid rgba(166,20,178,0.3)',
         borderRadius: '12px',
         display: 'flex',
         flexDirection: 'column',

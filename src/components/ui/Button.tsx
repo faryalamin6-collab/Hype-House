@@ -6,6 +6,7 @@ import Link from 'next/link'
 interface ButtonProps {
   variant?: 'primary' | 'secondary'
   href?: string
+  external?: boolean
   onClick?: () => void
   children: ReactNode
   fullWidth?: boolean
@@ -15,6 +16,7 @@ interface ButtonProps {
 export default function Button({
   variant = 'primary',
   href,
+  external = false,
   onClick,
   children,
   fullWidth = false,
@@ -59,12 +61,12 @@ export default function Button({
     width: fullWidth ? '100%' : 'auto',
     ...(variant === 'primary'
       ? {
-          background: 'linear-gradient(135deg, #9f01f6, #021FC3)',
+          background: 'linear-gradient(135deg, #A614B2, #0C128D)',
           color: 'white',
         }
       : {
           background: 'transparent',
-          border: '1px solid rgba(159,1,246,0.5)',
+          border: '1px solid rgba(166,20,178,0.5)',
           color: 'rgba(255,255,255,0.88)',
         }),
   }
@@ -90,6 +92,27 @@ export default function Button({
   )
 
   if (href) {
+    if (external) {
+      return (
+        <a
+          href={href}
+          target="_blank"
+          rel="noopener noreferrer"
+          ref={elRef as React.Ref<HTMLAnchorElement>}
+          style={styles}
+          className={className}
+          onMouseMove={onMouseMove}
+          onMouseLeave={onMouseLeave}
+          onMouseEnter={() => {
+            if (variant === 'primary' && elRef.current) {
+              elRef.current.style.boxShadow = '0 0 32px rgba(166,20,178,0.5)'
+            }
+          }}
+        >
+          {content}
+        </a>
+      )
+    }
     return (
       <Link
         href={href}
@@ -100,7 +123,7 @@ export default function Button({
         onMouseLeave={onMouseLeave}
         onMouseEnter={() => {
           if (variant === 'primary' && elRef.current) {
-            elRef.current.style.boxShadow = '0 0 32px rgba(159,1,246,0.5)'
+            elRef.current.style.boxShadow = '0 0 32px rgba(166,20,178,0.5)'
           }
         }}
       >
@@ -119,7 +142,7 @@ export default function Button({
       onMouseLeave={onMouseLeave}
       onMouseEnter={() => {
         if (variant === 'primary' && elRef.current) {
-          elRef.current.style.boxShadow = '0 0 32px rgba(159,1,246,0.5)'
+          elRef.current.style.boxShadow = '0 0 32px rgba(166,20,178,0.5)'
         }
       }}
     >

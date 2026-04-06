@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useRef } from 'react'
+import Image from 'next/image'
 import Button from '@/components/ui/Button'
 import SectionLabel from '@/components/ui/SectionLabel'
 
@@ -56,9 +57,25 @@ export default function Hero() {
         textAlign: 'center',
         padding: '120px 24px 80px',
         zIndex: 10,
+        overflow: 'hidden',
       }}
     >
-      <div style={{ maxWidth: '840px', width: '100%' }}>
+      {/* Hero background image with dark overlay */}
+      <Image
+        src="/images/hero-bg.jpg"
+        alt=""
+        fill
+        priority
+        style={{ objectFit: 'cover', opacity: 0.18, zIndex: 0 }}
+      />
+      <div
+        style={{
+          position: 'absolute', inset: 0, zIndex: 1,
+          background: 'linear-gradient(to bottom, rgba(2,0,8,0.6) 0%, rgba(2,0,8,0.3) 50%, rgba(2,0,8,0.8) 100%)',
+          pointerEvents: 'none',
+        }}
+      />
+      <div style={{ maxWidth: '840px', width: '100%', position: 'relative', zIndex: 2 }}>
         {/* Badge */}
         <div ref={badgeRef} style={{ marginBottom: '32px', display: 'flex', justifyContent: 'center' }}>
           <SectionLabel>An AI Powered Creative Revolution</SectionLabel>
@@ -118,7 +135,7 @@ export default function Hero() {
             marginBottom: '40px',
           }}
         >
-          <Button href="/contact" variant="primary">Start a Project →</Button>
+          <Button href="https://hypehouse-client-intake-form.netlify.app" variant="primary" external>Start a Project →</Button>
           <Button href="/services" variant="secondary">See Our Work</Button>
         </div>
 

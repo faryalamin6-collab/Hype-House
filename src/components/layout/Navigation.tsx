@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 
 const navLinks = [
@@ -69,37 +70,15 @@ export default function Navigation() {
           }}
         >
           {/* Logo */}
-          <Link
-            href="/"
-            style={{ textDecoration: 'none' }}
-          >
-            <span
-              style={{
-                fontFamily: 'var(--font-poppins)',
-                fontWeight: 800,
-                fontSize: '22px',
-                background: 'linear-gradient(90deg, #C084FC, #049DFF)',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-                backgroundClip: 'text',
-                letterSpacing: '-0.01em',
-              }}
-            >
-              HypeHouse
-            </span>
-            <span
-              style={{
-                fontFamily: 'var(--font-poppins)',
-                fontWeight: 400,
-                fontSize: '11px',
-                color: 'rgba(255,255,255,0.4)',
-                display: 'block',
-                letterSpacing: '0.15em',
-                marginTop: '-3px',
-              }}
-            >
-              DIGITAL
-            </span>
+          <Link href="/" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center' }}>
+            <Image
+              src="/images/logo-white.png"
+              alt="HypeHouse Digital"
+              width={160}
+              height={40}
+              priority
+              style={{ objectFit: 'contain' }}
+            />
           </Link>
 
           {/* Desktop links */}
@@ -122,10 +101,10 @@ export default function Navigation() {
                   padding: '8px 14px',
                   borderRadius: '8px',
                   background: pathname === link.href
-                    ? 'rgba(159,1,246,0.12)'
+                    ? 'rgba(166,20,178,0.12)'
                     : 'transparent',
                   border: pathname === link.href
-                    ? '1px solid rgba(159,1,246,0.25)'
+                    ? '1px solid rgba(166,20,178,0.25)'
                     : '1px solid transparent',
                   transition: 'color 0.2s ease, background 0.2s ease',
                   letterSpacing: '0.02em',
@@ -147,8 +126,10 @@ export default function Navigation() {
               </Link>
             ))}
 
-            <Link
-              href="/contact"
+            <a
+              href="https://hypehouse-client-intake-form.netlify.app"
+              target="_blank"
+              rel="noopener noreferrer"
               style={{
                 fontFamily: 'var(--font-poppins)',
                 fontWeight: 600,
@@ -157,21 +138,22 @@ export default function Navigation() {
                 textDecoration: 'none',
                 padding: '9px 20px',
                 borderRadius: '8px',
-                background: 'linear-gradient(135deg, #9f01f6, #021FC3)',
+                background: 'linear-gradient(135deg, #A614B2, #0C128D)',
                 marginLeft: '8px',
                 transition: 'box-shadow 0.2s ease, transform 0.2s ease',
+                display: 'inline-block',
               }}
               onMouseEnter={e => {
-                ;(e.target as HTMLElement).style.boxShadow = '0 0 24px rgba(159,1,246,0.5)'
-                ;(e.target as HTMLElement).style.transform = 'translateY(-1px)'
+                ;(e.currentTarget).style.boxShadow = '0 0 24px rgba(166,20,178,0.5)'
+                ;(e.currentTarget).style.transform = 'translateY(-1px)'
               }}
               onMouseLeave={e => {
-                ;(e.target as HTMLElement).style.boxShadow = 'none'
-                ;(e.target as HTMLElement).style.transform = 'translateY(0)'
+                ;(e.currentTarget).style.boxShadow = 'none'
+                ;(e.currentTarget).style.transform = 'translateY(0)'
               }}
             >
               Start a Project →
-            </Link>
+            </a>
           </div>
 
           {/* Hamburger (mobile) */}
@@ -264,8 +246,10 @@ export default function Navigation() {
             {link.label}
           </Link>
         ))}
-        <Link
-          href="/contact"
+        <a
+          href="https://hypehouse-client-intake-form.netlify.app"
+          target="_blank"
+          rel="noopener noreferrer"
           style={{
             marginTop: '24px',
             fontFamily: 'var(--font-poppins)',
@@ -275,17 +259,18 @@ export default function Navigation() {
             textDecoration: 'none',
             padding: '14px 40px',
             borderRadius: '8px',
-            background: 'linear-gradient(135deg, #9f01f6, #021FC3)',
+            background: 'linear-gradient(135deg, #A614B2, #0C128D)',
             width: '100%',
             maxWidth: '240px',
             textAlign: 'center',
             opacity: mobileOpen ? 1 : 0,
             transform: mobileOpen ? 'translateY(0)' : 'translateY(20px)',
             transition: `opacity 0.4s ease ${navLinks.length * 60}ms, transform 0.4s ease ${navLinks.length * 60}ms`,
+            display: 'block',
           }}
         >
           Start a Project →
-        </Link>
+        </a>
       </div>
     </>
   )

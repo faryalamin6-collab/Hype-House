@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import SectionLabel from '@/components/ui/SectionLabel'
 import ScrollReveal from '@/components/ui/ScrollReveal'
 import Button from '@/components/ui/Button'
@@ -96,7 +97,7 @@ export default function TachyonPage() {
           style={{
             position: 'absolute',
             inset: 0,
-            background: 'radial-gradient(ellipse 80% 70% at 50% 40%, rgba(159,1,246,0.18) 0%, transparent 60%)',
+            background: 'radial-gradient(ellipse 80% 70% at 50% 40%, rgba(166,20,178,0.18) 0%, transparent 60%)',
             pointerEvents: 'none',
           }}
         />
@@ -131,7 +132,18 @@ export default function TachyonPage() {
             intelligent workflows that eliminate repetitive tasks, accelerate creative
             production, and keep your brand running 24/7 without extra headcount.
           </p>
-          <Button href="/contact" variant="primary">Get Tachyon For Your Business →</Button>
+          <Button href="https://hypehouse-client-intake-form.netlify.app" variant="primary" external>Get Tachyon For Your Business →</Button>
+        </div>
+      </section>
+
+      {/* Tachyon visual */}
+      <section style={{ position: 'relative', zIndex: 10, padding: '0 24px 80px' }}>
+        <div style={{ maxWidth: '900px', margin: '0 auto' }}>
+          <ScrollReveal>
+            <div style={{ position: 'relative', width: '100%', aspectRatio: '16/9', borderRadius: '12px', overflow: 'hidden', border: '1px solid rgba(4,157,255,0.18)' }}>
+              <Image src="/images/additional-2.jpg" alt="Tachyon AI System" fill style={{ objectFit: 'cover' }} />
+            </div>
+          </ScrollReveal>
         </div>
       </section>
 
@@ -167,7 +179,7 @@ export default function TachyonPage() {
             {automations.map((item, i) => (
               <ScrollReveal key={item.title} delay={i * 80}>
                 <HoverCard style={{ padding: '32px', height: '100%' }}>
-                  <div style={{ fontSize: '28px', color: '#9f01f6', marginBottom: '16px' }}>
+                  <div style={{ fontSize: '28px', color: '#A614B2', marginBottom: '16px' }}>
                     {item.icon}
                   </div>
                   <h3
@@ -256,7 +268,7 @@ export default function TachyonPage() {
                     padding: '20px 16px',
                     borderRadius: '12px',
                   }}
-                  hoverStyle={{ borderColor: 'rgba(159,1,246,0.25)' }}
+                  hoverStyle={{ borderColor: 'rgba(166,20,178,0.25)' }}
                   baseStyle={{ borderColor: 'rgba(255,255,255,0.08)' }}
                 >
                   <span style={{ fontFamily: 'var(--font-poppins)', fontWeight: 600, fontSize: '15px', color: 'white' }}>{row.area}</span>
@@ -276,8 +288,8 @@ export default function TachyonPage() {
             style={{
               maxWidth: '720px',
               margin: '0 auto',
-              background: 'rgba(159,1,246,0.06)',
-              border: '1px solid rgba(159,1,246,0.2)',
+              background: 'rgba(166,20,178,0.06)',
+              border: '1px solid rgba(166,20,178,0.2)',
               borderRadius: '20px',
               padding: '56px 48px',
               position: 'relative',
@@ -288,7 +300,7 @@ export default function TachyonPage() {
               style={{
                 position: 'absolute',
                 inset: '-50%',
-                background: 'conic-gradient(from 0deg, transparent, rgba(159,1,246,0.06), transparent)',
+                background: 'conic-gradient(from 0deg, transparent, rgba(166,20,178,0.06), transparent)',
                 animation: 'plasma-rotate 20s linear infinite',
                 pointerEvents: 'none',
               }}
@@ -323,7 +335,7 @@ export default function TachyonPage() {
                 Every Tachyon implementation is bespoke. Tell us about your business and
                 we&apos;ll design a custom automation stack built around your specific bottlenecks.
               </p>
-              <Button href="/contact" variant="primary">Get Your Custom Quote →</Button>
+              <Button href="https://hypehouse-client-intake-form.netlify.app" variant="primary" external>Get Your Custom Quote →</Button>
             </div>
           </div>
         </ScrollReveal>

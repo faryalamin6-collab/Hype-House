@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 
 const footerLinks = {
   Services: [
@@ -48,19 +49,14 @@ export default function Footer() {
         >
           {/* Brand column */}
           <div>
-            <div
-              style={{
-                fontFamily: 'var(--font-poppins)',
-                fontWeight: 800,
-                fontSize: '24px',
-                background: 'linear-gradient(90deg, #C084FC, #049DFF)',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-                backgroundClip: 'text',
-                marginBottom: '12px',
-              }}
-            >
-              HypeHouse Digital
+            <div style={{ marginBottom: '12px' }}>
+              <Image
+                src="/images/logo-white.png"
+                alt="HypeHouse Digital"
+                width={140}
+                height={35}
+                style={{ objectFit: 'contain' }}
+              />
             </div>
             <p
               style={{
@@ -87,7 +83,7 @@ export default function Footer() {
               <div>
                 <a
                   href="mailto:hello@hypehouse.digital"
-                  style={{ color: 'rgba(159,1,246,0.8)', textDecoration: 'none' }}
+                  style={{ color: 'rgba(166,20,178,0.8)', textDecoration: 'none' }}
                 >
                   hello@hypehouse.digital
                 </a>
@@ -163,8 +159,10 @@ export default function Footer() {
             >
               Ready to build something unforgettable? Let&apos;s talk strategy.
             </p>
-            <Link
-              href="/contact"
+            <a
+              href="https://hypehouse-client-intake-form.netlify.app"
+              target="_blank"
+              rel="noopener noreferrer"
               style={{
                 display: 'inline-block',
                 fontFamily: 'var(--font-poppins)',
@@ -174,11 +172,11 @@ export default function Footer() {
                 textDecoration: 'none',
                 padding: '11px 24px',
                 borderRadius: '8px',
-                background: 'linear-gradient(135deg, #9f01f6, #021FC3)',
+                background: 'linear-gradient(135deg, #A614B2, #0C128D)',
               }}
             >
               Start a Project →
-            </Link>
+            </a>
           </div>
         </div>
 

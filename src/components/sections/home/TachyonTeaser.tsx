@@ -23,7 +23,7 @@ export default function TachyonTeaser() {
         style={{
           position: 'absolute',
           inset: 0,
-          background: 'radial-gradient(ellipse 80% 60% at 50% 50%, rgba(159,1,246,0.08) 0%, transparent 70%)',
+          background: 'radial-gradient(ellipse 80% 60% at 50% 50%, rgba(166,20,178,0.08) 0%, transparent 70%)',
           pointerEvents: 'none',
         }}
       />
@@ -95,7 +95,7 @@ export default function TachyonTeaser() {
               textDecoration: 'none',
               padding: '14px 28px',
               borderRadius: '8px',
-              background: 'linear-gradient(135deg, #9f01f6, #021FC3)',
+              background: 'linear-gradient(135deg, #A614B2, #0C128D)',
             }}
           >
             Explore Tachyon →
@@ -135,19 +135,19 @@ export default function TachyonTeaser() {
                 <line
                   key={i}
                   x1={x1} y1={y1} x2={x2} y2={y2}
-                  stroke="rgba(159,1,246,0.3)"
+                  stroke="rgba(166,20,178,0.3)"
                   strokeWidth="1"
                 />
               ))}
 
               {/* Nodes */}
               {[
-                [200, 200, 8, '#9f01f6'],
+                [200, 200, 8, '#A614B2'],
                 [120, 100, 5, '#C084FC'],
                 [300, 80, 5, '#049DFF'],
-                [340, 240, 5, '#9f01f6'],
+                [340, 240, 5, '#A614B2'],
                 [240, 340, 5, '#C084FC'],
-                [80, 300, 5, '#021FC3'],
+                [80, 300, 5, '#0C128D'],
                 [60, 160, 5, '#049DFF'],
               ].map(([cx, cy, r, fill], i) => (
                 <circle
@@ -164,14 +164,14 @@ export default function TachyonTeaser() {
               <circle
                 cx="200" cy="200" r="140"
                 fill="none"
-                stroke="rgba(159,1,246,0.12)"
+                stroke="rgba(166,20,178,0.12)"
                 strokeWidth="1"
                 strokeDasharray="4 8"
               />
               <circle
                 cx="200" cy="200" r="100"
                 fill="none"
-                stroke="rgba(2,31,195,0.10)"
+                stroke="rgba(12,18,141,0.10)"
                 strokeWidth="1"
                 strokeDasharray="2 6"
               />
@@ -183,7 +183,7 @@ export default function TachyonTeaser() {
                 position: 'absolute',
                 inset: '20%',
                 borderRadius: '50%',
-                background: 'radial-gradient(ellipse, rgba(159,1,246,0.2) 0%, transparent 70%)',
+                background: 'radial-gradient(ellipse, rgba(166,20,178,0.2) 0%, transparent 70%)',
                 pointerEvents: 'none',
               }}
             />

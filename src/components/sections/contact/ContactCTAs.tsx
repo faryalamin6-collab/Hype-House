@@ -27,14 +27,14 @@ export default function ContactCTAs() {
         style={{
           display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '10px',
           width: '100%', padding: '16px 24px', borderRadius: '10px',
-          background: 'linear-gradient(135deg, #9f01f6, #021FC3)',
+          background: 'linear-gradient(135deg, #A614B2, #0C128D)',
           fontFamily: 'var(--font-poppins)', fontWeight: 600, fontSize: '16px',
           color: '#ffffff', textDecoration: 'none', marginBottom: '12px',
           position: 'relative', overflow: 'hidden',
           transition: 'box-shadow 0.25s ease, transform 0.2s ease',
         }}
         onMouseEnter={e => {
-          (e.currentTarget).style.boxShadow = '0 0 36px rgba(159,1,246,0.55)'
+          (e.currentTarget).style.boxShadow = '0 0 36px rgba(166,20,178,0.55)'
           ;(e.currentTarget).style.transform = 'translateY(-2px)'
         }}
         onMouseLeave={e => {

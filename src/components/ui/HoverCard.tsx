@@ -15,9 +15,9 @@ export default function HoverCard({
   className = '',
   style,
   hoverStyle = {
-    borderColor: 'rgba(124,58,237,0.35)',
+    borderColor: 'rgba(4,157,255,0.35)',
     transform: 'translateY(-4px)',
-    boxShadow: '0 20px 60px rgba(159,1,246,0.12)',
+    boxShadow: '0 20px 60px rgba(166,20,178,0.12)',
   },
   baseStyle = {
     borderColor: 'rgba(255,255,255,0.10)',

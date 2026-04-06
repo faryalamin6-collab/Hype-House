@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import ScrollReveal from '@/components/ui/ScrollReveal'
 import Button from '@/components/ui/Button'
 
@@ -16,6 +17,7 @@ interface ServiceSectionProps {
   inclusions: Inclusion[]
   pricing?: string
   reverse?: boolean
+  imageSrc?: string
 }
 
 export default function ServiceSection({
@@ -27,6 +29,7 @@ export default function ServiceSection({
   inclusions,
   pricing,
   reverse = false,
+  imageSrc,
 }: ServiceSectionProps) {
   return (
     <section
@@ -59,7 +62,7 @@ export default function ServiceSection({
               marginBottom: '16px',
             }}
           >
-            <span style={{ fontSize: '24px', color: '#9f01f6' }}>{icon}</span>
+            <span style={{ fontSize: '24px', color: '#A614B2' }}>{icon}</span>
             <span
               style={{
                 fontFamily: 'var(--font-poppins)',
@@ -94,19 +97,33 @@ export default function ServiceSection({
               fontSize: '16px',
               color: 'rgba(255,255,255,0.72)',
               lineHeight: 1.75,
-              marginBottom: '32px',
+              marginBottom: '24px',
             }}
           >
             {description}
           </p>
+
+          {/* Inclusions as inline list when image is present */}
+          {imageSrc && (
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', marginBottom: '24px' }}>
+              {inclusions.map(({ item }) => (
+                <div key={item} style={{ display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
+                  <span style={{ color: '#049DFF', fontSize: '12px', marginTop: '3px', flexShrink: 0 }}>✦</span>
+                  <span style={{ fontFamily: 'var(--font-poppins)', fontSize: '14px', color: 'rgba(255,255,255,0.72)', lineHeight: 1.5 }}>
+                    {item}
+                  </span>
+                </div>
+              ))}
+            </div>
+          )}
 
           {pricing && (
             <div
               style={{
                 display: 'inline-block',
                 padding: '8px 16px',
-                background: 'rgba(159,1,246,0.1)',
-                border: '1px solid rgba(159,1,246,0.25)',
+                background: 'rgba(166,20,178,0.1)',
+                border: '1px solid rgba(166,20,178,0.25)',
                 borderRadius: '8px',
                 fontFamily: 'var(--font-poppins)',
                 fontWeight: 600,
@@ -119,67 +136,87 @@ export default function ServiceSection({
             </div>
           )}
 
-          <Button href="/contact" variant="primary">Get Started →</Button>
+          <Button href="https://hypehouse-client-intake-form.netlify.app" variant="primary" external>Get Started →</Button>
         </ScrollReveal>
 
-        {/* Inclusions */}
+        {/* Image or Inclusions card */}
         <ScrollReveal delay={150} style={{ direction: 'ltr' }}>
-          <div
-            style={{
-              background: 'rgba(255,255,255,0.04)',
-              backdropFilter: 'blur(12px)',
-              border: '1px solid rgba(255,255,255,0.10)',
-              borderRadius: '16px',
-              padding: '32px',
-            }}
-          >
+          {imageSrc ? (
             <div
               style={{
-                fontFamily: 'var(--font-poppins)',
-                fontWeight: 700,
-                fontSize: '12px',
-                letterSpacing: '0.15em',
-                textTransform: 'uppercase',
-                color: 'rgba(255,255,255,0.4)',
-                marginBottom: '20px',
+                position: 'relative',
+                width: '100%',
+                aspectRatio: '4/3',
+                borderRadius: '12px',
+                overflow: 'hidden',
+                border: '1px solid rgba(4,157,255,0.18)',
               }}
             >
-              What&apos;s Included
+              <Image
+                src={imageSrc}
+                alt={title}
+                fill
+                style={{ objectFit: 'cover' }}
+              />
             </div>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-              {inclusions.map(({ item }) => (
-                <div
-                  key={item}
-                  style={{
-                    display: 'flex',
-                    alignItems: 'flex-start',
-                    gap: '12px',
-                  }}
-                >
-                  <span
+          ) : (
+            <div
+              style={{
+                background: 'rgba(255,255,255,0.04)',
+                backdropFilter: 'blur(12px)',
+                border: '1px solid rgba(255,255,255,0.10)',
+                borderRadius: '16px',
+                padding: '32px',
+              }}
+            >
+              <div
+                style={{
+                  fontFamily: 'var(--font-poppins)',
+                  fontWeight: 700,
+                  fontSize: '12px',
+                  letterSpacing: '0.15em',
+                  textTransform: 'uppercase',
+                  color: 'rgba(255,255,255,0.4)',
+                  marginBottom: '20px',
+                }}
+              >
+                What&apos;s Included
+              </div>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                {inclusions.map(({ item }) => (
+                  <div
+                    key={item}
                     style={{
-                      color: '#9f01f6',
-                      fontSize: '14px',
-                      marginTop: '2px',
-                      flexShrink: 0,
+                      display: 'flex',
+                      alignItems: 'flex-start',
+                      gap: '12px',
                     }}
                   >
-                    ✦
-                  </span>
-                  <span
-                    style={{
-                      fontFamily: 'var(--font-poppins)',
-                      fontSize: '15px',
-                      color: 'rgba(255,255,255,0.72)',
-                      lineHeight: 1.5,
-                    }}
-                  >
-                    {item}
-                  </span>
-                </div>
-              ))}
+                    <span
+                      style={{
+                        color: '#A614B2',
+                        fontSize: '14px',
+                        marginTop: '2px',
+                        flexShrink: 0,
+                      }}
+                    >
+                      ✦
+                    </span>
+                    <span
+                      style={{
+                        fontFamily: 'var(--font-poppins)',
+                        fontSize: '15px',
+                        color: 'rgba(255,255,255,0.72)',
+                        lineHeight: 1.5,
+                      }}
+                    >
+                      {item}
+                    </span>
+                  </div>
+                ))}
+              </div>
             </div>
-          </div>
+          )}
         </ScrollReveal>
       </div>
     </section>

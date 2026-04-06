@@ -3,8 +3,8 @@
 @tailwind utilities;
 
 :root {
-  --color-violet: #9f01f6;
-  --color-blue: #021fc3;
+  --color-violet: #A614B2;
+  --color-blue: #0C128D;
   --color-navy: #080031;
   --color-black: #04001a;
   --color-bg-start: #020008;
@@ -64,7 +64,7 @@ h3 { font-weight: 700; }
 /* ── SECTION LABELS ─────────────────────────────────────────────────────── */
 /* ✦ LABEL — Electric Violet, Poppins 700, 11px, letter-spacing 0.28em */
 .section-label {
-  color: #9f01f6;
+  color: #049DFF;
   font-family: var(--font-poppins), sans-serif;
   font-weight: 700;
   font-size: 11px;
@@ -80,8 +80,8 @@ p, li, span:not(.gradient-text):not(.section-label) {
 /* Custom scrollbar */
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: #020008; }
-::-webkit-scrollbar-thumb { background: rgba(159, 1, 246, 0.5); border-radius: 3px; }
-::-webkit-scrollbar-thumb:hover { background: rgba(159, 1, 246, 0.8); }
+::-webkit-scrollbar-thumb { background: rgba(166, 20, 178, 0.5); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(166, 20, 178, 0.8); }
 
 /* Glass card base */
 .glass-card {
@@ -94,7 +94,7 @@ p, li, span:not(.gradient-text):not(.section-label) {
 }
 .glass-card:hover {
   background: rgba(255, 255, 255, 0.06);
-  border-color: rgba(124, 58, 237, 0.35);
+  border-color: rgba(4, 157, 255, 0.35);
 }
 
 /* Section base padding */
@@ -104,7 +104,7 @@ p, li, span:not(.gradient-text):not(.section-label) {
 /* Magnetic button base */
 .btn-primary {
   position: relative; overflow: hidden;
-  background: linear-gradient(135deg, #9f01f6, #021fc3);
+  background: linear-gradient(135deg, #A614B2, #0C128D);
   border: none; border-radius: 8px; padding: 14px 32px;
   color: white; font-family: var(--font-poppins); font-weight: 600; font-size: 15px;
   cursor: pointer; transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -114,19 +114,19 @@ p, li, span:not(.gradient-text):not(.section-label) {
   background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
   animation: shimmer 2.5s linear infinite;
 }
-.btn-primary:hover { box-shadow: 0 0 32px rgba(159, 1, 246, 0.5); }
+.btn-primary:hover { box-shadow: 0 0 32px rgba(166, 20, 178, 0.5); }
 
 .btn-secondary {
   position: relative; background: transparent;
-  border: 1px solid rgba(159, 1, 246, 0.5); border-radius: 8px; padding: 14px 32px;
+  border: 1px solid rgba(166, 20, 178, 0.5); border-radius: 8px; padding: 14px 32px;
   color: rgba(255, 255, 255, 0.88); font-family: var(--font-poppins);
   font-weight: 600; font-size: 15px; cursor: pointer;
   transition: border-color 0.3s ease, background 0.3s ease;
 }
-.btn-secondary:hover { border-color: rgba(159, 1, 246, 0.8); background: rgba(159, 1, 246, 0.08); }
+.btn-secondary:hover { border-color: rgba(166, 20, 178, 0.8); background: rgba(166, 20, 178, 0.08); }
 
 /* Selection */
-::selection { background: rgba(159, 1, 246, 0.3); color: white; }
+::selection { background: rgba(166, 20, 178, 0.3); color: white; }
 
 /* Hide cursor on touch */
 @media (pointer: coarse) { * { cursor: auto !important; } }
@@ -170,10 +170,10 @@ p, li, span:not(.gradient-text):not(.section-label) {
   background: conic-gradient(
     from 0deg,
     transparent 0deg,
-    rgba(159, 1, 246, 0.15) 60deg,
-    rgba(2, 31, 195, 0.1) 120deg,
+    rgba(166, 20, 178, 0.15) 60deg,
+    rgba(12, 18, 141, 0.1) 120deg,
     transparent 180deg,
-    rgba(159, 1, 246, 0.08) 240deg,
+    rgba(166, 20, 178, 0.08) 240deg,
     rgba(4, 157, 255, 0.06) 300deg,
     transparent 360deg
   );

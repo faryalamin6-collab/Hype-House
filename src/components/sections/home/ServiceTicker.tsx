@@ -88,7 +88,7 @@ export default function ServiceTicker() {
             }}
           >
             {item}
-            <span style={{ color: '#9f01f6', fontSize: '10px' }}>✦</span>
+            <span style={{ color: '#A614B2', fontSize: '10px' }}>✦</span>
           </span>
         ))}
       </div>

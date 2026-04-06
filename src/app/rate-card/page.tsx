@@ -175,20 +175,20 @@ export default function RateCardPage() {
                   style={{
                     ...cardBase,
                     background: tier.highlight
-                      ? 'linear-gradient(135deg, rgba(159,1,246,0.14), rgba(2,31,195,0.10))'
+                      ? 'linear-gradient(135deg, rgba(166,20,178,0.14), rgba(12,18,141,0.10))'
                       : 'rgba(255,255,255,0.04)',
                     border: tier.highlight
-                      ? '1px solid rgba(159,1,246,0.45)'
+                      ? '1px solid rgba(166,20,178,0.45)'
                       : '1px solid rgba(255,255,255,0.10)',
                     position: 'relative',
                   }}
-                  hoverStyle={{ transform: 'translateY(-4px)', boxShadow: tier.highlight ? '0 24px 64px rgba(159,1,246,0.25)' : '0 20px 60px rgba(159,1,246,0.12)' }}
+                  hoverStyle={{ transform: 'translateY(-4px)', boxShadow: tier.highlight ? '0 24px 64px rgba(166,20,178,0.25)' : '0 20px 60px rgba(166,20,178,0.12)' }}
                   baseStyle={{ transform: 'translateY(0)', boxShadow: 'none' }}
                 >
                   {tier.badge && (
                     <div style={{
                       position: 'absolute', top: '-12px', left: '50%', transform: 'translateX(-50%)',
-                      background: tier.highlight ? 'linear-gradient(135deg, #9f01f6, #021FC3)' : 'rgba(255,255,255,0.1)',
+                      background: tier.highlight ? 'linear-gradient(135deg, #A614B2, #0C128D)' : 'rgba(255,255,255,0.1)',
                       border: '1px solid rgba(255,255,255,0.15)', borderRadius: '100px',
                       padding: '4px 14px', fontFamily: 'var(--font-poppins)', fontWeight: 600,
                       fontSize: '11px', letterSpacing: '0.1em', color: 'white', whiteSpace: 'nowrap',
@@ -213,13 +213,13 @@ export default function RateCardPage() {
                   <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', flex: 1, marginBottom: '28px' }}>
                     {tier.features.map(f => (
                       <div key={f} style={{ display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
-                        <span style={{ color: '#9f01f6', fontSize: '12px', marginTop: '2px', flexShrink: 0 }}>✦</span>
+                        <span style={{ color: '#A614B2', fontSize: '12px', marginTop: '2px', flexShrink: 0 }}>✦</span>
                         <span style={{ fontSize: '14px', color: 'rgba(255,255,255,0.80)', lineHeight: 1.5 }}>{f}</span>
                       </div>
                     ))}
                   </div>
 
-                  <Button href="/contact" variant={tier.highlight ? 'primary' : 'secondary'} fullWidth>
+                  <Button href="https://hypehouse-client-intake-form.netlify.app" variant={tier.highlight ? 'primary' : 'secondary'} fullWidth external>
                     Get Started →
                   </Button>
                 </HoverCard>
@@ -249,10 +249,10 @@ export default function RateCardPage() {
                   style={{
                     ...cardBase,
                     background: pkg.highlight
-                      ? 'linear-gradient(135deg, rgba(159,1,246,0.14), rgba(2,31,195,0.10))'
+                      ? 'linear-gradient(135deg, rgba(166,20,178,0.14), rgba(12,18,141,0.10))'
                       : 'rgba(255,255,255,0.04)',
                     border: pkg.highlight
-                      ? '1px solid rgba(159,1,246,0.45)'
+                      ? '1px solid rgba(166,20,178,0.45)'
                       : '1px solid rgba(255,255,255,0.10)',
                   }}
                 >
@@ -265,12 +265,12 @@ export default function RateCardPage() {
                   <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', flex: 1, marginBottom: '28px' }}>
                     {pkg.items.map(item => (
                       <div key={item} style={{ display: 'flex', gap: '10px' }}>
-                        <span style={{ color: '#9f01f6', fontSize: '12px', flexShrink: 0, marginTop: '2px' }}>✦</span>
+                        <span style={{ color: '#A614B2', fontSize: '12px', flexShrink: 0, marginTop: '2px' }}>✦</span>
                         <span style={{ fontSize: '14px', color: 'rgba(255,255,255,0.80)', lineHeight: 1.5 }}>{item}</span>
                       </div>
                     ))}
                   </div>
-                  <Button href="/contact" variant={pkg.highlight ? 'primary' : 'secondary'} fullWidth>
+                  <Button href="https://hypehouse-client-intake-form.netlify.app" variant={pkg.highlight ? 'primary' : 'secondary'} fullWidth external>
                     Enquire →
                   </Button>
                 </HoverCard>
@@ -302,12 +302,12 @@ export default function RateCardPage() {
                 }}>
                   {/* Category header */}
                   <div style={{
-                    padding: '16px 28px', background: 'rgba(159,1,246,0.07)',
+                    padding: '16px 28px', background: 'rgba(166,20,178,0.07)',
                     borderBottom: '1px solid rgba(255,255,255,0.08)',
                   }}>
                     <span style={{
                       fontFamily: 'var(--font-poppins)', fontWeight: 700, fontSize: '13px',
-                      letterSpacing: '0.18em', textTransform: 'uppercase' as const, color: '#9f01f6',
+                      letterSpacing: '0.18em', textTransform: 'uppercase' as const, color: '#A614B2',
                     }}>
                       {group.category}
                     </span>
