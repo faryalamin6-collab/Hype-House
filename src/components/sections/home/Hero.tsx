@@ -55,7 +55,7 @@ export default function Hero() {
         alignItems: 'center',
         justifyContent: 'center',
         textAlign: 'center',
-        padding: '120px 24px 80px',
+        padding: '90px 24px 80px',
         zIndex: 10,
         overflow: 'hidden',
       }}
@@ -149,7 +149,7 @@ export default function Hero() {
             letterSpacing: '0.05em',
           }}
         >
-          Trusted by founders across Karachi · Dubai · London
+          Trusted by founders across the Middle East, South Asia and beyond
         </div>
       </div>
 

@@ -7,14 +7,14 @@ import HoverCard from '@/components/ui/HoverCard'
 export const metadata: Metadata = {
   title: 'Rate Card — Pricing & Packages | HypeHouse Digital',
   description:
-    'Transparent pricing from HypeHouse Digital: monthly retainer tiers, branding packages, and one-time service rates. Creative agency Karachi.',
+    'Indicative pricing from HypeHouse Digital — AI creative agency. Monthly retainer tiers, branding packages, and one-time services. Final quotes tailored to your market.',
   alternates: { canonical: 'https://hypehouse.digital/rate-card' },
 }
 
 const retainers = [
   {
     name: 'Starter',
-    price: 'PKR 350,000',
+    price: 'From $1,200',
     period: '/month',
     highlight: false,
     features: [
@@ -30,7 +30,7 @@ const retainers = [
   },
   {
     name: 'Growth',
-    price: 'PKR 600,000',
+    price: 'From $2,100',
     period: '/month',
     highlight: true,
     badge: 'Most Popular',
@@ -44,7 +44,7 @@ const retainers = [
   },
   {
     name: 'Full House',
-    price: 'PKR 1,000,000',
+    price: 'From $3,500',
     period: '/month',
     highlight: false,
     badge: 'Full Service',
@@ -61,7 +61,7 @@ const retainers = [
 const brandingPackages = [
   {
     name: 'Basic',
-    price: 'PKR 150,000',
+    price: 'Contact for pricing',
     highlight: false,
     items: [
       'Logo design',
@@ -71,7 +71,7 @@ const brandingPackages = [
   },
   {
     name: 'Full Stack',
-    price: 'PKR 650,000',
+    price: 'Contact for pricing',
     highlight: true,
     items: [
       'Naming & positioning',
@@ -88,40 +88,40 @@ const oneTimeGroups = [
   {
     category: 'Copywriting',
     services: [
-      { service: 'Website Copy', price: 'PKR 150,000' },
-      { service: 'Brand Copy Pack (bio, tagline, about us + up to 5 services)', price: 'PKR 75,000' },
-      { service: 'Campaign Copy', price: 'PKR 50,000' },
-      { service: 'Full Copy Suite (website + brand + campaign)', price: 'PKR 250,000' },
-      { service: 'Blog Post', price: 'PKR 3,500/blog' },
-      { service: 'Magazine Article (2-page spread)', price: 'PKR 15,000' },
+      { service: 'Website Copy' },
+      { service: 'Brand Copy Pack (bio, tagline, about us + up to 5 services)' },
+      { service: 'Campaign Copy' },
+      { service: 'Full Copy Suite (website + brand + campaign)' },
+      { service: 'Blog Post' },
+      { service: 'Magazine Article (2-page spread)' },
     ],
   },
   {
     category: 'Design & Collateral',
     services: [
-      { service: 'Pitch Deck 10–12 pages', price: 'PKR 35,000' },
-      { service: 'Pitch Deck 15–18 pages', price: 'PKR 50,000' },
-      { service: 'Pitch Deck 20+ pages', price: 'PKR 75,000' },
-      { service: 'Company Profile', price: 'PKR 75,000' },
-      { service: 'Social Media Template Set (10 templates)', price: 'PKR 35,000' },
-      { service: 'OOH & Print Collateral', price: 'Custom quote' },
+      { service: 'Pitch Deck 10–12 pages' },
+      { service: 'Pitch Deck 15–18 pages' },
+      { service: 'Pitch Deck 20+ pages' },
+      { service: 'Company Profile' },
+      { service: 'Social Media Template Set (10 templates)' },
+      { service: 'OOH & Print Collateral' },
     ],
   },
   {
     category: 'Website Development',
     services: [
-      { service: 'Brochure Website up to 10 pages', price: 'PKR 180,000' },
-      { service: 'Corporate Website up to 15 pages', price: 'PKR 250,000' },
-      { service: 'E-Commerce', price: 'PKR 500,000' },
-      { service: 'Website Management', price: 'from PKR 80,000/month' },
-      { service: 'Complex/Custom Build', price: 'Custom quote' },
+      { service: 'Brochure Website up to 10 pages' },
+      { service: 'Corporate Website up to 15 pages' },
+      { service: 'E-Commerce' },
+      { service: 'Website Management (monthly)' },
+      { service: 'Complex/Custom Build' },
     ],
   },
   {
     category: 'Automation — Tachyon',
     services: [
-      { service: 'All Tachyon work', price: 'Custom quote' },
-      { service: 'WhatsApp flows · CRM setup · Lead pipelines · Reporting dashboards · AI workflows', price: '' },
+      { service: 'WhatsApp flows · CRM setup · Lead pipelines' },
+      { service: 'Reporting dashboards · AI workflows' },
     ],
   },
 ]
@@ -141,17 +141,24 @@ export default function RateCardPage() {
   return (
     <>
       {/* Hero */}
-      <section style={{ position: 'relative', zIndex: 10, padding: '160px 24px 80px', textAlign: 'center' }}>
+      <section style={{ position: 'relative', zIndex: 10, padding: '100px 24px 60px', textAlign: 'center' }}>
         <div style={{ maxWidth: '800px', margin: '0 auto' }}>
           <SectionLabel>Transparent Pricing</SectionLabel>
           <h1 style={{ fontSize: 'clamp(36px, 6vw, 80px)', marginTop: '24px', marginBottom: '24px', letterSpacing: '-0.02em', lineHeight: 1.1 }}>
             Investment that{' '}
             <span className="gradient-text">pays for itself.</span>
           </h1>
-          <p style={{ fontSize: '18px', color: 'rgba(255,255,255,0.80)', lineHeight: 1.75, maxWidth: '560px', margin: '0 auto' }}>
+          <p style={{ fontSize: '18px', color: 'rgba(255,255,255,0.80)', lineHeight: 1.75, maxWidth: '560px', margin: '0 auto 28px' }}>
             Complete pricing transparency. No hidden fees, no vague proposals.
-            Here&apos;s exactly what it costs to work with the best.
           </p>
+          <div style={{
+            display: 'inline-block', padding: '14px 24px', borderRadius: '10px',
+            background: 'rgba(4,157,255,0.08)', border: '1px solid rgba(4,157,255,0.2)',
+            fontFamily: 'var(--font-poppins)', fontSize: '14px', color: 'rgba(255,255,255,0.70)',
+            lineHeight: 1.65, maxWidth: '600px', textAlign: 'left',
+          }}>
+            <strong style={{ color: '#049DFF' }}>Note:</strong> All pricing shown is indicative and in USD. Final quotes are tailored to your market, scope, and requirements. We work with clients across the Middle East, South Asia, Europe, and beyond.
+          </div>
         </div>
       </section>
 
@@ -201,13 +208,18 @@ export default function RateCardPage() {
                     {tier.name}
                   </h3>
 
-                  <div style={{ display: 'flex', alignItems: 'baseline', gap: '4px', margin: '16px 0 28px' }}>
-                    <span className="gradient-text" style={{ fontWeight: 800, fontSize: '28px' }}>
-                      {tier.price}
-                    </span>
-                    <span style={{ fontSize: '14px', color: 'rgba(255,255,255,0.45)' }}>
-                      {tier.period}
-                    </span>
+                  <div style={{ margin: '16px 0 8px' }}>
+                    <div style={{ display: 'flex', alignItems: 'baseline', gap: '4px' }}>
+                      <span className="gradient-text" style={{ fontWeight: 800, fontSize: '28px' }}>
+                        {tier.price}
+                      </span>
+                      <span style={{ fontSize: '14px', color: 'rgba(255,255,255,0.45)' }}>
+                        {tier.period}
+                      </span>
+                    </div>
+                    <p style={{ fontSize: '12px', color: 'rgba(255,255,255,0.40)', marginTop: '6px', marginBottom: '20px', fontFamily: 'var(--font-poppins)' }}>
+                      Final pricing based on scope and market. Contact us for a tailored quote.
+                    </p>
                   </div>
 
                   <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', flex: 1, marginBottom: '28px' }}>
@@ -313,28 +325,17 @@ export default function RateCardPage() {
                     </span>
                   </div>
 
-                  {/* Column header */}
-                  <div style={{
-                    display: 'grid', gridTemplateColumns: '1fr auto', gap: '24px',
-                    padding: '12px 28px', borderBottom: '1px solid rgba(255,255,255,0.05)',
-                  }}>
-                    <span style={{ fontFamily: 'var(--font-poppins)', fontWeight: 600, fontSize: '11px', letterSpacing: '0.15em', textTransform: 'uppercase' as const, color: 'rgba(255,255,255,0.40)' }}>Service</span>
-                    <span style={{ fontFamily: 'var(--font-poppins)', fontWeight: 600, fontSize: '11px', letterSpacing: '0.15em', textTransform: 'uppercase' as const, color: 'rgba(255,255,255,0.40)' }}>Rate</span>
-                  </div>
-
                   {group.services.map((row, i) => (
                     <div
                       key={row.service}
                       style={{
-                        display: 'grid', gridTemplateColumns: '1fr auto', gap: '24px',
+                        display: 'flex', alignItems: 'center', gap: '12px',
                         padding: '14px 28px',
                         borderBottom: i < group.services.length - 1 ? '1px solid rgba(255,255,255,0.04)' : 'none',
                       }}
                     >
+                      <span style={{ color: '#049DFF', fontSize: '11px', flexShrink: 0 }}>✦</span>
                       <span style={{ fontFamily: 'var(--font-poppins)', fontSize: '14px', color: 'rgba(255,255,255,0.80)', lineHeight: 1.5 }}>{row.service}</span>
-                      {row.price && (
-                        <span style={{ fontFamily: 'var(--font-poppins)', fontWeight: 600, fontSize: '14px', color: '#C084FC', whiteSpace: 'nowrap' }}>{row.price}</span>
-                      )}
                     </div>
                   ))}
                 </div>
@@ -349,10 +350,13 @@ export default function RateCardPage() {
         <div style={{
           maxWidth: '900px', margin: '0 auto',
           background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.06)',
-          borderRadius: '12px', padding: '28px 32px',
+          borderRadius: '12px', padding: '28px 32px', marginBottom: '24px',
         }}>
+          <p style={{ fontFamily: 'var(--font-poppins)', fontSize: '13px', color: 'rgba(255,255,255,0.50)', marginBottom: '12px', lineHeight: 1.8 }}>
+            All one-time project pricing is scoped individually. Get in touch for a custom quote.
+          </p>
           <p style={{ fontFamily: 'var(--font-poppins)', fontSize: '13px', color: 'rgba(255,255,255,0.50)', lineHeight: 1.8 }}>
-            All packages and rates listed are standard offerings. Any requirements beyond the defined
+            All packages and rates listed are indicative. Any requirements beyond the defined
             scope will be assessed and priced separately. Retainers are billed monthly in advance.
             One-time projects require a 50% deposit to commence. Ad spend is billed directly to the
             client and is not included in agency fees.

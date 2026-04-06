@@ -49,7 +49,7 @@ export default function Navigation() {
           left: 0,
           right: 0,
           zIndex: 1000,
-          padding: scrolled ? '12px 0' : '20px 0',
+          padding: scrolled ? '10px 0' : '14px 0',
           background: scrolled
             ? 'rgba(2,0,8,0.85)'
             : 'transparent',

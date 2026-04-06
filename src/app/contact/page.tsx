@@ -3,59 +3,70 @@ import SectionLabel from '@/components/ui/SectionLabel'
 import ScrollReveal from '@/components/ui/ScrollReveal'
 
 export const metadata: Metadata = {
-  title: 'Contact HypeHouse Digital — Start Your Project in Karachi',
+  title: 'Contact HypeHouse Digital — Start Your Project',
   description:
-    'Ready to build something unforgettable? Contact HypeHouse Digital — AI-powered creative agency in Karachi. Start your project, request a quote, or ask about our services.',
+    'Ready to build something unforgettable? Contact HypeHouse Digital — AI-powered creative agency. Start your project, request a quote, or ask about our services.',
   alternates: { canonical: 'https://hypehouse.digital/contact' },
 }
 
 const contactDetails = [
-  { label: 'Location', value: 'Karachi, Pakistan', href: null },
+  { label: 'Location', value: 'Headquartered in Karachi · Operating globally', href: null },
   { label: 'Enquiries', value: 'Use the intake form →', href: 'https://hypehouse-client-intake-form.netlify.app' },
   { label: 'Response Time', value: 'Within 24 hours', href: null },
 ]
 
+const WA_HREF = 'https://wa.me/971509790412?text=Hi%20HypeHouse%2C%20I%27d%20like%20to%20discuss%20a%20project'
+
 export default function ContactPage() {
   return (
-    <>
+    <div style={{ overflowX: 'hidden' }}>
       {/* Hero */}
-      <section style={{ position: 'relative', zIndex: 10, padding: '160px 24px 60px', textAlign: 'center' }}>
+      <section style={{ position: 'relative', zIndex: 10, padding: '100px 24px 48px', textAlign: 'center' }}>
         <div style={{ maxWidth: '700px', margin: '0 auto' }}>
           <SectionLabel>Let&apos;s Talk</SectionLabel>
-          <h1 style={{ fontSize: 'clamp(36px, 6vw, 80px)', marginTop: '24px', letterSpacing: '-0.02em', lineHeight: 1.1, marginBottom: '20px' }}>
+          <h1 style={{
+            fontFamily: 'var(--font-poppins)', fontWeight: 800,
+            fontSize: 'clamp(32px, 6vw, 72px)', marginTop: '24px',
+            letterSpacing: '-0.02em', lineHeight: 1.1, marginBottom: '20px',
+          }}>
             Start something{' '}
             <span className="gradient-text">unforgettable.</span>
           </h1>
           <p style={{ fontSize: '18px', color: 'rgba(255,255,255,0.80)', lineHeight: 1.75 }}>
-            Tell us about your brand and what you&apos;re trying to achieve. We&apos;ll
-            be back within 24 hours with a strategy to match.
+            Tell us about your brand and what you&apos;re trying to achieve. We&apos;ll be back within 24 hours with a strategy to match.
           </p>
         </div>
       </section>
 
-      {/* Two-column layout */}
-      <section style={{ position: 'relative', zIndex: 10, padding: '40px 24px 120px' }}>
-        <div style={{
-          maxWidth: '1200px', margin: '0 auto',
-          display: 'grid',
-          gridTemplateColumns: 'minmax(260px, 1fr) minmax(300px, 1.6fr)',
-          gap: '64px', alignItems: 'start',
-        }}>
-
-          {/* Left: Contact info */}
+      {/* Two-column layout — flex so mobile stacks correctly */}
+      <section style={{ position: 'relative', zIndex: 10 }}>
+        <div
+          className="contact-layout"
+          style={{
+            maxWidth: '1200px',
+            margin: '0 auto',
+            padding: '40px 48px 120px',
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '48px',
+          }}
+        >
+          {/* Left column */}
           <ScrollReveal>
-            <div>
-              <h2 style={{ fontSize: 'clamp(22px, 3vw, 36px)', letterSpacing: '-0.02em', marginBottom: '20px', lineHeight: 1.2 }}>
+            <div className="contact-left" style={{ flexShrink: 0 }}>
+              <h2 style={{
+                fontFamily: 'var(--font-poppins)', fontWeight: 800,
+                fontSize: 'clamp(22px, 3vw, 36px)', letterSpacing: '-0.02em',
+                marginBottom: '20px', lineHeight: 1.2,
+              }}>
                 We&apos;d love to hear{' '}
                 <span className="gradient-text">from you.</span>
               </h2>
-              <p style={{ fontSize: '16px', color: 'rgba(255,255,255,0.80)', lineHeight: 1.75, marginBottom: '36px' }}>
-                Whether you have a fully formed brief or a rough idea, we&apos;re here to
-                listen. Our process starts with a conversation — no pitches, no pressure,
-                just genuine strategic thinking.
+              <p style={{ fontSize: '16px', color: 'rgba(255,255,255,0.80)', lineHeight: 1.75, marginBottom: '32px' }}>
+                Whether you have a fully formed brief or a rough idea, we&apos;re here to listen. Our process starts with a conversation — no pitches, no pressure.
               </p>
 
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', marginBottom: '40px' }}>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', marginBottom: '36px' }}>
                 {contactDetails.map(detail => (
                   <div key={detail.label}>
                     <span style={{
@@ -66,7 +77,8 @@ export default function ContactPage() {
                       {detail.label}
                     </span>
                     {detail.href ? (
-                      <a href={detail.href} style={{ fontFamily: 'var(--font-poppins)', fontSize: '16px', color: '#049DFF', textDecoration: 'none' }}>
+                      <a href={detail.href} target="_blank" rel="noopener noreferrer"
+                        style={{ fontFamily: 'var(--font-poppins)', fontSize: '16px', color: '#049DFF', textDecoration: 'none' }}>
                         {detail.value}
                       </a>
                     ) : (
@@ -78,17 +90,17 @@ export default function ContactPage() {
                 ))}
               </div>
 
-              {/* WhatsApp CTA */}
+              {/* WhatsApp */}
               <a
-                href={`https://wa.me/?text=${encodeURIComponent("Hi HypeHouse, I'd like to discuss a project.")}`}
+                href={WA_HREF}
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{
-                  display: 'flex', alignItems: 'center', gap: '10px',
+                  display: 'inline-flex', alignItems: 'center', gap: '10px',
                   padding: '13px 20px', borderRadius: '10px', marginBottom: '32px',
                   background: 'rgba(37,211,102,0.10)', border: '1px solid rgba(37,211,102,0.35)',
                   fontFamily: 'var(--font-poppins)', fontWeight: 600, fontSize: '15px',
-                  color: '#25D366', textDecoration: 'none', width: 'fit-content',
+                  color: '#25D366', textDecoration: 'none',
                 }}
               >
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
@@ -97,46 +109,56 @@ export default function ContactPage() {
                 Chat on WhatsApp
               </a>
 
-              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
-                {['Karachi', 'Dubai', 'London'].map(city => (
-                  <span key={city} style={{
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginBottom: '28px' }}>
+                {['Middle East', 'South Asia', 'Europe'].map(region => (
+                  <span key={region} style={{
                     padding: '6px 14px', background: 'rgba(255,255,255,0.05)',
                     border: '1px solid rgba(255,255,255,0.10)', borderRadius: '100px',
                     fontFamily: 'var(--font-poppins)', fontSize: '13px', color: 'rgba(255,255,255,0.60)',
                   }}>
-                    Serving {city}
+                    {region}
                   </span>
                 ))}
               </div>
 
-              <p style={{ marginTop: '28px', fontFamily: 'var(--font-poppins)', fontSize: '13px', color: 'rgba(255,255,255,0.40)', lineHeight: 1.6 }}>
+              <p style={{ fontFamily: 'var(--font-poppins)', fontSize: '13px', color: 'rgba(255,255,255,0.40)', lineHeight: 1.6 }}>
                 Prefer to open in a new tab?{' '}
-                <a href="https://hypehouse-client-intake-form.netlify.app" target="_blank" rel="noopener noreferrer" style={{ color: '#049DFF', textDecoration: 'underline' }}>
+                <a href="https://hypehouse-client-intake-form.netlify.app" target="_blank" rel="noopener noreferrer"
+                  style={{ color: '#049DFF', textDecoration: 'underline' }}>
                   Open intake form →
                 </a>
               </p>
             </div>
           </ScrollReveal>
 
-          {/* Right: Embedded intake form */}
+          {/* Right column — iframe */}
           <ScrollReveal delay={150}>
-            <div style={{
-              background: 'rgba(255,255,255,0.03)',
-              border: '1px solid rgba(255,255,255,0.08)',
-              borderRadius: '16px',
-              overflow: 'hidden',
-            }}>
-              <iframe
-                src="https://hypehouse-client-intake-form.netlify.app/"
-                width="100%"
-                height="950px"
-                style={{ border: 'none', display: 'block' }}
-                title="HypeHouse Client Intake Form"
-              />
+            <div
+              className="contact-right"
+              style={{ minWidth: 0, flex: 1 }}
+            >
+              <div style={{
+                width: '100%',
+                borderRadius: '16px',
+                overflow: 'hidden',
+                border: '1px solid rgba(4,157,255,0.25)',
+              }}>
+                <iframe
+                  src="https://hypehouse-client-intake-form.netlify.app/"
+                  style={{
+                    width: '100%',
+                    height: '950px',
+                    border: 'none',
+                    display: 'block',
+                    maxWidth: '100%',
+                  }}
+                  title="HypeHouse Client Intake Form"
+                />
+              </div>
             </div>
           </ScrollReveal>
         </div>
       </section>
-    </>
+    </div>
   )
 }

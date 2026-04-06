@@ -60,7 +60,7 @@ export default function TachyonPage() {
       {/* ── HERO ─────────────────────────────────────────────────────────── */}
       <section style={{
         position: 'relative', zIndex: 10,
-        padding: '160px 48px 120px', textAlign: 'center', overflow: 'hidden',
+        padding: '100px 48px 80px', textAlign: 'center', overflow: 'hidden',
       }}>
         {/* Blue plasma background */}
         <div style={{

@@ -1,7 +1,7 @@
 'use client'
 
 const waMessage = encodeURIComponent("Hi HypeHouse, I'd like to discuss a project.")
-const waLink = `https://wa.me/?text=${waMessage}`
+const waLink = `https://wa.me/971509790412?text=${waMessage}`
 
 export default function ContactCTAs() {
   return (

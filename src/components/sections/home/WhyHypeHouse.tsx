@@ -5,7 +5,7 @@ import SectionLabel from '@/components/ui/SectionLabel'
 import ScrollReveal from '@/components/ui/ScrollReveal'
 
 const stats = [
-  { number: 'PKR 1M+', label: 'Full House retainer', icon: '◆' },
+  { number: '$1M+', label: 'Multi-market revenue impact', icon: '◆' },
   { number: 'AI-Powered', label: 'Human-led creative', icon: '◈' },
   { number: 'Karachi → Global', label: 'Built for ambition', icon: '⬡' },
 ]
