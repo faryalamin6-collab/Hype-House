@@ -239,6 +239,9 @@ p, li, span:not(.gradient-text):not(.section-label) {
 .tachyon-btn-primary:hover {
   box-shadow: 0 0 20px rgba(0,240,255,0.3) !important;
 }
+.tachyon-cta-link:hover {
+  box-shadow: 0 0 30px rgba(0,240,255,0.3);
+}
 .tachyon-gradient-text {
   background: linear-gradient(135deg, #9F01F6 0%, #021FC3 35%, #00F0FF 100%);
   background-size: 200% 200%;
