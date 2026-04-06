@@ -62,8 +62,8 @@ export default function FinalCTA() {
               margin: '0 auto 48px',
             }}
           >
-            Join brands that chose strategy over shortcuts. Let&apos;s talk about
-            what&apos;s possible for yours.
+            If your brand deserves serious thinking, serious creative, and a partner
+            who treats it that way — the form below is the first step.
           </p>
           <div
             style={{

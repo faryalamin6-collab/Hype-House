@@ -5,7 +5,7 @@ import SectionLabel from '@/components/ui/SectionLabel'
 import ScrollReveal from '@/components/ui/ScrollReveal'
 
 const stats = [
-  { number: '$1M+', label: 'Multi-market revenue impact', icon: '◆' },
+  { number: 'Strategy First', label: 'Before a single pixel is touched', icon: '◆' },
   { number: 'AI-Powered', label: 'Human-led creative', icon: '◈' },
   { number: 'Karachi → Global', label: 'Built for ambition', icon: '⬡' },
 ]
@@ -44,7 +44,7 @@ export default function WhyHypeHouse() {
               color: 'rgba(255,255,255,0.80)', lineHeight: 1.7,
               maxWidth: '580px', marginBottom: '56px',
             }}>
-              We combine strategy, creative, technology, and automation into one unified system. Not six disconnected vendors. One partner who owns the outcome.
+              Strategy. Creative. Technology. Automation — one unified system. Not six disconnected vendors. One partner who owns the outcome.
             </p>
 
             {/* Stats row */}

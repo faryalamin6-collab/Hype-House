@@ -65,9 +65,8 @@ export default function TachyonTeaser() {
               marginBottom: '16px',
             }}
           >
-            Tachyon is HypeHouse&apos;s proprietary AI automation layer — a suite of intelligent
-            workflows that eliminate repetitive tasks, accelerate content production, and
-            keep your brand running 24/7 without extra headcount.
+            Most businesses run on manual effort — spreadsheets, missed follow-ups, leads
+            that go cold. Tachyon replaces that with connected, intelligent systems.
           </p>
           <p
             style={{
@@ -78,9 +77,8 @@ export default function TachyonTeaser() {
               marginBottom: '36px',
             }}
           >
-            From lead qualification to automated reporting, competitor monitoring to
-            content scheduling — Tachyon makes your business faster, smarter, and more
-            resilient than any agency operating without AI.
+            CRM automation, WhatsApp flows, lead pipelines, booking systems, reporting
+            dashboards. Built once. Running permanently.
           </p>
           <Link
             href="/tachyon"

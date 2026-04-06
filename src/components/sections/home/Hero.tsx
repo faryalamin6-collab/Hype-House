@@ -121,7 +121,7 @@ export default function Hero() {
           }}
         >
           HypeHouse is a full-service AI-powered creative agency built for brands that
-          refuse to be ordinary. Strategy. Systems. Creative. All unified.
+          are serious about their identity. Strategy. Systems. Creative. One partner.
         </p>
 
         {/* CTAs */}
@@ -149,7 +149,7 @@ export default function Hero() {
             letterSpacing: '0.05em',
           }}
         >
-          Trusted by founders across the Middle East, South Asia and beyond
+          Built for founders who are serious about their brand.
         </div>
       </div>
 

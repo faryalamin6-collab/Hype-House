@@ -46,12 +46,12 @@ export default function Philosophy() {
               marginBottom: '64px',
             }}
           >
-            <span style={{ color: 'white' }}>We don&apos;t believe in agencies that</span>
+            <span style={{ color: 'white' }}>We chase the ideas that scare us.</span>
             <br />
-            <span className="gradient-text">take your money and disappear.</span>
+            <span className="gradient-text">We treat every brand like it is our own.</span>
             <br />
-            <span style={{ color: 'white' }}>We believe in</span>
-            <span style={{ color: '#C084FC' }}> permanent impact.</span>
+            <span style={{ color: 'white' }}>And if the work is not exceptional,</span>
+            <span style={{ color: '#C084FC' }}> it does not leave the room.</span>
           </blockquote>
         </ScrollReveal>
 
