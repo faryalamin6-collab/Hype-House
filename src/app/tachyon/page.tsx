@@ -62,26 +62,26 @@ export default function TachyonPage() {
         position: 'relative', zIndex: 10,
         padding: '100px 48px 80px', textAlign: 'center', overflow: 'hidden',
       }}>
-        {/* Blue plasma background */}
+        {/* Tachyon plasma background — Electric Core + Deep System Blue */}
         <div style={{
           position: 'absolute', inset: '-50%',
-          background: 'conic-gradient(from 0deg, transparent 0deg, rgba(4,157,255,0.12) 60deg, rgba(12,18,141,0.08) 120deg, transparent 180deg, rgba(4,157,255,0.06) 240deg, transparent 360deg)',
+          background: 'conic-gradient(from 0deg, transparent 0deg, rgba(0,240,255,0.10) 60deg, rgba(2,31,195,0.08) 120deg, transparent 180deg, rgba(0,240,255,0.05) 240deg, transparent 360deg)',
           animation: 'plasma-rotate 25s linear infinite',
           pointerEvents: 'none',
         }} />
         <div style={{
           position: 'absolute', inset: 0,
-          background: 'radial-gradient(ellipse 80% 70% at 50% 40%, rgba(4,157,255,0.10) 0%, transparent 65%)',
+          background: 'radial-gradient(ellipse at 50% 0%, rgba(2,31,195,0.4) 0%, #020008 65%)',
           pointerEvents: 'none',
         }} />
 
         <div style={{ maxWidth: '900px', margin: '0 auto', position: 'relative' }}>
-          {/* Tachyon wordmark */}
+          {/* Tachyon wordmark — Signature Tachyon Gradient */}
           <div style={{
             fontFamily: 'var(--font-poppins)', fontWeight: 800,
             fontSize: 'clamp(48px, 10vw, 120px)', letterSpacing: '-0.03em',
             lineHeight: 1, marginBottom: '12px',
-            background: 'linear-gradient(135deg, #049DFF 0%, #0C128D 60%, #049DFF 100%)',
+            background: 'linear-gradient(135deg, #9F01F6 0%, #021FC3 35%, #00F0FF 100%)',
             backgroundSize: '200% 200%',
             WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent',
             backgroundClip: 'text', animation: 'gradient-shift 4s ease infinite',
@@ -91,7 +91,7 @@ export default function TachyonPage() {
           <div style={{
             fontFamily: 'var(--font-poppins)', fontWeight: 500, fontSize: '13px',
             letterSpacing: '0.2em', textTransform: 'uppercase' as const,
-            color: 'rgba(4,157,255,0.7)', marginBottom: '40px',
+            color: 'rgba(0,240,255,0.7)', marginBottom: '40px',
           }}>
             A HypeHouse Sub-Brand · Automation &amp; AI Intelligence
           </div>
@@ -106,7 +106,7 @@ export default function TachyonPage() {
           <h2 style={{
             fontFamily: 'var(--font-poppins)', fontWeight: 600,
             fontSize: 'clamp(20px, 3vw, 36px)', marginBottom: '28px',
-            color: '#049DFF',
+            color: '#00F0FF',
           }}>
             We build it. We run it. You grow.
           </h2>
@@ -116,7 +116,7 @@ export default function TachyonPage() {
           }}>
             Tachyon is the automation and AI intelligence division of HypeHouse. We design, build, and operate the business systems that remove friction, eliminate manual work, and create compounding growth.
           </p>
-          <Button href="https://hypehouse-client-intake-form.netlify.app" variant="primary" external>
+          <Button href="https://hypehouse-client-intake-form.netlify.app" variant="primary" external className="tachyon-btn-primary">
             Get a Custom Quote →
           </Button>
         </div>
@@ -126,7 +126,7 @@ export default function TachyonPage() {
       <section style={{ position: 'relative', zIndex: 10, padding: '0 48px 80px' }}>
         <div style={{ maxWidth: '1000px', margin: '0 auto' }}>
           <ScrollReveal>
-            <div style={{ position: 'relative', width: '100%', minHeight: '420px', borderRadius: '12px', overflow: 'hidden', border: '1px solid rgba(4,157,255,0.25)' }}>
+            <div style={{ position: 'relative', width: '100%', minHeight: '420px', borderRadius: '12px', overflow: 'hidden', border: '1px solid rgba(0,240,255,0.12)' }}>
               <Image src="/images/additional-2.png" alt="Tachyon AI System" fill style={{ objectFit: 'cover', objectPosition: 'center' }} />
             </div>
           </ScrollReveal>
@@ -136,13 +136,13 @@ export default function TachyonPage() {
       {/* ── THE PROBLEM ──────────────────────────────────────────────────── */}
       <section style={{
         position: 'relative', zIndex: 10, padding: '100px 48px',
-        background: 'rgba(4,157,255,0.03)',
-        borderTop: '1px solid rgba(4,157,255,0.12)',
-        borderBottom: '1px solid rgba(4,157,255,0.12)',
+        background: 'rgba(10,15,60,0.4)',
+        borderTop: '1px solid rgba(0,240,255,0.08)',
+        borderBottom: '1px solid rgba(0,240,255,0.08)',
       }}>
         <div style={{ maxWidth: '800px', margin: '0 auto', textAlign: 'center' }}>
           <ScrollReveal>
-            <SectionLabel>The Problem</SectionLabel>
+            <SectionLabel className="tachyon-label">The Problem</SectionLabel>
             <h2 style={{
               fontFamily: 'var(--font-poppins)', fontWeight: 800,
               fontSize: 'clamp(28px, 4vw, 52px)', color: 'white',
@@ -156,7 +156,7 @@ export default function TachyonPage() {
             <p style={{
               fontSize: 'clamp(20px, 3vw, 28px)',
               fontFamily: 'var(--font-poppins)', fontWeight: 700,
-              color: '#049DFF', lineHeight: 1.4,
+              color: '#00F0FF', lineHeight: 1.4,
             }}>
               You&apos;re bleeding revenue at the back of the funnel.
             </p>
@@ -169,7 +169,7 @@ export default function TachyonPage() {
         <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
           <ScrollReveal>
             <div style={{ textAlign: 'center', marginBottom: '56px' }}>
-              <SectionLabel>What Tachyon Builds</SectionLabel>
+              <SectionLabel className="tachyon-label">What Tachyon Builds</SectionLabel>
               <h2 style={{
                 fontFamily: 'var(--font-poppins)', fontWeight: 800,
                 fontSize: 'clamp(28px, 4vw, 52px)', color: 'white',
@@ -177,7 +177,7 @@ export default function TachyonPage() {
               }}>
                 Six systems.{' '}
                 <span style={{
-                  background: 'linear-gradient(135deg, #049DFF, #0C128D)',
+                  background: 'linear-gradient(135deg, #9F01F6 0%, #021FC3 35%, #00F0FF 100%)',
                   WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text',
                 }}>
                   Infinite leverage.
@@ -190,11 +190,21 @@ export default function TachyonPage() {
             {services.map((item, i) => (
               <ScrollReveal key={item.title} delay={i * 80}>
                 <HoverCard
-                  style={{ padding: '40px 32px', height: '100%' }}
-                  hoverStyle={{ borderColor: 'rgba(4,157,255,0.35)' }}
-                  baseStyle={{ borderColor: 'rgba(4,157,255,0.12)' }}
+                  style={{ padding: '40px 32px', height: '100%', background: 'rgba(10,15,60,0.6)' }}
+                  hoverStyle={{
+                    borderColor: 'rgba(0,240,255,0.45)',
+                    transform: 'translateY(-4px)',
+                    background: 'rgba(10,15,60,0.8)',
+                    boxShadow: '0 0 24px rgba(0,240,255,0.18)',
+                  }}
+                  baseStyle={{
+                    borderColor: 'rgba(0,240,255,0.12)',
+                    transform: 'translateY(0)',
+                    background: 'rgba(10,15,60,0.6)',
+                    boxShadow: 'none',
+                  }}
                 >
-                  <div style={{ fontSize: '28px', color: '#049DFF', marginBottom: '16px' }}>{item.icon}</div>
+                  <div style={{ fontSize: '28px', color: '#00F0FF', marginBottom: '16px' }}>{item.icon}</div>
                   <h3 style={{
                     fontFamily: 'var(--font-poppins)', fontWeight: 700,
                     fontSize: '20px', color: 'white', marginBottom: '12px',
@@ -214,14 +224,14 @@ export default function TachyonPage() {
       {/* ── BUSINESS IMPACT ───────────────────────────────────────────────── */}
       <section style={{
         position: 'relative', zIndex: 10, padding: '100px 48px',
-        background: 'rgba(12,18,141,0.06)',
-        borderTop: '1px solid rgba(4,157,255,0.10)',
-        borderBottom: '1px solid rgba(4,157,255,0.10)',
+        background: 'rgba(10,15,60,0.4)',
+        borderTop: '1px solid rgba(0,240,255,0.08)',
+        borderBottom: '1px solid rgba(0,240,255,0.08)',
       }}>
         <div style={{ maxWidth: '1000px', margin: '0 auto' }}>
           <ScrollReveal>
             <div style={{ textAlign: 'center', marginBottom: '48px' }}>
-              <SectionLabel>Business Impact</SectionLabel>
+              <SectionLabel className="tachyon-label">Business Impact</SectionLabel>
               <h2 style={{
                 fontFamily: 'var(--font-poppins)', fontWeight: 800,
                 fontSize: 'clamp(28px, 4vw, 48px)', color: 'white',
@@ -238,11 +248,11 @@ export default function TachyonPage() {
                 <div style={{
                   display: 'flex', alignItems: 'center', gap: '14px',
                   padding: '20px 24px',
-                  background: 'rgba(4,157,255,0.05)',
-                  border: '1px solid rgba(4,157,255,0.15)',
+                  background: 'rgba(10,15,60,0.6)',
+                  border: '1px solid rgba(0,240,255,0.12)',
                   borderRadius: '10px',
                 }}>
-                  <span style={{ color: '#049DFF', fontSize: '16px', flexShrink: 0 }}>✦</span>
+                  <span style={{ color: '#00F0FF', fontSize: '16px', flexShrink: 0 }}>✦</span>
                   <span style={{ fontFamily: 'var(--font-poppins)', fontWeight: 500, fontSize: '16px', color: 'rgba(255,255,255,0.88)' }}>
                     {item}
                   </span>
@@ -258,19 +268,19 @@ export default function TachyonPage() {
         <ScrollReveal>
           <div style={{
             maxWidth: '700px', margin: '0 auto',
-            background: 'rgba(4,157,255,0.06)',
-            border: '1px solid rgba(4,157,255,0.30)',
+            background: 'rgba(10,15,60,0.6)',
+            border: '1px solid rgba(0,240,255,0.20)',
             borderRadius: '20px', padding: '64px 48px',
             position: 'relative', overflow: 'hidden',
           }}>
             <div style={{
               position: 'absolute', inset: '-50%',
-              background: 'conic-gradient(from 0deg, transparent, rgba(4,157,255,0.05), transparent)',
+              background: 'conic-gradient(from 0deg, transparent, rgba(0,240,255,0.05), transparent)',
               animation: 'plasma-rotate 20s linear infinite',
               pointerEvents: 'none',
             }} />
             <div style={{ position: 'relative' }}>
-              <SectionLabel>Custom Quote</SectionLabel>
+              <SectionLabel className="tachyon-label">Custom Quote</SectionLabel>
               <h2 style={{
                 fontFamily: 'var(--font-poppins)', fontWeight: 800,
                 fontSize: 'clamp(24px, 4vw, 44px)', color: 'white',
@@ -285,7 +295,7 @@ export default function TachyonPage() {
                 We don&apos;t sell packages. We audit your business, identify where revenue is leaking, and build exactly the system you need.
               </p>
               <p style={{
-                fontSize: '14px', color: 'rgba(4,157,255,0.8)',
+                fontSize: '14px', color: 'rgba(0,240,255,0.8)',
                 fontFamily: 'var(--font-poppins)', fontWeight: 500,
                 letterSpacing: '0.05em', marginBottom: '36px',
               }}>
@@ -297,7 +307,7 @@ export default function TachyonPage() {
               }}>
                 Custom quote · Fully scoped · Built for your business
               </p>
-              <Button href="https://hypehouse-client-intake-form.netlify.app" variant="primary" external>
+              <Button href="https://hypehouse-client-intake-form.netlify.app" variant="primary" external className="tachyon-btn-primary">
                 Book a Systems Consultation →
               </Button>
             </div>

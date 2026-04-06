@@ -222,19 +222,30 @@ p, li, span:not(.gradient-text):not(.section-label) {
   100% { transform: rotate(360deg) scale(1.5); }
 }
 
-.plasma-bg::before {
-  content: '';
-  position: absolute; inset: -50%;
-  background: conic-gradient(
-    from 0deg,
-    transparent 0deg,
-    rgba(166, 20, 178, 0.15) 60deg,
-    rgba(12, 18, 141, 0.1) 120deg,
-    transparent 180deg,
-    rgba(166, 20, 178, 0.08) 240deg,
-    rgba(4, 157, 255, 0.06) 300deg,
-    transparent 360deg
-  );
-  animation: plasma-rotate 20s linear infinite;
-  pointer-events: none;
+/* ── TACHYON PALETTE OVERRIDES ──────────────────────────────────────────── */
+/* Applied via className to shared components used on Tachyon UI.            */
+/* !important is required to beat inline styles from shared components.      */
+.tachyon-label {
+  color: #00F0FF !important;
+  border-color: rgba(0,240,255,0.35) !important;
+  background: rgba(0,240,255,0.08) !important;
+}
+.tachyon-label span {
+  color: #00F0FF !important;
+}
+.tachyon-btn-primary {
+  background: linear-gradient(135deg, #021FC3 0%, #9F01F6 60%, #00F0FF 100%) !important;
+}
+.tachyon-btn-primary:hover {
+  box-shadow: 0 0 20px rgba(0,240,255,0.3) !important;
+}
+.tachyon-gradient-text {
+  background: linear-gradient(135deg, #9F01F6 0%, #021FC3 35%, #00F0FF 100%);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  animation: gradient-shift 4s ease infinite;
+  display: inline;
 }

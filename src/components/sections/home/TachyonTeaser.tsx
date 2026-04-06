@@ -18,12 +18,12 @@ export default function TachyonTeaser() {
         overflow: 'hidden',
       }}
     >
-      {/* Background glow */}
+      {/* Background glow — Deep System Blue, not HypeHouse violet */}
       <div
         style={{
           position: 'absolute',
           inset: 0,
-          background: 'radial-gradient(ellipse 80% 60% at 50% 50%, rgba(166,20,178,0.08) 0%, transparent 70%)',
+          background: 'radial-gradient(ellipse 80% 60% at 50% 50%, rgba(2,31,195,0.12) 0%, transparent 70%)',
           pointerEvents: 'none',
         }}
       />
@@ -40,7 +40,7 @@ export default function TachyonTeaser() {
       >
         {/* Left: Content */}
         <ScrollReveal>
-          <SectionLabel>Tachyon AI System</SectionLabel>
+          <SectionLabel className="tachyon-label">Tachyon AI System</SectionLabel>
           <h2
             style={{
               fontFamily: 'var(--font-poppins)',
@@ -54,7 +54,7 @@ export default function TachyonTeaser() {
             }}
           >
             Business Systems{' '}
-            <span className="gradient-text">That Think For You.</span>
+            <span className="tachyon-gradient-text">That Think For You.</span>
           </h2>
           <p
             style={{
@@ -93,7 +93,7 @@ export default function TachyonTeaser() {
               textDecoration: 'none',
               padding: '14px 28px',
               borderRadius: '8px',
-              background: 'linear-gradient(135deg, #A614B2, #0C128D)',
+              background: 'linear-gradient(135deg, #021FC3 0%, #9F01F6 60%, #00F0FF 100%)',
             }}
           >
             Explore Tachyon →
@@ -110,12 +110,12 @@ export default function TachyonTeaser() {
               margin: '0 auto',
             }}
           >
-            {/* Constellation of dots */}
+            {/* Constellation of dots — Tachyon palette */}
             <svg
               viewBox="0 0 400 400"
               style={{ width: '100%', height: '100%', opacity: 0.7 }}
             >
-              {/* Connection lines */}
+              {/* Connection lines — faint cyan strokes */}
               {[
                 [200, 200, 120, 100],
                 [200, 200, 300, 80],
@@ -133,20 +133,20 @@ export default function TachyonTeaser() {
                 <line
                   key={i}
                   x1={x1} y1={y1} x2={x2} y2={y2}
-                  stroke="rgba(166,20,178,0.3)"
+                  stroke="rgba(0,240,255,0.12)"
                   strokeWidth="1"
                 />
               ))}
 
-              {/* Nodes */}
+              {/* Nodes — Tachyon palette: Electric Core, Deep System Blue, Plasma Violet */}
               {[
-                [200, 200, 8, '#A614B2'],
-                [120, 100, 5, '#C084FC'],
-                [300, 80, 5, '#049DFF'],
-                [340, 240, 5, '#A614B2'],
-                [240, 340, 5, '#C084FC'],
-                [80, 300, 5, '#0C128D'],
-                [60, 160, 5, '#049DFF'],
+                [200, 200, 8, '#9F01F6'],   // centre — Plasma Violet
+                [120, 100, 5, '#00F0FF'],   // Electric Core
+                [300, 80,  5, '#021FC3'],   // Deep System Blue
+                [340, 240, 5, '#9F01F6'],   // Plasma Violet
+                [240, 340, 5, '#00F0FF'],   // Electric Core
+                [80,  300, 5, '#0A0F3C'],   // Neural Indigo (deep anchor node)
+                [60,  160, 5, '#00F0FF'],   // Electric Core
               ].map(([cx, cy, r, fill], i) => (
                 <circle
                   key={i}
@@ -158,30 +158,31 @@ export default function TachyonTeaser() {
                 />
               ))}
 
-              {/* Outer ring */}
+              {/* Outer ring — faint cyan dashes */}
               <circle
                 cx="200" cy="200" r="140"
                 fill="none"
-                stroke="rgba(166,20,178,0.12)"
+                stroke="rgba(0,240,255,0.10)"
                 strokeWidth="1"
                 strokeDasharray="4 8"
               />
+              {/* Inner ring — Deep System Blue */}
               <circle
                 cx="200" cy="200" r="100"
                 fill="none"
-                stroke="rgba(12,18,141,0.10)"
+                stroke="rgba(2,31,195,0.10)"
                 strokeWidth="1"
                 strokeDasharray="2 6"
               />
             </svg>
 
-            {/* Glow behind */}
+            {/* Glow behind — Tachyon Plasma Violet at low opacity */}
             <div
               style={{
                 position: 'absolute',
                 inset: '20%',
                 borderRadius: '50%',
-                background: 'radial-gradient(ellipse, rgba(166,20,178,0.2) 0%, transparent 70%)',
+                background: 'radial-gradient(ellipse, rgba(159,1,246,0.18) 0%, transparent 70%)',
                 pointerEvents: 'none',
               }}
             />
