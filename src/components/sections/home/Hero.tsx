@@ -62,7 +62,7 @@ export default function Hero() {
     >
       {/* Hero background image with dark overlay */}
       <Image
-        src="/images/hero-bg.jpg"
+        src="/images/hero-bg.png"
         alt=""
         fill
         priority

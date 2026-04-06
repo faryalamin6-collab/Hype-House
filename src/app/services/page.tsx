@@ -30,7 +30,7 @@ const services = [
     ],
     pricing: 'Starting from PKR 85,000',
     reverse: true,
-    imageSrc: '/images/branding-header.jpg',
+    imageSrc: '/images/branding-header.png',
   },
   {
     id: 'copywriting',
@@ -50,7 +50,7 @@ const services = [
     ],
     pricing: 'Starting from PKR 25,000/month',
     reverse: false,
-    imageSrc: '/images/copywriting-header.jpg',
+    imageSrc: '/images/copywriting-header.png',
   },
   {
     id: 'social-media',
@@ -70,7 +70,7 @@ const services = [
     ],
     pricing: 'Starting from PKR 45,000/month',
     reverse: true,
-    imageSrc: '/images/social-media-header.jpg',
+    imageSrc: '/images/social-media-header.png',
   },
   {
     id: 'advertising',
@@ -90,7 +90,7 @@ const services = [
     ],
     pricing: 'Starting from PKR 55,000/month + ad spend',
     reverse: false,
-    imageSrc: '/images/digital-adverts-header.jpg',
+    imageSrc: '/images/digital-adverts-header.png',
   },
   {
     id: 'web',
@@ -110,7 +110,7 @@ const services = [
     ],
     pricing: 'Starting from PKR 120,000',
     reverse: true,
-    imageSrc: '/images/web-design-header.jpg',
+    imageSrc: '/images/web-design-header.png',
   },
   {
     id: 'seo',
@@ -130,7 +130,7 @@ const services = [
     ],
     pricing: 'Starting from PKR 40,000/month',
     reverse: false,
-    imageSrc: '/images/seo-header.jpg',
+    imageSrc: '/images/seo-header.png',
   },
 ]
 

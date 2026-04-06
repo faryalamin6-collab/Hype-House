@@ -141,7 +141,7 @@ export default function TachyonPage() {
         <div style={{ maxWidth: '900px', margin: '0 auto' }}>
           <ScrollReveal>
             <div style={{ position: 'relative', width: '100%', aspectRatio: '16/9', borderRadius: '12px', overflow: 'hidden', border: '1px solid rgba(4,157,255,0.18)' }}>
-              <Image src="/images/additional-2.jpg" alt="Tachyon AI System" fill style={{ objectFit: 'cover' }} />
+              <Image src="/images/additional-2.png" alt="Tachyon AI System" fill style={{ objectFit: 'cover' }} />
             </div>
           </ScrollReveal>
         </div>

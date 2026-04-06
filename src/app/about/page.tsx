@@ -147,7 +147,7 @@ export default function AboutPage() {
 
           <ScrollReveal delay={150}>
             <div style={{ position: 'relative', width: '100%', borderRadius: '12px', overflow: 'hidden', border: '1px solid rgba(4,157,255,0.18)', aspectRatio: '4/3' }}>
-              <Image src="/images/additional-1.jpg" alt="HypeHouse Digital Agency" fill style={{ objectFit: 'cover' }} />
+              <Image src="/images/additional-1.png" alt="HypeHouse Digital Agency" fill style={{ objectFit: 'cover' }} />
             </div>
           </ScrollReveal>
         </div>
