@@ -11,7 +11,7 @@ const stats = [
 
 export default function WhyHypeHouse() {
   return (
-    <section style={{ position: 'relative', zIndex: 10, padding: '60px 0' }}>
+    <section style={{ position: 'relative', zIndex: 10 }}>
       <ScrollReveal>
         <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '60px 48px' }}>
           <SectionLabel>Why HypeHouse</SectionLabel>

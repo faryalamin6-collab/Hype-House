@@ -80,7 +80,7 @@ export default function TachyonPage() {
         }} />
         <div style={{
           position: 'absolute', inset: 0,
-          background: 'radial-gradient(ellipse at 50% 0%, rgba(2,31,195,0.4) 0%, #020008 65%)',
+          background: 'radial-gradient(ellipse at 50% 0%, rgba(30,79,140,0.55) 0%, rgba(58,141,255,0.08) 50%, #020008 80%)',
           pointerEvents: 'none',
         }} />
 
@@ -100,7 +100,7 @@ export default function TachyonPage() {
           <div style={{
             fontFamily: 'var(--font-poppins)', fontWeight: 500, fontSize: '13px',
             letterSpacing: '0.2em', textTransform: 'uppercase' as const,
-            color: 'rgba(0,240,255,0.7)', marginBottom: '40px',
+            color: '#BFD7FF', marginBottom: '40px',
           }}>
             A HypeHouse Sub-Brand · Automation &amp; AI Intelligence
           </div>
@@ -115,7 +115,7 @@ export default function TachyonPage() {
           <h2 style={{
             fontFamily: 'var(--font-poppins)', fontWeight: 600,
             fontSize: 'clamp(20px, 3vw, 36px)', marginBottom: '28px',
-            color: '#00F0FF',
+            color: '#3A8DFF',
           }}>
             We build it. We run it. You grow.
           </h2>
@@ -135,7 +135,7 @@ export default function TachyonPage() {
               href="#problem"
               style={{
                 fontFamily: 'var(--font-poppins)', fontWeight: 500, fontSize: '14px',
-                color: 'rgba(0,240,255,0.6)', textDecoration: 'none',
+                color: '#3A8DFF', textDecoration: 'none',
                 letterSpacing: '0.05em',
               }}
             >
@@ -156,9 +156,9 @@ export default function TachyonPage() {
         style={{
           position: 'relative', zIndex: 10,
           padding: '72px 48px',
-          background: 'rgba(10,15,60,0.6)',
-          borderTop: '1px solid rgba(0,240,255,0.08)',
-          borderBottom: '1px solid rgba(0,240,255,0.08)',
+          background: 'rgba(30,79,140,0.12)',
+          borderTop: '1px solid rgba(58,141,255,0.15)',
+          borderBottom: '1px solid rgba(58,141,255,0.15)',
         }}
       >
         <div style={{ maxWidth: '800px', margin: '0 auto' }}>
@@ -187,7 +187,7 @@ export default function TachyonPage() {
                 'Your team blames the ad budget — but the real leak is what happens after the click.',
               ].map((line) => (
                 <div key={line} style={{ display: 'flex', alignItems: 'flex-start', gap: '14px' }}>
-                  <span style={{ color: '#00F0FF', fontSize: '17px', flexShrink: 0, marginTop: '2px' }}>→</span>
+                  <span style={{ color: '#3A8DFF', fontSize: '17px', flexShrink: 0, marginTop: '2px' }}>→</span>
                   <span style={{ fontFamily: 'var(--font-poppins)', fontSize: '17px', color: 'rgba(255,255,255,0.80)', lineHeight: 1.6 }}>
                     {line}
                   </span>
@@ -198,7 +198,7 @@ export default function TachyonPage() {
             {/* Bold accent line */}
             <p style={{
               fontFamily: 'var(--font-poppins)', fontWeight: 700,
-              fontSize: 'clamp(20px, 3vw, 28px)', color: '#00F0FF', lineHeight: 1.4,
+              fontSize: 'clamp(20px, 3vw, 28px)', color: '#3A8DFF', lineHeight: 1.4,
             }}>
               The real leak is what happens after the click.
             </p>
@@ -230,7 +230,7 @@ export default function TachyonPage() {
       {/* ── SECTION 4: FIVE CAPABILITY CARDS ────────────────────────────── */}
       <section style={{
         position: 'relative', zIndex: 10, padding: '72px 48px',
-        background: 'rgba(10,15,60,0.4)',
+        background: 'rgba(30,79,140,0.10)',
         borderTop: '1px solid rgba(0,240,255,0.08)',
         borderBottom: '1px solid rgba(0,240,255,0.08)',
       }}>
@@ -259,11 +259,11 @@ export default function TachyonPage() {
             {capabilities.slice(0, 4).map((item, i) => (
               <ScrollReveal key={item.title} delay={i * 80}>
                 <HoverCard
-                  style={{ padding: '40px 32px', height: '100%', background: 'rgba(10,15,60,0.6)' }}
+                  style={{ padding: '40px 32px', height: '100%', background: 'rgba(30,79,140,0.18)' }}
                   hoverStyle={{
                     borderColor: 'rgba(0,240,255,0.45)',
                     transform: 'translateY(-4px)',
-                    background: 'rgba(10,15,60,0.8)',
+                    background: 'rgba(30,79,140,0.38)',
                     boxShadow: '0 0 24px rgba(0,240,255,0.18)',
                   }}
                   baseStyle={{
@@ -275,12 +275,12 @@ export default function TachyonPage() {
                 >
                   <div style={{
                     width: '48px', height: '48px',
-                    background: 'rgba(0,240,255,0.10)', border: '1px solid rgba(0,240,255,0.2)',
+                    background: 'rgba(30,79,140,0.4)', border: '1px solid rgba(58,141,255,0.4)',
                     borderRadius: '10px', display: 'flex', alignItems: 'center', justifyContent: 'center',
                     marginBottom: '20px', flexShrink: 0,
                   }}>
                     <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
-                      stroke="#00F0FF" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                      stroke="#3A8DFF" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                       <path d={item.svgPath} />
                     </svg>
                   </div>
@@ -302,23 +302,23 @@ export default function TachyonPage() {
           <div style={{ maxWidth: '420px', margin: '0 auto' }}>
             <ScrollReveal delay={320}>
               <HoverCard
-                style={{ padding: '40px 32px', background: 'rgba(10,15,60,0.6)' }}
+                style={{ padding: '40px 32px', background: 'rgba(30,79,140,0.18)' }}
                 hoverStyle={{
-                  borderColor: 'rgba(0,240,255,0.45)',
+                  borderColor: 'rgba(191,215,255,0.55)',
                   transform: 'translateY(-4px)',
-                  background: 'rgba(10,15,60,0.8)',
-                  boxShadow: '0 0 24px rgba(0,240,255,0.18)',
+                  background: 'rgba(30,79,140,0.32)',
+                  boxShadow: '0 0 28px rgba(58,141,255,0.3)',
                 }}
                 baseStyle={{
-                  borderColor: 'rgba(0,240,255,0.12)',
+                  borderColor: 'rgba(191,215,255,0.18)',
                   transform: 'translateY(0)',
-                  background: 'rgba(10,15,60,0.6)',
+                  background: 'rgba(30,79,140,0.18)',
                   boxShadow: 'none',
                 }}
               >
                 <div style={{
                   width: '48px', height: '48px',
-                  background: 'rgba(0,240,255,0.10)', border: '1px solid rgba(0,240,255,0.2)',
+                  background: 'rgba(30,79,140,0.4)', border: '1px solid rgba(58,141,255,0.4)',
                   borderRadius: '10px', display: 'flex', alignItems: 'center', justifyContent: 'center',
                   marginBottom: '20px', flexShrink: 0,
                 }}>
@@ -377,8 +377,8 @@ export default function TachyonPage() {
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px', justifyContent: 'center' }}>
               {industryTags.map(tag => (
                 <span key={tag} style={{
-                  background: 'rgba(0,240,255,0.08)',
-                  border: '1px solid rgba(0,240,255,0.2)',
+                  background: 'rgba(30,79,140,0.28)',
+                  border: '1px solid rgba(191,215,255,0.25)',
                   borderRadius: '20px', padding: '8px 18px',
                   fontFamily: 'var(--font-poppins)', fontSize: '14px',
                   color: 'rgba(255,255,255,0.75)',
@@ -394,15 +394,15 @@ export default function TachyonPage() {
       {/* ── SECTION 6: DELIVERY DETAILS ──────────────────────────────────── */}
       <section style={{
         position: 'relative', zIndex: 10, padding: '72px 48px',
-        background: 'rgba(10,15,60,0.4)',
+        background: 'rgba(30,79,140,0.10)',
         borderTop: '1px solid rgba(0,240,255,0.08)',
         borderBottom: '1px solid rgba(0,240,255,0.08)',
       }}>
         <div style={{ maxWidth: '700px', margin: '0 auto' }}>
           <ScrollReveal>
             <div style={{
-              background: 'rgba(10,15,60,0.7)',
-              border: '1px solid rgba(0,240,255,0.2)',
+              background: 'rgba(30,79,140,0.28)',
+              border: '1px solid rgba(58,141,255,0.35)',
               borderRadius: '16px',
               padding: '56px 48px',
             }}>
@@ -436,7 +436,7 @@ export default function TachyonPage() {
                     minWidth: '140px',
                   }}>
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                      stroke="#00F0FF" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                      stroke="#3A8DFF" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                       <path d={spec.icon} />
                     </svg>
                     <span style={{
@@ -450,13 +450,13 @@ export default function TachyonPage() {
               </div>
 
               {/* Divider */}
-              <div style={{ height: '1px', background: 'rgba(0,240,255,0.10)', margin: '32px 0' }} />
+              <div style={{ height: '1px', background: 'rgba(191,215,255,0.15)', margin: '32px 0' }} />
 
               {/* What you get list */}
               <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
                 {deliveryItems.map(item => (
                   <div key={item} style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
-                    <span style={{ color: '#00F0FF', fontSize: '14px', flexShrink: 0 }}>✓</span>
+                    <span style={{ color: '#3A8DFF', fontSize: '14px', flexShrink: 0 }}>✓</span>
                     <span style={{
                       fontFamily: 'var(--font-poppins)', fontWeight: 500, fontSize: '15px',
                       color: 'rgba(255,255,255,0.80)',
@@ -501,7 +501,7 @@ export default function TachyonPage() {
             </p>
             <p style={{
               fontFamily: 'var(--font-poppins)', fontWeight: 800,
-              fontSize: 'clamp(20px, 3vw, 32px)', color: '#00F0FF',
+              fontSize: 'clamp(20px, 3vw, 32px)', color: '#3A8DFF',
               letterSpacing: '-0.01em', marginBottom: '40px',
             }}>
               Ready to stop losing leads?

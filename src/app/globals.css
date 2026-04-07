@@ -131,6 +131,15 @@ p, li, span:not(.gradient-text):not(.section-label) {
   h3 { font-size: clamp(20px, 5vw, 28px); line-height: 1.2; }
   p  { font-size: 16px; line-height: 1.75; }
   .section-label { font-size: 12px; letter-spacing: 0.2em; }
+
+  /* ── GLOBAL MOBILE SECTION PADDING ── */
+  /* All inline padding: 'Xpx 48px' collapse to 24px horizontal on mobile */
+  section[style*="padding: '64px 48px'"],
+  section[style*="padding: '72px 48px'"],
+  section[style*="padding: '60px 48px'"] {
+    padding-left: 24px !important;
+    padding-right: 24px !important;
+  }
 }
 
 /* ── MOBILE BUTTONS ──────────────────────────────────────────────────────── */
@@ -237,21 +246,21 @@ p, li, span:not(.gradient-text):not(.section-label) {
 /* Applied via className to shared components used on Tachyon UI.            */
 /* !important is required to beat inline styles from shared components.      */
 .tachyon-label {
-  color: #00F0FF !important;
-  border-color: rgba(0,240,255,0.35) !important;
-  background: rgba(0,240,255,0.08) !important;
+  color: #3A8DFF !important;
+  border-color: rgba(58,141,255,0.4) !important;
+  background: rgba(30,79,140,0.18) !important;
 }
 .tachyon-label span {
-  color: #00F0FF !important;
+  color: #3A8DFF !important;
 }
 .tachyon-btn-primary {
-  background: linear-gradient(135deg, #5B8FFF 0%, #B040FF 55%, #00F0FF 100%) !important;
+  background: linear-gradient(135deg, #1E4F8C 0%, #3A8DFF 55%, #BFD7FF 100%) !important;
 }
 .tachyon-btn-primary:hover {
-  box-shadow: 0 0 20px rgba(0,240,255,0.3) !important;
+  box-shadow: 0 0 24px rgba(58,141,255,0.45) !important;
 }
 .tachyon-cta-link:hover {
-  box-shadow: 0 0 30px rgba(0,240,255,0.3);
+  box-shadow: 0 0 32px rgba(58,141,255,0.45);
 }
 .tachyon-gradient-text {
   background: linear-gradient(135deg, #B040FF 0%, #5B8FFF 50%, #00F0FF 100%);
