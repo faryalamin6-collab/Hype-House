@@ -75,8 +75,8 @@ export default function Navigation() {
             <Image
               src="/images/logo-white.png"
               alt="HypeHouse Digital"
-              width={200}
-              height={50}
+              width={220}
+              height={56}
               priority
               style={{ objectFit: 'contain' }}
             />

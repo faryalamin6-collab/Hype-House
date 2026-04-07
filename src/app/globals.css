@@ -282,7 +282,7 @@ p, li, span:not(.gradient-text):not(.section-label) {
 /* ── MOBILE LOGO OVERRIDE ────────────────────────────────────────────────── */
 @media (max-width: 768px) {
   nav img {
-    width: 140px !important;
+    width: 160px !important;
     height: auto !important;
   }
 }
