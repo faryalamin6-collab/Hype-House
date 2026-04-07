@@ -149,29 +149,43 @@ export default function ServicesPage() {
             style={{
               fontFamily: 'var(--font-poppins)',
               fontWeight: 800,
-              fontSize: 'clamp(36px, 6vw, 80px)',
+              fontSize: 'clamp(32px, 5.5vw, 72px)',
               color: 'white',
               marginTop: '24px',
               letterSpacing: '-0.02em',
-              lineHeight: 1.1,
-              marginBottom: '24px',
+              lineHeight: 1.05,
+              marginBottom: '28px',
             }}
           >
-            Strategy. Systems. Creative.{' '}
-            <span className="gradient-text">One agency.</span>
+            We Don&apos;t Make Noise.<br />
+            <span className="gradient-text">We Make Movements.</span>
           </h1>
           <p
             style={{
               fontFamily: 'var(--font-poppins)',
               fontSize: '18px',
-              color: 'rgba(255,255,255,0.72)',
-              lineHeight: 1.75,
-              maxWidth: '560px',
+              color: 'rgba(255,255,255,0.75)',
+              lineHeight: 1.8,
+              maxWidth: '620px',
+              margin: '0 auto 20px',
+            }}
+          >
+            What we do starts with curiosity and ends with impact.
+            We dive deep into your brand, build systems that connect creativity with performance,
+            and craft work that doesn&apos;t just look good — it works everywhere it lives.
+          </p>
+          <p
+            style={{
+              fontFamily: 'var(--font-poppins)',
+              fontSize: '18px',
+              color: 'rgba(255,255,255,0.75)',
+              lineHeight: 1.8,
+              maxWidth: '620px',
               margin: '0 auto',
             }}
           >
-            Every service we offer is designed to work independently — and amplify
-            each other when combined. This is what a unified creative agency looks like.
+            From branding to ads to content and tech, every piece is designed to move
+            your brand forward, not just fill space.
           </p>
         </div>
       </section>
