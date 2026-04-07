@@ -148,8 +148,8 @@ export default function TachyonPage() {
       <section style={{ position: 'relative', zIndex: 10, padding: '0 48px 80px' }}>
         <div style={{ maxWidth: '1000px', margin: '0 auto' }}>
           <ScrollReveal>
-            <div style={{ position: 'relative', width: '100%', minHeight: '420px', borderRadius: '12px', overflow: 'hidden', border: '1px solid rgba(0,240,255,0.12)' }}>
-              <Image src="/images/additional-2.png" alt="Tachyon AI System" fill style={{ objectFit: 'cover', objectPosition: 'center' }} />
+            <div style={{ borderRadius: '12px', overflow: 'hidden', border: '1px solid rgba(0,240,255,0.12)' }}>
+              <Image src="/images/additional-2.png" alt="Tachyon AI System" width={1000} height={560} style={{ width: '100%', height: 'auto', display: 'block' }} />
             </div>
           </ScrollReveal>
         </div>

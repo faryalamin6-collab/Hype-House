@@ -111,8 +111,8 @@ export default function AboutPage() {
       {/* ── BRAND IMAGE ──────────────────────────────────────────────────── */}
       <section style={{ position: 'relative', zIndex: 10, padding: '0 48px 80px' }}>
         <ScrollReveal>
-          <div style={{ maxWidth: '1000px', margin: '0 auto', position: 'relative', minHeight: '480px', borderRadius: '12px', overflow: 'hidden', border: '1px solid rgba(4,157,255,0.18)' }}>
-            <Image src="/images/additional-1.png" alt="HypeHouse Digital Agency" fill style={{ objectFit: 'cover', objectPosition: 'center' }} />
+          <div style={{ maxWidth: '1000px', margin: '0 auto', borderRadius: '12px', overflow: 'hidden', border: '1px solid rgba(4,157,255,0.18)' }}>
+            <Image src="/images/additional-1.png" alt="HypeHouse Digital Agency" width={1000} height={560} style={{ width: '100%', height: 'auto', display: 'block' }} />
           </div>
         </ScrollReveal>
       </section>
