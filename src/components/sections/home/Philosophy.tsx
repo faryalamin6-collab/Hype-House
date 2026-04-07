@@ -4,10 +4,10 @@ import ScrollReveal from '@/components/ui/ScrollReveal'
 import HoverCard from '@/components/ui/HoverCard'
 
 const values = [
-  { label: 'Strategy First', desc: 'Every decision is rooted in data and insight before a single pixel is touched.' },
-  { label: 'AI-Augmented', desc: 'We use AI to move faster, think deeper, and deliver more — without sacrificing quality.' },
-  { label: 'Radical Ownership', desc: 'We treat your brand like it\'s ours. Your wins are our wins.' },
-  { label: 'Ruthless Quality', desc: 'Average is our enemy. If it doesn\'t meet the standard, it doesn\'t ship.' },
+  { label: 'Strategy First', desc: 'Every decision begins with clarity, intention, and direction.' },
+  { label: 'Creative That Performs', desc: 'Work that is built to connect, engage, and convert.' },
+  { label: 'Radical Ownership', desc: 'We treat your brand like it is ours. Your wins are our wins.' },
+  { label: 'Ruthless Quality', desc: 'If it does not meet the standard, it does not ship.' },
 ]
 
 export default function Philosophy() {

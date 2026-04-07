@@ -131,6 +131,18 @@ export default function ServicesOverview() {
             Every service. One agency.{' '}
             <span className="gradient-text">Zero compromises.</span>
           </h2>
+          <p
+            style={{
+              fontFamily: 'var(--font-poppins)',
+              fontSize: '17px',
+              color: 'rgba(255,255,255,0.72)',
+              lineHeight: 1.75,
+              maxWidth: '620px',
+              margin: '20px auto 0',
+            }}
+          >
+            From branding and content to websites, paid media, and automation, HypeHouse gives you one creative growth partner instead of five disconnected vendors.
+          </p>
         </div>
 
         <div

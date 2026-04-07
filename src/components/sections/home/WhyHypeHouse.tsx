@@ -4,9 +4,9 @@ import SectionLabel from '@/components/ui/SectionLabel'
 import ScrollReveal from '@/components/ui/ScrollReveal'
 
 const stats = [
-  { number: 'Strategy First', label: 'Before a single pixel is touched', icon: '◆' },
-  { number: 'AI-Powered', label: 'Human-led creative', icon: '◈' },
-  { number: 'Karachi → Global', label: 'Built for ambition', icon: '⬡' },
+  { number: 'Strategy First', label: 'Before a single pixel is touched.', icon: '◆' },
+  { number: 'Built to Perform', label: 'Creative that is designed to drive real outcomes.', icon: '◈' },
+  { number: 'Built to Outperform', label: 'Connecting ambitious brands to marketing that actually moves.', icon: '⬡' },
 ]
 
 export default function WhyHypeHouse() {
@@ -28,7 +28,7 @@ export default function WhyHypeHouse() {
             color: 'rgba(255,255,255,0.80)', lineHeight: 1.7,
             maxWidth: '580px', marginBottom: '56px',
           }}>
-            Strategy. Creative. Technology. Automation — one unified system. Not six disconnected vendors. One partner who owns the outcome.
+            Most agencies sell disconnected services. We build one connected system where strategy shapes the creative, creative drives performance, and every part of the brand moves in the same direction.
           </p>
 
           {/* Stats row */}

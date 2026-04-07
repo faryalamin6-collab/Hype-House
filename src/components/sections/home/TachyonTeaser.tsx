@@ -65,8 +65,9 @@ export default function TachyonTeaser() {
               marginBottom: '16px',
             }}
           >
-            Most businesses run on manual effort — spreadsheets, missed follow-ups, leads
-            that go cold. Tachyon replaces that with connected, intelligent systems.
+            Most businesses still run on manual follow ups, scattered tools, and slow processes.
+            Tachyon replaces that with connected systems built to respond faster, organize smarter,
+            and keep growth moving in the background.
           </p>
           <p
             style={{
@@ -77,8 +78,8 @@ export default function TachyonTeaser() {
               marginBottom: '36px',
             }}
           >
-            CRM automation, WhatsApp flows, lead pipelines, booking systems, reporting
-            dashboards. Built once. Running permanently.
+            CRM automation, WhatsApp flows, lead pipelines, booking systems, and reporting
+            dashboards. Built once. Running continuously.
           </p>
           <Link
             href="/tachyon"

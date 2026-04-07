@@ -62,7 +62,7 @@ export default function Hero() {
       <div style={{ maxWidth: '840px', width: '100%', position: 'relative', zIndex: 2 }}>
         {/* Badge */}
         <div ref={badgeRef} style={{ marginBottom: '32px', display: 'flex', justifyContent: 'center' }}>
-          <SectionLabel>An AI Powered Creative Revolution</SectionLabel>
+          <SectionLabel>An AI-Powered Creative Agency</SectionLabel>
         </div>
 
         {/* H1 */}
@@ -87,7 +87,7 @@ export default function Hero() {
             className="gradient-text"
             style={{ marginTop: '4px' }}
           >
-            An AI Powered Creative Revolution.
+            Strategy. Systems. Creative. Performance.
           </div>
         </h1>
 
@@ -104,8 +104,9 @@ export default function Hero() {
             lineHeight: 1.7,
           }}
         >
-          HypeHouse is a full-service AI-powered creative agency built for brands that
-          are serious about their identity. Strategy. Systems. Creative. One partner.
+          HypeHouse is a full service creative agency built for brands that want more than
+          visibility. We bring strategy, content, design, performance, and AI backed systems
+          together under one roof so your brand grows with clarity, consistency, and momentum.
         </p>
 
         {/* CTAs */}
@@ -133,7 +134,7 @@ export default function Hero() {
             letterSpacing: '0.05em',
           }}
         >
-          Built for founders who are serious about their brand.
+          Built for founders and brands serious about growth.
         </div>
       </div>
 
