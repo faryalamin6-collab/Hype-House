@@ -220,7 +220,7 @@ export default function Navigation() {
           flexDirection: 'column',
           alignItems: 'center',
           justifyContent: 'flex-start',
-          paddingTop: '88px',   /* clears the fixed navbar */
+          paddingTop: '120px',   /* clears the fixed navbar */
           paddingBottom: '40px',
           gap: '4px',
           overflowY: 'auto',
