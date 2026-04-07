@@ -116,7 +116,7 @@ export default function ServiceSection({
               const body = rest.join(' — ')
               return (
                 <div key={item} style={{ display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
-                  <span style={{ color: '#049DFF', fontSize: '12px', marginTop: '4px', flexShrink: 0 }}>✦</span>
+                  <span style={{ width: '5px', height: '5px', borderRadius: '50%', background: 'rgba(255,255,255,0.30)', display: 'inline-block', flexShrink: 0, marginTop: '7px' }} />
                   <span style={{
                     fontFamily: 'var(--font-poppins)', fontSize: '14px',
                     color: 'rgba(255,255,255,0.72)', lineHeight: 1.55,

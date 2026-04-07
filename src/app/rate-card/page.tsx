@@ -225,7 +225,7 @@ export default function RateCardPage() {
                   <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', flex: 1, marginBottom: '28px' }}>
                     {tier.features.map(f => (
                       <div key={f} style={{ display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
-                        <span style={{ color: '#A614B2', fontSize: '12px', marginTop: '2px', flexShrink: 0 }}>✦</span>
+                        <span style={{ width: '5px', height: '5px', borderRadius: '50%', background: 'rgba(255,255,255,0.30)', display: 'inline-block', flexShrink: 0, marginTop: '7px' }} />
                         <span style={{ fontSize: '14px', color: 'rgba(255,255,255,0.80)', lineHeight: 1.5 }}>{f}</span>
                       </div>
                     ))}
@@ -277,7 +277,7 @@ export default function RateCardPage() {
                   <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', flex: 1, marginBottom: '28px' }}>
                     {pkg.items.map(item => (
                       <div key={item} style={{ display: 'flex', gap: '10px' }}>
-                        <span style={{ color: '#A614B2', fontSize: '12px', flexShrink: 0, marginTop: '2px' }}>✦</span>
+                        <span style={{ width: '5px', height: '5px', borderRadius: '50%', background: 'rgba(255,255,255,0.30)', display: 'inline-block', flexShrink: 0, marginTop: '7px' }} />
                         <span style={{ fontSize: '14px', color: 'rgba(255,255,255,0.80)', lineHeight: 1.5 }}>{item}</span>
                       </div>
                     ))}
@@ -334,7 +334,7 @@ export default function RateCardPage() {
                         borderBottom: i < group.services.length - 1 ? '1px solid rgba(255,255,255,0.04)' : 'none',
                       }}
                     >
-                      <span style={{ color: '#049DFF', fontSize: '11px', flexShrink: 0 }}>✦</span>
+                      <span style={{ width: '5px', height: '5px', borderRadius: '50%', background: 'rgba(255,255,255,0.30)', display: 'inline-block', flexShrink: 0, marginTop: '2px' }} />
                       <span style={{ fontFamily: 'var(--font-poppins)', fontSize: '14px', color: 'rgba(255,255,255,0.80)', lineHeight: 1.5 }}>{row.service}</span>
                     </div>
                   ))}
