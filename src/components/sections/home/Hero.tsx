@@ -1,7 +1,6 @@
 'use client'
 
 import { useEffect, useRef } from 'react'
-import Image from 'next/image'
 import Button from '@/components/ui/Button'
 import SectionLabel from '@/components/ui/SectionLabel'
 
@@ -60,21 +59,6 @@ export default function Hero() {
         overflow: 'hidden',
       }}
     >
-      {/* Hero background image with dark overlay */}
-      <Image
-        src="/images/hero-bg.png"
-        alt=""
-        fill
-        priority
-        style={{ objectFit: 'cover', opacity: 0.18, zIndex: 0 }}
-      />
-      <div
-        style={{
-          position: 'absolute', inset: 0, zIndex: 1,
-          background: 'linear-gradient(to bottom, rgba(2,0,8,0.6) 0%, rgba(2,0,8,0.3) 50%, rgba(2,0,8,0.8) 100%)',
-          pointerEvents: 'none',
-        }}
-      />
       <div style={{ maxWidth: '840px', width: '100%', position: 'relative', zIndex: 2 }}>
         {/* Badge */}
         <div ref={badgeRef} style={{ marginBottom: '32px', display: 'flex', justifyContent: 'center' }}>
