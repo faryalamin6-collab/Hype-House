@@ -49,8 +49,8 @@ export default function AboutPage() {
             <SectionLabel>About Us · Nice To Meet You</SectionLabel>
             <h1 style={{
               fontFamily: 'var(--font-poppins)', fontWeight: 800,
-              fontSize: 'clamp(32px, 6vw, 76px)', color: 'white',
-              marginTop: '24px', marginBottom: '32px',
+              fontSize: 'clamp(24px, 4vw, 54px)', color: 'white',
+              marginTop: '24px', marginBottom: '28px',
               letterSpacing: '-0.02em', lineHeight: 1.05,
             }}>
               We Don&apos;t Build<br />
@@ -62,7 +62,7 @@ export default function AboutPage() {
               display: 'flex', flexDirection: 'column', gap: '20px',
               textAlign: 'left', maxWidth: '720px', margin: '0 auto',
             }}>
-              <p style={{ fontSize: '18px', color: 'rgba(255,255,255,0.82)', lineHeight: 1.8 }}>
+              <p style={{ fontSize: '15px', color: 'rgba(255,255,255,0.75)', lineHeight: 1.8 }}>
                 We&apos;re not your typical agency.<br />
                 We&apos;re architects of velocity, where design, storytelling, and AI collide to create
                 ecosystems that move at lightspeed and perform with precision.<br />
@@ -71,29 +71,29 @@ export default function AboutPage() {
                 engineered to perform.
               </p>
 
-              <p style={{ fontSize: '18px', color: 'rgba(255,255,255,0.82)', lineHeight: 1.8 }}>
+              <p style={{ fontSize: '15px', color: 'rgba(255,255,255,0.75)', lineHeight: 1.8 }}>
                 HypeHouse is a collective of digital natives, AI visionaries, and creative
                 architects who know that modern brands need more than marketing. They
                 need systems that evolve. Stories that spread like wildfire. Visuals that rewire
                 perception.
               </p>
 
-              <p style={{ fontSize: '18px', color: 'rgba(255,255,255,0.82)', lineHeight: 1.8 }}>
+              <p style={{ fontSize: '15px', color: 'rgba(255,255,255,0.75)', lineHeight: 1.8 }}>
                 Powered by Tachyon, our AI backbone, we launch brands, scale performance,
                 and turn attention into revenue.
               </p>
 
-              <p style={{ fontSize: '18px', color: 'rgba(255,255,255,0.82)', lineHeight: 1.8 }}>
+              <p style={{ fontSize: '15px', color: 'rgba(255,255,255,0.75)', lineHeight: 1.8 }}>
                 We exist for brands that want to feel alive.<br />
                 The ones that want more than visibility.<br />
                 The ones that want to matter.
               </p>
 
-              <p style={{ fontSize: '18px', color: 'rgba(255,255,255,0.82)', lineHeight: 1.8, fontStyle: 'italic' }}>
+              <p style={{ fontSize: '15px', color: 'rgba(255,255,255,0.75)', lineHeight: 1.8, fontStyle: 'italic' }}>
                 Where hype isn&apos;t noise. It&apos;s momentum.
               </p>
 
-              <p style={{ fontSize: '18px', color: 'rgba(255,255,255,0.82)', lineHeight: 1.8, fontWeight: 600 }}>
+              <p style={{ fontSize: '15px', color: 'rgba(255,255,255,0.75)', lineHeight: 1.8, fontWeight: 600 }}>
                 This is the future of creative. And it starts here.<br />
                 Welcome to HypeHouse.
               </p>
@@ -128,15 +128,15 @@ export default function AboutPage() {
             </div>
             <h2 style={{
               fontFamily: 'var(--font-poppins)', fontWeight: 800,
-              fontSize: 'clamp(28px, 4vw, 52px)', color: 'white',
+              fontSize: 'clamp(22px, 3vw, 40px)', color: 'white',
               textAlign: 'center', letterSpacing: '-0.02em',
               marginBottom: '20px',
             }}>
               Freedom. Partnership. Quality. Hype.
             </h2>
             <p style={{
-              fontSize: '18px', color: 'rgba(255,255,255,0.72)',
-              textAlign: 'center', maxWidth: '600px', margin: '0 auto 56px', lineHeight: 1.75,
+              fontSize: '14px', color: 'rgba(255,255,255,0.60)',
+              textAlign: 'center', maxWidth: '600px', margin: '0 auto 48px', lineHeight: 1.75,
             }}>
               These are not values on a wall. They are operating principles. Every decision we make runs through this filter.
             </p>
@@ -181,7 +181,7 @@ export default function AboutPage() {
               }}>
                 TACHYON
               </div>
-              <p style={{ fontSize: '17px', color: 'rgba(255,255,255,0.80)', lineHeight: 1.75, marginBottom: '28px' }}>
+              <p style={{ fontSize: '14px', color: 'rgba(255,255,255,0.72)', lineHeight: 1.75, marginBottom: '28px' }}>
                 We also built Tachyon — our automation and AI intelligence sub-brand. Because great creative deserves intelligent systems behind it.
               </p>
               <Link href="/tachyon" style={{

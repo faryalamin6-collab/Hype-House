@@ -52,14 +52,25 @@ export default function ServiceSection({
         </div>
       )}
 
-      <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 48px' }}>
+      {/* Frosted backdrop — improves legibility over the canvas animation */}
+      <div style={{
+        maxWidth: '1280px', margin: '0 auto', padding: '0 48px',
+      }}>
+        <div style={{
+          background: 'rgba(4,0,20,0.60)',
+          backdropFilter: 'blur(16px)',
+          WebkitBackdropFilter: 'blur(16px)',
+          borderRadius: '20px',
+          border: '1px solid rgba(255,255,255,0.06)',
+          padding: '48px 40px',
+        }}>
 
         {/* ── CONTENT — label, title, description, inclusions, CTA ───────── */}
         <ScrollReveal delay={imageSrc ? 80 : 0}>
           {/* Label row */}
           <div style={{ display: 'inline-flex', alignItems: 'center', gap: '12px', marginBottom: '20px' }}>
             {svgPath && (
-              <div style={{
+              <div className="service-icon-tile" style={{
                 width: '48px', height: '48px',
                 background: 'rgba(4,157,255,0.12)',
                 border: '1px solid rgba(4,157,255,0.2)',
@@ -146,6 +157,7 @@ export default function ServiceSection({
             Get Started →
           </Button>
         </ScrollReveal>
+        </div>
       </div>
     </section>
   )

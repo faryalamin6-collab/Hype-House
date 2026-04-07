@@ -48,8 +48,8 @@ export default function PhilosophyPage() {
             <SectionLabel>Our Philosophy · The HypeHouse Code</SectionLabel>
             <h1 style={{
               fontFamily: 'var(--font-poppins)', fontWeight: 800,
-              fontSize: 'clamp(32px, 6vw, 76px)', color: 'white',
-              marginTop: '24px', marginBottom: '32px',
+              fontSize: 'clamp(24px, 4vw, 54px)', color: 'white',
+              marginTop: '24px', marginBottom: '28px',
               letterSpacing: '-0.02em', lineHeight: 1.05,
             }}>
               We Don&apos;t Follow The<br />
@@ -76,13 +76,13 @@ export default function PhilosophyPage() {
         <div style={{ maxWidth: '760px', margin: '0 auto' }}>
           <ScrollReveal>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
-              <p style={{ fontSize: '18px', color: 'rgba(255,255,255,0.82)', lineHeight: 1.85 }}>
+              <p style={{ fontSize: '15px', color: 'rgba(255,255,255,0.72)', lineHeight: 1.85 }}>
                 We believe creativity is a living thing.<br />
                 It breathes. It evolves. It breaks rules.<br />
                 And we exist to keep it alive.
               </p>
 
-              <p style={{ fontSize: '18px', color: 'rgba(255,255,255,0.82)', lineHeight: 1.85 }}>
+              <p style={{ fontSize: '15px', color: 'rgba(255,255,255,0.72)', lineHeight: 1.85 }}>
                 At HypeHouse, we don&apos;t play it safe.<br />
                 We chase the ideas that scare us.<br />
                 The ones that keep us up at night.<br />
@@ -101,7 +101,7 @@ export default function PhilosophyPage() {
               <SectionLabel>The Principles</SectionLabel>
               <h2 style={{
                 fontFamily: 'var(--font-poppins)', fontWeight: 800,
-                fontSize: 'clamp(28px, 4vw, 52px)', color: 'white',
+                fontSize: 'clamp(20px, 3vw, 38px)', color: 'white',
                 marginTop: '20px', letterSpacing: '-0.02em', lineHeight: 1.15,
               }}>
                 We believe in four things.
@@ -144,20 +144,20 @@ export default function PhilosophyPage() {
         <div style={{ maxWidth: '760px', margin: '0 auto' }}>
           <ScrollReveal>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
-              <p style={{ fontSize: '18px', color: 'rgba(255,255,255,0.82)', lineHeight: 1.85 }}>
+              <p style={{ fontSize: '15px', color: 'rgba(255,255,255,0.72)', lineHeight: 1.85 }}>
                 We believe in partnership, not transactions.<br />
                 When we work with a brand, we treat it like our own.<br />
                 We listen. We challenge. We collaborate until the work feels right,
                 not until the deadline hits.
               </p>
 
-              <p style={{ fontSize: '18px', color: 'rgba(255,255,255,0.82)', lineHeight: 1.85 }}>
+              <p style={{ fontSize: '15px', color: 'rgba(255,255,255,0.72)', lineHeight: 1.85 }}>
                 We believe in quality.<br />
                 If it&apos;s not exceptional, it doesn&apos;t leave the room.<br />
                 We don&apos;t ship average. We ship what we&apos;re proud of.
               </p>
 
-              <p style={{ fontSize: '18px', color: 'rgba(255,255,255,0.82)', lineHeight: 1.85 }}>
+              <p style={{ fontSize: '15px', color: 'rgba(255,255,255,0.72)', lineHeight: 1.85 }}>
                 And above all, we believe in Hype.<br />
                 Not as noise, but as energy.<br />
                 The current that runs through culture.<br />
@@ -175,7 +175,7 @@ export default function PhilosophyPage() {
           <div style={{ maxWidth: '800px', margin: '0 auto' }}>
             <blockquote style={{
               fontFamily: 'var(--font-poppins)', fontWeight: 800,
-              fontSize: 'clamp(22px, 4vw, 48px)', lineHeight: 1.2,
+              fontSize: 'clamp(18px, 3vw, 38px)', lineHeight: 1.2,
               letterSpacing: '-0.02em', marginBottom: '32px',
               color: 'rgba(255,255,255,0.90)',
             }}>
@@ -183,7 +183,7 @@ export default function PhilosophyPage() {
               <span className="gradient-text">Freedom. Precision. Partnership. Quality. Hype.</span>
             </blockquote>
             <p style={{
-              fontSize: '18px', color: 'rgba(255,255,255,0.72)',
+              fontSize: '14px', color: 'rgba(255,255,255,0.60)',
               lineHeight: 1.8, marginBottom: '8px',
             }}>
               This is how we build.<br />
