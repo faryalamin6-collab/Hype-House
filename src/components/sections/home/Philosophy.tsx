@@ -16,7 +16,7 @@ export default function Philosophy() {
       style={{
         position: 'relative',
         zIndex: 10,
-        padding: '140px 48px',
+        padding: '80px 48px',
       }}
     >
       <div style={{ maxWidth: '1280px', margin: '0 auto' }}>

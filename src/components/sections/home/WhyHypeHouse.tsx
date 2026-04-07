@@ -12,7 +12,7 @@ const stats = [
 
 export default function WhyHypeHouse() {
   return (
-    <section style={{ position: 'relative', zIndex: 10, padding: '140px 0' }}>
+    <section style={{ position: 'relative', zIndex: 10, padding: '80px 0' }}>
       {/* Full-width image with overlay */}
       <ScrollReveal>
         <div style={{ position: 'relative', width: '100%', minHeight: '500px', overflow: 'hidden' }}>

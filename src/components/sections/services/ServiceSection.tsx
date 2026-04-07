@@ -37,35 +37,33 @@ export default function ServiceSection({
       style={{
         position: 'relative',
         zIndex: 10,
-        padding: '80px 48px 120px',
+        padding: '60px 48px 80px',
         borderBottom: '1px solid rgba(255,255,255,0.05)',
       }}
     >
       <div style={{ maxWidth: '1280px', margin: '0 auto' }}>
 
-        {/* ── HEADER IMAGE — full width, natural aspect ratio (no cropping) ── */}
+        {/* ── HEADER IMAGE — full width, natural aspect ratio, always visible ── */}
         {imageSrc && (
-          <ScrollReveal>
-            <div
-              style={{
-                width: '100%',
-                borderRadius: '14px',
-                overflow: 'hidden',
-                border: '1px solid rgba(4,157,255,0.15)',
-                marginBottom: '56px',
-                background: 'rgba(255,255,255,0.02)',
-              }}
-            >
-              <Image
-                src={imageSrc}
-                alt={label}
-                width={1280}
-                height={512}
-                style={{ width: '100%', height: 'auto', display: 'block' }}
-                priority={id === 'branding'}
-              />
-            </div>
-          </ScrollReveal>
+          <div
+            style={{
+              width: '100%',
+              borderRadius: '14px',
+              overflow: 'hidden',
+              border: '1px solid rgba(4,157,255,0.15)',
+              marginBottom: '56px',
+              background: 'rgba(255,255,255,0.02)',
+            }}
+          >
+            <Image
+              src={imageSrc}
+              alt={label}
+              width={1280}
+              height={512}
+              style={{ width: '100%', height: 'auto', display: 'block' }}
+              priority={id === 'branding'}
+            />
+          </div>
         )}
 
         {/* ── CONTENT — label, title, description, inclusions, CTA ───────── */}

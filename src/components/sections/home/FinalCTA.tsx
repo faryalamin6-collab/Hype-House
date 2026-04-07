@@ -7,7 +7,7 @@ export default function FinalCTA() {
       style={{
         position: 'relative',
         zIndex: 10,
-        padding: '96px 24px 120px',
+        padding: '64px 24px 80px',
         textAlign: 'center',
         overflow: 'hidden',
       }}

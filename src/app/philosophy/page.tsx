@@ -75,7 +75,7 @@ export default function PhilosophyPage() {
         background: 'rgba(255,255,255,0.02)',
         borderTop: '1px solid rgba(255,255,255,0.06)',
         borderBottom: '1px solid rgba(255,255,255,0.06)',
-        padding: '120px 48px',
+        padding: '72px 48px',
       }}>
         <div style={{ maxWidth: '760px', margin: '0 auto' }}>
           <ScrollReveal>
@@ -98,7 +98,7 @@ export default function PhilosophyPage() {
       </section>
 
       {/* ── PRINCIPLES CARDS ─────────────────────────────────────────────── */}
-      <section style={{ position: 'relative', zIndex: 10, padding: '120px 48px' }}>
+      <section style={{ position: 'relative', zIndex: 10, padding: '72px 48px' }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
           <ScrollReveal>
             <div style={{ textAlign: 'center', marginBottom: '56px' }}>
@@ -143,7 +143,7 @@ export default function PhilosophyPage() {
         background: 'rgba(255,255,255,0.02)',
         borderTop: '1px solid rgba(255,255,255,0.06)',
         borderBottom: '1px solid rgba(255,255,255,0.06)',
-        padding: '120px 48px',
+        padding: '72px 48px',
       }}>
         <div style={{ maxWidth: '760px', margin: '0 auto' }}>
           <ScrollReveal>
@@ -174,7 +174,7 @@ export default function PhilosophyPage() {
       </section>
 
       {/* ── CLOSING ──────────────────────────────────────────────────────── */}
-      <section style={{ position: 'relative', zIndex: 10, padding: '140px 48px', textAlign: 'center' }}>
+      <section style={{ position: 'relative', zIndex: 10, padding: '80px 48px', textAlign: 'center' }}>
         <ScrollReveal>
           <div style={{ maxWidth: '800px', margin: '0 auto' }}>
             <blockquote style={{

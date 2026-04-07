@@ -83,7 +83,7 @@ export default function ServicesOverview() {
 
   return (
     <section
-      style={{ position: 'relative', zIndex: 10, padding: '140px 48px' }}
+      style={{ position: 'relative', zIndex: 10, padding: '80px 48px' }}
     >
       <div style={{ maxWidth: '1280px', margin: '0 auto' }}>
         <div style={{ textAlign: 'center', marginBottom: '64px' }}>

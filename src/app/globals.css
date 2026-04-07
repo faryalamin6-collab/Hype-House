@@ -100,8 +100,8 @@ p, li, span:not(.gradient-text):not(.section-label) {
 }
 
 /* Section base padding */
-.section-pad { padding: 140px 0; }
-@media (max-width: 768px) { .section-pad { padding: 80px 0; } }
+.section-pad { padding: 80px 0; }
+@media (max-width: 768px) { .section-pad { padding: 48px 0; } }
 
 /* ── CONTACT PAGE LAYOUT ─────────────────────────────────────────────────── */
 @media (min-width: 1024px) {
@@ -161,8 +161,8 @@ p, li, span:not(.gradient-text):not(.section-label) {
 
 /* ── INNER PAGE TOP SPACING ──────────────────────────────────────────────── */
 /* Clears the fixed navbar (≈68px) with intentional breathing room.         */
-.page-top { padding-top: 140px; }
-@media (max-width: 768px) { .page-top { padding-top: 100px; } }
+.page-top { padding-top: 110px; }
+@media (max-width: 768px) { .page-top { padding-top: 80px; } }
 
 /* Magnetic button base */
 .btn-primary {
