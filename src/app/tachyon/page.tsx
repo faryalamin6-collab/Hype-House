@@ -66,9 +66,10 @@ export default function TachyonPage() {
   return (
     <>
       {/* ── SECTION 1: HERO ───────────────────────────────────────────────── */}
-      <section style={{
+      <section className="page-top" style={{
         position: 'relative', zIndex: 10,
-        padding: '100px 48px 60px', textAlign: 'center', overflow: 'hidden',
+        paddingLeft: '48px', paddingRight: '48px', paddingBottom: '60px',
+        textAlign: 'center', overflow: 'hidden',
       }}>
         {/* Tachyon plasma background — Electric Core + Deep System Blue */}
         <div style={{
