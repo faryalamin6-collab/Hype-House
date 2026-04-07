@@ -26,6 +26,15 @@ export default function ImageReveal({
     const el = ref.current
     if (!el) return
 
+    // If already in viewport (e.g. direct anchor link), skip animation entirely
+    const rect = el.getBoundingClientRect()
+    if (rect.top < window.innerHeight * 0.88) {
+      el.style.opacity = '1'
+      const img = el.querySelector('img') as HTMLImageElement | null
+      if (img) img.style.transform = 'scale(1)'
+      return
+    }
+
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     let ctx: any
 

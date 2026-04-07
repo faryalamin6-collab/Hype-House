@@ -60,14 +60,14 @@ export default function ServicesOverview() {
       ctx = gsap.context(() => {
         gsap.fromTo(
           Array.from(cards as HTMLCollection),
-          { opacity: 0, y: 40, scale: 0.96 },
+          { opacity: 0, x: -48, scale: 0.96 },
           {
             opacity: 1,
-            y: 0,
+            x: 0,
             scale: 1,
-            duration: 0.7,
-            ease: 'cubic-bezier(0.2,0.8,0.2,1)',
-            stagger: 0.08,
+            duration: 0.65,
+            ease: 'power3.out',
+            stagger: 0.10,
             scrollTrigger: {
               trigger: gridRef.current,
               start: 'top 85%',
@@ -118,6 +118,7 @@ export default function ServicesOverview() {
               style={{ opacity: 0 }}
             >
               <div
+                className="service-overview-card"
                 style={{
                   background: 'rgba(255,255,255,0.04)',
                   backdropFilter: 'blur(12px)',
@@ -127,13 +128,13 @@ export default function ServicesOverview() {
                   height: '100%',
                   display: 'flex',
                   flexDirection: 'column',
-                  transition: 'border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease',
+                  transition: 'border-color 0.35s ease, transform 0.35s ease, box-shadow 0.35s ease',
                 }}
                 onMouseEnter={e => {
                   const el = e.currentTarget
-                  el.style.borderColor = 'rgba(4,157,255,0.35)'
-                  el.style.transform = 'translateY(-4px)'
-                  el.style.boxShadow = '0 20px 60px rgba(166,20,178,0.12)'
+                  el.style.borderColor = 'rgba(166,20,178,0.55)'
+                  el.style.transform = 'translateY(-6px)'
+                  el.style.boxShadow = '0 0 32px rgba(166,20,178,0.20), 0 20px 48px rgba(0,0,0,0.3)'
                 }}
                 onMouseLeave={e => {
                   const el = e.currentTarget

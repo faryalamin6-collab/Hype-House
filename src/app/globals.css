@@ -273,6 +273,15 @@ p, li, span:not(.gradient-text):not(.section-label) {
   display: inline;
 }
 
+/* ── SERVICES OVERVIEW CARD — idle border glow ──────────────────────────── */
+.service-overview-card {
+  animation: card-idle-glow 4s ease-in-out infinite;
+}
+@keyframes card-idle-glow {
+  0%, 100% { box-shadow: 0 0 0px rgba(166,20,178,0); }
+  50%       { box-shadow: 0 0 18px rgba(166,20,178,0.12); }
+}
+
 /* ── SERVICE ICON ANIMATION ─────────────────────────────────────────────── */
 .service-icon-tile {
   animation: icon-idle-pulse 3s ease-in-out infinite;
