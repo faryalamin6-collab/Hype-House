@@ -48,8 +48,8 @@ export default function PhilosophyPage() {
             <SectionLabel>Our Philosophy · The HypeHouse Code</SectionLabel>
             <h1 style={{
               fontFamily: 'var(--font-poppins)', fontWeight: 800,
-              fontSize: 'clamp(24px, 4vw, 54px)', color: 'white',
-              marginTop: '24px', marginBottom: '28px',
+              fontSize: 'clamp(32px, 6vw, 76px)', color: 'white',
+              marginTop: '24px', marginBottom: '32px',
               letterSpacing: '-0.02em', lineHeight: 1.05,
             }}>
               We Don&apos;t Follow The<br />
@@ -101,7 +101,7 @@ export default function PhilosophyPage() {
               <SectionLabel>The Principles</SectionLabel>
               <h2 style={{
                 fontFamily: 'var(--font-poppins)', fontWeight: 800,
-                fontSize: 'clamp(20px, 3vw, 38px)', color: 'white',
+                fontSize: 'clamp(28px, 4vw, 52px)', color: 'white',
                 marginTop: '20px', letterSpacing: '-0.02em', lineHeight: 1.15,
               }}>
                 We believe in four things.
@@ -175,7 +175,7 @@ export default function PhilosophyPage() {
           <div style={{ maxWidth: '800px', margin: '0 auto' }}>
             <blockquote style={{
               fontFamily: 'var(--font-poppins)', fontWeight: 800,
-              fontSize: 'clamp(18px, 3vw, 38px)', lineHeight: 1.2,
+              fontSize: 'clamp(22px, 4vw, 48px)', lineHeight: 1.2,
               letterSpacing: '-0.02em', marginBottom: '32px',
               color: 'rgba(255,255,255,0.90)',
             }}>

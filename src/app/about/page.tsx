@@ -49,8 +49,8 @@ export default function AboutPage() {
             <SectionLabel>About Us · Nice To Meet You</SectionLabel>
             <h1 style={{
               fontFamily: 'var(--font-poppins)', fontWeight: 800,
-              fontSize: 'clamp(24px, 4vw, 54px)', color: 'white',
-              marginTop: '24px', marginBottom: '28px',
+              fontSize: 'clamp(32px, 6vw, 76px)', color: 'white',
+              marginTop: '24px', marginBottom: '32px',
               letterSpacing: '-0.02em', lineHeight: 1.05,
             }}>
               We Don&apos;t Build<br />
@@ -128,7 +128,7 @@ export default function AboutPage() {
             </div>
             <h2 style={{
               fontFamily: 'var(--font-poppins)', fontWeight: 800,
-              fontSize: 'clamp(22px, 3vw, 40px)', color: 'white',
+              fontSize: 'clamp(28px, 4vw, 52px)', color: 'white',
               textAlign: 'center', letterSpacing: '-0.02em',
               marginBottom: '20px',
             }}>

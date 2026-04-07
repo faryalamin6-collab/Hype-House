@@ -155,8 +155,8 @@ p, li, span:not(.gradient-text):not(.section-label) {
 
 /* ── INNER PAGE TOP SPACING ──────────────────────────────────────────────── */
 /* Clears the fixed navbar (≈68px) with intentional breathing room.         */
-.page-top { padding-top: 110px; }
-@media (max-width: 768px) { .page-top { padding-top: 120px; } }
+.page-top { padding-top: 130px; }
+@media (max-width: 768px) { .page-top { padding-top: 140px; } }
 
 /* Magnetic button base */
 .btn-primary {
