@@ -111,17 +111,25 @@ export default function ServiceSection({
             gap: '12px 32px',
             marginBottom: '40px',
           }}>
-            {inclusions.map(({ item }) => (
-              <div key={item} style={{ display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
-                <span style={{ color: '#049DFF', fontSize: '12px', marginTop: '4px', flexShrink: 0 }}>✦</span>
-                <span style={{
-                  fontFamily: 'var(--font-poppins)', fontSize: '14px',
-                  color: 'rgba(255,255,255,0.72)', lineHeight: 1.55,
-                }}>
-                  {item}
-                </span>
-              </div>
-            ))}
+            {inclusions.map(({ item }) => {
+              const [title, ...rest] = item.split(' — ')
+              const body = rest.join(' — ')
+              return (
+                <div key={item} style={{ display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
+                  <span style={{ color: '#049DFF', fontSize: '12px', marginTop: '4px', flexShrink: 0 }}>✦</span>
+                  <span style={{
+                    fontFamily: 'var(--font-poppins)', fontSize: '14px',
+                    color: 'rgba(255,255,255,0.72)', lineHeight: 1.55,
+                  }}>
+                    {body ? (
+                      <>
+                        <span style={{ fontWeight: 600, color: 'rgba(255,255,255,0.92)' }}>{title}:</span>{' '}{body}
+                      </>
+                    ) : title}
+                  </span>
+                </div>
+              )
+            })}
           </div>
 
           {pricing && (
