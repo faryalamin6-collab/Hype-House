@@ -39,7 +39,8 @@ export default function PhilosophyPage() {
         className="page-top"
         style={{
           position: 'relative', zIndex: 10,
-          padding: '0 24px 80px', textAlign: 'center',
+          paddingLeft: '24px', paddingRight: '24px', paddingBottom: '80px',
+          textAlign: 'center',
         }}
       >
         <div style={{ maxWidth: '860px', margin: '0 auto' }}>

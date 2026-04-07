@@ -141,7 +141,7 @@ export default function RateCardPage() {
   return (
     <>
       {/* Hero */}
-      <section className="page-top" style={{ position: 'relative', zIndex: 10, padding: '0 24px 60px', textAlign: 'center' }}>
+      <section className="page-top" style={{ position: 'relative', zIndex: 10, paddingLeft: '24px', paddingRight: '24px', paddingBottom: '60px', textAlign: 'center' }}>
         <div style={{ maxWidth: '800px', margin: '0 auto' }}>
           <SectionLabel>Transparent Pricing</SectionLabel>
           <h1 style={{ fontSize: 'clamp(36px, 6vw, 80px)', marginTop: '24px', marginBottom: '24px', letterSpacing: '-0.02em', lineHeight: 1.1 }}>

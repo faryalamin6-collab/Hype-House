@@ -139,7 +139,7 @@ export default function ServicesPage() {
         style={{
           position: 'relative',
           zIndex: 10,
-          padding: '0 24px 60px',
+          paddingLeft: '24px', paddingRight: '24px', paddingBottom: '60px',
           textAlign: 'center',
         }}
       >
