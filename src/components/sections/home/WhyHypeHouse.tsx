@@ -5,7 +5,7 @@ import ScrollReveal from '@/components/ui/ScrollReveal'
 
 const stats = [
   { number: 'Strategy First', label: 'Before a single pixel is touched.', icon: '◆' },
-  { number: 'Built to Perform', label: 'Creative that is designed to drive real outcomes.', icon: '◈' },
+  { number: 'Built with Intent', label: 'Creative that is designed to drive real outcomes.', icon: '◈' },
   { number: 'Built to Outperform', label: 'Connecting ambitious brands to marketing that actually moves.', icon: '⬡' },
 ]
 
