@@ -36,78 +36,87 @@ export default function AboutPage() {
   return (
     <>
       {/* ── HERO ─────────────────────────────────────────────────────────── */}
-      <section style={{ position: 'relative', zIndex: 10, padding: '100px 24px 80px', textAlign: 'center' }}>
-        <div style={{ maxWidth: '800px', margin: '0 auto' }}>
+      <section
+        className="page-top"
+        style={{
+          position: 'relative', zIndex: 10,
+          padding: '0 24px 80px', textAlign: 'center',
+        }}
+      >
+        <div style={{ maxWidth: '860px', margin: '0 auto' }}>
           <ScrollReveal>
-            <SectionLabel>Who We Are</SectionLabel>
+            <SectionLabel>About Us · Nice To Meet You</SectionLabel>
             <h1 style={{
               fontFamily: 'var(--font-poppins)', fontWeight: 800,
               fontSize: 'clamp(32px, 6vw, 76px)', color: 'white',
-              marginTop: '24px', marginBottom: '24px',
-              letterSpacing: '-0.02em', lineHeight: 1.1,
+              marginTop: '24px', marginBottom: '32px',
+              letterSpacing: '-0.02em', lineHeight: 1.05,
             }}>
-              Not an agency.{' '}
-              <span className="gradient-text">A creative intelligence partner.</span>
+              We Don&apos;t Build<br />
+              Brands.<br />
+              <span className="gradient-text">We Engineer Hype.</span>
             </h1>
-            <p style={{
-              fontSize: '20px', color: 'rgba(255,255,255,0.80)',
-              lineHeight: 1.7, maxWidth: '580px', margin: '0 auto',
-            }}>
-              HypeHouse was built because the market deserved better. Better thinking. Better creative. Better results.
-            </p>
-          </ScrollReveal>
-        </div>
-      </section>
 
-      {/* ── BRAND STORY — two column ─────────────────────────────────────── */}
-      <section style={{ position: 'relative', zIndex: 10, padding: '100px 48px' }}>
-        <div style={{
-          maxWidth: '1200px', margin: '0 auto',
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))',
-          gap: '64px', alignItems: 'center',
-        }}>
-          {/* Left: text */}
-          <ScrollReveal>
-            <SectionLabel>Our Story</SectionLabel>
-            <h2 style={{
-              fontFamily: 'var(--font-poppins)', fontWeight: 800,
-              fontSize: 'clamp(28px, 4vw, 48px)', color: 'white',
-              marginTop: '20px', marginBottom: '28px',
-              letterSpacing: '-0.02em', lineHeight: 1.15,
+            <div style={{
+              display: 'flex', flexDirection: 'column', gap: '20px',
+              textAlign: 'left', maxWidth: '720px', margin: '0 auto',
             }}>
-              Built in Karachi.{' '}
-              <span className="gradient-text">Built for ambition.</span>
-            </h2>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
-              <p style={{ fontSize: '16px', color: 'rgba(255,255,255,0.80)', lineHeight: 1.75 }}>
-                HypeHouse Digital is a full-service AI-powered creative agency based in Karachi. We were built on a simple belief — that brands in Pakistan deserve the same quality of strategic and creative thinking that global brands receive from world-class agencies.
+              <p style={{ fontSize: '18px', color: 'rgba(255,255,255,0.82)', lineHeight: 1.8 }}>
+                We&apos;re not your typical agency.<br />
+                We&apos;re architects of velocity, where design, storytelling, and AI collide to create
+                ecosystems that move at lightspeed and perform with precision.<br />
+                Where bold creative ignites movements.<br />
+                Where every visual, every line, and every campaign is built to inspire and
+                engineered to perform.
               </p>
-              <p style={{ fontSize: '16px', color: 'rgba(255,255,255,0.80)', lineHeight: 1.75 }}>
-                We combine strategy, creative, technology, and automation into one unified system. Not six disconnected vendors. One partner who owns the outcome.
+
+              <p style={{ fontSize: '18px', color: 'rgba(255,255,255,0.82)', lineHeight: 1.8 }}>
+                HypeHouse is a collective of digital natives, AI visionaries, and creative
+                architects who know that modern brands need more than marketing. They
+                need systems that evolve. Stories that spread like wildfire. Visuals that rewire
+                perception.
               </p>
-              <p style={{ fontSize: '16px', color: 'rgba(255,255,255,0.80)', lineHeight: 1.75 }}>
-                Every service we offer exists inside a connected architecture. Branding informs copy. Copy informs content. Content informs campaigns. Campaigns inform SEO. And automation makes the whole system run without burning your team out.
+
+              <p style={{ fontSize: '18px', color: 'rgba(255,255,255,0.82)', lineHeight: 1.8 }}>
+                Powered by Tachyon, our AI backbone, we launch brands, scale performance,
+                and turn attention into revenue.
               </p>
-              <p style={{ fontSize: '16px', color: 'rgba(255,255,255,0.80)', lineHeight: 1.75, fontStyle: 'italic' }}>
-                This is not how most agencies work. This is how HypeHouse works.
+
+              <p style={{ fontSize: '18px', color: 'rgba(255,255,255,0.82)', lineHeight: 1.8 }}>
+                We exist for brands that want to feel alive.<br />
+                The ones that want more than visibility.<br />
+                The ones that want to matter.
+              </p>
+
+              <p style={{ fontSize: '18px', color: 'rgba(255,255,255,0.82)', lineHeight: 1.8, fontStyle: 'italic' }}>
+                Where hype isn&apos;t noise. It&apos;s momentum.
+              </p>
+
+              <p style={{ fontSize: '18px', color: 'rgba(255,255,255,0.82)', lineHeight: 1.8, fontWeight: 600 }}>
+                This is the future of creative. And it starts here.<br />
+                Welcome to HypeHouse.
               </p>
             </div>
-            <div style={{ marginTop: '40px' }}>
-              <Button href="https://hypehouse-client-intake-form.netlify.app" variant="primary" external>Work With Us →</Button>
-            </div>
-          </ScrollReveal>
 
-          {/* Right: image */}
-          <ScrollReveal delay={150}>
-            <div style={{ position: 'relative', width: '100%', minHeight: '500px', borderRadius: '12px', overflow: 'hidden', border: '1px solid rgba(4,157,255,0.18)' }}>
-              <Image src="/images/additional-1.png" alt="HypeHouse Digital Agency" fill style={{ objectFit: 'cover', objectPosition: 'center' }} />
+            <div style={{ marginTop: '48px' }}>
+              <Button href="https://hypehouse-client-intake-form.netlify.app" variant="primary" external>
+                Work With Us →
+              </Button>
             </div>
           </ScrollReveal>
         </div>
       </section>
 
-      {/* ── THE CODE — dark panel ─────────────────────────────────────────── */}
+      {/* ── BRAND IMAGE ──────────────────────────────────────────────────── */}
+      <section style={{ position: 'relative', zIndex: 10, padding: '0 48px 80px' }}>
+        <ScrollReveal>
+          <div style={{ maxWidth: '1000px', margin: '0 auto', position: 'relative', minHeight: '480px', borderRadius: '12px', overflow: 'hidden', border: '1px solid rgba(4,157,255,0.18)' }}>
+            <Image src="/images/additional-1.png" alt="HypeHouse Digital Agency" fill style={{ objectFit: 'cover', objectPosition: 'center' }} />
+          </div>
+        </ScrollReveal>
+      </section>
+
+      {/* ── THE CODE ─────────────────────────────────────────────────────── */}
       <section style={{
         position: 'relative', zIndex: 10,
         background: 'rgba(255,255,255,0.02)',
@@ -191,7 +200,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ── PHILOSOPHY QUOTE ─────────────────────────────────────────────── */}
+      {/* ── CLOSING QUOTE ────────────────────────────────────────────────── */}
       <section style={{ position: 'relative', zIndex: 10, padding: '80px 48px 140px', textAlign: 'center' }}>
         <ScrollReveal>
           <blockquote style={{

@@ -9,8 +9,8 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
-    <main style={{ minHeight: '100vh', paddingTop: '80px' }}>
-      <section style={{ maxWidth: '900px', margin: '0 auto', padding: '80px 24px 120px' }}>
+    <main style={{ minHeight: '100vh' }}>
+      <section className="page-top" style={{ maxWidth: '900px', margin: '0 auto', padding: '0 24px 120px' }}>
 
         {/* HEADER */}
         <div style={{ textAlign: 'center', marginBottom: '64px' }}>

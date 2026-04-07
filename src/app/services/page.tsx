@@ -135,10 +135,11 @@ export default function ServicesPage() {
     <>
       {/* Hero */}
       <section
+        className="page-top"
         style={{
           position: 'relative',
           zIndex: 10,
-          padding: '100px 24px 60px',
+          padding: '0 24px 60px',
           textAlign: 'center',
         }}
       >

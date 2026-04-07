@@ -93,7 +93,7 @@ export default function TachyonTeaser() {
               textDecoration: 'none',
               padding: '14px 28px',
               borderRadius: '8px',
-              background: 'linear-gradient(135deg, #021FC3 0%, #9F01F6 60%, #00F0FF 100%)',
+              background: 'linear-gradient(135deg, #5B8FFF 0%, #B040FF 55%, #00F0FF 100%)',
             }}
           >
             Explore Tachyon →

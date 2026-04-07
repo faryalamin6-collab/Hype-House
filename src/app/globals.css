@@ -159,6 +159,11 @@ p, li, span:not(.gradient-text):not(.section-label) {
   .content-wrap { padding: 0 24px; }
 }
 
+/* ── INNER PAGE TOP SPACING ──────────────────────────────────────────────── */
+/* Clears the fixed navbar (≈68px) with intentional breathing room.         */
+.page-top { padding-top: 140px; }
+@media (max-width: 768px) { .page-top { padding-top: 100px; } }
+
 /* Magnetic button base */
 .btn-primary {
   position: relative; overflow: hidden;
@@ -222,6 +227,18 @@ p, li, span:not(.gradient-text):not(.section-label) {
   100% { transform: rotate(360deg) scale(1.5); }
 }
 
+/* ── TACHYON CARDS GRID ──────────────────────────────────────────────────── */
+/* Fixed 2-column on desktop; single column on mobile.                       */
+.tachyon-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin-bottom: 24px;
+}
+@media (max-width: 768px) {
+  .tachyon-cards-grid { grid-template-columns: 1fr; }
+}
+
 /* ── TACHYON PALETTE OVERRIDES ──────────────────────────────────────────── */
 /* Applied via className to shared components used on Tachyon UI.            */
 /* !important is required to beat inline styles from shared components.      */
@@ -234,7 +251,7 @@ p, li, span:not(.gradient-text):not(.section-label) {
   color: #00F0FF !important;
 }
 .tachyon-btn-primary {
-  background: linear-gradient(135deg, #021FC3 0%, #9F01F6 60%, #00F0FF 100%) !important;
+  background: linear-gradient(135deg, #5B8FFF 0%, #B040FF 55%, #00F0FF 100%) !important;
 }
 .tachyon-btn-primary:hover {
   box-shadow: 0 0 20px rgba(0,240,255,0.3) !important;
@@ -243,7 +260,7 @@ p, li, span:not(.gradient-text):not(.section-label) {
   box-shadow: 0 0 30px rgba(0,240,255,0.3);
 }
 .tachyon-gradient-text {
-  background: linear-gradient(135deg, #9F01F6 0%, #021FC3 35%, #00F0FF 100%);
+  background: linear-gradient(135deg, #B040FF 0%, #5B8FFF 50%, #00F0FF 100%);
   background-size: 200% 200%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;

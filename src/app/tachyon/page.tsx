@@ -68,7 +68,7 @@ export default function TachyonPage() {
       {/* ── SECTION 1: HERO ───────────────────────────────────────────────── */}
       <section style={{
         position: 'relative', zIndex: 10,
-        padding: '100px 48px 80px', textAlign: 'center', overflow: 'hidden',
+        padding: '140px 48px 80px', textAlign: 'center', overflow: 'hidden',
       }}>
         {/* Tachyon plasma background — Electric Core + Deep System Blue */}
         <div style={{
@@ -89,7 +89,7 @@ export default function TachyonPage() {
             fontFamily: 'var(--font-poppins)', fontWeight: 800,
             fontSize: 'clamp(48px, 10vw, 120px)', letterSpacing: '-0.03em',
             lineHeight: 1, marginBottom: '12px',
-            background: 'linear-gradient(135deg, #9F01F6 0%, #021FC3 35%, #00F0FF 100%)',
+            background: 'linear-gradient(135deg, #B040FF 0%, #5B8FFF 50%, #00F0FF 100%)',
             backgroundSize: '200% 200%',
             WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent',
             backgroundClip: 'text', animation: 'gradient-shift 4s ease infinite',
@@ -250,7 +250,7 @@ export default function TachyonPage() {
               }}>
                 Five systems.{' '}
                 <span style={{
-                  background: 'linear-gradient(135deg, #9F01F6 0%, #021FC3 35%, #00F0FF 100%)',
+                  background: 'linear-gradient(135deg, #B040FF 0%, #5B8FFF 50%, #00F0FF 100%)',
                   WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text',
                 }}>
                   One brain. Zero manual effort.
@@ -259,8 +259,8 @@ export default function TachyonPage() {
             </div>
           </ScrollReveal>
 
-          {/* First 4 cards — 2-column grid */}
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '24px', marginBottom: '24px' }}>
+          {/* First 4 cards — fixed 2-column grid (responsive via .tachyon-cards-grid) */}
+          <div className="tachyon-cards-grid">
             {capabilities.slice(0, 4).map((item, i) => (
               <ScrollReveal key={item.title} delay={i * 80}>
                 <HoverCard
@@ -372,7 +372,7 @@ export default function TachyonPage() {
               fontFamily: 'var(--font-poppins)', fontWeight: 800,
               fontSize: 'clamp(28px, 4vw, 48px)', letterSpacing: '-0.02em', lineHeight: 1.1,
               marginBottom: '48px',
-              background: 'linear-gradient(135deg, #9F01F6 0%, #021FC3 35%, #00F0FF 100%)',
+              background: 'linear-gradient(135deg, #B040FF 0%, #5B8FFF 50%, #00F0FF 100%)',
               WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text',
             }}>
               We build it. We run it. You grow.
@@ -521,7 +521,7 @@ export default function TachyonPage() {
                 fontFamily: 'var(--font-poppins)', fontWeight: 700, fontSize: '17px',
                 color: '#FFFFFF', textDecoration: 'none',
                 padding: '18px 40px', borderRadius: '10px',
-                background: 'linear-gradient(135deg, #9F01F6 0%, #021FC3 35%, #00F0FF 100%)',
+                background: 'linear-gradient(135deg, #B040FF 0%, #5B8FFF 50%, #00F0FF 100%)',
                 border: 'none',
                 transition: 'box-shadow 0.3s ease',
               }}

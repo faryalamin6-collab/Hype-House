@@ -20,7 +20,7 @@ export default function WhyHypeHouse() {
             src="/images/hero-bg.png"
             alt="HypeHouse Digital"
             fill
-            style={{ objectFit: 'cover', objectPosition: 'center', opacity: 0.35 }}
+            style={{ objectFit: 'cover', objectPosition: 'center', opacity: 0.20 }}
           />
           <div style={{
             position: 'absolute', inset: 0,

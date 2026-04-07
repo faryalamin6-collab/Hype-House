@@ -8,6 +8,7 @@ import { usePathname } from 'next/navigation'
 const navLinks = [
   { href: '/', label: 'Home' },
   { href: '/about', label: 'About' },
+  { href: '/philosophy', label: 'Philosophy' },
   { href: '/services', label: 'Services' },
   { href: '/tachyon', label: 'Tachyon' },
   { href: '/rate-card', label: 'Rate Card' },
@@ -61,9 +62,9 @@ export default function Navigation() {
       >
         <div
           style={{
-            maxWidth: '1280px',
+            maxWidth: '1440px',
             margin: '0 auto',
-            padding: '0 24px',
+            padding: '0 48px',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'space-between',
