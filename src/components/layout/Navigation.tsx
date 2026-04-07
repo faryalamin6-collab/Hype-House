@@ -234,6 +234,7 @@ export default function Navigation() {
           <Link
             key={link.href}
             href={link.href}
+            onClick={() => setMobileOpen(false)}
             style={{
               fontFamily: 'var(--font-poppins)',
               fontWeight: 700,
