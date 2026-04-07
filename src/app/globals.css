@@ -21,6 +21,7 @@
 
 html {
   overflow-x: hidden;
+  scroll-padding-top: 80px;  /* offset all anchor links to clear the fixed navbar */
   scroll-behavior: auto;
 }
 
