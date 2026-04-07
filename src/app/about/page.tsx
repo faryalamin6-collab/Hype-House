@@ -119,7 +119,7 @@ export default function AboutPage() {
         background: 'rgba(255,255,255,0.02)',
         borderTop: '1px solid rgba(255,255,255,0.06)',
         borderBottom: '1px solid rgba(255,255,255,0.06)',
-        padding: '72px 48px',
+        padding: '56px 48px',
       }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
           <ScrollReveal>
@@ -167,7 +167,7 @@ export default function AboutPage() {
       </section>
 
       {/* ── TACHYON MENTION ──────────────────────────────────────────────── */}
-      <section style={{ position: 'relative', zIndex: 10, padding: '64px 48px' }}>
+      <section style={{ position: 'relative', zIndex: 10, padding: '48px 48px' }}>
         <div style={{ maxWidth: '800px', margin: '0 auto', textAlign: 'center' }}>
           <ScrollReveal>
             <div style={{
@@ -198,7 +198,7 @@ export default function AboutPage() {
       </section>
 
       {/* ── CLOSING QUOTE ────────────────────────────────────────────────── */}
-      <section style={{ position: 'relative', zIndex: 10, padding: '64px 48px 80px', textAlign: 'center' }}>
+      <section style={{ position: 'relative', zIndex: 10, padding: '48px 48px 64px', textAlign: 'center' }}>
         <ScrollReveal>
           <blockquote style={{
             fontFamily: 'var(--font-poppins)', fontWeight: 800,

@@ -207,7 +207,7 @@ export default function Navigation() {
         </div>
       </nav>
 
-      {/* Mobile overlay */}
+      {/* Mobile overlay — starts below the navbar so logo never overlaps links */}
       <div
         style={{
           position: 'fixed',
@@ -219,8 +219,11 @@ export default function Navigation() {
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
-          justifyContent: 'center',
-          gap: '8px',
+          justifyContent: 'flex-start',
+          paddingTop: '88px',   /* clears the fixed navbar */
+          paddingBottom: '40px',
+          gap: '4px',
+          overflowY: 'auto',
           opacity: mobileOpen ? 1 : 0,
           pointerEvents: mobileOpen ? 'auto' : 'none',
           transition: 'opacity 0.3s ease',
@@ -234,14 +237,14 @@ export default function Navigation() {
             style={{
               fontFamily: 'var(--font-poppins)',
               fontWeight: 700,
-              fontSize: '28px',
+              fontSize: '26px',
               color: pathname === link.href ? '#C084FC' : 'rgba(255,255,255,0.85)',
               textDecoration: 'none',
-              padding: '12px 32px',
+              padding: '10px 32px',
               letterSpacing: '-0.01em',
               opacity: mobileOpen ? 1 : 0,
               transform: mobileOpen ? 'translateY(0)' : 'translateY(20px)',
-              transition: `opacity 0.4s ease ${i * 60}ms, transform 0.4s ease ${i * 60}ms`,
+              transition: `opacity 0.4s ease ${i * 50}ms, transform 0.4s ease ${i * 50}ms`,
             }}
           >
             {link.label}
@@ -252,10 +255,10 @@ export default function Navigation() {
           target="_blank"
           rel="noopener noreferrer"
           style={{
-            marginTop: '24px',
+            marginTop: '20px',
             fontFamily: 'var(--font-poppins)',
             fontWeight: 600,
-            fontSize: '16px',
+            fontSize: '15px',
             color: 'white',
             textDecoration: 'none',
             padding: '14px 40px',
@@ -266,7 +269,7 @@ export default function Navigation() {
             textAlign: 'center',
             opacity: mobileOpen ? 1 : 0,
             transform: mobileOpen ? 'translateY(0)' : 'translateY(20px)',
-            transition: `opacity 0.4s ease ${navLinks.length * 60}ms, transform 0.4s ease ${navLinks.length * 60}ms`,
+            transition: `opacity 0.4s ease ${navLinks.length * 50}ms, transform 0.4s ease ${navLinks.length * 50}ms`,
             display: 'block',
           }}
         >
