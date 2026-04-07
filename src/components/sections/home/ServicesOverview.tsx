@@ -128,8 +128,8 @@ export default function ServicesOverview() {
               lineHeight: 1.15,
             }}
           >
-            Every service. One agency.{' '}
-            <span className="gradient-text">Zero compromises.</span>
+            One engine. Every output.{' '}
+            <span className="gradient-text">Built to win.</span>
           </h2>
           <p
             style={{
