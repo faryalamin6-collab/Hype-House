@@ -100,8 +100,8 @@ export default function TachyonTeaser() {
           </Link>
         </ScrollReveal>
 
-        {/* Right: Energy node visual */}
-        <ScrollReveal delay={150}>
+        {/* Right: Energy node visual — hidden on mobile to avoid blank space */}
+        <ScrollReveal delay={150} className="hidden md:block">
           <div
             style={{
               position: 'relative',
