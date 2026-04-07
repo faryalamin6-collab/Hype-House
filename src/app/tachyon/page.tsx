@@ -1,9 +1,9 @@
 import type { Metadata } from 'next'
-import Image from 'next/image'
 import SectionLabel from '@/components/ui/SectionLabel'
 import ScrollReveal from '@/components/ui/ScrollReveal'
 import Button from '@/components/ui/Button'
 import HoverCard from '@/components/ui/HoverCard'
+import ImageReveal from '@/components/ui/ImageReveal'
 
 export const metadata: Metadata = {
   title: 'Tachyon AI — Business Automation Systems | HypeHouse Digital',
@@ -144,15 +144,9 @@ export default function TachyonPage() {
         </div>
       </section>
 
-      {/* ── IMAGE ─────────────────────────────────────────────────────────── */}
-      <section style={{ position: 'relative', zIndex: 10, padding: '0 48px 80px' }}>
-        <div style={{ maxWidth: '1000px', margin: '0 auto' }}>
-          <ScrollReveal>
-            <div style={{ borderRadius: '12px', overflow: 'hidden', border: '1px solid rgba(0,240,255,0.12)' }}>
-              <Image src="/images/additional-2.png" alt="Tachyon AI System" width={1000} height={560} style={{ width: '100%', height: 'auto', display: 'block' }} />
-            </div>
-          </ScrollReveal>
-        </div>
+      {/* ── IMAGE — edge to edge ──────────────────────────────────────────── */}
+      <section style={{ position: 'relative', zIndex: 10, paddingBottom: '72px' }}>
+        <ImageReveal src="/images/additional-2.png" alt="Tachyon AI System" />
       </section>
 
       {/* ── SECTION 2: THE PROBLEM ────────────────────────────────────────── */}

@@ -1,9 +1,9 @@
 import type { Metadata } from 'next'
-import Image from 'next/image'
 import SectionLabel from '@/components/ui/SectionLabel'
 import ScrollReveal from '@/components/ui/ScrollReveal'
 import Button from '@/components/ui/Button'
 import HoverCard from '@/components/ui/HoverCard'
+import ImageReveal from '@/components/ui/ImageReveal'
 
 export const metadata: Metadata = {
   title: 'Our Philosophy — The HypeHouse Code | HypeHouse Digital',
@@ -60,13 +60,9 @@ export default function PhilosophyPage() {
         </div>
       </section>
 
-      {/* ── PHILOSOPHY IMAGE ─────────────────────────────────────────────── */}
-      <section style={{ position: 'relative', zIndex: 10, padding: '0 48px 80px' }}>
-        <ScrollReveal>
-          <div style={{ maxWidth: '1000px', margin: '0 auto', borderRadius: '12px', overflow: 'hidden', border: '1px solid rgba(4,157,255,0.18)' }}>
-            <Image src="/images/our-philosophy-header.png" alt="Our Philosophy" width={1000} height={560} style={{ width: '100%', height: 'auto', display: 'block' }} />
-          </div>
-        </ScrollReveal>
+      {/* ── PHILOSOPHY IMAGE — edge to edge ──────────────────────────────── */}
+      <section style={{ position: 'relative', zIndex: 10, paddingBottom: '80px' }}>
+        <ImageReveal src="/images/our-philosophy-header.png" alt="Our Philosophy" />
       </section>
 
       {/* ── BODY COPY ────────────────────────────────────────────────────── */}

@@ -1,8 +1,8 @@
 'use client'
 
-import Image from 'next/image'
 import ScrollReveal from '@/components/ui/ScrollReveal'
 import Button from '@/components/ui/Button'
+import ImageReveal from '@/components/ui/ImageReveal'
 
 interface Inclusion {
   item: string
@@ -41,15 +41,12 @@ export default function ServiceSection({
         borderBottom: '1px solid rgba(255,255,255,0.05)',
       }}
     >
-      {/* ── HEADER IMAGE — true full-width, edge to edge, no side margins ── */}
+      {/* ── HEADER IMAGE — edge to edge with reveal animation ────────────── */}
       {imageSrc && (
-        <div style={{ width: '100%', marginBottom: '48px', overflow: 'hidden' }}>
-          <Image
+        <div style={{ marginBottom: '48px' }}>
+          <ImageReveal
             src={imageSrc}
             alt={label}
-            width={1400}
-            height={560}
-            style={{ width: '100%', height: 'auto', display: 'block' }}
             priority={id === 'branding'}
           />
         </div>
