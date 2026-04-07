@@ -37,34 +37,25 @@ export default function ServiceSection({
       style={{
         position: 'relative',
         zIndex: 10,
-        padding: '60px 48px 80px',
+        paddingBottom: '80px',
         borderBottom: '1px solid rgba(255,255,255,0.05)',
       }}
     >
-      <div style={{ maxWidth: '1280px', margin: '0 auto' }}>
+      {/* ── HEADER IMAGE — true full-width, edge to edge, no side margins ── */}
+      {imageSrc && (
+        <div style={{ width: '100%', marginBottom: '48px', overflow: 'hidden' }}>
+          <Image
+            src={imageSrc}
+            alt={label}
+            width={1400}
+            height={560}
+            style={{ width: '100%', height: 'auto', display: 'block' }}
+            priority={id === 'branding'}
+          />
+        </div>
+      )}
 
-        {/* ── HEADER IMAGE — full width, natural aspect ratio, always visible ── */}
-        {imageSrc && (
-          <div
-            style={{
-              width: '100%',
-              borderRadius: '14px',
-              overflow: 'hidden',
-              border: '1px solid rgba(4,157,255,0.15)',
-              marginBottom: '56px',
-              background: 'rgba(255,255,255,0.02)',
-            }}
-          >
-            <Image
-              src={imageSrc}
-              alt={label}
-              width={1280}
-              height={512}
-              style={{ width: '100%', height: 'auto', display: 'block' }}
-              priority={id === 'branding'}
-            />
-          </div>
-        )}
+      <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 48px' }}>
 
         {/* ── CONTENT — label, title, description, inclusions, CTA ───────── */}
         <ScrollReveal delay={imageSrc ? 80 : 0}>
