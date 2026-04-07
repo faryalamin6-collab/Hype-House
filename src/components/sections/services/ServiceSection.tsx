@@ -39,6 +39,7 @@ export default function ServiceSection({
         zIndex: 10,
         paddingBottom: '80px',
         borderBottom: '1px solid rgba(255,255,255,0.05)',
+        scrollMarginTop: '70px',   /* image clears fixed navbar on anchor scroll */
       }}
     >
       {/* ── HEADER IMAGE — edge to edge with reveal animation ────────────── */}

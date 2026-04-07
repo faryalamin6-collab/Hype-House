@@ -4,6 +4,33 @@ import { useEffect, useRef } from 'react'
 import Link from 'next/link'
 import SectionLabel from '@/components/ui/SectionLabel'
 
+// Attach IntersectionObserver to each card for the scroll-focus scale effect
+function useCardFocus(gridRef: React.RefObject<HTMLDivElement>) {
+  useEffect(() => {
+    const cards = gridRef.current ? Array.from(gridRef.current.children) as HTMLElement[] : []
+    if (!cards.length) return
+
+    const obs = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          const card = entry.target as HTMLElement
+          if (entry.isIntersecting) {
+            card.style.transform = 'scale(1.03)'
+            card.style.zIndex = '2'
+          } else {
+            card.style.transform = 'scale(1)'
+            card.style.zIndex = '1'
+          }
+        })
+      },
+      { threshold: 0.65 }
+    )
+
+    cards.forEach(card => obs.observe(card))
+    return () => obs.disconnect()
+  }, [gridRef])
+}
+
 // SVG paths (Heroicons v2 outline, 24px viewBox)
 const services = [
   {
@@ -46,6 +73,8 @@ const services = [
 
 export default function ServicesOverview() {
   const gridRef = useRef<HTMLDivElement>(null)
+
+  useCardFocus(gridRef)
 
   useEffect(() => {
     const cards = gridRef.current?.children
@@ -115,20 +144,26 @@ export default function ServicesOverview() {
           {services.map(service => (
             <div
               key={service.name}
-              style={{ opacity: 0 }}
+              style={{
+                opacity: 0,
+                transition: 'transform 0.35s cubic-bezier(0.34,1.56,0.64,1)',  /* spring bounce */
+              }}
             >
-              <div
+              <Link
+                href={service.href}
                 className="service-overview-card"
                 style={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  textDecoration: 'none',
                   background: 'rgba(255,255,255,0.04)',
                   backdropFilter: 'blur(12px)',
                   border: '1px solid rgba(255,255,255,0.10)',
                   borderRadius: '16px',
                   padding: '32px',
                   height: '100%',
-                  display: 'flex',
-                  flexDirection: 'column',
                   transition: 'border-color 0.35s ease, transform 0.35s ease, box-shadow 0.35s ease',
+                  cursor: 'pointer',
                 }}
                 onMouseEnter={e => {
                   const el = e.currentTarget
@@ -198,14 +233,12 @@ export default function ServicesOverview() {
                   {service.name}
                 </h3>
                 <div style={{ flex: 1 }} />
-                <Link
-                  href={service.href}
+                <span
                   style={{
                     fontFamily: 'var(--font-poppins)',
                     fontWeight: 600,
                     fontSize: '13px',
                     color: '#C084FC',
-                    textDecoration: 'none',
                     letterSpacing: '0.05em',
                     display: 'flex',
                     alignItems: 'center',
@@ -213,8 +246,8 @@ export default function ServicesOverview() {
                   }}
                 >
                   See Service →
-                </Link>
-              </div>
+                </span>
+              </Link>
             </div>
           ))}
         </div>
