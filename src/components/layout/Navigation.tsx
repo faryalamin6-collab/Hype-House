@@ -71,7 +71,7 @@ export default function Navigation() {
           }}
         >
           {/* Logo */}
-          <Link href="/" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center' }}>
+          <Link href="/" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', position: 'relative', zIndex: 1002 }}>
             <Image
               src="/images/logo-white.png"
               alt="HypeHouse Digital"
@@ -170,6 +170,8 @@ export default function Navigation() {
               display: 'flex',
               flexDirection: 'column',
               gap: '5px',
+              position: 'relative',
+              zIndex: 1002,   /* always above the mobile overlay */
             }}
             aria-label="Toggle menu"
           >
@@ -212,7 +214,7 @@ export default function Navigation() {
         style={{
           position: 'fixed',
           inset: 0,
-          zIndex: 999,
+          zIndex: 1001,   /* above nav (1000) so nav never intercepts taps */
           background: 'rgba(2,0,8,0.97)',
           backdropFilter: 'blur(24px)',
           WebkitBackdropFilter: 'blur(24px)',
