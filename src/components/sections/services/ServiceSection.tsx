@@ -54,7 +54,7 @@ export default function ServiceSection({
 
       {/* Frosted backdrop — improves legibility over the canvas animation */}
       <div style={{
-        maxWidth: '1280px', margin: '0 auto', padding: '0 48px',
+        maxWidth: '1280px', margin: '0 auto', padding: '0 24px',
       }}>
         <div style={{
           background: 'rgba(4,0,20,0.60)',
