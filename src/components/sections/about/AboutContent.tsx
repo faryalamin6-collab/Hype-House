@@ -294,6 +294,12 @@ export default function AboutContent() {
         }}
       >
         <div style={{ maxWidth: '780px', margin: '0 auto', paddingTop: '24px' }}>
+          <div style={{ marginBottom: '20px' }}>
+            <ClipReveal tag="p" className="about-lead" delay={0}>
+              Everyone talks about AI. We build with it.
+            </ClipReveal>
+          </div>
+
           <FadeUp style={{ marginBottom: '16px' }}>
             <p className="about-body">
               Powered by Tachyon, our AI backbone, we launch brands, scale performance,
