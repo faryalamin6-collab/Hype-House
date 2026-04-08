@@ -73,7 +73,7 @@ export default function PhilosophyPage() {
         borderBottom: '1px solid rgba(255,255,255,0.06)',
         padding: '64px 48px',
       }}>
-        <div style={{ maxWidth: '760px', margin: '0 auto' }}>
+        <div style={{ maxWidth: '760px', margin: '0 auto', textAlign: 'center' }}>
           <ScrollReveal>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
               <p style={{ fontSize: '15px', color: 'rgba(255,255,255,0.72)', lineHeight: 1.85 }}>
@@ -87,6 +87,42 @@ export default function PhilosophyPage() {
                 We chase the ideas that scare us.<br />
                 The ones that keep us up at night.<br />
                 The ones that make people stop, stare, and feel something real.
+              </p>
+            </div>
+          </ScrollReveal>
+        </div>
+      </section>
+
+      {/* ── EXTENDED PHILOSOPHY (above tiles) ───────────────────────────── */}
+      <section style={{
+        position: 'relative', zIndex: 10,
+        background: 'rgba(255,255,255,0.02)',
+        borderTop: '1px solid rgba(255,255,255,0.06)',
+        borderBottom: '1px solid rgba(255,255,255,0.06)',
+        padding: '64px 48px',
+      }}>
+        <div style={{ maxWidth: '760px', margin: '0 auto', textAlign: 'center' }}>
+          <ScrollReveal>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
+              <p style={{ fontSize: '15px', color: 'rgba(255,255,255,0.72)', lineHeight: 1.85 }}>
+                We believe in partnership, not transactions.<br />
+                When we work with a brand, we treat it like our own.<br />
+                We listen. We challenge. We collaborate until the work feels right,
+                not until the deadline hits.
+              </p>
+
+              <p style={{ fontSize: '15px', color: 'rgba(255,255,255,0.72)', lineHeight: 1.85 }}>
+                We believe in quality.<br />
+                If it&apos;s not exceptional, it doesn&apos;t leave the room.<br />
+                We don&apos;t ship average. We ship what we&apos;re proud of.
+              </p>
+
+              <p style={{ fontSize: '15px', color: 'rgba(255,255,255,0.72)', lineHeight: 1.85 }}>
+                And above all, we believe in Hype.<br />
+                Not as noise, but as energy.<br />
+                The current that runs through culture.<br />
+                The spark that starts movements.<br />
+                The electricity that turns great ideas into something unforgettable.
               </p>
             </div>
           </ScrollReveal>
@@ -130,42 +166,6 @@ export default function PhilosophyPage() {
               </ScrollReveal>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* ── EXTENDED PHILOSOPHY ──────────────────────────────────────────── */}
-      <section style={{
-        position: 'relative', zIndex: 10,
-        background: 'rgba(255,255,255,0.02)',
-        borderTop: '1px solid rgba(255,255,255,0.06)',
-        borderBottom: '1px solid rgba(255,255,255,0.06)',
-        padding: '64px 48px',
-      }}>
-        <div style={{ maxWidth: '760px', margin: '0 auto' }}>
-          <ScrollReveal>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
-              <p style={{ fontSize: '15px', color: 'rgba(255,255,255,0.72)', lineHeight: 1.85 }}>
-                We believe in partnership, not transactions.<br />
-                When we work with a brand, we treat it like our own.<br />
-                We listen. We challenge. We collaborate until the work feels right,
-                not until the deadline hits.
-              </p>
-
-              <p style={{ fontSize: '15px', color: 'rgba(255,255,255,0.72)', lineHeight: 1.85 }}>
-                We believe in quality.<br />
-                If it&apos;s not exceptional, it doesn&apos;t leave the room.<br />
-                We don&apos;t ship average. We ship what we&apos;re proud of.
-              </p>
-
-              <p style={{ fontSize: '15px', color: 'rgba(255,255,255,0.72)', lineHeight: 1.85 }}>
-                And above all, we believe in Hype.<br />
-                Not as noise, but as energy.<br />
-                The current that runs through culture.<br />
-                The spark that starts movements.<br />
-                The electricity that turns great ideas into something unforgettable.
-              </p>
-            </div>
-          </ScrollReveal>
         </div>
       </section>
 

@@ -259,7 +259,7 @@ export default function TachyonPage() {
             {capabilities.slice(0, 4).map((item, i) => (
               <ScrollReveal key={item.title} delay={i * 80}>
                 <HoverCard
-                  style={{ padding: '40px 32px', height: '100%', background: 'rgba(30,79,140,0.18)' }}
+                  style={{ padding: '40px 32px', height: '100%', background: 'rgba(30,79,140,0.18)', animation: 'card-idle-glow-blue 4s ease-in-out infinite' }}
                   hoverStyle={{
                     borderColor: 'rgba(0,240,255,0.45)',
                     transform: 'translateY(-4px)',
@@ -302,7 +302,7 @@ export default function TachyonPage() {
           <div style={{ maxWidth: '420px', margin: '0 auto' }}>
             <ScrollReveal delay={320}>
               <HoverCard
-                style={{ padding: '40px 32px', background: 'rgba(30,79,140,0.18)' }}
+                style={{ padding: '40px 32px', background: 'rgba(30,79,140,0.18)', animation: 'card-idle-glow-blue 4s ease-in-out infinite' }}
                 hoverStyle={{
                   borderColor: 'rgba(191,215,255,0.55)',
                   transform: 'translateY(-4px)',

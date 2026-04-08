@@ -283,6 +283,10 @@ p, li, span:not(.gradient-text):not(.section-label) {
   0%, 100% { box-shadow: 0 0 0px rgba(166,20,178,0); }
   50%       { box-shadow: 0 0 18px rgba(166,20,178,0.12); }
 }
+@keyframes card-idle-glow-blue {
+  0%, 100% { box-shadow: 0 0 0px rgba(58,141,255,0); }
+  50%       { box-shadow: 0 0 20px rgba(58,141,255,0.18); }
+}
 
 /* ── SERVICE SECTION ANCHOR OFFSET ──────────────────────────────────────── */
 /* Ensures the image header clears the fixed navbar when scrolled to via    */
