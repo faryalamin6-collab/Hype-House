@@ -263,11 +263,11 @@ export default function AboutContent() {
             </p>
           </FadeUp>
 
-          <div style={{ marginBottom: '20px' }}>
-            <ClipReveal tag="p" className="about-mid" delay={0}>
+          <FadeUp delay={80} style={{ marginBottom: '20px' }}>
+            <p className="about-body">
               Where bold creative ignites movements.
-            </ClipReveal>
-          </div>
+            </p>
+          </FadeUp>
 
           <FadeUp delay={80} style={{ marginBottom: '20px' }}>
             <p className="about-body">
