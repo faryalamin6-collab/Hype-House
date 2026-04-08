@@ -313,3 +313,195 @@ p, li, span:not(.gradient-text):not(.section-label) {
     height: auto !important;
   }
 }
+
+/* ── ABOUT PAGE — CINEMATIC COMPONENTS ──────────────────────────────────── */
+
+/* Hero radial glow pulse */
+.about-hero-glow {
+  position: absolute;
+  top: 38%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 700px; height: 480px;
+  background: radial-gradient(ellipse at center,
+    rgba(166,20,178,0.20) 0%,
+    rgba(4,157,255,0.09) 42%,
+    transparent 70%
+  );
+  animation: about-glow-pulse 5s ease-in-out infinite;
+  pointer-events: none;
+  border-radius: 50%;
+}
+@media (max-width: 768px) {
+  .about-hero-glow { width: 320px; height: 220px; }
+}
+
+/* Light Sweep divider */
+.about-divider-sweep {
+  position: relative;
+  height: 2px;
+  margin: 0 48px;
+  overflow: visible;
+  z-index: 10;
+}
+.about-divider-sweep__line {
+  position: absolute;
+  inset: 0;
+  background: rgba(255,255,255,0.06);
+}
+.about-divider-sweep__beam {
+  position: absolute;
+  top: -1px;
+  left: -20%;
+  width: 28%;
+  height: 4px;
+  background: linear-gradient(90deg,
+    transparent,
+    rgba(192,132,252,0.85),
+    rgba(4,157,255,0.85),
+    transparent
+  );
+  border-radius: 2px;
+  animation: about-light-sweep 4.5s ease-in-out infinite;
+}
+@media (max-width: 768px) {
+  .about-divider-sweep { margin: 0 24px; }
+}
+
+/* Orb energy pulse (between The Code and Tachyon) */
+.about-orb-pulse {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 340px; height: 340px;
+  border-radius: 50%;
+  background: radial-gradient(circle,
+    rgba(4,157,255,0.14) 0%,
+    rgba(166,20,178,0.07) 50%,
+    transparent 70%
+  );
+  animation: about-orb-pulse 3.8s ease-in-out infinite;
+  pointer-events: none;
+}
+@media (max-width: 768px) {
+  .about-orb-pulse { width: 200px; height: 200px; }
+}
+
+/* TACHYON heading text with animated gradient + glow */
+.about-tachyon-text {
+  font-family: var(--font-poppins), sans-serif;
+  font-weight: 800;
+  font-size: 28px;
+  letter-spacing: 0.10em;
+  margin-bottom: 16px;
+  background: linear-gradient(90deg, #049DFF 0%, #C084FC 50%, #049DFF 100%);
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: about-tachyon-glow 3.2s ease-in-out infinite;
+}
+
+/* Tachyon explore link */
+.about-tachyon-link {
+  font-family: var(--font-poppins), sans-serif;
+  font-weight: 600;
+  font-size: 15px;
+  color: #049DFF;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(4,157,255,0.4);
+  padding-bottom: 2px;
+  transition: color 0.3s ease, border-color 0.3s ease, text-shadow 0.3s ease;
+}
+.about-tachyon-link:hover {
+  color: #C084FC;
+  border-color: rgba(192,132,252,0.6);
+  text-shadow: 0 0 16px rgba(192,132,252,0.5);
+}
+
+/* Energy field divider */
+.about-energy-field {
+  position: relative;
+  height: 72px;
+  overflow: hidden;
+  z-index: 10;
+  background: linear-gradient(180deg,
+    transparent 0%,
+    rgba(166,20,178,0.04) 50%,
+    transparent 100%
+  );
+}
+.about-energy-field__line {
+  position: absolute;
+  height: 1px;
+  width: 60%;
+  left: 20%;
+}
+.about-energy-field__line--1 {
+  top: 22%;
+  background: linear-gradient(90deg, transparent, rgba(4,157,255,0.18) 50%, transparent);
+  animation: about-energy-line 2.8s ease-in-out infinite alternate;
+}
+.about-energy-field__line--2 {
+  top: 50%;
+  background: linear-gradient(90deg, transparent, rgba(166,20,178,0.22) 50%, transparent);
+  animation: about-energy-line 3.4s ease-in-out 0.3s infinite alternate;
+}
+.about-energy-field__line--3 {
+  top: 78%;
+  background: linear-gradient(90deg, transparent, rgba(4,157,255,0.14) 50%, transparent);
+  animation: about-energy-line 2.6s ease-in-out 0.6s infinite alternate;
+}
+
+/* Closing section radial glow */
+.about-closing-glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 80% 70% at 50% 50%,
+    rgba(166,20,178,0.10) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+/* ── ABOUT PAGE — KEYFRAMES ─────────────────────────────────────────────── */
+@keyframes about-glow-pulse {
+  0%, 100% { opacity: 0.7; transform: translate(-50%, -50%) scale(1); }
+  50%       { opacity: 1;   transform: translate(-50%, -50%) scale(1.12); }
+}
+
+@keyframes about-light-sweep {
+  0%   { left: -28%; opacity: 0; }
+  10%  { opacity: 1; }
+  90%  { opacity: 1; }
+  100% { left: 108%; opacity: 0; }
+}
+
+@keyframes about-orb-pulse {
+  0%, 100% { transform: translate(-50%, -50%) scale(1);    opacity: 0.6; }
+  50%       { transform: translate(-50%, -50%) scale(1.18); opacity: 1;   }
+}
+
+@keyframes about-tachyon-glow {
+  0%, 100% { background-position: 0% 50%; }
+  50%       { background-position: 100% 50%; }
+}
+
+@keyframes about-energy-line {
+  0%   { transform: scaleX(0.7); opacity: 0.4; }
+  100% { transform: scaleX(1.1); opacity: 1;   }
+}
+
+/* Disable heavy animations on mobile */
+@media (max-width: 768px) {
+  .about-hero-glow,
+  .about-orb-pulse,
+  .about-closing-glow {
+    animation-duration: 8s;
+  }
+  .about-divider-sweep__beam,
+  .about-energy-field__line--1,
+  .about-energy-field__line--2,
+  .about-energy-field__line--3 {
+    animation-play-state: paused;
+  }
+}
