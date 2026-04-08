@@ -79,8 +79,8 @@ export default function Hero() {
           <div ref={line1Ref} style={{ color: 'white' }}>
             We Don&apos;t Build Brands.
           </div>
-          <div ref={line2Ref} style={{ color: 'white', marginTop: '4px' }}>
-            We Engineer Hype.
+          <div ref={line2Ref} style={{ marginTop: '4px' }}>
+            <span className="gradient-text">We Engineer Hype.</span>
           </div>
         </h1>
 
