@@ -21,7 +21,8 @@
 
 html {
   overflow-x: hidden;
-  scroll-padding-top: 80px;  /* offset all anchor links to clear the fixed navbar */
+  scroll-padding-top: 80px;
+  scroll-behavior: smooth;
   scroll-behavior: auto;
 }
 
@@ -281,6 +282,13 @@ p, li, span:not(.gradient-text):not(.section-label) {
 @keyframes card-idle-glow {
   0%, 100% { box-shadow: 0 0 0px rgba(166,20,178,0); }
   50%       { box-shadow: 0 0 18px rgba(166,20,178,0.12); }
+}
+
+/* ── SERVICE SECTION ANCHOR OFFSET ──────────────────────────────────────── */
+/* Ensures the image header clears the fixed navbar when scrolled to via    */
+/* anchor link (both native and Next.js client-side navigation).            */
+.service-anchor {
+  scroll-margin-top: 80px;
 }
 
 /* ── SERVICE ICON ANIMATION ─────────────────────────────────────────────── */

@@ -34,6 +34,7 @@ export default function ServiceSection({
   return (
     <section
       id={id}
+      className="service-anchor"
       style={{
         position: 'relative',
         zIndex: 10,
