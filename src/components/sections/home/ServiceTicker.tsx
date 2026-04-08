@@ -19,7 +19,7 @@ export default function ServiceTicker() {
         position: 'relative',
         zIndex: 10,
         overflow: 'hidden',
-        padding: '12px 0',
+        padding: '6px 0',
         borderTop: '1px solid rgba(255,255,255,0.06)',
         borderBottom: '1px solid rgba(255,255,255,0.06)',
       }}
@@ -76,7 +76,7 @@ export default function ServiceTicker() {
             style={{
               fontFamily: 'var(--font-poppins)',
               fontWeight: 600,
-              fontSize: '14px',
+              fontSize: '18px',
               letterSpacing: '0.16em',
               textTransform: 'uppercase',
               color: 'rgba(255,255,255,0.5)',
