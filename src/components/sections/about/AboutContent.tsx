@@ -5,108 +5,115 @@ import Link from 'next/link'
 import SectionLabel from '@/components/ui/SectionLabel'
 import Button from '@/components/ui/Button'
 
-// ── Animated Section Dividers ─────────────────────────────────────────────
-
-function DividerSynapses() {
+// ─────────────────────────────────────────────────────────────────────────────
+// ClipReveal — each line slides up from underneath its overflow-hidden wrapper.
+// This is the core Apple/Spotify transition technique.
+// ─────────────────────────────────────────────────────────────────────────────
+function ClipReveal({
+  children,
+  delay = 0,
+  className = '',
+  tag: Tag = 'div',
+}: {
+  children: React.ReactNode
+  delay?: number
+  className?: string
+  tag?: 'div' | 'p' | 'h1' | 'h2' | 'h3' | 'span' | 'blockquote'
+}) {
   return (
-    <div aria-hidden="true" style={{ padding: '12px 0', position: 'relative', zIndex: 10 }}>
-      <svg
-        viewBox="0 0 1000 80"
-        preserveAspectRatio="xMidYMid meet"
-        style={{ width: '100%', height: '80px', display: 'block' }}
+    <span className="about-clip-wrap">
+      <Tag
+        className={`about-clip-inner about-observe ${className}`}
+        style={{ transitionDelay: `${delay}ms` }}
       >
-        {/* Connection curves */}
-        <path d="M 120 40 Q 205 14 310 40" stroke="rgba(192,132,252,0.22)" strokeWidth="1" fill="none" />
-        <path d="M 310 40 Q 415 66 520 40" stroke="rgba(4,157,255,0.22)"   strokeWidth="1" fill="none" />
-        <path d="M 520 40 Q 625 16 720 40" stroke="rgba(52,211,153,0.22)"  strokeWidth="1" fill="none" />
-        <path d="M 720 40 Q 820 62 900 40" stroke="rgba(192,132,252,0.22)" strokeWidth="1" fill="none" />
-
-        {/* Outer ring pulses */}
-        {[120, 310, 520, 720, 900].map((x, i) => (
-          <circle key={`ring-${x}`} cx={x} cy="40" r="4" fill="none"
-            stroke={i % 2 === 0 ? 'rgba(192,132,252,0.55)' : 'rgba(4,157,255,0.55)'}
-            strokeWidth="1">
-            <animate attributeName="r"       values="3;6;3"   dur={`${2.6 + i * 0.35}s`} begin={`${i * 0.45}s`} repeatCount="indefinite" />
-            <animate attributeName="opacity" values="0.5;1;0.5" dur={`${2.6 + i * 0.35}s`} begin={`${i * 0.45}s`} repeatCount="indefinite" />
-          </circle>
-        ))}
-
-        {/* Inner fill dots */}
-        {[120, 310, 520, 720, 900].map((x, i) => (
-          <circle key={`dot-${x}`} cx={x} cy="40" r="2.5"
-            fill={i % 2 === 0 ? '#C084FC' : '#049DFF'} opacity="0.8" />
-        ))}
-
-        {/* Traveling pulses */}
-        <circle r="3.5" fill="#C084FC">
-          <animateMotion dur="3.2s" begin="0s"    repeatCount="indefinite" path="M 120 40 Q 205 14 310 40" />
-          <animate attributeName="opacity" values="0;1;0" dur="3.2s" begin="0s"    repeatCount="indefinite" />
-        </circle>
-        <circle r="3.5" fill="#049DFF">
-          <animateMotion dur="3.2s" begin="0.9s"  repeatCount="indefinite" path="M 310 40 Q 415 66 520 40" />
-          <animate attributeName="opacity" values="0;1;0" dur="3.2s" begin="0.9s"  repeatCount="indefinite" />
-        </circle>
-        <circle r="3.5" fill="#34D399">
-          <animateMotion dur="3.2s" begin="1.8s"  repeatCount="indefinite" path="M 520 40 Q 625 16 720 40" />
-          <animate attributeName="opacity" values="0;1;0" dur="3.2s" begin="1.8s"  repeatCount="indefinite" />
-        </circle>
-        <circle r="3.5" fill="#C084FC">
-          <animateMotion dur="3.2s" begin="2.7s"  repeatCount="indefinite" path="M 720 40 Q 820 62 900 40" />
-          <animate attributeName="opacity" values="0;1;0" dur="3.2s" begin="2.7s"  repeatCount="indefinite" />
-        </circle>
-      </svg>
-    </div>
+        {children}
+      </Tag>
+    </span>
   )
 }
 
-function DividerRadialPulse() {
+// ─────────────────────────────────────────────────────────────────────────────
+// FadeUp — standard opacity + translateY reveal for body copy
+// ─────────────────────────────────────────────────────────────────────────────
+function FadeUp({
+  children,
+  delay = 0,
+  style = {},
+}: {
+  children: React.ReactNode
+  delay?: number
+  style?: React.CSSProperties
+}) {
   return (
     <div
-      aria-hidden="true"
-      style={{
-        position: 'relative', zIndex: 10,
-        height: '120px',
-        display: 'flex', alignItems: 'center', justifyContent: 'center',
-        overflow: 'hidden',
-      }}
+      className="about-fade about-observe"
+      style={{ transitionDelay: `${delay}ms`, ...style }}
     >
-      <div className="about-radial-ring about-radial-ring--1" />
-      <div className="about-radial-ring about-radial-ring--2" />
-      <div className="about-radial-ring about-radial-ring--3" />
-      <div className="about-radial-center" />
+      {children}
     </div>
   )
 }
 
-function DividerWarpLines() {
+// ─────────────────────────────────────────────────────────────────────────────
+// StatementBreak — large full-width text moment between sections.
+// Acts as both a visual breath and a narrative beat. Apple uses these
+// ("The thinnest Mac ever.") to separate conceptual blocks.
+// ─────────────────────────────────────────────────────────────────────────────
+function StatementBreak({
+  line1,
+  line2,
+  gradient2 = false,
+}: {
+  line1: string
+  line2?: string
+  gradient2?: boolean
+}) {
   return (
-    <div
-      aria-hidden="true"
-      style={{
-        position: 'relative', zIndex: 10,
-        height: '72px', overflow: 'hidden',
-      }}
+    <section
+      className="about-statement-break"
+      style={{ position: 'relative', zIndex: 10 }}
     >
-      <div className="about-warp-line about-warp-line--1" />
-      <div className="about-warp-line about-warp-line--2" />
-      <div className="about-warp-line about-warp-line--3" />
-    </div>
+      <div
+        style={{
+          height: '1px',
+          background: 'rgba(255,255,255,0.06)',
+          marginBottom: '48px',
+        }}
+        aria-hidden="true"
+      />
+      <div style={{ maxWidth: '900px', margin: '0 auto', padding: '0 24px', textAlign: 'center' }}>
+        <ClipReveal tag="h2" className="about-statement-text" delay={0}>
+          {line1}
+        </ClipReveal>
+        {line2 && (
+          <ClipReveal
+            tag="h2"
+            className={`about-statement-text${gradient2 ? ' gradient-text' : ''}`}
+            delay={100}
+          >
+            {line2}
+          </ClipReveal>
+        )}
+      </div>
+      <div
+        style={{
+          height: '1px',
+          background: 'rgba(255,255,255,0.06)',
+          marginTop: '48px',
+        }}
+        aria-hidden="true"
+      />
+    </section>
   )
 }
 
-// ── Main Component ────────────────────────────────────────────────────────
-
-const fadeInit: React.CSSProperties = {
-  opacity: 0,
-  transform: 'translateY(22px)',
-  willChange: 'opacity, transform',
-}
-
+// ─────────────────────────────────────────────────────────────────────────────
+// Main component
+// ─────────────────────────────────────────────────────────────────────────────
 export default function AboutContent() {
   const heroInnerRef = useRef<HTMLDivElement>(null)
-  const fadeRefs = useRef<(HTMLElement | null)[]>([])
 
-  // Hero parallax — desktop only, ±6–8 px
+  // Hero parallax — desktop only
   useEffect(() => {
     if (window.matchMedia('(max-width: 768px)').matches) return
     const handle = (e: MouseEvent) => {
@@ -119,34 +126,32 @@ export default function AboutContent() {
     return () => window.removeEventListener('mousemove', handle)
   }, [])
 
-  // Single IntersectionObserver for all fade-up elements
+  // Single IntersectionObserver — adds .visible to every .about-observe element
   useEffect(() => {
-    const targets = fadeRefs.current.filter(Boolean) as HTMLElement[]
+    const els = document.querySelectorAll('.about-observe')
     const obs = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            const el = entry.target as HTMLElement
-            el.style.opacity = '1'
-            el.style.transform = 'translateY(0)'
-            obs.unobserve(el)
+            entry.target.classList.add('visible')
+            obs.unobserve(entry.target)
           }
         })
       },
-      { threshold: 0.1 }
+      { threshold: 0.08 }
     )
-    targets.forEach((el) => obs.observe(el))
+    els.forEach((el) => obs.observe(el))
     return () => obs.disconnect()
   }, [])
 
   return (
     <>
-      {/* ── 1. HERO ───────────────────────────────────────────────────────── */}
+      {/* ── HERO ─────────────────────────────────────────────────────────── */}
       <section
         className="page-top"
         style={{
           position: 'relative', zIndex: 10,
-          paddingLeft: '24px', paddingRight: '24px', paddingBottom: '80px',
+          paddingLeft: '24px', paddingRight: '24px', paddingBottom: '56px',
           textAlign: 'center', overflow: 'hidden',
         }}
       >
@@ -159,231 +164,177 @@ export default function AboutContent() {
             willChange: 'transform', transition: 'transform 0.12s linear',
           }}
         >
-          <SectionLabel>About Us · Nice To Meet You</SectionLabel>
+          <FadeUp>
+            <SectionLabel>About Us · Nice To Meet You</SectionLabel>
+          </FadeUp>
 
-          <h1
-            style={{
-              fontFamily: 'var(--font-poppins)', fontWeight: 800,
-              fontSize: 'clamp(32px, 6vw, 76px)',
-              marginTop: '24px', marginBottom: '48px',
-              letterSpacing: '-0.02em', lineHeight: 1.05,
-            }}
-          >
-            We&apos;re Not Just<br />
-            an Agency.<br />
-            <span className="gradient-text">We&apos;re the System Behind the Hype.</span>
-          </h1>
+          {/* H1 — each line is a separate clip-reveal */}
+          <div style={{ margin: '24px 0 48px' }}>
+            <ClipReveal
+              tag="h1"
+              className="about-h1-line"
+              delay={60}
+            >
+              We&apos;re Not Just an Agency.
+            </ClipReveal>
+            <ClipReveal
+              tag="h1"
+              className="about-h1-line gradient-text"
+              delay={180}
+            >
+              We&apos;re the System Behind the Hype.
+            </ClipReveal>
+          </div>
 
           <div style={{ maxWidth: '680px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '20px' }}>
-            <div
-              ref={(el) => { fadeRefs.current[0] = el }}
-              style={{ ...fadeInit, transition: 'opacity 0.65s ease 0ms, transform 0.65s ease 0ms' }}
-            >
-              <p style={{ fontSize: '15px', color: 'rgba(255,255,255,0.75)', lineHeight: 1.85 }}>
+            <FadeUp delay={280}>
+              <p className="about-body">
                 HypeHouse is a creative agency based in Karachi, built to operate at a global level.
               </p>
-            </div>
-
-            <div
-              ref={(el) => { fadeRefs.current[1] = el }}
-              style={{ ...fadeInit, transition: 'opacity 0.65s ease 120ms, transform 0.65s ease 120ms' }}
-            >
-              <p style={{ fontSize: '15px', color: 'rgba(255,255,255,0.75)', lineHeight: 1.85 }}>
+            </FadeUp>
+            <FadeUp delay={360}>
+              <p className="about-body">
                 We bring together a network of world-class creatives, strategists, and specialists,
                 combining the strength of our in-house team with collaborators from around the world.
               </p>
-            </div>
-
-            <div
-              ref={(el) => { fadeRefs.current[2] = el }}
-              style={{ ...fadeInit, transition: 'opacity 0.7s ease 240ms, transform 0.7s ease 240ms', marginTop: '8px' }}
-            >
-              <p style={{
-                fontFamily: 'var(--font-poppins)',
-                fontSize: 'clamp(18px, 2.5vw, 24px)',
-                fontWeight: 700,
-                letterSpacing: '-0.01em',
-                lineHeight: 1.4,
-                color: 'rgba(255,255,255,0.94)',
-              }}>
-                Masters of their craft,{' '}
-                <span className="gradient-text">working as one system.</span>
-              </p>
-            </div>
+            </FadeUp>
           </div>
 
-          <div
-            ref={(el) => { fadeRefs.current[3] = el }}
-            style={{ ...fadeInit, transition: 'opacity 0.65s ease 360ms, transform 0.65s ease 360ms', marginTop: '48px' }}
-          >
+          <FadeUp delay={440} style={{ marginTop: '48px' }}>
             <Button href="https://hypehouse-client-intake-form.netlify.app" variant="primary" external>
               Work With Us →
             </Button>
-          </div>
+          </FadeUp>
         </div>
       </section>
 
-      {/* ── SYNAPSE DIVIDER ──────────────────────────────────────────────── */}
-      <DividerSynapses />
+      {/* ── STATEMENT BREAK 1 ────────────────────────────────────────────── */}
+      {/* This IS the inter-section transition — the statement slides up       */}
+      {/* dramatically from underneath, giving the Apple "reveal" moment.      */}
+      <StatementBreak
+        line1="Masters of their craft."
+        line2="Working as one system."
+        gradient2
+      />
 
-      {/* ── 2. PHILOSOPHY & IDENTITY ─────────────────────────────────────── */}
+      {/* ── PHILOSOPHY & IDENTITY ────────────────────────────────────────── */}
       <section
         style={{
           position: 'relative', zIndex: 10,
-          padding: '80px 48px',
+          padding: '56px 48px',
         }}
       >
-        <div style={{ maxWidth: '780px', margin: '0 auto' }}>
-          {[
-            {
-              text: "We're not your typical agency.",
-              size: '20px', weight: 700, opacity: 0.95, mb: '28px',
-            },
-            {
-              text: "We're architects of velocity, where design, storytelling, and AI collide to create ecosystems that move at lightspeed and perform with precision.",
-              size: '15px', weight: 400, opacity: 0.75, mb: '28px',
-            },
-            {
-              text: "Where bold creative ignites movements.",
-              size: '18px', weight: 600, opacity: 0.90, mb: '20px',
-            },
-            {
-              text: "Where every visual, every line, and every campaign is built to inspire and engineered to perform.",
-              size: '15px', weight: 400, opacity: 0.75, mb: '36px',
-            },
-            {
-              text: "HypeHouse is a collective of digital natives, AI visionaries, and creative architects who know that modern brands need more than marketing. They need systems that evolve. Stories that spread like wildfire. Visuals that rewire perception.",
-              size: '15px', weight: 400, opacity: 0.75, mb: '0',
-            },
-          ].map((line, i) => (
-            <div
-              key={i}
-              ref={(el) => { fadeRefs.current[4 + i] = el }}
-              style={{
-                ...fadeInit,
-                transition: `opacity 0.65s ease ${i * 80}ms, transform 0.65s ease ${i * 80}ms`,
-                marginBottom: line.mb,
-              }}
-            >
-              <p style={{
-                fontFamily: 'var(--font-poppins)',
-                fontSize: line.size,
-                fontWeight: line.weight,
-                color: `rgba(255,255,255,${line.opacity})`,
-                lineHeight: 1.85,
-              }}>
-                {line.text}
-              </p>
-            </div>
-          ))}
+        <div style={{ maxWidth: '780px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '0' }}>
+
+          {/* First statement line — clip-reveal, large */}
+          <div style={{ marginBottom: '28px' }}>
+            <ClipReveal tag="p" className="about-lead" delay={0}>
+              We&apos;re not your typical agency.
+            </ClipReveal>
+          </div>
+
+          <FadeUp delay={80} style={{ marginBottom: '28px' }}>
+            <p className="about-body">
+              We&apos;re architects of velocity, where design, storytelling, and AI collide to create
+              ecosystems that move at lightspeed and perform with precision.
+            </p>
+          </FadeUp>
+
+          <div style={{ marginBottom: '28px' }}>
+            <ClipReveal tag="p" className="about-mid" delay={0}>
+              Where bold creative ignites movements.
+            </ClipReveal>
+          </div>
+
+          <FadeUp delay={80} style={{ marginBottom: '36px' }}>
+            <p className="about-body">
+              Where every visual, every line, and every campaign is built to inspire
+              and engineered to perform.
+            </p>
+          </FadeUp>
+
+          <FadeUp delay={0}>
+            <p className="about-body">
+              At HypeHouse, we believe that modern brands need more than marketing.
+              They need systems that evolve. Stories that spread like wildfire.
+              Visuals that rewire perception.
+            </p>
+          </FadeUp>
         </div>
       </section>
 
-      {/* ── RADIAL PULSE DIVIDER ─────────────────────────────────────────── */}
-      <DividerRadialPulse />
-
-      {/* ── 3. TACHYON INLINE ────────────────────────────────────────────── */}
-      <section style={{ position: 'relative', zIndex: 10, padding: '80px 48px' }}>
-        <div style={{ maxWidth: '780px', margin: '0 auto' }}>
-          <div
-            ref={(el) => { fadeRefs.current[9] = el }}
-            style={{ ...fadeInit, transition: 'opacity 0.65s ease 0ms, transform 0.65s ease 0ms', marginBottom: '24px' }}
-          >
-            <p style={{ fontSize: '15px', color: 'rgba(255,255,255,0.75)', lineHeight: 1.85 }}>
+      {/* ── TACHYON INLINE ───────────────────────────────────────────────── */}
+      <section
+        style={{
+          position: 'relative', zIndex: 10,
+          padding: '0 48px 56px',
+          borderTop: '1px solid rgba(255,255,255,0.05)',
+        }}
+      >
+        <div style={{ maxWidth: '780px', margin: '0 auto', paddingTop: '56px' }}>
+          <FadeUp style={{ marginBottom: '24px' }}>
+            <p className="about-body">
               Powered by Tachyon, our AI backbone, we launch brands, scale performance,
               and turn attention into revenue.
             </p>
-          </div>
-
-          <div
-            ref={(el) => { fadeRefs.current[10] = el }}
-            style={{ ...fadeInit, transition: 'opacity 0.65s ease 140ms, transform 0.65s ease 140ms', marginBottom: '36px' }}
-          >
-            <p style={{ fontSize: '15px', color: 'rgba(255,255,255,0.75)', lineHeight: 1.85 }}>
+          </FadeUp>
+          <FadeUp delay={120} style={{ marginBottom: '36px' }}>
+            <p className="about-body">
               Tachyon is an AI and automation engine we&apos;ve built, designed to help businesses
               operate smarter, move faster, and scale without friction with AI business integrations.
             </p>
-          </div>
-
-          <div
-            ref={(el) => { fadeRefs.current[11] = el }}
-            style={{ ...fadeInit, transition: 'opacity 0.65s ease 260ms, transform 0.65s ease 260ms' }}
-          >
+          </FadeUp>
+          <FadeUp delay={200}>
             <Link href="/tachyon" className="about-tachyon-link">
               Explore Tachyon →
             </Link>
-          </div>
+          </FadeUp>
         </div>
       </section>
 
-      {/* ── WARP LINES DIVIDER ───────────────────────────────────────────── */}
-      <DividerWarpLines />
+      {/* ── STATEMENT BREAK 2 ────────────────────────────────────────────── */}
+      {/* Second inter-section moment — the italic tagline revealed large      */}
+      <StatementBreak
+        line1="Where hype isn't noise."
+        line2="It's momentum."
+        gradient2
+      />
 
-      {/* ── 4. CLOSING ───────────────────────────────────────────────────── */}
+      {/* ── CLOSING ──────────────────────────────────────────────────────── */}
       <section
         style={{
           position: 'relative', zIndex: 10,
-          padding: '80px 48px 100px',
+          padding: '56px 48px 100px',
           textAlign: 'center', overflow: 'hidden',
         }}
       >
         <div className="about-closing-glow" aria-hidden="true" />
         <div style={{ maxWidth: '680px', margin: '0 auto', position: 'relative' }}>
 
-          {[
-            { text: "We exist for brands that want to feel alive.", size: 'clamp(18px, 2.5vw, 26px)', weight: 700, color: 'rgba(255,255,255,0.94)' },
-            { text: "The ones that want more than visibility.",     size: '16px',                      weight: 400, color: 'rgba(255,255,255,0.70)' },
-            { text: "The ones that want to matter.",               size: '16px',                      weight: 400, color: 'rgba(255,255,255,0.70)' },
-          ].map((line, i) => (
-            <div
-              key={i}
-              ref={(el) => { fadeRefs.current[12 + i] = el }}
-              style={{
-                ...fadeInit,
-                transition: `opacity 0.65s ease ${i * 100}ms, transform 0.65s ease ${i * 100}ms`,
-                marginBottom: i === 0 ? '16px' : '8px',
-              }}
-            >
-              <p style={{ fontSize: line.size, fontWeight: line.weight, color: line.color, lineHeight: 1.5 }}>
-                {line.text}
-              </p>
-            </div>
-          ))}
-
-          <div
-            ref={(el) => { fadeRefs.current[15] = el }}
-            style={{ ...fadeInit, transition: 'opacity 0.65s ease 320ms, transform 0.65s ease 320ms', margin: '40px 0 20px' }}
-          >
-            <p style={{
-              fontFamily: 'var(--font-poppins)', fontStyle: 'italic',
-              fontWeight: 500, fontSize: '18px',
-              color: 'rgba(255,255,255,0.82)', lineHeight: 1.5,
-            }}>
-              Where hype isn&apos;t noise. It&apos;s momentum.
-            </p>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', marginBottom: '36px' }}>
+            <ClipReveal tag="p" className="about-closing-line" delay={0}>
+              We exist for brands that want to feel alive.
+            </ClipReveal>
+            <ClipReveal tag="p" className="about-closing-sub" delay={80}>
+              The ones that want more than visibility.
+            </ClipReveal>
+            <ClipReveal tag="p" className="about-closing-sub" delay={160}>
+              The ones that want to matter.
+            </ClipReveal>
           </div>
 
-          <div
-            ref={(el) => { fadeRefs.current[16] = el }}
-            style={{ ...fadeInit, transition: 'opacity 0.65s ease 420ms, transform 0.65s ease 420ms', marginBottom: '56px' }}
-          >
-            <p style={{
-              fontFamily: 'var(--font-poppins)', fontWeight: 600,
-              fontSize: '16px', color: 'rgba(255,255,255,0.88)', lineHeight: 1.7,
-            }}>
+          <FadeUp delay={0} style={{ marginBottom: '48px' }}>
+            <p className="about-body" style={{ fontWeight: 600, color: 'rgba(255,255,255,0.88)' }}>
               This is the future of creative. And it starts here.<br />
               Welcome to HypeHouse.
             </p>
-          </div>
+          </FadeUp>
 
-          <div
-            ref={(el) => { fadeRefs.current[17] = el }}
-            style={{ ...fadeInit, transition: 'opacity 0.65s ease 520ms, transform 0.65s ease 520ms' }}
-          >
+          <FadeUp delay={100}>
             <Button href="https://hypehouse-client-intake-form.netlify.app" variant="primary" external>
               Work With Us →
             </Button>
-          </div>
+          </FadeUp>
         </div>
       </section>
     </>

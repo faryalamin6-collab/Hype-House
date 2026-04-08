@@ -314,67 +314,126 @@ p, li, span:not(.gradient-text):not(.section-label) {
   }
 }
 
-/* ── ABOUT PAGE — ANIMATED DIVIDERS ─────────────────────────────────────── */
+/* ── ABOUT PAGE — TRANSITION SYSTEM ─────────────────────────────────────── */
+/* Apple/Spotify style: text slides up from underneath its overflow-hidden   */
+/* wrapper on scroll. StatementBreak sections act as narrative beats between */
+/* content blocks — large type that clips in dramatically.                   */
 
-/* Radial Pulse divider */
-.about-radial-ring {
-  position: absolute;
-  border-radius: 50%;
-  border-style: solid;
-  border-width: 1px;
-  transform: scale(0);
-  animation: about-ring-expand 3.2s ease-out infinite;
-}
-.about-radial-ring--1 {
-  width: 48px;  height: 48px;
-  border-color: rgba(192,132,252,0.65);
-  animation-delay: 0s;
-}
-.about-radial-ring--2 {
-  width: 84px;  height: 84px;
-  border-color: rgba(4,157,255,0.45);
-  animation-delay: 0.9s;
-}
-.about-radial-ring--3 {
-  width: 120px; height: 120px;
-  border-color: rgba(52,211,153,0.25);
-  animation-delay: 1.8s;
-}
-.about-radial-center {
-  position: absolute;
-  width: 8px; height: 8px;
-  border-radius: 50%;
-  background: radial-gradient(circle, #C084FC 0%, #049DFF 100%);
-  box-shadow: 0 0 12px rgba(192,132,252,0.9);
-  animation: about-center-pulse 2.2s ease-in-out infinite;
+/* Clip-reveal wrapper — hides the inner element until it animates up */
+.about-clip-wrap {
+  display: block;
+  overflow: hidden;
+  padding-bottom: 0.08em; /* prevent descender clipping */
 }
 
-/* Warp Lines divider */
-.about-warp-line {
-  position: absolute;
-  left: 0; right: 0;
-  height: 1px;
-  animation: about-warp-breath 3s ease-in-out infinite;
+/* Clip-reveal inner — starts below the fold of its wrapper, slides up */
+.about-clip-inner {
+  display: block;
+  transform: translateY(108%);
+  opacity: 0;
+  transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+              opacity   0.55s ease;
+  will-change: transform, opacity;
 }
-.about-warp-line--1 {
-  top: 22%;
-  background: linear-gradient(90deg, transparent 0%, rgba(192,132,252,0.6) 50%, transparent 100%);
-  animation-delay: 0s;
-}
-.about-warp-line--2 {
-  top: 50%;
-  background: linear-gradient(90deg, transparent 0%, rgba(4,157,255,0.65) 50%, transparent 100%);
-  animation-delay: 0.55s;
-}
-.about-warp-line--3 {
-  top: 78%;
-  background: linear-gradient(90deg, transparent 0%, rgba(52,211,153,0.45) 50%, transparent 100%);
-  animation-delay: 1.1s;
+.about-clip-inner.visible {
+  transform: translateY(0);
+  opacity: 1;
 }
 
-/* ── ABOUT PAGE — CINEMATIC COMPONENTS ──────────────────────────────────── */
+/* Fade-up — body copy */
+.about-fade {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+  will-change: opacity, transform;
+}
+.about-fade.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
 
-/* Hero radial glow pulse */
+/* ── TYPOGRAPHY ROLES ────────────────────────────────────────────────────── */
+
+/* H1 — each line is a separate ClipReveal */
+.about-h1-line {
+  font-family: var(--font-poppins), sans-serif;
+  font-weight: 800;
+  font-size: clamp(32px, 6vw, 76px);
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  color: white;
+  display: block;
+}
+
+/* Statement break text — large inter-section beat */
+.about-statement-text {
+  font-family: var(--font-poppins), sans-serif;
+  font-weight: 800;
+  font-size: clamp(26px, 5vw, 62px);
+  letter-spacing: -0.025em;
+  line-height: 1.1;
+  color: white;
+  display: block;
+}
+
+/* Statement break section container */
+.about-statement-break {
+  padding: 0 48px;
+  text-align: center;
+  background: rgba(255,255,255,0.015);
+  position: relative;
+  z-index: 10;
+}
+@media (max-width: 768px) {
+  .about-statement-break { padding: 0 24px; }
+}
+
+/* Lead — first bold sentence of a section */
+.about-lead {
+  font-family: var(--font-poppins), sans-serif;
+  font-weight: 700;
+  font-size: clamp(17px, 2vw, 20px);
+  color: rgba(255,255,255,0.94);
+  line-height: 1.55;
+  display: block;
+}
+
+/* Mid — secondary emphasis line */
+.about-mid {
+  font-family: var(--font-poppins), sans-serif;
+  font-weight: 600;
+  font-size: clamp(15px, 1.8vw, 17px);
+  color: rgba(255,255,255,0.88);
+  line-height: 1.65;
+  display: block;
+}
+
+/* Body copy */
+.about-body {
+  font-size: 15px;
+  color: rgba(255,255,255,0.72);
+  line-height: 1.85;
+}
+
+/* Closing statement */
+.about-closing-line {
+  font-family: var(--font-poppins), sans-serif;
+  font-weight: 700;
+  font-size: clamp(17px, 2.2vw, 22px);
+  color: rgba(255,255,255,0.92);
+  line-height: 1.45;
+  display: block;
+}
+.about-closing-sub {
+  font-size: 15px;
+  color: rgba(255,255,255,0.62);
+  line-height: 1.7;
+  display: block;
+}
+
+/* ── ABOUT PAGE — AMBIENT ELEMENTS ──────────────────────────────────────── */
+
+/* Hero radial glow */
 .about-hero-glow {
   position: absolute;
   top: 38%; left: 50%;
@@ -393,81 +452,15 @@ p, li, span:not(.gradient-text):not(.section-label) {
   .about-hero-glow { width: 320px; height: 220px; }
 }
 
-/* Light Sweep divider */
-.about-divider-sweep {
-  position: relative;
-  height: 2px;
-  margin: 0 48px;
-  overflow: visible;
-  z-index: 10;
-}
-.about-divider-sweep__line {
+/* Closing radial glow */
+.about-closing-glow {
   position: absolute;
   inset: 0;
-  background: rgba(255,255,255,0.06);
-}
-.about-divider-sweep__beam {
-  position: absolute;
-  top: -1px;
-  left: -20%;
-  width: 28%;
-  height: 4px;
-  background: linear-gradient(90deg,
-    transparent,
-    rgba(192,132,252,0.85),
-    rgba(4,157,255,0.85),
-    transparent
-  );
-  border-radius: 2px;
-  animation: about-light-sweep 4.5s ease-in-out infinite;
-}
-@media (max-width: 768px) {
-  .about-divider-sweep { margin: 0 24px; }
-}
-
-/* Orb energy pulse (between The Code and Tachyon) */
-.about-orb-pulse {
-  position: absolute;
-  top: 50%; left: 50%;
-  transform: translate(-50%, -50%);
-  width: 340px; height: 340px;
-  border-radius: 50%;
-  background: radial-gradient(circle,
-    rgba(4,157,255,0.14) 0%,
-    rgba(166,20,178,0.07) 50%,
+  background: radial-gradient(ellipse 80% 70% at 50% 50%,
+    rgba(166,20,178,0.10) 0%,
     transparent 70%
   );
-  animation: about-orb-pulse 3.8s ease-in-out infinite;
   pointer-events: none;
-}
-@media (max-width: 768px) {
-  .about-orb-pulse { width: 200px; height: 200px; }
-}
-
-/* TACHYON heading text with animated gradient + glow (block — old tile) */
-.about-tachyon-text {
-  font-family: var(--font-poppins), sans-serif;
-  font-weight: 800;
-  font-size: 28px;
-  letter-spacing: 0.10em;
-  margin-bottom: 16px;
-  background: linear-gradient(90deg, #049DFF 0%, #C084FC 50%, #049DFF 100%);
-  background-size: 200% 100%;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  animation: about-tachyon-glow 3.2s ease-in-out infinite;
-}
-
-/* TACHYON inline heading variant (inside h2 flow) */
-.about-tachyon-text-inline {
-  background: linear-gradient(90deg, #049DFF 0%, #C084FC 50%, #049DFF 100%);
-  background-size: 200% 100%;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  animation: about-tachyon-glow 3.2s ease-in-out infinite;
-  display: inline;
 }
 
 /* Tachyon explore link */
@@ -487,106 +480,8 @@ p, li, span:not(.gradient-text):not(.section-label) {
   text-shadow: 0 0 16px rgba(192,132,252,0.5);
 }
 
-/* Energy field divider */
-.about-energy-field {
-  position: relative;
-  height: 72px;
-  overflow: hidden;
-  z-index: 10;
-  background: linear-gradient(180deg,
-    transparent 0%,
-    rgba(166,20,178,0.04) 50%,
-    transparent 100%
-  );
-}
-.about-energy-field__line {
-  position: absolute;
-  height: 1px;
-  width: 60%;
-  left: 20%;
-}
-.about-energy-field__line--1 {
-  top: 22%;
-  background: linear-gradient(90deg, transparent, rgba(4,157,255,0.18) 50%, transparent);
-  animation: about-energy-line 2.8s ease-in-out infinite alternate;
-}
-.about-energy-field__line--2 {
-  top: 50%;
-  background: linear-gradient(90deg, transparent, rgba(166,20,178,0.22) 50%, transparent);
-  animation: about-energy-line 3.4s ease-in-out 0.3s infinite alternate;
-}
-.about-energy-field__line--3 {
-  top: 78%;
-  background: linear-gradient(90deg, transparent, rgba(4,157,255,0.14) 50%, transparent);
-  animation: about-energy-line 2.6s ease-in-out 0.6s infinite alternate;
-}
-
-/* Closing section radial glow */
-.about-closing-glow {
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(ellipse 80% 70% at 50% 50%,
-    rgba(166,20,178,0.10) 0%,
-    transparent 70%
-  );
-  pointer-events: none;
-}
-
 /* ── ABOUT PAGE — KEYFRAMES ─────────────────────────────────────────────── */
 @keyframes about-glow-pulse {
-  0%, 100% { opacity: 0.7; transform: translate(-50%, -50%) scale(1); }
+  0%, 100% { opacity: 0.7; transform: translate(-50%, -50%) scale(1);    }
   50%       { opacity: 1;   transform: translate(-50%, -50%) scale(1.12); }
-}
-
-@keyframes about-light-sweep {
-  0%   { left: -28%; opacity: 0; }
-  10%  { opacity: 1; }
-  90%  { opacity: 1; }
-  100% { left: 108%; opacity: 0; }
-}
-
-@keyframes about-orb-pulse {
-  0%, 100% { transform: translate(-50%, -50%) scale(1);    opacity: 0.6; }
-  50%       { transform: translate(-50%, -50%) scale(1.18); opacity: 1;   }
-}
-
-@keyframes about-tachyon-glow {
-  0%, 100% { background-position: 0% 50%; }
-  50%       { background-position: 100% 50%; }
-}
-
-@keyframes about-energy-line {
-  0%   { transform: scaleX(0.7); opacity: 0.4; }
-  100% { transform: scaleX(1.1); opacity: 1;   }
-}
-
-@keyframes about-ring-expand {
-  0%   { transform: scale(0);   opacity: 0.85; }
-  60%  {                        opacity: 0.35; }
-  100% { transform: scale(1);   opacity: 0;    }
-}
-
-@keyframes about-center-pulse {
-  0%, 100% { box-shadow: 0 0 8px  rgba(192,132,252,0.7); }
-  50%       { box-shadow: 0 0 22px rgba(192,132,252,1);   }
-}
-
-@keyframes about-warp-breath {
-  0%, 100% { transform: scaleX(0.35); opacity: 0.4; }
-  50%       { transform: scaleX(1);   opacity: 1;   }
-}
-
-/* Disable heavy animations on mobile */
-@media (max-width: 768px) {
-  .about-hero-glow,
-  .about-orb-pulse,
-  .about-closing-glow {
-    animation-duration: 8s;
-  }
-  .about-divider-sweep__beam,
-  .about-energy-field__line--1,
-  .about-energy-field__line--2,
-  .about-energy-field__line--3 {
-    animation-play-state: paused;
-  }
 }
