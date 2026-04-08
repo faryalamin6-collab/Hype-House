@@ -35,7 +35,7 @@ export default function FinalCTA() {
               marginBottom: '24px',
             }}
           >
-            ✦ &nbsp; Ready To Take Your Brand To The Next Level?
+            ✦ &nbsp; Taking Your Brand To The Next Level
           </div>
           <h2
             style={{
