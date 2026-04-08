@@ -75,49 +75,34 @@ export default function PhilosophyPage() {
       }}>
         <div style={{ maxWidth: '760px', margin: '0 auto', textAlign: 'center' }}>
           <ScrollReveal>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
-              <p style={{ fontSize: '15px', color: 'rgba(255,255,255,0.72)', lineHeight: 1.85 }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '32px' }}>
+              <p style={{ fontSize: '15px', color: 'rgba(255,255,255,0.72)', lineHeight: 1.55 }}>
                 We believe creativity is a living thing.<br />
                 It breathes. It evolves. It breaks rules.<br />
                 And we exist to keep it alive.
               </p>
 
-              <p style={{ fontSize: '15px', color: 'rgba(255,255,255,0.72)', lineHeight: 1.85 }}>
+              <p style={{ fontSize: '15px', color: 'rgba(255,255,255,0.72)', lineHeight: 1.55 }}>
                 At HypeHouse, we don&apos;t play it safe.<br />
                 We chase the ideas that scare us.<br />
                 The ones that keep us up at night.<br />
                 The ones that make people stop, stare, and feel something real.
               </p>
-            </div>
-          </ScrollReveal>
-        </div>
-      </section>
 
-      {/* ── EXTENDED PHILOSOPHY (above tiles) ───────────────────────────── */}
-      <section style={{
-        position: 'relative', zIndex: 10,
-        background: 'rgba(255,255,255,0.02)',
-        borderTop: '1px solid rgba(255,255,255,0.06)',
-        borderBottom: '1px solid rgba(255,255,255,0.06)',
-        padding: '64px 48px',
-      }}>
-        <div style={{ maxWidth: '760px', margin: '0 auto', textAlign: 'center' }}>
-          <ScrollReveal>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
-              <p style={{ fontSize: '15px', color: 'rgba(255,255,255,0.72)', lineHeight: 1.85 }}>
+              <p style={{ fontSize: '15px', color: 'rgba(255,255,255,0.72)', lineHeight: 1.55 }}>
                 We believe in partnership, not transactions.<br />
                 When we work with a brand, we treat it like our own.<br />
                 We listen. We challenge. We collaborate until the work feels right,
                 not until the deadline hits.
               </p>
 
-              <p style={{ fontSize: '15px', color: 'rgba(255,255,255,0.72)', lineHeight: 1.85 }}>
+              <p style={{ fontSize: '15px', color: 'rgba(255,255,255,0.72)', lineHeight: 1.55 }}>
                 We believe in quality.<br />
                 If it&apos;s not exceptional, it doesn&apos;t leave the room.<br />
                 We don&apos;t ship average. We ship what we&apos;re proud of.
               </p>
 
-              <p style={{ fontSize: '15px', color: 'rgba(255,255,255,0.72)', lineHeight: 1.85 }}>
+              <p style={{ fontSize: '15px', color: 'rgba(255,255,255,0.72)', lineHeight: 1.55 }}>
                 And above all, we believe in Hype.<br />
                 Not as noise, but as energy.<br />
                 The current that runs through culture.<br />
