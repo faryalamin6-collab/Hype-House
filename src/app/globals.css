@@ -386,7 +386,7 @@ p, li, span:not(.gradient-text):not(.section-label) {
   .about-orb-pulse { width: 200px; height: 200px; }
 }
 
-/* TACHYON heading text with animated gradient + glow */
+/* TACHYON heading text with animated gradient + glow (block — old tile) */
 .about-tachyon-text {
   font-family: var(--font-poppins), sans-serif;
   font-weight: 800;
@@ -399,6 +399,17 @@ p, li, span:not(.gradient-text):not(.section-label) {
   -webkit-text-fill-color: transparent;
   background-clip: text;
   animation: about-tachyon-glow 3.2s ease-in-out infinite;
+}
+
+/* TACHYON inline heading variant (inside h2 flow) */
+.about-tachyon-text-inline {
+  background: linear-gradient(90deg, #049DFF 0%, #C084FC 50%, #049DFF 100%);
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: about-tachyon-glow 3.2s ease-in-out infinite;
+  display: inline;
 }
 
 /* Tachyon explore link */
