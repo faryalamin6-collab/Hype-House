@@ -82,13 +82,6 @@ export default function Hero() {
           <div ref={line2Ref} style={{ color: 'white', marginTop: '4px' }}>
             We Engineer Hype.
           </div>
-          <div
-            ref={line3Ref}
-            className="gradient-text"
-            style={{ marginTop: '4px' }}
-          >
-            Strategy. Systems. Creative. Performance.
-          </div>
         </h1>
 
         {/* Subheading */}
