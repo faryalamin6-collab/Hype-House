@@ -21,14 +21,14 @@ function ClipReveal({
   tag?: 'div' | 'p' | 'h1' | 'h2' | 'h3' | 'span' | 'blockquote'
 }) {
   return (
-    <span className="about-clip-wrap">
+    <div className="about-clip-wrap">
       <Tag
         className={`about-clip-inner about-observe ${className}`}
         style={{ transitionDelay: `${delay}ms` }}
       >
         {children}
       </Tag>
-    </span>
+    </div>
   )
 }
 
@@ -126,21 +126,38 @@ export default function AboutContent() {
     return () => window.removeEventListener('mousemove', handle)
   }, [])
 
-  // Single IntersectionObserver — adds .visible to every .about-observe element
+  // Single IntersectionObserver — adds .visible to every .about-observe element.
+  // Also immediately reveals any element already in the viewport on mount
+  // (hero headings are above the fold and would never scroll into view).
   useEffect(() => {
-    const els = document.querySelectorAll('.about-observe')
+    const els = Array.from(document.querySelectorAll<HTMLElement>('.about-observe'))
+
+    const reveal = (el: HTMLElement) => {
+      el.classList.add('visible')
+    }
+
+    // Immediate check — elements already visible when page loads
+    const vh = window.innerHeight
+    els.forEach((el) => {
+      const rect = el.getBoundingClientRect()
+      if (rect.top < vh * 0.95) reveal(el)
+    })
+
+    // Observer for elements below the fold
     const obs = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add('visible')
+            reveal(entry.target as HTMLElement)
             obs.unobserve(entry.target)
           }
         })
       },
       { threshold: 0.08 }
     )
-    els.forEach((el) => obs.observe(el))
+    els.forEach((el) => {
+      if (!el.classList.contains('visible')) obs.observe(el)
+    })
     return () => obs.disconnect()
   }, [])
 
