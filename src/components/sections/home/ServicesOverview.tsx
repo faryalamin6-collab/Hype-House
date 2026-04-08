@@ -141,7 +141,32 @@ export default function ServicesOverview() {
               margin: '20px auto 0',
             }}
           >
-            From branding and content to websites, paid media, and automation, HypeHouse gives you one creative growth partner instead of five disconnected vendors.
+            For brands that want to be felt, not just seen.
+          </p>
+          <p
+            style={{
+              fontFamily: 'var(--font-poppins)',
+              fontSize: '17px',
+              color: 'rgba(255,255,255,0.72)',
+              lineHeight: 1.75,
+              maxWidth: '680px',
+              margin: '20px auto 0',
+            }}
+          >
+            HypeHouse exists for brands that want more than visibility.
+            The ones that want clarity in how they show up, consistency in how they grow, and intention behind everything they put out into the world.
+          </p>
+          <p
+            style={{
+              fontFamily: 'var(--font-poppins)',
+              fontSize: '17px',
+              color: 'rgba(255,255,255,0.72)',
+              lineHeight: 1.75,
+              maxWidth: '680px',
+              margin: '20px auto 0',
+            }}
+          >
+            We bring strategy, creative, and execution together so nothing feels disconnected, delayed, or diluted. Every decision has a direction. Every output has a purpose. Every part of the brand moves as one.
           </p>
         </div>
 
