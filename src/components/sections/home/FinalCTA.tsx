@@ -62,8 +62,8 @@ export default function FinalCTA() {
               margin: '0 auto 48px',
             }}
           >
-            If your brand deserves serious thinking, serious creative, and a partner
-            who treats it that way, this is where we start.
+            If your brand deserves thinking that shifts culture, creative that breaks the mould,
+            and a partner that plays at a different level, this is where we start.
           </p>
           <div
             style={{
