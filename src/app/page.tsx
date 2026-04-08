@@ -4,7 +4,6 @@ import ServiceTicker from '@/components/sections/home/ServiceTicker'
 import WhyHypeHouse from '@/components/sections/home/WhyHypeHouse'
 import ServicesOverview from '@/components/sections/home/ServicesOverview'
 import TachyonTeaser from '@/components/sections/home/TachyonTeaser'
-import Philosophy from '@/components/sections/home/Philosophy'
 import FinalCTA from '@/components/sections/home/FinalCTA'
 
 export const metadata: Metadata = {
@@ -24,7 +23,6 @@ export default function HomePage() {
       <WhyHypeHouse />
       <ServicesOverview />
       <TachyonTeaser />
-      <Philosophy />
       <FinalCTA />
     </>
   )
