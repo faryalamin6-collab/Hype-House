@@ -4,55 +4,114 @@ import { useEffect, useRef } from 'react'
 import Link from 'next/link'
 import SectionLabel from '@/components/ui/SectionLabel'
 import Button from '@/components/ui/Button'
-import HoverCard from '@/components/ui/HoverCard'
 
-const codeValues = [
-  {
-    title: 'Freedom',
-    body: "Creative freedom is not optional. It is the condition under which great work becomes possible. We don't do templates. We don't do safe. We chase the ideas that scare us.",
-  },
-  {
-    title: 'Partnership',
-    body: "When we work with a brand we treat it like our own. We listen. We challenge. We stay up. We are not a vendor you brief and forget — we are the partner who tells you when you're wrong.",
-  },
-  {
-    title: 'Quality',
-    body: 'If it is not exceptional it does not leave the room. This is not a standard. It is a filter. Average work from HypeHouse is not possible because average work is not HypeHouse.',
-  },
-  {
-    title: 'Hype',
-    body: 'Hype is not noise. Hype is not likes. Hype is momentum — the kind that compounds, that makes markets move, that builds brands people remember long after the campaign ends.',
-  },
-]
+// ── Animated Section Dividers ─────────────────────────────────────────────
 
-const introPunchlines = [
-  { text: 'Most agencies give you deliverables.', size: '20px', weight: 500, opacity: 0.55 },
-  { text: 'We give you a system.', size: '26px', weight: 800, opacity: 1.0 },
-  { text: 'Strategy that thinks ahead. Creative that cuts through. AI that scales it all.', size: '15px', weight: 400, opacity: 0.72 },
-  { text: 'One partner. End to end. No gaps.', size: '15px', weight: 600, opacity: 0.88 },
-]
+function DividerSynapses() {
+  return (
+    <div aria-hidden="true" style={{ padding: '12px 0', position: 'relative', zIndex: 10 }}>
+      <svg
+        viewBox="0 0 1000 80"
+        preserveAspectRatio="xMidYMid meet"
+        style={{ width: '100%', height: '80px', display: 'block' }}
+      >
+        {/* Connection curves */}
+        <path d="M 120 40 Q 205 14 310 40" stroke="rgba(192,132,252,0.22)" strokeWidth="1" fill="none" />
+        <path d="M 310 40 Q 415 66 520 40" stroke="rgba(4,157,255,0.22)"   strokeWidth="1" fill="none" />
+        <path d="M 520 40 Q 625 16 720 40" stroke="rgba(52,211,153,0.22)"  strokeWidth="1" fill="none" />
+        <path d="M 720 40 Q 820 62 900 40" stroke="rgba(192,132,252,0.22)" strokeWidth="1" fill="none" />
 
-// Reusable fade-up initial style
+        {/* Outer ring pulses */}
+        {[120, 310, 520, 720, 900].map((x, i) => (
+          <circle key={`ring-${x}`} cx={x} cy="40" r="4" fill="none"
+            stroke={i % 2 === 0 ? 'rgba(192,132,252,0.55)' : 'rgba(4,157,255,0.55)'}
+            strokeWidth="1">
+            <animate attributeName="r"       values="3;6;3"   dur={`${2.6 + i * 0.35}s`} begin={`${i * 0.45}s`} repeatCount="indefinite" />
+            <animate attributeName="opacity" values="0.5;1;0.5" dur={`${2.6 + i * 0.35}s`} begin={`${i * 0.45}s`} repeatCount="indefinite" />
+          </circle>
+        ))}
+
+        {/* Inner fill dots */}
+        {[120, 310, 520, 720, 900].map((x, i) => (
+          <circle key={`dot-${x}`} cx={x} cy="40" r="2.5"
+            fill={i % 2 === 0 ? '#C084FC' : '#049DFF'} opacity="0.8" />
+        ))}
+
+        {/* Traveling pulses */}
+        <circle r="3.5" fill="#C084FC">
+          <animateMotion dur="3.2s" begin="0s"    repeatCount="indefinite" path="M 120 40 Q 205 14 310 40" />
+          <animate attributeName="opacity" values="0;1;0" dur="3.2s" begin="0s"    repeatCount="indefinite" />
+        </circle>
+        <circle r="3.5" fill="#049DFF">
+          <animateMotion dur="3.2s" begin="0.9s"  repeatCount="indefinite" path="M 310 40 Q 415 66 520 40" />
+          <animate attributeName="opacity" values="0;1;0" dur="3.2s" begin="0.9s"  repeatCount="indefinite" />
+        </circle>
+        <circle r="3.5" fill="#34D399">
+          <animateMotion dur="3.2s" begin="1.8s"  repeatCount="indefinite" path="M 520 40 Q 625 16 720 40" />
+          <animate attributeName="opacity" values="0;1;0" dur="3.2s" begin="1.8s"  repeatCount="indefinite" />
+        </circle>
+        <circle r="3.5" fill="#C084FC">
+          <animateMotion dur="3.2s" begin="2.7s"  repeatCount="indefinite" path="M 720 40 Q 820 62 900 40" />
+          <animate attributeName="opacity" values="0;1;0" dur="3.2s" begin="2.7s"  repeatCount="indefinite" />
+        </circle>
+      </svg>
+    </div>
+  )
+}
+
+function DividerRadialPulse() {
+  return (
+    <div
+      aria-hidden="true"
+      style={{
+        position: 'relative', zIndex: 10,
+        height: '120px',
+        display: 'flex', alignItems: 'center', justifyContent: 'center',
+        overflow: 'hidden',
+      }}
+    >
+      <div className="about-radial-ring about-radial-ring--1" />
+      <div className="about-radial-ring about-radial-ring--2" />
+      <div className="about-radial-ring about-radial-ring--3" />
+      <div className="about-radial-center" />
+    </div>
+  )
+}
+
+function DividerWarpLines() {
+  return (
+    <div
+      aria-hidden="true"
+      style={{
+        position: 'relative', zIndex: 10,
+        height: '72px', overflow: 'hidden',
+      }}
+    >
+      <div className="about-warp-line about-warp-line--1" />
+      <div className="about-warp-line about-warp-line--2" />
+      <div className="about-warp-line about-warp-line--3" />
+    </div>
+  )
+}
+
+// ── Main Component ────────────────────────────────────────────────────────
+
 const fadeInit: React.CSSProperties = {
   opacity: 0,
-  transform: 'translateY(24px)',
-  transition: 'opacity 0.65s ease, transform 0.65s ease',
+  transform: 'translateY(22px)',
   willChange: 'opacity, transform',
 }
 
 export default function AboutContent() {
   const heroInnerRef = useRef<HTMLDivElement>(null)
-  const punchlineRefs = useRef<(HTMLDivElement | null)[]>([])
-  const cardRefs = useRef<(HTMLDivElement | null)[]>([])
-  // Collected fade targets — push refs here in render
   const fadeRefs = useRef<(HTMLElement | null)[]>([])
 
-  // Hero parallax — desktop only, ±6–8px
+  // Hero parallax — desktop only, ±6–8 px
   useEffect(() => {
     if (window.matchMedia('(max-width: 768px)').matches) return
     const handle = (e: MouseEvent) => {
       if (!heroInnerRef.current) return
-      const x = (e.clientX / window.innerWidth - 0.5) * 12
+      const x = (e.clientX / window.innerWidth  - 0.5) * 12
       const y = (e.clientY / window.innerHeight - 0.5) * 8
       heroInnerRef.current.style.transform = `translate(${x}px, ${y}px)`
     }
@@ -62,19 +121,14 @@ export default function AboutContent() {
 
   // Single IntersectionObserver for all fade-up elements
   useEffect(() => {
-    const targets = [
-      ...punchlineRefs.current,
-      ...cardRefs.current,
-      ...fadeRefs.current,
-    ].filter(Boolean) as HTMLElement[]
-
+    const targets = fadeRefs.current.filter(Boolean) as HTMLElement[]
     const obs = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             const el = entry.target as HTMLElement
             el.style.opacity = '1'
-            el.style.transform = el.dataset.scaleTarget ? 'scale(1)' : 'translateY(0)'
+            el.style.transform = 'translateY(0)'
             obs.unobserve(el)
           }
         })
@@ -120,285 +174,140 @@ export default function AboutContent() {
             <span className="gradient-text">We&apos;re the System Behind the Hype.</span>
           </h1>
 
-          {/* Staggered punch-lines */}
+          <div style={{ maxWidth: '680px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '20px' }}>
+            <div
+              ref={(el) => { fadeRefs.current[0] = el }}
+              style={{ ...fadeInit, transition: 'opacity 0.65s ease 0ms, transform 0.65s ease 0ms' }}
+            >
+              <p style={{ fontSize: '15px', color: 'rgba(255,255,255,0.75)', lineHeight: 1.85 }}>
+                HypeHouse is a creative agency based in Karachi, built to operate at a global level.
+              </p>
+            </div>
+
+            <div
+              ref={(el) => { fadeRefs.current[1] = el }}
+              style={{ ...fadeInit, transition: 'opacity 0.65s ease 120ms, transform 0.65s ease 120ms' }}
+            >
+              <p style={{ fontSize: '15px', color: 'rgba(255,255,255,0.75)', lineHeight: 1.85 }}>
+                We bring together a network of world-class creatives, strategists, and specialists,
+                combining the strength of our in-house team with collaborators from around the world.
+              </p>
+            </div>
+
+            <div
+              ref={(el) => { fadeRefs.current[2] = el }}
+              style={{ ...fadeInit, transition: 'opacity 0.7s ease 240ms, transform 0.7s ease 240ms', marginTop: '8px' }}
+            >
+              <p style={{
+                fontFamily: 'var(--font-poppins)',
+                fontSize: 'clamp(18px, 2.5vw, 24px)',
+                fontWeight: 700,
+                letterSpacing: '-0.01em',
+                lineHeight: 1.4,
+                color: 'rgba(255,255,255,0.94)',
+              }}>
+                Masters of their craft,{' '}
+                <span className="gradient-text">working as one system.</span>
+              </p>
+            </div>
+          </div>
+
           <div
-            style={{
-              display: 'flex', flexDirection: 'column', gap: '18px',
-              maxWidth: '640px', margin: '0 auto 52px',
-            }}
+            ref={(el) => { fadeRefs.current[3] = el }}
+            style={{ ...fadeInit, transition: 'opacity 0.65s ease 360ms, transform 0.65s ease 360ms', marginTop: '48px' }}
           >
-            {introPunchlines.map((line, i) => (
-              <div
-                key={i}
-                ref={(el) => { punchlineRefs.current[i] = el }}
-                style={{
-                  opacity: 0,
-                  transform: 'translateY(20px)',
-                  transition: `opacity 0.65s ease ${i * 130}ms, transform 0.65s ease ${i * 130}ms`,
-                  willChange: 'opacity, transform',
-                  fontFamily: 'var(--font-poppins)',
-                  fontSize: line.size,
-                  fontWeight: line.weight,
-                  color: `rgba(255,255,255,${line.opacity})`,
-                  lineHeight: 1.55,
-                }}
-              >
+            <Button href="https://hypehouse-client-intake-form.netlify.app" variant="primary" external>
+              Work With Us →
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* ── SYNAPSE DIVIDER ──────────────────────────────────────────────── */}
+      <DividerSynapses />
+
+      {/* ── 2. PHILOSOPHY & IDENTITY ─────────────────────────────────────── */}
+      <section
+        style={{
+          position: 'relative', zIndex: 10,
+          padding: '80px 48px',
+        }}
+      >
+        <div style={{ maxWidth: '780px', margin: '0 auto' }}>
+          {[
+            {
+              text: "We're not your typical agency.",
+              size: '20px', weight: 700, opacity: 0.95, mb: '28px',
+            },
+            {
+              text: "We're architects of velocity, where design, storytelling, and AI collide to create ecosystems that move at lightspeed and perform with precision.",
+              size: '15px', weight: 400, opacity: 0.75, mb: '28px',
+            },
+            {
+              text: "Where bold creative ignites movements.",
+              size: '18px', weight: 600, opacity: 0.90, mb: '20px',
+            },
+            {
+              text: "Where every visual, every line, and every campaign is built to inspire and engineered to perform.",
+              size: '15px', weight: 400, opacity: 0.75, mb: '36px',
+            },
+            {
+              text: "HypeHouse is a collective of digital natives, AI visionaries, and creative architects who know that modern brands need more than marketing. They need systems that evolve. Stories that spread like wildfire. Visuals that rewire perception.",
+              size: '15px', weight: 400, opacity: 0.75, mb: '0',
+            },
+          ].map((line, i) => (
+            <div
+              key={i}
+              ref={(el) => { fadeRefs.current[4 + i] = el }}
+              style={{
+                ...fadeInit,
+                transition: `opacity 0.65s ease ${i * 80}ms, transform 0.65s ease ${i * 80}ms`,
+                marginBottom: line.mb,
+              }}
+            >
+              <p style={{
+                fontFamily: 'var(--font-poppins)',
+                fontSize: line.size,
+                fontWeight: line.weight,
+                color: `rgba(255,255,255,${line.opacity})`,
+                lineHeight: 1.85,
+              }}>
                 {line.text}
-              </div>
-            ))}
-          </div>
-
-          <Button href="https://hypehouse-client-intake-form.netlify.app" variant="primary" external>
-            Work With Us →
-          </Button>
-        </div>
-      </section>
-
-      {/* ── LIGHT SWEEP DIVIDER ──────────────────────────────────────────── */}
-      <div className="about-divider-sweep" aria-hidden="true">
-        <div className="about-divider-sweep__line" />
-        <div className="about-divider-sweep__beam" />
-      </div>
-
-      {/* ── 2. PHILOSOPHY ────────────────────────────────────────────────── */}
-      <section
-        style={{
-          position: 'relative', zIndex: 10,
-          padding: '80px 48px',
-        }}
-      >
-        <div style={{ maxWidth: '780px', margin: '0 auto' }}>
-          <div
-            ref={(el) => { fadeRefs.current[0] = el }}
-            style={{ ...fadeInit, marginBottom: '12px' }}
-          >
-            <SectionLabel>Our Philosophy</SectionLabel>
-          </div>
-
-          <div
-            ref={(el) => { fadeRefs.current[1] = el }}
-            style={{ ...fadeInit, transitionDelay: '80ms', marginBottom: '48px' }}
-          >
-            <h2
-              style={{
-                fontFamily: 'var(--font-poppins)', fontWeight: 800,
-                fontSize: 'clamp(28px, 4vw, 52px)',
-                letterSpacing: '-0.02em', lineHeight: 1.1,
-                marginTop: '16px',
-              }}
-            >
-              Built different.<br />
-              <span className="gradient-text">By design.</span>
-            </h2>
-          </div>
-
-          {/* Philosophy paragraphs — each fades in independently */}
-          {[
-            {
-              lines: ["We're not your typical agency.", "We're architects of velocity."],
-              bold: true,
-            },
-            {
-              lines: [
-                "Where design, storytelling, and AI collide to create ecosystems that move at lightspeed and perform with precision.",
-              ],
-            },
-            {
-              lines: [
-                "Where bold creative ignites movements.",
-                "Where every visual, every line, and every campaign is built to inspire and engineered to perform.",
-              ],
-            },
-          ].map((block, i) => (
-            <div
-              key={i}
-              ref={(el) => { fadeRefs.current[2 + i] = el }}
-              style={{
-                ...fadeInit,
-                transitionDelay: `${(i + 2) * 90}ms`,
-                marginBottom: '32px',
-              }}
-            >
-              {block.lines.map((line, j) => (
-                <p
-                  key={j}
-                  style={{
-                    fontSize: '16px',
-                    fontWeight: block.bold ? 600 : 400,
-                    color: block.bold ? 'rgba(255,255,255,0.92)' : 'rgba(255,255,255,0.75)',
-                    lineHeight: 1.8,
-                    marginBottom: j < block.lines.length - 1 ? '10px' : 0,
-                  }}
-                >
-                  {line}
-                </p>
-              ))}
+              </p>
             </div>
           ))}
         </div>
       </section>
 
-      {/* ── SUBTLE RULE ──────────────────────────────────────────────────── */}
-      <div
-        style={{
-          height: '1px',
-          margin: '0 48px',
-          background: 'rgba(255,255,255,0.06)',
-          zIndex: 10, position: 'relative',
-        }}
-        aria-hidden="true"
-      />
+      {/* ── RADIAL PULSE DIVIDER ─────────────────────────────────────────── */}
+      <DividerRadialPulse />
 
-      {/* ── 3. IDENTITY ──────────────────────────────────────────────────── */}
-      <section
-        style={{
-          position: 'relative', zIndex: 10,
-          padding: '80px 48px',
-        }}
-      >
-        <div style={{ maxWidth: '780px', margin: '0 auto' }}>
-          <div
-            ref={(el) => { fadeRefs.current[5] = el }}
-            style={{ ...fadeInit, marginBottom: '12px' }}
-          >
-            <SectionLabel>Who We Are</SectionLabel>
-          </div>
-
-          <div
-            ref={(el) => { fadeRefs.current[6] = el }}
-            style={{ ...fadeInit, transitionDelay: '80ms', marginBottom: '40px' }}
-          >
-            <h2
-              style={{
-                fontFamily: 'var(--font-poppins)', fontWeight: 800,
-                fontSize: 'clamp(28px, 4vw, 52px)',
-                letterSpacing: '-0.02em', lineHeight: 1.1,
-                marginTop: '16px',
-              }}
-            >
-              A collective.<br />
-              <span className="gradient-text">Not a conventional agency.</span>
-            </h2>
-          </div>
-
-          {[
-            {
-              lines: [
-                "HypeHouse is a collective of digital natives, AI visionaries, and creative architects",
-                "who know that modern brands need more than marketing.",
-              ],
-            },
-            {
-              lines: [
-                "They need systems that evolve.",
-                "Stories that spread like wildfire.",
-                "Visuals that rewire perception.",
-              ],
-            },
-          ].map((block, i) => (
-            <div
-              key={i}
-              ref={(el) => { fadeRefs.current[7 + i] = el }}
-              style={{
-                ...fadeInit,
-                transitionDelay: `${(i + 2) * 90}ms`,
-                marginBottom: '28px',
-              }}
-            >
-              {block.lines.map((line, j) => (
-                <p
-                  key={j}
-                  style={{
-                    fontSize: '16px',
-                    color: 'rgba(255,255,255,0.75)',
-                    lineHeight: 1.8,
-                    marginBottom: j < block.lines.length - 1 ? '8px' : 0,
-                  }}
-                >
-                  {line}
-                </p>
-              ))}
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* ── SUBTLE RULE ──────────────────────────────────────────────────── */}
-      <div
-        style={{
-          height: '1px',
-          margin: '0 48px',
-          background: 'rgba(255,255,255,0.06)',
-          zIndex: 10, position: 'relative',
-        }}
-        aria-hidden="true"
-      />
-
-      {/* ── 4. TACHYON SECTION ───────────────────────────────────────────── */}
-      <section
-        style={{
-          position: 'relative', zIndex: 10,
-          padding: '80px 48px',
-        }}
-      >
+      {/* ── 3. TACHYON INLINE ────────────────────────────────────────────── */}
+      <section style={{ position: 'relative', zIndex: 10, padding: '80px 48px' }}>
         <div style={{ maxWidth: '780px', margin: '0 auto' }}>
           <div
             ref={(el) => { fadeRefs.current[9] = el }}
-            style={{ ...fadeInit, marginBottom: '12px' }}
+            style={{ ...fadeInit, transition: 'opacity 0.65s ease 0ms, transform 0.65s ease 0ms', marginBottom: '24px' }}
           >
-            <SectionLabel>The Engine</SectionLabel>
+            <p style={{ fontSize: '15px', color: 'rgba(255,255,255,0.75)', lineHeight: 1.85 }}>
+              Powered by Tachyon, our AI backbone, we launch brands, scale performance,
+              and turn attention into revenue.
+            </p>
           </div>
 
           <div
             ref={(el) => { fadeRefs.current[10] = el }}
-            style={{ ...fadeInit, transitionDelay: '80ms', marginBottom: '40px' }}
+            style={{ ...fadeInit, transition: 'opacity 0.65s ease 140ms, transform 0.65s ease 140ms', marginBottom: '36px' }}
           >
-            <h2
-              style={{
-                fontFamily: 'var(--font-poppins)', fontWeight: 800,
-                fontSize: 'clamp(28px, 4vw, 52px)',
-                letterSpacing: '-0.02em', lineHeight: 1.1,
-                marginTop: '16px',
-              }}
-            >
-              Powered by{' '}
-              <span className="about-tachyon-text-inline">TACHYON</span>
-              .<br />
-              <span className="gradient-text">Built to scale.</span>
-            </h2>
+            <p style={{ fontSize: '15px', color: 'rgba(255,255,255,0.75)', lineHeight: 1.85 }}>
+              Tachyon is an AI and automation engine we&apos;ve built, designed to help businesses
+              operate smarter, move faster, and scale without friction with AI business integrations.
+            </p>
           </div>
 
-          {[
-            "Powered by Tachyon, our AI backbone, we launch brands, scale performance, and turn attention into revenue.",
-            "But Tachyon doesn't stop with us.",
-            "It's an AI and automation engine we've built to help businesses operate smarter, move faster, and scale without friction.",
-            "From intelligent workflows to connected systems — it's designed for brands that want more than just marketing.",
-          ].map((para, i) => (
-            <div
-              key={i}
-              ref={(el) => { fadeRefs.current[11 + i] = el }}
-              style={{
-                ...fadeInit,
-                transitionDelay: `${(i + 2) * 90}ms`,
-                marginBottom: '24px',
-              }}
-            >
-              <p
-                style={{
-                  fontSize: '16px',
-                  fontWeight: i === 1 ? 600 : 400,
-                  color: i === 1 ? 'rgba(255,255,255,0.92)' : 'rgba(255,255,255,0.75)',
-                  lineHeight: 1.8,
-                }}
-              >
-                {para}
-              </p>
-            </div>
-          ))}
-
           <div
-            ref={(el) => { fadeRefs.current[15] = el }}
-            style={{ ...fadeInit, transitionDelay: '450ms', marginTop: '8px' }}
+            ref={(el) => { fadeRefs.current[11] = el }}
+            style={{ ...fadeInit, transition: 'opacity 0.65s ease 260ms, transform 0.65s ease 260ms' }}
           >
             <Link href="/tachyon" className="about-tachyon-link">
               Explore Tachyon →
@@ -407,89 +316,10 @@ export default function AboutContent() {
         </div>
       </section>
 
-      {/* ── 5. VALUES — THE CODE ─────────────────────────────────────────── */}
-      <section
-        style={{
-          position: 'relative', zIndex: 10,
-          background: 'rgba(255,255,255,0.02)',
-          borderTop: '1px solid rgba(255,255,255,0.06)',
-          borderBottom: '1px solid rgba(255,255,255,0.06)',
-          padding: '80px 48px',
-        }}
-      >
-        <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
-          <div
-            ref={(el) => { fadeRefs.current[16] = el }}
-            style={{ ...fadeInit, textAlign: 'center', marginBottom: '16px' }}
-          >
-            <SectionLabel>The Code</SectionLabel>
-          </div>
-          <div
-            ref={(el) => { fadeRefs.current[17] = el }}
-            style={{ ...fadeInit, transitionDelay: '80ms', textAlign: 'center', marginBottom: '20px' }}
-          >
-            <h2
-              style={{
-                fontFamily: 'var(--font-poppins)', fontWeight: 800,
-                fontSize: 'clamp(28px, 4vw, 52px)',
-                letterSpacing: '-0.02em',
-              }}
-            >
-              Freedom. Partnership. Quality. Hype.
-            </h2>
-          </div>
-          <div
-            ref={(el) => { fadeRefs.current[18] = el }}
-            style={{ ...fadeInit, transitionDelay: '140ms', textAlign: 'center', marginBottom: '48px' }}
-          >
-            <p
-              style={{
-                fontSize: '15px', color: 'rgba(255,255,255,0.60)',
-                maxWidth: '600px', margin: '0 auto', lineHeight: 1.75,
-              }}
-            >
-              These are not values on a wall. They are operating principles. Every decision we make runs through this filter.
-            </p>
-          </div>
+      {/* ── WARP LINES DIVIDER ───────────────────────────────────────────── */}
+      <DividerWarpLines />
 
-          <div
-            style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
-              gap: '24px',
-            }}
-          >
-            {codeValues.map((v, i) => (
-              <div
-                key={v.title}
-                ref={(el) => { cardRefs.current[i] = el }}
-                style={{
-                  opacity: 0,
-                  transform: 'translateY(32px)',
-                  transition: `opacity 0.65s ease ${i * 110}ms, transform 0.7s cubic-bezier(0.34,1.56,0.64,1) ${i * 110}ms`,
-                  willChange: 'opacity, transform',
-                }}
-              >
-                <HoverCard style={{ padding: '40px 32px', height: '100%' }}>
-                  <div
-                    style={{
-                      fontFamily: 'var(--font-poppins)', fontWeight: 800,
-                      fontSize: '22px', marginBottom: '16px',
-                    }}
-                  >
-                    <span className="gradient-text">{v.title}</span>
-                  </div>
-                  <p style={{ fontSize: '15px', color: 'rgba(255,255,255,0.75)', lineHeight: 1.75 }}>
-                    {v.body}
-                  </p>
-                </HoverCard>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── 6. CLOSING ───────────────────────────────────────────────────── */}
+      {/* ── 4. CLOSING ───────────────────────────────────────────────────── */}
       <section
         style={{
           position: 'relative', zIndex: 10,
@@ -498,97 +328,57 @@ export default function AboutContent() {
         }}
       >
         <div className="about-closing-glow" aria-hidden="true" />
+        <div style={{ maxWidth: '680px', margin: '0 auto', position: 'relative' }}>
 
-        <div style={{ maxWidth: '780px', margin: '0 auto', position: 'relative' }}>
-          {/* Closing statement lines */}
           {[
-            { text: 'We exist for brands that want to feel alive.', weight: 700, size: 'clamp(18px, 2.5vw, 26px)', opacity: 0.92 },
-            { text: 'The ones that want more than visibility.', weight: 400, size: '16px', opacity: 0.72 },
-            { text: 'The ones that want to matter.', weight: 400, size: '16px', opacity: 0.72 },
+            { text: "We exist for brands that want to feel alive.", size: 'clamp(18px, 2.5vw, 26px)', weight: 700, color: 'rgba(255,255,255,0.94)' },
+            { text: "The ones that want more than visibility.",     size: '16px',                      weight: 400, color: 'rgba(255,255,255,0.70)' },
+            { text: "The ones that want to matter.",               size: '16px',                      weight: 400, color: 'rgba(255,255,255,0.70)' },
           ].map((line, i) => (
             <div
               key={i}
-              ref={(el) => { fadeRefs.current[19 + i] = el }}
+              ref={(el) => { fadeRefs.current[12 + i] = el }}
               style={{
                 ...fadeInit,
-                transitionDelay: `${i * 100}ms`,
-                marginBottom: i === 0 ? '20px' : '8px',
+                transition: `opacity 0.65s ease ${i * 100}ms, transform 0.65s ease ${i * 100}ms`,
+                marginBottom: i === 0 ? '16px' : '8px',
               }}
             >
-              <p
-                style={{
-                  fontFamily: 'var(--font-poppins)',
-                  fontWeight: line.weight,
-                  fontSize: line.size,
-                  color: `rgba(255,255,255,${line.opacity})`,
-                  lineHeight: 1.5,
-                }}
-              >
+              <p style={{ fontSize: line.size, fontWeight: line.weight, color: line.color, lineHeight: 1.5 }}>
                 {line.text}
               </p>
             </div>
           ))}
 
-          {/* Italicised tagline */}
           <div
-            ref={(el) => { fadeRefs.current[22] = el }}
-            style={{ ...fadeInit, transitionDelay: '300ms', margin: '36px 0 24px' }}
+            ref={(el) => { fadeRefs.current[15] = el }}
+            style={{ ...fadeInit, transition: 'opacity 0.65s ease 320ms, transform 0.65s ease 320ms', margin: '40px 0 20px' }}
           >
-            <p
-              style={{
-                fontFamily: 'var(--font-poppins)', fontStyle: 'italic',
-                fontSize: '18px', fontWeight: 500,
-                color: 'rgba(255,255,255,0.80)', lineHeight: 1.5,
-              }}
-            >
+            <p style={{
+              fontFamily: 'var(--font-poppins)', fontStyle: 'italic',
+              fontWeight: 500, fontSize: '18px',
+              color: 'rgba(255,255,255,0.82)', lineHeight: 1.5,
+            }}>
               Where hype isn&apos;t noise. It&apos;s momentum.
             </p>
           </div>
 
-          {/* Future statement */}
           <div
-            ref={(el) => { fadeRefs.current[23] = el }}
-            style={{ ...fadeInit, transitionDelay: '380ms', marginBottom: '56px' }}
+            ref={(el) => { fadeRefs.current[16] = el }}
+            style={{ ...fadeInit, transition: 'opacity 0.65s ease 420ms, transform 0.65s ease 420ms', marginBottom: '56px' }}
           >
-            <p
-              style={{
-                fontFamily: 'var(--font-poppins)', fontWeight: 600,
-                fontSize: '16px', color: 'rgba(255,255,255,0.88)', lineHeight: 1.6,
-              }}
-            >
+            <p style={{
+              fontFamily: 'var(--font-poppins)', fontWeight: 600,
+              fontSize: '16px', color: 'rgba(255,255,255,0.88)', lineHeight: 1.7,
+            }}>
               This is the future of creative. And it starts here.<br />
               Welcome to HypeHouse.
             </p>
           </div>
 
-          {/* Closing quote */}
           <div
-            ref={(el) => { fadeRefs.current[24] = el }}
-            data-scale-target="true"
-            style={{
-              opacity: 0,
-              transform: 'scale(0.96)',
-              transition: 'opacity 0.8s ease 460ms, transform 0.8s cubic-bezier(0.34,1.56,0.64,1) 460ms',
-              willChange: 'opacity, transform',
-              marginBottom: '52px',
-            }}
-          >
-            <blockquote
-              style={{
-                fontFamily: 'var(--font-poppins)', fontWeight: 800,
-                fontSize: 'clamp(20px, 3.5vw, 40px)', lineHeight: 1.2,
-                letterSpacing: '-0.02em',
-                color: 'rgba(255,255,255,0.90)',
-              }}
-            >
-              &ldquo;We don&apos;t build brands. We engineer hype.<br />
-              And we don&apos;t stop until the market feels it.&rdquo;
-            </blockquote>
-          </div>
-
-          <div
-            ref={(el) => { fadeRefs.current[25] = el }}
-            style={{ ...fadeInit, transitionDelay: '540ms' }}
+            ref={(el) => { fadeRefs.current[17] = el }}
+            style={{ ...fadeInit, transition: 'opacity 0.65s ease 520ms, transform 0.65s ease 520ms' }}
           >
             <Button href="https://hypehouse-client-intake-form.netlify.app" variant="primary" external>
               Work With Us →

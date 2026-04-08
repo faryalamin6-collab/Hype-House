@@ -14,20 +14,20 @@ export const metadata: Metadata = {
 
 const principles = [
   {
-    title: 'Creative Freedom',
-    body: 'The kind that isn\'t limited by templates, trends, or fear. Every project starts with a blank page and an open mind. Every idea earns its place by being impossible to ignore.',
-  },
-  {
-    title: 'Precision',
-    body: 'Chaos only becomes art when it\'s shaped with purpose. We think fast, but we never rush. Every frame, every word, every beat is built to perform.',
+    title: 'Freedom',
+    body: "Creative freedom is not optional. It is the condition under which great work becomes possible. We don't do templates. We don't do safe. We chase the ideas that scare us.",
   },
   {
     title: 'Partnership',
-    body: 'When we work with a brand, we treat it like our own. We listen. We challenge. We collaborate until the work feels right, not until the deadline hits.',
+    body: "When we work with a brand we treat it like our own. We listen. We challenge. We stay up. We are not a vendor you brief and forget — we are the partner who tells you when you're wrong.",
   },
   {
     title: 'Quality',
-    body: 'If it\'s not exceptional, it doesn\'t leave the room. We don\'t ship average. We ship what we\'re proud of.',
+    body: 'If it is not exceptional it does not leave the room. This is not a standard. It is a filter. Average work from HypeHouse is not possible because average work is not HypeHouse.',
+  },
+  {
+    title: 'Hype',
+    body: 'Hype is not noise. Hype is not likes. Hype is momentum — the kind that compounds, that makes markets move, that builds brands people remember long after the campaign ends.',
   },
 ]
 
@@ -180,7 +180,7 @@ export default function PhilosophyPage() {
               color: 'rgba(255,255,255,0.90)',
             }}>
               This is our code.<br />
-              <span className="gradient-text">Freedom. Precision. Partnership. Quality. Hype.</span>
+              <span className="gradient-text">Freedom. Partnership. Quality. Hype.</span>
             </blockquote>
             <p style={{
               fontSize: '14px', color: 'rgba(255,255,255,0.60)',
