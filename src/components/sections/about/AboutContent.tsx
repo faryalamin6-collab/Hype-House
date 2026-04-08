@@ -199,19 +199,12 @@ export default function AboutContent() {
             <SectionLabel>About Us · Nice To Meet You</SectionLabel>
           </FadeUp>
 
-          {/* H1 — each line is a separate clip-reveal */}
+          {/* H1 — single gradient line, same pattern as homepage */}
           <div style={{ margin: '24px 0 48px' }}>
             <ClipReveal
               tag="h1"
-              className="about-h1-line"
-              delay={60}
-            >
-              We&apos;re Not Just an Agency.
-            </ClipReveal>
-            <ClipReveal
-              tag="h1"
               className="about-h1-line gradient-text"
-              delay={180}
+              delay={80}
             >
               We&apos;re the System Behind the Hype.
             </ClipReveal>
@@ -342,24 +335,17 @@ export default function AboutContent() {
         <div className="about-closing-glow" aria-hidden="true" />
         <div style={{ maxWidth: '680px', margin: '0 auto', position: 'relative' }}>
 
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', marginBottom: '36px' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', marginBottom: '52px' }}>
             <ClipReveal tag="p" className="about-closing-line" delay={0}>
-              We exist for brands that want to feel alive.
+              This is the future of creative.
             </ClipReveal>
-            <ClipReveal tag="p" className="about-closing-sub" delay={80}>
-              The ones that want more than visibility.
+            <ClipReveal tag="p" className="about-closing-line" delay={100}>
+              &hellip;And it starts here.
             </ClipReveal>
-            <ClipReveal tag="p" className="about-closing-sub" delay={160}>
-              The ones that want to matter.
+            <ClipReveal tag="p" className="about-closing-line gradient-text" delay={200}>
+              Welcome to HypeHouse!
             </ClipReveal>
           </div>
-
-          <FadeUp delay={0} style={{ marginBottom: '48px' }}>
-            <p className="about-body" style={{ fontWeight: 600, color: 'rgba(255,255,255,0.88)' }}>
-              This is the future of creative. And it starts here.<br />
-              Welcome to HypeHouse.
-            </p>
-          </FadeUp>
 
           <FadeUp delay={100}>
             <Button href="https://hypehouse-client-intake-form.netlify.app" variant="primary" external>
