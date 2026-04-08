@@ -81,7 +81,7 @@ function StatementBreak({
         style={{
           height: '1px',
           background: 'rgba(255,255,255,0.06)',
-          marginBottom: '48px',
+          marginBottom: '28px',
         }}
         aria-hidden="true"
       />
@@ -103,7 +103,7 @@ function StatementBreak({
         style={{
           height: '1px',
           background: 'rgba(255,255,255,0.06)',
-          marginTop: '48px',
+          marginTop: '28px',
         }}
         aria-hidden="true"
       />
@@ -210,7 +210,7 @@ export default function AboutContent() {
             </ClipReveal>
           </div>
 
-          <div style={{ maxWidth: '680px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '20px' }}>
+          <div style={{ maxWidth: '680px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '16px' }}>
             <FadeUp delay={280}>
               <p className="about-body">
                 HypeHouse is a creative agency based in Karachi, built to operate at a global level.
@@ -224,7 +224,7 @@ export default function AboutContent() {
             </FadeUp>
           </div>
 
-          <FadeUp delay={440} style={{ marginTop: '48px' }}>
+          <FadeUp delay={440} style={{ marginTop: '32px' }}>
             <Button href="https://hypehouse-client-intake-form.netlify.app" variant="primary" external>
               Work With Us →
             </Button>
@@ -245,39 +245,38 @@ export default function AboutContent() {
       <section
         style={{
           position: 'relative', zIndex: 10,
-          padding: '56px 48px',
+          padding: '36px 48px 0',
         }}
       >
-        <div style={{ maxWidth: '780px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '0' }}>
+        <div style={{ maxWidth: '780px', margin: '0 auto' }}>
 
-          {/* First statement line — clip-reveal, large */}
-          <div style={{ marginBottom: '28px' }}>
+          <div style={{ marginBottom: '20px' }}>
             <ClipReveal tag="p" className="about-lead" delay={0}>
               We&apos;re not your typical agency.
             </ClipReveal>
           </div>
 
-          <FadeUp delay={80} style={{ marginBottom: '28px' }}>
+          <FadeUp delay={80} style={{ marginBottom: '20px' }}>
             <p className="about-body">
               We&apos;re architects of velocity, where design, storytelling, and AI collide to create
               ecosystems that move at lightspeed and perform with precision.
             </p>
           </FadeUp>
 
-          <div style={{ marginBottom: '28px' }}>
+          <div style={{ marginBottom: '20px' }}>
             <ClipReveal tag="p" className="about-mid" delay={0}>
               Where bold creative ignites movements.
             </ClipReveal>
           </div>
 
-          <FadeUp delay={80} style={{ marginBottom: '36px' }}>
+          <FadeUp delay={80} style={{ marginBottom: '20px' }}>
             <p className="about-body">
               Where every visual, every line, and every campaign is built to inspire
               and engineered to perform.
             </p>
           </FadeUp>
 
-          <FadeUp delay={0}>
+          <FadeUp delay={0} style={{ marginBottom: '20px' }}>
             <p className="about-body">
               At HypeHouse, we believe that modern brands need more than marketing.
               They need systems that evolve. Stories that spread like wildfire.
@@ -291,18 +290,17 @@ export default function AboutContent() {
       <section
         style={{
           position: 'relative', zIndex: 10,
-          padding: '0 48px 56px',
-          borderTop: '1px solid rgba(255,255,255,0.05)',
+          padding: '0 48px 36px',
         }}
       >
-        <div style={{ maxWidth: '780px', margin: '0 auto', paddingTop: '56px' }}>
-          <FadeUp style={{ marginBottom: '24px' }}>
+        <div style={{ maxWidth: '780px', margin: '0 auto', paddingTop: '24px' }}>
+          <FadeUp style={{ marginBottom: '16px' }}>
             <p className="about-body">
               Powered by Tachyon, our AI backbone, we launch brands, scale performance,
               and turn attention into revenue.
             </p>
           </FadeUp>
-          <FadeUp delay={120} style={{ marginBottom: '36px' }}>
+          <FadeUp delay={120} style={{ marginBottom: '24px' }}>
             <p className="about-body">
               Tachyon is an AI and automation engine we&apos;ve built, designed to help businesses
               operate smarter, move faster, and scale without friction with AI business integrations.
@@ -328,14 +326,14 @@ export default function AboutContent() {
       <section
         style={{
           position: 'relative', zIndex: 10,
-          padding: '56px 48px 100px',
+          padding: '36px 48px 72px',
           textAlign: 'center', overflow: 'hidden',
         }}
       >
         <div className="about-closing-glow" aria-hidden="true" />
         <div style={{ maxWidth: '680px', margin: '0 auto', position: 'relative' }}>
 
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', marginBottom: '52px' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', marginBottom: '36px' }}>
             <ClipReveal tag="p" className="about-closing-line" delay={0}>
               This is the future of creative.
             </ClipReveal>
