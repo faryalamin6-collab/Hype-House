@@ -128,21 +128,9 @@ export default function ServicesOverview() {
               lineHeight: 1.15,
             }}
           >
-            One engine. Every output.{' '}
-            <span className="gradient-text">Built to win.</span>
+            For brands that want to be felt,{' '}
+            <span className="gradient-text">not just seen.</span>
           </h2>
-          <p
-            style={{
-              fontFamily: 'var(--font-poppins)',
-              fontSize: '17px',
-              color: 'rgba(255,255,255,0.72)',
-              lineHeight: 1.75,
-              maxWidth: '620px',
-              margin: '20px auto 0',
-            }}
-          >
-            For brands that want to be felt, not just seen.
-          </p>
           <p
             style={{
               fontFamily: 'var(--font-poppins)',
