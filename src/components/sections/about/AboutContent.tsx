@@ -20,10 +20,14 @@ function ClipReveal({
   className?: string
   tag?: 'div' | 'p' | 'h1' | 'h2' | 'h3' | 'span' | 'blockquote'
 }) {
+  // Note: the WRAPPER is what gets observed (not the inner element).
+  // The inner starts at translateY(108%) so its bounding rect is shifted
+  // below its parent — observing it would never fire. The wrapper stays
+  // at its normal layout position and triggers correctly.
   return (
     <div className="about-clip-wrap">
       <Tag
-        className={`about-clip-inner about-observe ${className}`}
+        className={`about-clip-inner ${className}`}
         style={{ transitionDelay: `${delay}ms` }}
       >
         {children}
@@ -46,7 +50,7 @@ function FadeUp({
 }) {
   return (
     <div
-      className="about-fade about-observe"
+      className="about-fade"
       style={{ transitionDelay: `${delay}ms`, ...style }}
     >
       {children}
@@ -126,38 +130,48 @@ export default function AboutContent() {
     return () => window.removeEventListener('mousemove', handle)
   }, [])
 
-  // Single IntersectionObserver — adds .visible to every .about-observe element.
-  // Also immediately reveals any element already in the viewport on mount
-  // (hero headings are above the fold and would never scroll into view).
+  // Animation observer.
+  //
+  // KEY INSIGHT: .about-clip-inner starts at translateY(108%), so its
+  // getBoundingClientRect() is shifted BELOW the wrapper — the browser
+  // reports its visual position, not layout position. Observing the inner
+  // element would never fire because it's "below the viewport" even when
+  // the wrapper is fully visible.
+  //
+  // Solution: observe .about-clip-wrap (wrapper, always at layout position).
+  // When wrapper enters viewport, add .visible to its .about-clip-inner children.
+  // .about-fade elements are observed directly (no transform offset issue).
   useEffect(() => {
-    const els = Array.from(document.querySelectorAll<HTMLElement>('.about-observe'))
-
-    const reveal = (el: HTMLElement) => {
-      el.classList.add('visible')
-    }
-
-    // Immediate check — elements already visible when page loads
+    const clipWraps = Array.from(document.querySelectorAll<HTMLElement>('.about-clip-wrap'))
+    const fades     = Array.from(document.querySelectorAll<HTMLElement>('.about-fade'))
     const vh = window.innerHeight
-    els.forEach((el) => {
-      const rect = el.getBoundingClientRect()
-      if (rect.top < vh * 0.95) reveal(el)
-    })
 
-    // Observer for elements below the fold
+    const revealClip = (wrap: HTMLElement) => {
+      wrap.querySelectorAll<HTMLElement>('.about-clip-inner')
+        .forEach((inner) => inner.classList.add('visible'))
+    }
+    const revealFade = (el: HTMLElement) => el.classList.add('visible')
+
+    // Immediately reveal anything already in the viewport on mount
+    clipWraps.forEach((el) => { if (el.getBoundingClientRect().top < vh) revealClip(el) })
+    fades    .forEach((el) => { if (el.getBoundingClientRect().top < vh) revealFade(el) })
+
+    // Observe everything else
     const obs = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            reveal(entry.target as HTMLElement)
-            obs.unobserve(entry.target)
-          }
+          if (!entry.isIntersecting) return
+          const el = entry.target as HTMLElement
+          if (el.classList.contains('about-clip-wrap')) revealClip(el)
+          else revealFade(el)
+          obs.unobserve(el)
         })
       },
-      { threshold: 0.08 }
+      { threshold: 0.05 }
     )
-    els.forEach((el) => {
-      if (!el.classList.contains('visible')) obs.observe(el)
-    })
+    clipWraps.forEach((el) => { if (!el.querySelector('.about-clip-inner.visible')) obs.observe(el) })
+    fades    .forEach((el) => { if (!el.classList.contains('visible')) obs.observe(el) })
+
     return () => obs.disconnect()
   }, [])
 
