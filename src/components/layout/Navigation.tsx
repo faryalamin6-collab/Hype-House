@@ -64,7 +64,7 @@ export default function Navigation() {
           style={{
             maxWidth: '1440px',
             margin: '0 auto',
-            padding: '0 48px',
+            padding: '0 24px',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'space-between',
