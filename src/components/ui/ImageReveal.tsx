@@ -32,7 +32,6 @@ export default function ImageReveal({
     // If already in viewport (e.g. direct anchor link), skip animation entirely
     const rect = el.getBoundingClientRect()
     if (rect.top < window.innerHeight * 0.88) {
-      el.style.opacity = '1'
       const img = el.querySelector('img') as HTMLImageElement | null
       if (img) img.style.transform = 'scale(1)'
       return
@@ -47,24 +46,7 @@ export default function ImageReveal({
 
       const elSafe = el as HTMLDivElement
       ctx = gsap.context(() => {
-        // Outer wrapper: fade + slight lift
-        gsap.fromTo(
-          elSafe,
-          { opacity: 0, y: 24 },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 1.0,
-            ease: 'power3.out',
-            scrollTrigger: {
-              trigger: elSafe,
-              start: 'top 88%',
-              toggleActions: 'play none none none',
-            },
-          }
-        )
-
-        // Inner image: subtle scale-down from slightly zoomed in (Ken Burns reveal)
+        // Inner image: subtle Ken Burns scale reveal (wrapper is always visible)
         const img = elSafe.querySelector('img')
         if (img) {
           gsap.fromTo(
@@ -93,7 +75,7 @@ export default function ImageReveal({
     <div
       ref={ref}
       className={className}
-      style={{ opacity: priority ? 1 : 0, width: '100%', overflow: 'hidden' }}
+      style={{ width: '100%', overflow: 'hidden' }}
     >
       <Image
         src={src}

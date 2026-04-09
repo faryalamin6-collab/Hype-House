@@ -65,7 +65,7 @@ const services = [
   },
   {
     svgPath: 'M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 15.803a7.5 7.5 0 0010.607 10.607z',
-    name: 'SEO & AI Systems',
+    name: 'SEO',
     manifesto: 'Visibility that compounds.',
     href: '/services#seo',
   },
