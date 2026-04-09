@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect, useRef } from 'react'
+import { useState, useLayoutEffect, useRef } from 'react'
 import Image from 'next/image'
 import ScrollReveal from '@/components/ui/ScrollReveal'
 import Button from '@/components/ui/Button'
@@ -32,53 +32,30 @@ export default function ServiceSection({
   pricing,
   imageSrc,
 }: ServiceSectionProps) {
-  // isTarget: this section was in the viewport on mount (i.e. the hash anchor target)
+  // isTarget: this section was in the viewport when the page mounted (hash nav).
+  // Set via useLayoutEffect so it's resolved before the first paint — no flash.
   const [isTarget, setIsTarget] = useState(false)
-  // revealed: image has loaded — safe to show both image + text simultaneously
-  const [revealed, setRevealed] = useState(false)
+  // imageLoaded: the <Image> onLoad event fired.
+  const [imageLoaded, setImageLoaded] = useState(false)
   const sectionRef = useRef<HTMLElement>(null)
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const el = sectionRef.current
-    if (!el) return
+    if (!el || !imageSrc) return
     const rect = el.getBoundingClientRect()
-    const inViewport = rect.top < window.innerHeight * 1.1
-
-    if (!inViewport) {
-      // Below the fold — not the hash target. Let ScrollReveal handle text
-      // animation normally; image is always visible (no opacity hide).
-      return
+    // If section top is within current viewport, this is the hash anchor target.
+    if (rect.top < window.innerHeight * 1.1) {
+      setIsTarget(true)
     }
+  }, [imageSrc])
 
-    // This section is the hash navigation target — coordinate image + text reveal.
-    setIsTarget(true)
-
-    if (!imageSrc) {
-      setRevealed(true)
-      return
-    }
-
-    // Use a probe Image to detect when the browser has the bitmap ready.
-    // Same URL → reuses any in-flight or cached request, no extra download.
-    const probe = new window.Image() as HTMLImageElement
-    const done = () => setRevealed(true)
-    probe.onload = done
-    probe.onerror = done
-    probe.src = imageSrc
-    // If already cached, onload won't fire — check complete synchronously.
-    if (probe.complete) { setRevealed(true); return }
-
-    // Safety: reveal after 1.5 s regardless (slow connections / edge cases)
-    const fallback = setTimeout(done, 1500)
-    return () => { clearTimeout(fallback) }
-  }, [id, imageSrc])
-
-  // When this section IS the hash target, apply a single coordinated CSS fade
-  // to both the image container and the text container. ScrollReveal is skipped
-  // so text doesn't animate in separately before the image is ready.
-  const syncFade: React.CSSProperties = isTarget
-    ? { opacity: revealed ? 1 : 0, transition: 'opacity 0.4s ease' }
+  // When isTarget: both image + text share this single opacity controlled by
+  // imageLoaded. When not target: no opacity control — normal scroll behaviour.
+  const syncStyle: React.CSSProperties = isTarget
+    ? { opacity: imageLoaded ? 1 : 0, transition: 'opacity 0.35s ease' }
     : {}
+
+  const onImageReady = () => setImageLoaded(true)
 
   return (
     <section
@@ -94,7 +71,7 @@ export default function ServiceSection({
     >
       {/* ── HEADER IMAGE ─────────────────────────────────────────────────── */}
       {imageSrc && (
-        <div style={{ marginBottom: '48px', overflow: 'hidden', ...syncFade }}>
+        <div style={{ marginBottom: '48px', overflow: 'hidden', ...syncStyle }}>
           <Image
             src={imageSrc}
             alt={label}
@@ -103,6 +80,8 @@ export default function ServiceSection({
             priority={id === 'branding'}
             loading={id === 'branding' ? undefined : 'eager'}
             style={{ width: '100%', height: 'auto', display: 'block' }}
+            onLoad={onImageReady}
+            onError={onImageReady}
           />
         </div>
       )}
@@ -110,7 +89,7 @@ export default function ServiceSection({
       {/* ── TEXT CARD ────────────────────────────────────────────────────── */}
       <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 24px' }}>
         <div style={{
-          ...syncFade,
+          ...syncStyle,
           background: 'rgba(4,0,20,0.60)',
           backdropFilter: 'blur(16px)',
           WebkitBackdropFilter: 'blur(16px)',
@@ -118,8 +97,8 @@ export default function ServiceSection({
           border: '1px solid rgba(255,255,255,0.06)',
           padding: '48px 40px',
         }}>
-          {/* skip=isTarget: when already in viewport, bypass ScrollReveal's
-              opacity:0 initial state — the parent syncFade handles visibility */}
+          {/* skip=isTarget: parent syncStyle controls visibility for target
+              sections — ScrollReveal must not add its own opacity:0 on top */}
           <ScrollReveal delay={imageSrc && !isTarget ? 80 : 0} skip={isTarget}>
             {/* Label row */}
             <div style={{ display: 'inline-flex', alignItems: 'center', gap: '12px', marginBottom: '20px' }}>
