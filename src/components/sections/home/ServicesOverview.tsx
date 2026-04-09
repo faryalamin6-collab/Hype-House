@@ -187,6 +187,7 @@ export default function ServicesOverview() {
             >
               <Link
                 href={service.href}
+                scroll={false}
                 className="service-overview-card"
                 style={{
                   display: 'flex',

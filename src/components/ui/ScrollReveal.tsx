@@ -21,15 +21,6 @@ export default function ScrollReveal({
     const el = ref.current
     if (!el) return
 
-    // If the element is already in (or above) the viewport — show immediately.
-    // This covers: back-navigation restore, anchor-jump, and any direct deep-link.
-    const rect = el.getBoundingClientRect()
-    if (rect.top < window.innerHeight) {
-      el.style.opacity = '1'
-      el.style.transform = 'none'
-      return
-    }
-
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     let ctx: any
 

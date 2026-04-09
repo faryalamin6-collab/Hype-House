@@ -5,6 +5,7 @@ import LenisWrapper from '@/components/layout/LenisWrapper'
 import Navigation from '@/components/layout/Navigation'
 import Footer from '@/components/layout/Footer'
 import PageTransition from './PageTransition'
+import HashAnchorScroll from '@/components/ui/HashAnchorScroll'
 
 const BackgroundCanvas = dynamic(
   () => import('@/components/canvas/BackgroundCanvas'),
@@ -119,6 +120,9 @@ export default function RootLayout({
         <LenisWrapper>
           {/* Navigation — persistent */}
           <Navigation />
+
+          {/* Handles hash-anchor scroll for client-side navigation */}
+          <HashAnchorScroll />
 
           {/* Page content with Framer Motion transitions */}
           <main style={{ position: 'relative', zIndex: 10 }}>
