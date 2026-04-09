@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 const principles = [
   {
     title: 'Unlimited Creativity',
-    body: "Creative freedom is not optional. It is the condition under which great work becomes possible. We don't do templates. We don't do safe. We chase the ideas that scare us.",
+    body: "At HypeHouse, creativity isn't a service — it's how we exist. It's the fuel behind every idea, the spark that ignites every campaign, and the engine that moves your business relentlessly forward.",
   },
   {
     title: 'True Partnership',
@@ -67,48 +67,36 @@ export default function PhilosophyPage() {
 
       {/* ── BODY COPY ────────────────────────────────────────────────────── */}
       <section style={{ position: 'relative', zIndex: 10, padding: '64px 48px' }}>
-        <div style={{ maxWidth: '760px', margin: '0 auto' }}>
+        <div style={{ maxWidth: '960px', margin: '0 auto' }}>
           <div style={{
-            background: 'rgba(4,0,18,0.82)',
-            backdropFilter: 'blur(20px)',
-            WebkitBackdropFilter: 'blur(20px)',
-            border: '1px solid rgba(255,255,255,0.08)',
+            background: 'rgba(255,255,255,0.04)',
+            backdropFilter: 'blur(14px)',
+            WebkitBackdropFilter: 'blur(14px)',
+            border: '1px solid rgba(255,255,255,0.10)',
             borderRadius: '20px',
-            padding: '48px 52px',
+            padding: '52px 64px',
             textAlign: 'center',
           }}>
             <ScrollReveal>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '32px' }}>
-                <p style={{ fontSize: '15px', color: 'rgba(255,255,255,0.72)', lineHeight: 1.55, textWrap: 'balance' } as React.CSSProperties}>
-                  We believe creativity is a living thing.<br />
-                  It breathes. It evolves. It breaks rules.<br />
-                  And we exist to keep it alive.
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '28px' }}>
+                <p style={{ fontSize: '15px', color: 'rgba(255,255,255,0.72)', lineHeight: 1.75 }}>
+                  We believe creativity is a living thing — one that breathes, evolves, and refuses to follow rules. At HypeHouse, we don&apos;t just keep it alive. We build everything around it.
                 </p>
 
-                <p style={{ fontSize: '15px', color: 'rgba(255,255,255,0.72)', lineHeight: 1.55, textWrap: 'balance' } as React.CSSProperties}>
-                  At HypeHouse, we don&apos;t play it safe.<br />
-                  We chase the ideas that scare us.<br />
-                  The ones that keep us up at night.<br />
-                  The ones that make people stop, stare, and feel something real.
+                <p style={{ fontSize: '15px', color: 'rgba(255,255,255,0.72)', lineHeight: 1.75 }}>
+                  We don&apos;t play it safe. We chase the ideas that scare us — the ones that keep us up at night, the ones that make people stop mid-scroll, stare, and feel something they didn&apos;t expect.
                 </p>
 
-                <p style={{ fontSize: '15px', color: 'rgba(255,255,255,0.72)', lineHeight: 1.55, textWrap: 'balance' } as React.CSSProperties}>
-                  We believe in partnership, not transactions.<br />
-                  When we work with a brand, we treat it like our own.<br />
-                  We listen. We challenge. We collaborate until it feels right — never until the deadline.
+                <p style={{ fontSize: '15px', color: 'rgba(255,255,255,0.72)', lineHeight: 1.75 }}>
+                  We believe in partnership, not transactions. When we take on a brand, we treat it like our own — listening deeply, challenging boldly, and collaborating until the work is genuinely right, not just on deadline.
                 </p>
 
-                <p style={{ fontSize: '15px', color: 'rgba(255,255,255,0.72)', lineHeight: 1.55, textWrap: 'balance' } as React.CSSProperties}>
-                  We believe in quality.<br />
-                  If it&apos;s not exceptional, it doesn&apos;t leave the room.<br />
-                  We don&apos;t ship average. We only ship what we&apos;re proud of.
+                <p style={{ fontSize: '15px', color: 'rgba(255,255,255,0.72)', lineHeight: 1.75 }}>
+                  We believe quality isn&apos;t a benchmark — it&apos;s a filter. If it isn&apos;t exceptional, it doesn&apos;t leave the room. We don&apos;t ship work we&apos;re comfortable with. We ship work we&apos;re proud of.
                 </p>
 
-                <p style={{ fontSize: '15px', color: 'rgba(255,255,255,0.72)', lineHeight: 1.55, textWrap: 'balance' } as React.CSSProperties}>
-                  And above all, we believe in Hype.<br />
-                  Not as noise, but as energy.<br />
-                  The current that runs through culture, the spark that starts movements,<br />
-                  and the electricity that turns great ideas into something unforgettable.
+                <p style={{ fontSize: '15px', color: 'rgba(255,255,255,0.72)', lineHeight: 1.75 }}>
+                  And above all, we believe in Hype — not as noise, but as momentum. The current that moves through culture, the spark that ignites movements, and the electricity that turns a great idea into something the world can&apos;t ignore.
                 </p>
               </div>
             </ScrollReveal>
@@ -167,7 +155,9 @@ export default function PhilosophyPage() {
               color: 'rgba(255,255,255,0.90)',
             }}>
               This is our code.<br />
-              <span className="gradient-text">Freedom. Partnership. Quality. Hype.</span>
+              <span className="gradient-text" style={{ fontSize: 'clamp(16px, 2.8vw, 32px)' }}>
+                Unlimited Creativity. True Partnership.<br />Exceptional Quality. Unmatched Hype.
+              </span>
             </blockquote>
             <p style={{
               fontSize: '14px', color: 'rgba(255,255,255,0.60)',
