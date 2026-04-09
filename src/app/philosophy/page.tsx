@@ -15,11 +15,11 @@ export const metadata: Metadata = {
 const principles = [
   {
     title: 'Unlimited Creativity',
-    body: "At HypeHouse, creativity isn't a service — it's how we exist. It's the fuel behind every idea, the spark that ignites every campaign, and the engine that moves your business relentlessly forward.",
+    body: "At HypeHouse, creativity isn't a service: it's how we exist. The fuel behind every idea, the spark that ignites every campaign, and the engine that moves your business forward.",
   },
   {
     title: 'True Partnership',
-    body: "When we work with a brand we treat it like our own. We listen. We challenge. We stay up. We are not a vendor you brief and forget — we are the partner who tells you when you're wrong.",
+    body: "When we work with a brand we treat it like our own. We listen. We challenge. We stay up. We are not a vendor you brief and forget, we are the partner who tells you when you're wrong.",
   },
   {
     title: 'Exceptional Quality',
@@ -27,7 +27,7 @@ const principles = [
   },
   {
     title: 'Unmatched Hype',
-    body: 'Hype is not noise. Hype is not likes. Hype is momentum — the kind that compounds, that makes markets move, that builds brands people remember long after the campaign ends.',
+    body: 'Hype is not noise. Hype is not likes. Hype is momentum, the kind that compounds, that makes markets move, that builds brands people remember long after the campaign ends.',
   },
 ]
 
@@ -66,7 +66,7 @@ export default function PhilosophyPage() {
       </section>
 
       {/* ── BODY COPY ────────────────────────────────────────────────────── */}
-      <section style={{ position: 'relative', zIndex: 10, padding: '36px 48px' }}>
+      <section style={{ position: 'relative', zIndex: 10, padding: '36px 24px' }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
           <div style={{
             background: 'rgba(255,255,255,0.04)',
@@ -74,29 +74,29 @@ export default function PhilosophyPage() {
             WebkitBackdropFilter: 'blur(14px)',
             border: '1px solid rgba(255,255,255,0.10)',
             borderRadius: '20px',
-            padding: '44px 40px',
+            padding: '40px 36px',
             textAlign: 'center',
           }}>
             <ScrollReveal>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '28px' }}>
-                <p style={{ fontSize: '15px', color: 'rgba(255,255,255,0.72)', lineHeight: 1.75 }}>
-                  We believe creativity is a living thing — one that breathes, evolves, and refuses to follow rules. At HypeHouse, we don&apos;t just keep it alive. We build everything around it.
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
+                <p style={{ fontSize: '15px', color: 'rgba(255,255,255,0.72)', lineHeight: 1.7 }}>
+                  We believe creativity is a living thing, one that breathes, evolves, and refuses to follow rules. At HypeHouse, we build everything around it.
                 </p>
 
-                <p style={{ fontSize: '15px', color: 'rgba(255,255,255,0.72)', lineHeight: 1.75 }}>
-                  We don&apos;t play it safe. We chase the ideas that scare us — the ones that keep us up at night, the ones that make people stop mid-scroll, stare, and feel something they didn&apos;t expect.
+                <p style={{ fontSize: '15px', color: 'rgba(255,255,255,0.72)', lineHeight: 1.7 }}>
+                  We don&apos;t play it safe. We chase the ideas that scare us, the ones that keep people up at night and make them stop mid-scroll, stare, and feel something they didn&apos;t expect.
                 </p>
 
-                <p style={{ fontSize: '15px', color: 'rgba(255,255,255,0.72)', lineHeight: 1.75 }}>
-                  We believe in partnership, not transactions. When we take on a brand, we treat it like our own — listening deeply, challenging boldly, and collaborating until the work is genuinely right, not just on deadline.
+                <p style={{ fontSize: '15px', color: 'rgba(255,255,255,0.72)', lineHeight: 1.7 }}>
+                  We believe in partnership, not transactions. When we take on a brand, we treat it like our own, listening deeply, challenging boldly, and collaborating until the work is right, not just delivered.
                 </p>
 
-                <p style={{ fontSize: '15px', color: 'rgba(255,255,255,0.72)', lineHeight: 1.75 }}>
-                  We believe quality isn&apos;t a benchmark — it&apos;s a filter. If it isn&apos;t exceptional, it doesn&apos;t leave the room. We don&apos;t ship work we&apos;re comfortable with. We ship work we&apos;re proud of.
+                <p style={{ fontSize: '15px', color: 'rgba(255,255,255,0.72)', lineHeight: 1.7 }}>
+                  We believe quality isn&apos;t a benchmark: it&apos;s a filter. If it isn&apos;t exceptional, it doesn&apos;t leave the room. We don&apos;t ship work we&apos;re comfortable with. We ship work we&apos;re proud of.
                 </p>
 
-                <p style={{ fontSize: '15px', color: 'rgba(255,255,255,0.72)', lineHeight: 1.75 }}>
-                  And above all, we believe in Hype — not as noise, but as momentum. The current that moves through culture, the spark that ignites movements, and the electricity that turns a great idea into something the world can&apos;t ignore.
+                <p style={{ fontSize: '15px', color: 'rgba(255,255,255,0.72)', lineHeight: 1.7 }}>
+                  And above all, we believe in Hype: not as noise, but as momentum. The current that moves through culture, the spark that ignites movements, the electricity that turns ideas into something the world can&apos;t ignore.
                 </p>
               </div>
             </ScrollReveal>
@@ -109,13 +109,13 @@ export default function PhilosophyPage() {
         <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
           <ScrollReveal>
             <div style={{ textAlign: 'center', marginBottom: '40px' }}>
-              <SectionLabel>The Principles</SectionLabel>
+              <SectionLabel>Our Principles</SectionLabel>
               <h2 style={{
                 fontFamily: 'var(--font-poppins)', fontWeight: 800,
                 fontSize: 'clamp(28px, 4vw, 52px)', color: 'white',
                 marginTop: '20px', letterSpacing: '-0.02em', lineHeight: 1.15,
               }}>
-                Here is why we truly believe in.
+                Here is what we truly believe in.
               </h2>
             </div>
           </ScrollReveal>

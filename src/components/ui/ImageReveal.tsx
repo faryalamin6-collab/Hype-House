@@ -26,6 +26,9 @@ export default function ImageReveal({
     const el = ref.current
     if (!el) return
 
+    // Priority images render immediately — no animation needed
+    if (priority) return
+
     // If already in viewport (e.g. direct anchor link), skip animation entirely
     const rect = el.getBoundingClientRect()
     if (rect.top < window.innerHeight * 0.88) {
@@ -90,7 +93,7 @@ export default function ImageReveal({
     <div
       ref={ref}
       className={className}
-      style={{ opacity: 0, width: '100%', overflow: 'hidden' }}
+      style={{ opacity: priority ? 1 : 0, width: '100%', overflow: 'hidden' }}
     >
       <Image
         src={src}

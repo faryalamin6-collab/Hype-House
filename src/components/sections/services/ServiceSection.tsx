@@ -128,13 +128,9 @@ export default function ServiceSection({
                   <span style={{ width: '5px', height: '5px', borderRadius: '50%', background: 'rgba(255,255,255,0.30)', display: 'inline-block', flexShrink: 0, marginTop: '7px' }} />
                   <span style={{
                     fontFamily: 'var(--font-poppins)', fontSize: '14px',
-                    color: 'rgba(255,255,255,0.72)', lineHeight: 1.55,
+                    color: 'rgba(255,255,255,0.85)', lineHeight: 1.55, fontWeight: 500,
                   }}>
-                    {body ? (
-                      <>
-                        <span style={{ fontWeight: 600, color: 'rgba(255,255,255,0.92)' }}>{title}:</span>{' '}{body}
-                      </>
-                    ) : title}
+                    {title}
                   </span>
                 </div>
               )

@@ -11,7 +11,7 @@ const navLinks = [
   { href: '/philosophy', label: 'Philosophy' },
   { href: '/services', label: 'Services' },
   { href: '/tachyon', label: 'Tachyon' },
-  { href: '/rate-card', label: 'Rate Card' },
+  { href: '/rate-card', label: 'Packages' },
   { href: '/contact', label: 'Contact' },
 ]
 

@@ -296,7 +296,10 @@ export default function AboutContent() {
         <div style={{ maxWidth: '780px', margin: '0 auto', paddingTop: '24px' }}>
           <div style={{ marginBottom: '20px' }}>
             <ClipReveal tag="p" className="about-lead" delay={0}>
-              Everyone talks about AI. We build with it.
+              Everyone talks about AI.
+            </ClipReveal>
+            <ClipReveal tag="p" className="about-lead" delay={80}>
+              We actually build with it.
             </ClipReveal>
           </div>
 
