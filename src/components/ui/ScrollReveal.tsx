@@ -7,6 +7,8 @@ interface ScrollRevealProps {
   delay?: number
   className?: string
   style?: React.CSSProperties
+  /** Skip all animation — render at full opacity immediately */
+  skip?: boolean
 }
 
 export default function ScrollReveal({
@@ -14,12 +16,13 @@ export default function ScrollReveal({
   delay = 0,
   className = '',
   style,
+  skip = false,
 }: ScrollRevealProps) {
   const ref = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const el = ref.current
-    if (!el) return
+    if (!el || skip) return
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     let ctx: any
@@ -61,7 +64,7 @@ export default function ScrollReveal({
     <div
       ref={ref}
       className={className}
-      style={{ opacity: 0, ...style }}
+      style={{ opacity: skip ? 1 : 0, ...style }}
     >
       {children}
     </div>
