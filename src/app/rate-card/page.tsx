@@ -5,17 +5,15 @@ import Button from '@/components/ui/Button'
 import HoverCard from '@/components/ui/HoverCard'
 
 export const metadata: Metadata = {
-  title: 'Rate Card — Pricing & Packages | HypeHouse Digital',
+  title: 'Our Packages — What\'s Included | HypeHouse Digital',
   description:
-    'Indicative pricing from HypeHouse Digital — AI creative agency. Monthly retainer tiers, branding packages, and one-time services. Final quotes tailored to your market.',
+    'Explore what\'s included in every HypeHouse package — from monthly retainers and branding to one-time services. Get in touch for a tailored quote.',
   alternates: { canonical: 'https://hypehouse.digital/rate-card' },
 }
 
 const retainers = [
   {
     name: 'Starter',
-    price: 'From $1,200',
-    period: '/month',
     highlight: false,
     features: [
       'Instagram, Facebook & TikTok',
@@ -30,8 +28,6 @@ const retainers = [
   },
   {
     name: 'Growth',
-    price: 'From $2,100',
-    period: '/month',
     highlight: true,
     badge: 'Most Popular',
     features: [
@@ -44,8 +40,6 @@ const retainers = [
   },
   {
     name: 'Full House',
-    price: 'From $3,500',
-    period: '/month',
     highlight: false,
     badge: 'Full Service',
     features: [
@@ -61,7 +55,6 @@ const retainers = [
 const brandingPackages = [
   {
     name: 'Basic',
-    price: 'Contact for pricing',
     highlight: false,
     items: [
       'Logo design',
@@ -71,7 +64,6 @@ const brandingPackages = [
   },
   {
     name: 'Full Stack',
-    price: 'Contact for pricing',
     highlight: true,
     items: [
       'Naming & positioning',
@@ -143,22 +135,14 @@ export default function RateCardPage() {
       {/* Hero */}
       <section className="page-top" style={{ position: 'relative', zIndex: 10, paddingLeft: '24px', paddingRight: '24px', paddingBottom: '60px', textAlign: 'center' }}>
         <div style={{ maxWidth: '800px', margin: '0 auto' }}>
-          <SectionLabel>Transparent Pricing</SectionLabel>
+          <SectionLabel>Our Packages</SectionLabel>
           <h1 style={{ fontSize: 'clamp(36px, 6vw, 80px)', marginTop: '24px', marginBottom: '24px', letterSpacing: '-0.02em', lineHeight: 1.1 }}>
-            Investment that{' '}
-            <span className="gradient-text">pays for itself.</span>
+            Everything you need,{' '}
+            <span className="gradient-text">nothing you don&apos;t.</span>
           </h1>
           <p style={{ fontSize: '18px', color: 'rgba(255,255,255,0.80)', lineHeight: 1.75, maxWidth: '560px', margin: '0 auto 28px' }}>
-            Complete pricing transparency. No hidden fees, no vague proposals.
+            Every package is tailored to your market and goals. Get in touch and we&apos;ll build the right scope for you.
           </p>
-          <div style={{
-            display: 'inline-block', padding: '14px 24px', borderRadius: '10px',
-            background: 'rgba(4,157,255,0.08)', border: '1px solid rgba(4,157,255,0.2)',
-            fontFamily: 'var(--font-poppins)', fontSize: '14px', color: 'rgba(255,255,255,0.70)',
-            lineHeight: 1.65, maxWidth: '600px', textAlign: 'left',
-          }}>
-            <strong style={{ color: '#049DFF' }}>Note:</strong> All pricing shown is indicative and in USD. Final quotes are tailored to your market, scope, and requirements. We work with clients across the Middle East, South Asia, Europe, and beyond.
-          </div>
         </div>
       </section>
 
@@ -169,8 +153,8 @@ export default function RateCardPage() {
             <div style={{ textAlign: 'center', marginBottom: '48px' }}>
               <SectionLabel>Monthly Retainers</SectionLabel>
               <h2 style={{ fontSize: 'clamp(24px, 4vw, 48px)', marginTop: '20px', letterSpacing: '-0.02em' }}>
-                Choose your{' '}
-                <span className="gradient-text">growth velocity.</span>
+                Pick the level that{' '}
+                <span className="gradient-text">fits your ambition.</span>
               </h2>
             </div>
           </ScrollReveal>
@@ -204,23 +188,9 @@ export default function RateCardPage() {
                     </div>
                   )}
 
-                  <h3 style={{ fontWeight: 800, fontSize: '24px', color: '#ffffff', marginBottom: '4px' }}>
+                  <h3 style={{ fontWeight: 800, fontSize: '24px', color: '#ffffff', marginBottom: '20px' }}>
                     {tier.name}
                   </h3>
-
-                  <div style={{ margin: '16px 0 8px' }}>
-                    <div style={{ display: 'flex', alignItems: 'baseline', gap: '4px' }}>
-                      <span className="gradient-text" style={{ fontWeight: 800, fontSize: '28px' }}>
-                        {tier.price}
-                      </span>
-                      <span style={{ fontSize: '14px', color: 'rgba(255,255,255,0.45)' }}>
-                        {tier.period}
-                      </span>
-                    </div>
-                    <p style={{ fontSize: '12px', color: 'rgba(255,255,255,0.40)', marginTop: '6px', marginBottom: '20px', fontFamily: 'var(--font-poppins)' }}>
-                      Final pricing based on scope and market. Contact us for a tailored quote.
-                    </p>
-                  </div>
 
                   <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', flex: 1, marginBottom: '28px' }}>
                     {tier.features.map(f => (
@@ -268,12 +238,9 @@ export default function RateCardPage() {
                       : '1px solid rgba(255,255,255,0.10)',
                   }}
                 >
-                  <h3 style={{ fontWeight: 700, fontSize: '22px', color: '#ffffff', marginBottom: '4px' }}>
+                  <h3 style={{ fontWeight: 700, fontSize: '22px', color: '#ffffff', marginBottom: '20px' }}>
                     {pkg.name}
                   </h3>
-                  <div className="gradient-text" style={{ fontWeight: 800, fontSize: '28px', marginBottom: '24px' }}>
-                    {pkg.price}
-                  </div>
                   <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', flex: 1, marginBottom: '28px' }}>
                     {pkg.items.map(item => (
                       <div key={item} style={{ display: 'flex', gap: '10px' }}>
@@ -345,22 +312,15 @@ export default function RateCardPage() {
         </div>
       </section>
 
-      {/* ── FOOTER CLAUSE ─────────────────────────────────────────────────── */}
-      <section style={{ position: 'relative', zIndex: 10, padding: '40px 24px 100px' }}>
-        <div style={{
-          maxWidth: '900px', margin: '0 auto',
-          background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.06)',
-          borderRadius: '12px', padding: '28px 32px', marginBottom: '24px',
-        }}>
-          <p style={{ fontFamily: 'var(--font-poppins)', fontSize: '13px', color: 'rgba(255,255,255,0.50)', marginBottom: '12px', lineHeight: 1.8 }}>
-            All one-time project pricing is scoped individually. Get in touch for a custom quote.
+      {/* ── FOOTER CTA ─────────────────────────────────────────────────────── */}
+      <section style={{ position: 'relative', zIndex: 10, padding: '40px 24px 100px', textAlign: 'center' }}>
+        <div style={{ maxWidth: '600px', margin: '0 auto' }}>
+          <p style={{ fontFamily: 'var(--font-poppins)', fontSize: '15px', color: 'rgba(255,255,255,0.60)', lineHeight: 1.8, marginBottom: '32px' }}>
+            Every project is scoped to your specific goals and market. Reach out and we&apos;ll put together the right plan for you.
           </p>
-          <p style={{ fontFamily: 'var(--font-poppins)', fontSize: '13px', color: 'rgba(255,255,255,0.50)', lineHeight: 1.8 }}>
-            All packages and rates listed are indicative. Any requirements beyond the defined
-            scope will be assessed and priced separately. Retainers are billed monthly in advance.
-            One-time projects require a 50% deposit to commence. Ad spend is billed directly to the
-            client and is not included in agency fees.
-          </p>
+          <Button href="https://hypehouse-client-intake-form.netlify.app" variant="primary" external>
+            Start a Project →
+          </Button>
         </div>
       </section>
     </>
