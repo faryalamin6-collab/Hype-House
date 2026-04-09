@@ -67,7 +67,7 @@ export default function PhilosophyPage() {
 
       {/* ── BODY COPY ────────────────────────────────────────────────────── */}
       <section style={{ position: 'relative', zIndex: 10, padding: '64px 48px' }}>
-        <div style={{ maxWidth: '960px', margin: '0 auto' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
           <div style={{
             background: 'rgba(255,255,255,0.04)',
             backdropFilter: 'blur(14px)',
