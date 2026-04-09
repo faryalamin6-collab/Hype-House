@@ -79,6 +79,17 @@ export default function ServicesOverview() {
   useEffect(() => {
     const cards = gridRef.current?.children
     if (!cards) return
+
+    // If cards are already in the viewport (e.g. back navigation), show immediately.
+    const firstRect = (cards[0] as HTMLElement)?.getBoundingClientRect()
+    if (firstRect && firstRect.top < window.innerHeight) {
+      Array.from(cards as HTMLCollection).forEach(c => {
+        (c as HTMLElement).style.opacity = '1'
+        ;(c as HTMLElement).style.transform = 'none'
+      })
+      return
+    }
+
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     let ctx: any
 
