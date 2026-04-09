@@ -67,6 +67,7 @@ export default function ServiceSection({
         zIndex: 10,
         paddingBottom: '80px',
         borderBottom: '1px solid rgba(255,255,255,0.05)',
+        scrollMarginTop: '76px', // offset for fixed nav bar on anchor scroll
       }}
     >
       {/* ── HEADER IMAGE ─────────────────────────────────────────────────── */}

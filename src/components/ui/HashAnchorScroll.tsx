@@ -6,12 +6,18 @@ import { usePathname } from 'next/navigation'
 /**
  * Handles hash-anchor scrolling for client-side navigation.
  *
- * Next.js + Lenis can conflict when a Link navigates to /page#section —
- * the browser fires a native instant-scroll, then Lenis tries to re-scroll,
- * creating a visible double-jump. Instead, service tile Links use scroll={false}
- * so neither fires. This component then positions the page at the anchor
- * synchronously on mount (before the PageTransition fade-in completes), so the
- * content is already at the right position when it becomes fully visible.
+ * Problem: Next.js + Lenis conflict when Links navigate to /page#section.
+ * Service tile Links use scroll={false} so neither Next.js nor the browser
+ * fires its own scroll. This component handles the scroll instead.
+ *
+ * Timing issue: AnimatePresence mode="wait" exits the old page BEFORE mounting
+ * the new one. When useEffect fires on pathname change the new page's DOM
+ * doesn't exist yet — document.getElementById returns null. We try immediately
+ * (handles same-page hash changes), then retry at 260ms (after the 220ms exit
+ * animation, during the enter fade-in while the page is still nearly invisible).
+ *
+ * Nav offset: the fixed nav bar would overlap the top of the section without a
+ * correction. We query the nav's actual height and subtract it.
  */
 export default function HashAnchorScroll() {
   const pathname = usePathname()
@@ -19,14 +25,25 @@ export default function HashAnchorScroll() {
   useEffect(() => {
     const hash = window.location.hash
     if (!hash) return
+    const id = hash.slice(1)
 
-    const target = document.getElementById(hash.slice(1))
-    if (!target) return
+    function scrollToHash(): boolean {
+      const target = document.getElementById(id)
+      if (!target) return false
 
-    // Instant (no animation) — positions page before first visible paint.
-    // By the time the 0.22s PageTransition fade completes, content is already
-    // at the correct scroll position with no visible jump.
-    target.scrollIntoView({ behavior: 'instant' as ScrollBehavior, block: 'start' })
+      const nav = document.querySelector('nav') as HTMLElement | null
+      const navOffset = nav ? nav.offsetHeight : 76
+      const top = target.getBoundingClientRect().top + window.scrollY - navOffset
+      window.scrollTo({ top: Math.max(0, top), behavior: 'instant' as ScrollBehavior })
+      return true
+    }
+
+    // Immediate attempt — works for same-page anchor links
+    if (scrollToHash()) return
+
+    // Cross-page navigation: new page not mounted yet, retry after exit anim
+    const timer = setTimeout(scrollToHash, 260)
+    return () => clearTimeout(timer)
   }, [pathname])
 
   return null
