@@ -137,8 +137,8 @@ export default function RateCardPage() {
         <div style={{ maxWidth: '800px', margin: '0 auto' }}>
           <SectionLabel>Our Packages</SectionLabel>
           <h1 style={{ fontSize: 'clamp(36px, 6vw, 80px)', marginTop: '24px', marginBottom: '24px', letterSpacing: '-0.02em', lineHeight: 1.1 }}>
-            Everything you need,{' '}
-            <span className="gradient-text">nothing you don&apos;t.</span>
+            Investment that{' '}
+            <span className="gradient-text">pays for itself.</span>
           </h1>
           <p style={{ fontSize: '18px', color: 'rgba(255,255,255,0.80)', lineHeight: 1.75, maxWidth: '560px', margin: '0 auto 28px' }}>
             Every package is tailored to your market and goals. Get in touch and we&apos;ll build the right scope for you.
