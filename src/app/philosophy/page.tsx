@@ -39,7 +39,7 @@ export default function PhilosophyPage() {
         className="page-top"
         style={{
           position: 'relative', zIndex: 10,
-          paddingLeft: '24px', paddingRight: '24px', paddingBottom: '80px',
+          paddingLeft: '24px', paddingRight: '24px', paddingBottom: '48px',
           textAlign: 'center',
         }}
       >
@@ -61,12 +61,12 @@ export default function PhilosophyPage() {
       </section>
 
       {/* ── PHILOSOPHY IMAGE — edge to edge ──────────────────────────────── */}
-      <section style={{ position: 'relative', zIndex: 10, paddingBottom: '80px' }}>
+      <section style={{ position: 'relative', zIndex: 10, paddingBottom: '40px' }}>
         <ImageReveal src="/images/our-philosophy-header.png" alt="Our Philosophy" />
       </section>
 
       {/* ── BODY COPY ────────────────────────────────────────────────────── */}
-      <section style={{ position: 'relative', zIndex: 10, padding: '64px 48px' }}>
+      <section style={{ position: 'relative', zIndex: 10, padding: '36px 48px' }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
           <div style={{
             background: 'rgba(255,255,255,0.04)',
@@ -74,7 +74,7 @@ export default function PhilosophyPage() {
             WebkitBackdropFilter: 'blur(14px)',
             border: '1px solid rgba(255,255,255,0.10)',
             borderRadius: '20px',
-            padding: '52px 64px',
+            padding: '44px 40px',
             textAlign: 'center',
           }}>
             <ScrollReveal>
@@ -105,17 +105,17 @@ export default function PhilosophyPage() {
       </section>
 
       {/* ── PRINCIPLES CARDS ─────────────────────────────────────────────── */}
-      <section style={{ position: 'relative', zIndex: 10, padding: '64px 48px' }}>
+      <section style={{ position: 'relative', zIndex: 10, padding: '36px 48px' }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
           <ScrollReveal>
-            <div style={{ textAlign: 'center', marginBottom: '56px' }}>
+            <div style={{ textAlign: 'center', marginBottom: '40px' }}>
               <SectionLabel>The Principles</SectionLabel>
               <h2 style={{
                 fontFamily: 'var(--font-poppins)', fontWeight: 800,
                 fontSize: 'clamp(28px, 4vw, 52px)', color: 'white',
                 marginTop: '20px', letterSpacing: '-0.02em', lineHeight: 1.15,
               }}>
-                Here is what we truly believe.
+                Here is why we truly believe in.
               </h2>
             </div>
           </ScrollReveal>
@@ -145,7 +145,7 @@ export default function PhilosophyPage() {
       </section>
 
       {/* ── CLOSING ──────────────────────────────────────────────────────── */}
-      <section style={{ position: 'relative', zIndex: 10, padding: '64px 48px', textAlign: 'center' }}>
+      <section style={{ position: 'relative', zIndex: 10, padding: '36px 48px', textAlign: 'center' }}>
         <ScrollReveal>
           <div style={{ maxWidth: '800px', margin: '0 auto' }}>
             <blockquote style={{
