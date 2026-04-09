@@ -14,6 +14,7 @@ export const metadata: Metadata = {
 const retainers = [
   {
     name: 'Starter',
+    tagline: 'This is where we take over your socials and complete community management.',
     highlight: false,
     features: [
       'Instagram, Facebook & TikTok',
@@ -28,6 +29,7 @@ const retainers = [
   },
   {
     name: 'Growth',
+    tagline: 'Social media management and your beginning into the world of digital advertising.',
     highlight: true,
     badge: 'Most Popular',
     features: [
@@ -40,6 +42,7 @@ const retainers = [
   },
   {
     name: 'Full House',
+    tagline: 'The complete 360 degree HypeHouse experience.',
     highlight: false,
     badge: 'Full Service',
     features: [
@@ -188,9 +191,12 @@ export default function RateCardPage() {
                     </div>
                   )}
 
-                  <h3 style={{ fontWeight: 800, fontSize: '24px', color: '#ffffff', marginBottom: '20px' }}>
+                  <h3 style={{ fontWeight: 800, fontSize: '24px', color: '#ffffff', marginBottom: '8px' }}>
                     {tier.name}
                   </h3>
+                  <p style={{ fontSize: '13px', color: 'rgba(255,255,255,0.50)', lineHeight: 1.55, marginBottom: '20px' }}>
+                    {tier.tagline}
+                  </p>
 
                   <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', flex: 1, marginBottom: '28px' }}>
                     {tier.features.map(f => (
@@ -312,15 +318,32 @@ export default function RateCardPage() {
         </div>
       </section>
 
-      {/* ── FOOTER CTA ─────────────────────────────────────────────────────── */}
+      {/* ── FOOTER CTA + CLAUSES ───────────────────────────────────────────── */}
       <section style={{ position: 'relative', zIndex: 10, padding: '40px 24px 100px', textAlign: 'center' }}>
-        <div style={{ maxWidth: '600px', margin: '0 auto' }}>
-          <p style={{ fontFamily: 'var(--font-poppins)', fontSize: '15px', color: 'rgba(255,255,255,0.60)', lineHeight: 1.8, marginBottom: '32px' }}>
+        <div style={{ maxWidth: '900px', margin: '0 auto' }}>
+          <p style={{ fontFamily: 'var(--font-poppins)', fontSize: '15px', color: 'rgba(255,255,255,0.60)', lineHeight: 1.8, marginBottom: '40px' }}>
             Every project is scoped to your specific goals and market. Reach out and we&apos;ll put together the right plan for you.
           </p>
           <Button href="https://hypehouse-client-intake-form.netlify.app" variant="primary" external>
             Start a Project →
           </Button>
+
+          {/* Operational fine print */}
+          <div style={{
+            marginTop: '48px',
+            background: 'rgba(255,255,255,0.03)',
+            border: '1px solid rgba(255,255,255,0.06)',
+            borderRadius: '12px',
+            padding: '24px 28px',
+            textAlign: 'left',
+          }}>
+            <p style={{ fontFamily: 'var(--font-poppins)', fontSize: '12px', color: 'rgba(255,255,255,0.40)', lineHeight: 1.85, marginBottom: '10px' }}>
+              All one-time project pricing is scoped individually. Get in touch for a custom quote.
+            </p>
+            <p style={{ fontFamily: 'var(--font-poppins)', fontSize: '12px', color: 'rgba(255,255,255,0.40)', lineHeight: 1.85 }}>
+              Any requirements beyond the defined scope will be assessed and priced separately. Retainers are billed monthly in advance. One-time projects require a 50% deposit to commence. Ad spend is billed directly to the client and is not included in agency fees.
+            </p>
+          </div>
         </div>
       </section>
     </>

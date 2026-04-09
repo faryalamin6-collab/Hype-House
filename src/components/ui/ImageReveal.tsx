@@ -84,6 +84,7 @@ export default function ImageReveal({
         height={height}
         priority={priority}
         style={{ width: '100%', height: 'auto', display: 'block' }}
+        loading={priority ? undefined : 'eager'}
       />
     </div>
   )

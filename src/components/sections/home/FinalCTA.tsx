@@ -65,16 +65,8 @@ export default function FinalCTA() {
             If your brand deserves thinking that shifts culture, creative that breaks the mould,
             and a partner that plays at a different level, this is where we start.
           </p>
-          <div
-            style={{
-              display: 'flex',
-              gap: '16px',
-              justifyContent: 'center',
-              flexWrap: 'wrap',
-            }}
-          >
+          <div style={{ display: 'flex', gap: '16px', justifyContent: 'center', flexWrap: 'wrap' }}>
             <Button href="https://hypehouse-client-intake-form.netlify.app" variant="primary" external>Start a Project →</Button>
-            <Button href="/rate-card" variant="secondary">View Rate Card</Button>
           </div>
         </ScrollReveal>
       </div>
