@@ -10,11 +10,9 @@ import { usePathname } from 'next/navigation'
  * Service tile Links use scroll={false} so neither Next.js nor the browser
  * fires its own scroll. This component handles the scroll instead.
  *
- * Timing issue: AnimatePresence mode="wait" exits the old page BEFORE mounting
- * the new one. When useEffect fires on pathname change the new page's DOM
- * doesn't exist yet — document.getElementById returns null. We try immediately
- * (handles same-page hash changes), then retry at 260ms (after the 220ms exit
- * animation, during the enter fade-in while the page is still nearly invisible).
+ * With AnimatePresence mode="popLayout" the new page mounts simultaneously with
+ * the old page exiting, so getElementById succeeds on the first immediate try.
+ * The 80ms retry is a safety net for slower mounts (e.g. lazy components).
  *
  * Nav offset: the fixed nav bar would overlap the top of the section without a
  * correction. We query the nav's actual height and subtract it.
@@ -41,8 +39,8 @@ export default function HashAnchorScroll() {
     // Immediate attempt — works for same-page anchor links
     if (scrollToHash()) return
 
-    // Cross-page navigation: new page not mounted yet, retry after exit anim
-    const timer = setTimeout(scrollToHash, 260)
+    // Safety net: retry quickly in case the element wasn't in DOM yet
+    const timer = setTimeout(scrollToHash, 80)
     return () => clearTimeout(timer)
   }, [pathname])
 
