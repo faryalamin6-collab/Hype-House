@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useLayoutEffect, useRef } from 'react'
+import { useState, useLayoutEffect } from 'react'
 import Image from 'next/image'
 import ScrollReveal from '@/components/ui/ScrollReveal'
 import Button from '@/components/ui/Button'
@@ -32,34 +32,18 @@ export default function ServiceSection({
   pricing,
   imageSrc,
 }: ServiceSectionProps) {
-  // isTarget: this section was in the viewport when the page mounted (hash nav).
-  // Set via useLayoutEffect so it's resolved before the first paint — no flash.
-  const [isTarget, setIsTarget] = useState(false)
-  // imageLoaded: the <Image> onLoad event fired.
-  const [imageLoaded, setImageLoaded] = useState(false)
-  const sectionRef = useRef<HTMLElement>(null)
+  // True when this section is the direct URL hash target.
+  // Checked synchronously in useLayoutEffect (before first paint) so ScrollReveal
+  // renders at full opacity immediately — no second fade animation on top of the
+  // PageTransition fade-in.
+  const [isHashTarget, setIsHashTarget] = useState(false)
 
   useLayoutEffect(() => {
-    const el = sectionRef.current
-    if (!el || !imageSrc) return
-    const rect = el.getBoundingClientRect()
-    // If section top is within current viewport, this is the hash anchor target.
-    if (rect.top < window.innerHeight * 1.1) {
-      setIsTarget(true)
-    }
-  }, [imageSrc])
-
-  // When isTarget: both image + text share this single opacity controlled by
-  // imageLoaded. When not target: no opacity control — normal scroll behaviour.
-  const syncStyle: React.CSSProperties = isTarget
-    ? { opacity: imageLoaded ? 1 : 0, transition: 'opacity 0.35s ease' }
-    : {}
-
-  const onImageReady = () => setImageLoaded(true)
+    setIsHashTarget(window.location.hash === `#${id}`)
+  }, [id])
 
   return (
     <section
-      ref={sectionRef}
       id={id}
       className="service-anchor"
       style={{
@@ -67,12 +51,12 @@ export default function ServiceSection({
         zIndex: 10,
         paddingBottom: '80px',
         borderBottom: '1px solid rgba(255,255,255,0.05)',
-        scrollMarginTop: '76px', // offset for fixed nav bar on anchor scroll
+        scrollMarginTop: '76px',
       }}
     >
       {/* ── HEADER IMAGE ─────────────────────────────────────────────────── */}
       {imageSrc && (
-        <div style={{ marginBottom: '48px', overflow: 'hidden', ...syncStyle }}>
+        <div style={{ marginBottom: '48px', overflow: 'hidden' }}>
           <Image
             src={imageSrc}
             alt={label}
@@ -81,8 +65,6 @@ export default function ServiceSection({
             priority={id === 'branding'}
             loading={id === 'branding' ? undefined : 'eager'}
             style={{ width: '100%', height: 'auto', display: 'block' }}
-            onLoad={onImageReady}
-            onError={onImageReady}
           />
         </div>
       )}
@@ -90,7 +72,6 @@ export default function ServiceSection({
       {/* ── TEXT CARD ────────────────────────────────────────────────────── */}
       <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 24px' }}>
         <div style={{
-          ...syncStyle,
           background: 'rgba(4,0,20,0.60)',
           backdropFilter: 'blur(16px)',
           WebkitBackdropFilter: 'blur(16px)',
@@ -98,9 +79,9 @@ export default function ServiceSection({
           border: '1px solid rgba(255,255,255,0.06)',
           padding: '48px 40px',
         }}>
-          {/* skip=isTarget: parent syncStyle controls visibility for target
-              sections — ScrollReveal must not add its own opacity:0 on top */}
-          <ScrollReveal delay={imageSrc && !isTarget ? 80 : 0} skip={isTarget}>
+          {/* skip=true when hash target: parent PageTransition handles fade-in,
+              ScrollReveal must not add a second opacity animation */}
+          <ScrollReveal delay={imageSrc && !isHashTarget ? 80 : 0} skip={isHashTarget}>
             {/* Label row */}
             <div style={{ display: 'inline-flex', alignItems: 'center', gap: '12px', marginBottom: '20px' }}>
               {svgPath && (
@@ -154,15 +135,20 @@ export default function ServiceSection({
               marginBottom: '40px',
             }}>
               {inclusions.map(({ item }) => {
-                const [title] = item.split(' — ')
+                const [itemTitle, ...rest] = item.split(' — ')
+                const body = rest.join(' — ')
                 return (
                   <div key={item} style={{ display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
                     <span style={{ width: '5px', height: '5px', borderRadius: '50%', background: 'rgba(255,255,255,0.30)', display: 'inline-block', flexShrink: 0, marginTop: '7px' }} />
                     <span style={{
                       fontFamily: 'var(--font-poppins)', fontSize: '14px',
-                      color: 'rgba(255,255,255,0.85)', lineHeight: 1.55, fontWeight: 500,
+                      color: 'rgba(255,255,255,0.72)', lineHeight: 1.55,
                     }}>
-                      {title}
+                      {body ? (
+                        <>
+                          <span style={{ fontWeight: 600, color: 'rgba(255,255,255,0.92)' }}>{itemTitle}:</span>{' '}{body}
+                        </>
+                      ) : itemTitle}
                     </span>
                   </div>
                 )
