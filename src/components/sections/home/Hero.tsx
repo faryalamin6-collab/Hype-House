@@ -44,7 +44,7 @@ export default function Hero() {
         alignItems: 'center',
         justifyContent: 'center',
         textAlign: 'center',
-        padding: '90px 24px 80px',
+        padding: '90px 24px 40px',
         zIndex: 10,
         overflow: 'hidden',
       }}
@@ -97,14 +97,18 @@ export default function Hero() {
           ref={btnsRef}
           style={{
             display: 'flex',
-            gap: '16px',
+            gap: '12px',
             justifyContent: 'center',
-            flexWrap: 'wrap',
-            marginBottom: '40px',
+            maxWidth: '480px',
+            margin: '0 auto 20px',
           }}
         >
-          <Button href="https://hypehouse-client-intake-form.netlify.app" variant="primary" external>Start a Project</Button>
-          <Button href="/services" variant="primary">Explore Our Services</Button>
+          <div style={{ flex: 1 }}>
+            <Button href="https://hypehouse-client-intake-form.netlify.app" variant="primary" external fullWidth>Start a Project</Button>
+          </div>
+          <div style={{ flex: 1 }}>
+            <Button href="/services" variant="primary" fullWidth>Explore Our Services</Button>
+          </div>
         </div>
       </div>
     </section>
