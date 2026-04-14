@@ -103,8 +103,8 @@ export default function Hero() {
             marginBottom: '40px',
           }}
         >
-          <Button href="https://hypehouse-client-intake-form.netlify.app" variant="primary" external>Start a Project →</Button>
-          <Button href="/services" variant="secondary">Explore Our Services</Button>
+          <Button href="https://hypehouse-client-intake-form.netlify.app" variant="primary" external>Start a Project</Button>
+          <Button href="/services" variant="primary">Explore Our Services</Button>
         </div>
       </div>
     </section>
