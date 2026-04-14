@@ -11,9 +11,6 @@ export default function Hero() {
   const line3Ref = useRef<HTMLDivElement>(null)
   const paraRef = useRef<HTMLParagraphElement>(null)
   const btnsRef = useRef<HTMLDivElement>(null)
-  const socialRef = useRef<HTMLDivElement>(null)
-  const scrollRef = useRef<HTMLDivElement>(null)
-
   useEffect(() => {
     const elements = [
       { el: badgeRef.current, delay: 0 },
@@ -35,14 +32,7 @@ export default function Hero() {
       }, delay)
     })
 
-    // Scroll indicator appears at 800ms
-    const scrollTimer = setTimeout(() => {
-      if (scrollRef.current) {
-        scrollRef.current.style.opacity = '1'
-      }
-    }, 800)
-
-    return () => clearTimeout(scrollTimer)
+    return () => {}
   }, [])
 
   return (
@@ -114,65 +104,8 @@ export default function Hero() {
           }}
         >
           <Button href="https://hypehouse-client-intake-form.netlify.app" variant="primary" external>Start a Project →</Button>
+          <Button href="/services" variant="secondary">Explore Our Services</Button>
         </div>
-
-        {/* Social proof */}
-        <div
-          ref={socialRef}
-          style={{
-            fontFamily: 'var(--font-poppins)',
-            fontSize: '13px',
-            color: 'rgba(255,255,255,0.4)',
-            letterSpacing: '0.05em',
-          }}
-        >
-          Built for founders and brands serious about growth.
-        </div>
-      </div>
-
-      {/* Scroll indicator */}
-      <div
-        ref={scrollRef}
-        style={{
-          position: 'absolute',
-          bottom: '40px',
-          left: '50%',
-          transform: 'translateX(-50%)',
-          opacity: 0,
-          transition: 'opacity 0.5s ease',
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          gap: '4px',
-        }}
-        aria-hidden="true"
-      >
-        <span
-          style={{
-            fontFamily: 'var(--font-poppins)',
-            fontSize: '10px',
-            letterSpacing: '0.15em',
-            color: 'rgba(255,255,255,0.3)',
-            textTransform: 'uppercase',
-          }}
-        >
-          Scroll
-        </span>
-        <svg
-          width="20"
-          height="20"
-          viewBox="0 0 20 20"
-          fill="none"
-          style={{ animation: 'chevron-bounce 1.5s ease-in-out infinite' }}
-        >
-          <path
-            d="M5 7.5L10 12.5L15 7.5"
-            stroke="rgba(255,255,255,0.4)"
-            strokeWidth="1.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </svg>
       </div>
     </section>
   )
