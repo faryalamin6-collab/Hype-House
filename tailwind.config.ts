@@ -41,8 +41,13 @@ const config: Config = {
         'spin-slow': 'spin 8s linear infinite',
         pulse: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
         shimmer: 'shimmer 2.5s linear infinite',
+        spotlight: 'spotlight 2s ease .75s 1 forwards',
       },
       keyframes: {
+        spotlight: {
+          '0%': { opacity: '0', transform: 'translate(-72%, -62%) scale(0.5)' },
+          '100%': { opacity: '1', transform: 'translate(-50%, -40%) scale(1)' },
+        },
         'gradient-x': {
           '0%, 100%': { backgroundPosition: '0% 50%' },
           '50%': { backgroundPosition: '100% 50%' },

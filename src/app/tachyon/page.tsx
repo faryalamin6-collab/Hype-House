@@ -4,6 +4,7 @@ import ScrollReveal from '@/components/ui/ScrollReveal'
 import Button from '@/components/ui/Button'
 import HoverCard from '@/components/ui/HoverCard'
 import ImageReveal from '@/components/ui/ImageReveal'
+import TachyonHero from '@/components/sections/tachyon/TachyonHero'
 
 export const metadata: Metadata = {
   title: 'Tachyon AI — Business Automation Systems | HypeHouse Digital',
@@ -66,84 +67,7 @@ export default function TachyonPage() {
   return (
     <>
       {/* ── SECTION 1: HERO ───────────────────────────────────────────────── */}
-      <section className="page-top" style={{
-        position: 'relative', zIndex: 10,
-        paddingLeft: '48px', paddingRight: '48px', paddingBottom: '60px',
-        textAlign: 'center', overflow: 'hidden',
-      }}>
-        {/* Tachyon plasma background — Electric Core + Deep System Blue */}
-        <div style={{
-          position: 'absolute', inset: '-50%',
-          background: 'conic-gradient(from 0deg, transparent 0deg, rgba(0,240,255,0.10) 60deg, rgba(2,31,195,0.08) 120deg, transparent 180deg, rgba(0,240,255,0.05) 240deg, transparent 360deg)',
-          animation: 'plasma-rotate 25s linear infinite',
-          pointerEvents: 'none',
-        }} />
-        <div style={{
-          position: 'absolute', inset: 0,
-          background: 'radial-gradient(ellipse at 50% 0%, rgba(30,79,140,0.55) 0%, rgba(58,141,255,0.08) 50%, #020008 80%)',
-          pointerEvents: 'none',
-        }} />
-
-        <div style={{ maxWidth: '900px', margin: '0 auto', position: 'relative' }}>
-          {/* Tachyon wordmark — Signature Tachyon Gradient */}
-          <div style={{
-            fontFamily: 'var(--font-poppins)', fontWeight: 800,
-            fontSize: 'clamp(48px, 10vw, 120px)', letterSpacing: '-0.03em',
-            lineHeight: 1, marginBottom: '12px',
-            background: 'linear-gradient(135deg, #B040FF 0%, #5B8FFF 50%, #00F0FF 100%)',
-            backgroundSize: '200% 200%',
-            WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent',
-            backgroundClip: 'text', animation: 'gradient-shift 4s ease infinite',
-          }}>
-            TACHYON
-          </div>
-          <div style={{
-            fontFamily: 'var(--font-poppins)', fontWeight: 500, fontSize: '13px',
-            letterSpacing: '0.2em', textTransform: 'uppercase' as const,
-            color: '#BFD7FF', marginBottom: '40px',
-          }}>
-            A HypeHouse Sub-Brand · Automation &amp; AI Intelligence
-          </div>
-
-          <h1 style={{
-            fontFamily: 'var(--font-poppins)', fontWeight: 800,
-            fontSize: 'clamp(32px, 5vw, 68px)', color: 'white',
-            letterSpacing: '-0.02em', lineHeight: 1.1, marginBottom: '16px',
-          }}>
-            Business Systems That Think For You.
-          </h1>
-          <h2 style={{
-            fontFamily: 'var(--font-poppins)', fontWeight: 600,
-            fontSize: 'clamp(20px, 3vw, 36px)', marginBottom: '28px',
-            color: '#3A8DFF',
-          }}>
-            We build it. We run it. You grow.
-          </h2>
-          <p style={{
-            fontSize: '18px', color: 'rgba(255,255,255,0.80)',
-            lineHeight: 1.75, maxWidth: '620px', margin: '0 auto 48px',
-          }}>
-            Built for SMEs. Engineered to outperform humans. We build responsive digital
-            systems that sit quietly in the background — watching, responding, organising,
-            and pushing leads forward before your team even lifts a finger.
-          </p>
-          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '16px' }}>
-            <Button href="https://hypehouse-client-intake-form.netlify.app" variant="primary" external className="tachyon-btn-primary">
-              Get Started →
-            </Button>
-            <a
-              href="#problem"
-              style={{
-                fontFamily: 'var(--font-poppins)', fontWeight: 500, fontSize: '14px',
-                color: '#3A8DFF', textDecoration: 'none',
-                letterSpacing: '0.05em',
-              }}
-            >
-              Learn More ↓
-            </a>
-          </div>
-        </div>
-      </section>
+      <TachyonHero />
 
       {/* ── IMAGE — edge to edge ──────────────────────────────────────────── */}
       <section style={{ position: 'relative', zIndex: 10, paddingBottom: '72px' }}>
