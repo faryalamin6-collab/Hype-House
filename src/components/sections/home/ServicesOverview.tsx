@@ -2,29 +2,20 @@
 
 import { useEffect, useRef } from 'react'
 import Link from 'next/link'
-import Image from 'next/image'
-import SectionLabel from '@/components/ui/SectionLabel'
 
 const services = [
-  { name: 'Branding',            manifesto: 'Identity is destiny.',       href: '/services#branding',    image: '/images/branding-header.png' },
-  { name: 'Copywriting',         manifesto: 'Words that convert.',         href: '/services#copywriting', image: '/images/copywriting-header.png' },
-  { name: 'Social Media',        manifesto: 'Presence is power.',          href: '/services#social-media',image: '/images/social-media-header.png' },
-  { name: 'Digital Advertising', manifesto: 'Every penny, optimised.',     href: '/services#advertising', image: '/images/digital-adverts-header.png' },
-  { name: 'Web & UX/UI',         manifesto: 'First impressions convert.',  href: '/services#web',         image: '/images/web-design-header.png' },
-  { name: 'SEO',                 manifesto: 'Visibility that compounds.',  href: '/services#seo',         image: '/images/seo-header.png' },
-]
-
-// Alternating entrance directions by column position
-const ENTRANCES = [
-  { x: -70, y: 30 },  // col 0 — from left
-  { x:   0, y: 70 },  // col 1 — from below
-  { x:  70, y: 30 },  // col 2 — from right
+  { num: '01', name: 'Branding',            tagline: 'Identity is destiny.',        href: '/services#branding' },
+  { num: '02', name: 'Copywriting',         tagline: 'Words that convert.',          href: '/services#copywriting' },
+  { num: '03', name: 'Social Media',        tagline: 'Presence is power.',           href: '/services#social-media' },
+  { num: '04', name: 'Digital Advertising', tagline: 'Every penny, optimised.',      href: '/services#advertising' },
+  { num: '05', name: 'Web & UX/UI',         tagline: 'First impressions convert.',   href: '/services#web' },
+  { num: '06', name: 'SEO',                 tagline: 'Visibility that compounds.',   href: '/services#seo' },
+  { num: '✦',  name: 'Tachyon',             tagline: 'AI that runs your brand.',     href: '/tachyon' },
 ]
 
 export default function ServicesOverview() {
-  const gridRef = useRef<HTMLDivElement>(null)
+  const sectionRef = useRef<HTMLDivElement>(null)
 
-  // GSAP scroll-triggered entrance
   useEffect(() => {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     let ctx: any
@@ -33,245 +24,231 @@ export default function ServicesOverview() {
       registerGSAP()
 
       ctx = gsap.context(() => {
-        const cards = gridRef.current?.querySelectorAll<HTMLElement>('.service-holo-tile')
-        if (!cards) return
+        const tiles = sectionRef.current?.querySelectorAll<HTMLElement>('.svc-tile')
+        if (!tiles) return
 
-        cards.forEach((card, i) => {
-          const { x, y } = ENTRANCES[i % 3]
+        tiles.forEach((tile, i) => {
+          // Zoom-in from below with stagger
           gsap.fromTo(
-            card,
-            { opacity: 0, x, y, scale: 0.88 },
+            tile,
+            { opacity: 0, y: 60, scale: 0.82, filter: 'blur(8px)' },
             {
-              opacity: 1, x: 0, y: 0, scale: 1,
-              duration: 1.0,
+              opacity: 1,
+              y: 0,
+              scale: 1,
+              filter: 'blur(0px)',
+              duration: 0.95,
               ease: 'power3.out',
-              delay: (i % 3) * 0.07,
+              delay: (i % 3) * 0.08,
               scrollTrigger: {
-                trigger: card,
-                start: 'top 88%',
+                trigger: tile,
+                start: 'top 90%',
                 toggleActions: 'play none none none',
               },
             }
           )
         })
-      })
+      }, sectionRef)
     }
     init()
     return () => ctx?.revert()
   }, [])
 
-  // 3D holographic tilt handlers
+  // 3D tilt on mouse move
   const onMouseMove = (e: React.MouseEvent<HTMLAnchorElement>) => {
     const el = e.currentTarget
     const rect = el.getBoundingClientRect()
-    const px = (e.clientX - rect.left) / rect.width   // 0 → 1
-    const py = (e.clientY - rect.top)  / rect.height  // 0 → 1
-    const rx = (py - 0.5) * -18   // rotateX
-    const ry = (px - 0.5) *  18   // rotateY
+    const px = (e.clientX - rect.left) / rect.width
+    const py = (e.clientY - rect.top) / rect.height
+    const rx = (py - 0.5) * -14
+    const ry = (px - 0.5) * 14
+    el.style.transform = `perspective(900px) rotateX(${rx}deg) rotateY(${ry}deg) scale3d(1.035,1.035,1.035)`
 
-    el.style.transform = `perspective(900px) rotateX(${rx}deg) rotateY(${ry}deg) scale3d(1.04,1.04,1.04)`
-
-    const shimmer = el.querySelector<HTMLElement>('.holo-shimmer')
-    if (shimmer) {
-      shimmer.style.backgroundPosition = `${px * 100}% ${py * 100}%`
-      shimmer.style.opacity = '1'
-    }
-    const spot = el.querySelector<HTMLElement>('.holo-spot')
+    // Move the live glow spot
+    const spot = el.querySelector<HTMLElement>('.glow-spot')
     if (spot) {
-      spot.style.background = `radial-gradient(circle at ${px * 100}% ${py * 100}%, rgba(4,157,255,0.28) 0%, transparent 58%)`
+      spot.style.background = `radial-gradient(circle at ${px * 100}% ${py * 100}%, rgba(4,157,255,0.22) 0%, transparent 62%)`
     }
-    const border = el.querySelector<HTMLElement>('.holo-border')
-    if (border) {
-      border.style.opacity = '1'
-    }
+    // Brighten border
+    const border = el.querySelector<HTMLElement>('.glow-border')
+    if (border) border.style.opacity = '1'
   }
 
   const onMouseEnter = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.currentTarget.style.transition = 'none'
     e.currentTarget.style.zIndex = '10'
-    const img = e.currentTarget.querySelector<HTMLElement>('.tile-img')
-    if (img) img.style.transform = 'scale(1.08)'
   }
 
   const onMouseLeave = (e: React.MouseEvent<HTMLAnchorElement>) => {
     const el = e.currentTarget
-    el.style.transition = 'transform 0.6s cubic-bezier(0.23,1,0.32,1), z-index 0s 0.6s'
+    el.style.transition = 'transform 0.65s cubic-bezier(0.23,1,0.32,1)'
     el.style.transform = 'perspective(900px) rotateX(0deg) rotateY(0deg) scale3d(1,1,1)'
     el.style.zIndex = ''
-
-    const shimmer = el.querySelector<HTMLElement>('.holo-shimmer')
-    if (shimmer) shimmer.style.opacity = '0'
-    const spot = el.querySelector<HTMLElement>('.holo-spot')
+    const spot = el.querySelector<HTMLElement>('.glow-spot')
     if (spot) spot.style.background = 'transparent'
-    const border = el.querySelector<HTMLElement>('.holo-border')
+    const border = el.querySelector<HTMLElement>('.glow-border')
     if (border) border.style.opacity = '0'
-    const img = el.querySelector<HTMLElement>('.tile-img')
-    if (img) img.style.transform = 'scale(1)'
   }
 
   return (
-    <section style={{ position: 'relative', zIndex: 10, padding: '80px 24px 100px' }}>
+    <section
+      ref={sectionRef}
+      style={{ position: 'relative', zIndex: 10, padding: '90px 24px 110px' }}
+    >
       <div style={{ maxWidth: '1280px', margin: '0 auto' }}>
 
-        {/* Section header */}
-        <div style={{ textAlign: 'center', marginBottom: '64px' }}>
-          <SectionLabel>What We Do</SectionLabel>
+        {/* Header */}
+        <div style={{ textAlign: 'center', marginBottom: '72px' }}>
+          <p style={{
+            fontFamily: 'var(--font-poppins)', fontWeight: 600,
+            fontSize: '11px', letterSpacing: '0.28em',
+            textTransform: 'uppercase', color: '#049DFF',
+            marginBottom: '18px',
+          }}>
+            ✦ What We Do
+          </p>
           <h2 style={{
             fontFamily: 'var(--font-poppins)', fontWeight: 800,
             fontSize: 'clamp(28px, 4vw, 52px)', color: 'white',
-            marginTop: '20px', letterSpacing: '-0.02em', lineHeight: 1.15,
+            letterSpacing: '-0.02em', lineHeight: 1.12, marginBottom: '20px',
           }}>
             For brands that want to be felt,{' '}
             <span className="gradient-text">not just seen.</span>
           </h2>
           <p style={{
             fontFamily: 'var(--font-poppins)', fontSize: '17px',
-            color: 'rgba(255,255,255,0.72)', lineHeight: 1.75,
-            maxWidth: '640px', margin: '20px auto 0',
+            color: 'rgba(255,255,255,0.55)', lineHeight: 1.75,
+            maxWidth: '560px', margin: '0 auto',
           }}>
             Strategy, creative, and execution — unified under one roof, moving as one.
           </p>
         </div>
 
-        {/* Holographic tile grid */}
-        <div
-          ref={gridRef}
-          style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))',
-            gap: '20px',
-          }}
-        >
-          {services.map((service) => (
+        {/* Tile grid */}
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+          gap: '20px',
+        }}>
+          {services.map((svc) => (
             <Link
-              key={service.name}
-              href={service.href}
+              key={svc.name}
+              href={svc.href}
               scroll={false}
-              className="service-holo-tile"
+              className="svc-tile"
               style={{
                 position: 'relative',
                 display: 'block',
                 borderRadius: '20px',
                 overflow: 'hidden',
-                aspectRatio: '16 / 9',
                 textDecoration: 'none',
                 cursor: 'pointer',
-                opacity: 0,               // GSAP animates to 1
+                opacity: 0,
                 willChange: 'transform',
                 transformStyle: 'preserve-3d',
-                transition: 'transform 0.6s cubic-bezier(0.23,1,0.32,1)',
+                transition: 'transform 0.65s cubic-bezier(0.23,1,0.32,1)',
+                // Glass card
+                background: 'linear-gradient(135deg, rgba(4,157,255,0.07) 0%, rgba(166,20,178,0.07) 100%)',
+                border: '1px solid rgba(4,157,255,0.18)',
+                backdropFilter: 'blur(14px)',
+                WebkitBackdropFilter: 'blur(14px)',
+                padding: '36px 32px 32px',
+                minHeight: '200px',
               }}
               onMouseMove={onMouseMove}
               onMouseEnter={onMouseEnter}
               onMouseLeave={onMouseLeave}
             >
-              {/* ── IMAGE ── */}
-              <Image
-                src={service.image}
-                alt={service.name}
-                fill
-                className="tile-img"
-                sizes="(max-width: 720px) 100vw, (max-width: 1080px) 50vw, 33vw"
-                style={{
-                  objectFit: 'cover',
-                  transition: 'transform 0.6s cubic-bezier(0.23,1,0.32,1)',
-                }}
-              />
-
-              {/* ── DARK OVERLAY — bottom up ── */}
-              <div style={{
-                position: 'absolute', inset: 0,
-                background: 'linear-gradient(to top, rgba(2,0,8,0.96) 0%, rgba(2,0,8,0.55) 45%, rgba(2,0,8,0.12) 100%)',
-              }} />
-
-              {/* ── HOLOGRAPHIC SHIMMER — tracks mouse ── */}
+              {/* Live mouse-tracked glow spot */}
               <div
-                className="holo-shimmer"
-                style={{
-                  position: 'absolute', inset: 0,
-                  background: [
-                    'linear-gradient(105deg,',
-                    '  transparent 25%,',
-                    '  rgba(192,132,252,0.22) 38%,',
-                    '  rgba(4,157,255,0.22) 50%,',
-                    '  rgba(52,211,153,0.15) 62%,',
-                    '  transparent 75%)',
-                  ].join(''),
-                  backgroundSize: '250% 250%',
-                  backgroundPosition: '50% 50%',
-                  opacity: 0,
-                  transition: 'opacity 0.25s ease',
-                  mixBlendMode: 'screen',
-                  pointerEvents: 'none',
-                }}
-              />
-
-              {/* ── MOUSE-TRACKED BLUE SPOT ── */}
-              <div
-                className="holo-spot"
+                className="glow-spot"
                 style={{
                   position: 'absolute', inset: 0,
                   background: 'transparent',
                   transition: 'background 0.08s linear',
                   pointerEvents: 'none',
+                  borderRadius: '20px',
                 }}
               />
 
-              {/* ── GRADIENT BORDER GLOW (hover) ── */}
+              {/* Animated border glow on hover */}
               <div
-                className="holo-border"
+                className="glow-border"
                 style={{
                   position: 'absolute', inset: 0,
                   borderRadius: '20px',
-                  boxShadow: 'inset 0 0 0 1px rgba(4,157,255,0.55), 0 0 40px rgba(4,157,255,0.18)',
+                  boxShadow: 'inset 0 0 0 1px rgba(4,157,255,0.6), 0 0 48px rgba(4,157,255,0.16)',
                   opacity: 0,
                   transition: 'opacity 0.3s ease',
                   pointerEvents: 'none',
                 }}
               />
 
-              {/* ── STATIC TOP EDGE HIGHLIGHT ── */}
+              {/* Top-left corner accent */}
               <div style={{
-                position: 'absolute', top: 0, left: '12%', right: '12%',
-                height: 1,
-                background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent)',
+                position: 'absolute', top: 0, left: 0,
+                width: '80px', height: '80px',
+                background: 'radial-gradient(circle at 0% 0%, rgba(166,20,178,0.22) 0%, transparent 70%)',
+                borderRadius: '20px 0 0 0',
                 pointerEvents: 'none',
               }} />
 
-              {/* ── CONTENT ── */}
+              {/* Top edge highlight */}
               <div style={{
-                position: 'absolute', inset: 0,
-                display: 'flex', flexDirection: 'column',
-                justifyContent: 'flex-end',
-                padding: '22px 24px',
-              }}>
+                position: 'absolute', top: 0, left: '10%', right: '10%',
+                height: '1px',
+                background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.18), transparent)',
+                pointerEvents: 'none',
+              }} />
+
+              {/* Content */}
+              <div style={{ position: 'relative', zIndex: 2 }}>
+                {/* Service number */}
                 <span style={{
-                  fontFamily: 'var(--font-poppins)', fontWeight: 500,
-                  fontSize: '10px', letterSpacing: '0.22em',
-                  textTransform: 'uppercase', color: 'rgba(4,157,255,0.85)',
-                  display: 'block', marginBottom: '7px',
+                  fontFamily: 'var(--font-poppins)', fontWeight: 700,
+                  fontSize: '12px', letterSpacing: '0.18em',
+                  color: '#049DFF', display: 'block', marginBottom: '20px',
                 }}>
-                  ✦ {service.manifesto}
+                  {svc.num}
                 </span>
 
+                {/* Service name */}
                 <h3 style={{
                   fontFamily: 'var(--font-poppins)', fontWeight: 800,
-                  fontSize: 'clamp(22px, 2.6vw, 36px)',
+                  fontSize: 'clamp(26px, 3vw, 40px)',
                   color: 'white', letterSpacing: '-0.02em',
-                  lineHeight: 1.1, margin: '0 0 12px',
+                  lineHeight: 1.1, margin: '0 0 14px',
                 }}>
-                  {service.name}
+                  {svc.name}
                 </h3>
 
+                {/* Tagline */}
+                <p style={{
+                  fontFamily: 'var(--font-poppins)', fontWeight: 400,
+                  fontSize: '14px', color: 'rgba(255,255,255,0.42)',
+                  lineHeight: 1.6, margin: '0 0 28px',
+                }}>
+                  {svc.tagline}
+                </p>
+
+                {/* Explore CTA */}
                 <span style={{
                   fontFamily: 'var(--font-poppins)', fontWeight: 600,
-                  fontSize: '12px', letterSpacing: '0.08em',
-                  color: 'rgba(255,255,255,0.45)',
-                  display: 'flex', alignItems: 'center', gap: '5px',
+                  fontSize: '12px', letterSpacing: '0.1em',
+                  color: 'rgba(4,157,255,0.75)',
+                  display: 'flex', alignItems: 'center', gap: '6px',
                 }}>
                   Explore →
                 </span>
               </div>
+
+              {/* Bottom glow line */}
+              <div style={{
+                position: 'absolute', bottom: 0, left: '8%', right: '8%',
+                height: '1px',
+                background: 'linear-gradient(90deg, transparent, rgba(4,157,255,0.55), transparent)',
+                pointerEvents: 'none',
+              }} />
             </Link>
           ))}
         </div>
