@@ -8,13 +8,12 @@ import { cn } from "@/lib/utils";
 export interface InteractiveTravelCardProps {
   title: string;
   subtitle: string;
-  imageUrl?: string;
   actionText: string;
   href: string;
   onActionClick?: () => void;
   className?: string;
   accentColor?: string;
-  icon?: string;
+  active?: boolean;
 }
 
 export const InteractiveServiceCard = React.forwardRef<
@@ -30,7 +29,7 @@ export const InteractiveServiceCard = React.forwardRef<
       onActionClick,
       className,
       accentColor = "#049DFF",
-      icon,
+      active = true,
     },
     ref
   ) => {
@@ -45,6 +44,7 @@ export const InteractiveServiceCard = React.forwardRef<
     const rotateY = useTransform(springX, [-0.5, 0.5], ["-10.5deg", "10.5deg"]);
 
     const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+      if (!active) return;
       const rect = e.currentTarget.getBoundingClientRect();
       mouseX.set((e.clientX - rect.left) / rect.width - 0.5);
       mouseY.set((e.clientY - rect.top) / rect.height - 0.5);
@@ -61,21 +61,23 @@ export const InteractiveServiceCard = React.forwardRef<
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
         style={{
-          rotateX,
-          rotateY,
+          rotateX: active ? rotateX : 0,
+          rotateY: active ? rotateY : 0,
           transformStyle: "preserve-3d",
-          border: `1px solid ${accentColor}22`,
+          // Exact 21st.dev border: border border-border/30
+          border: "1px solid rgba(255,255,255,0.3)",
         }}
         className={cn(
           "relative h-[26rem] w-80 rounded-2xl bg-transparent shadow-2xl",
           className
         )}
       >
+        {/* Inner container with 3D depth */}
         <div
           style={{ transform: "translateZ(50px)", transformStyle: "preserve-3d" }}
           className="absolute inset-4 grid h-[calc(100%-2rem)] w-[calc(100%-2rem)] grid-rows-[1fr_auto] rounded-xl shadow-lg overflow-hidden"
         >
-          {/* Background */}
+          {/* Dark gradient background */}
           <div
             className="absolute inset-0 h-full w-full rounded-xl"
             style={{
@@ -84,9 +86,9 @@ export const InteractiveServiceCard = React.forwardRef<
             }}
           />
 
-          {/* Glow orb */}
+          {/* Accent glow orb */}
           <div
-            className="absolute top-0 right-0 w-48 h-48 rounded-full opacity-20 blur-3xl pointer-events-none"
+            className="absolute top-0 right-0 w-48 h-48 rounded-full opacity-25 blur-3xl pointer-events-none"
             style={{ background: accentColor }}
           />
 
@@ -98,25 +100,21 @@ export const InteractiveServiceCard = React.forwardRef<
             }}
           />
 
-          {/* Card content */}
+          {/* Content */}
           <div className="relative flex flex-col justify-between rounded-xl p-6 text-white h-full">
             {/* Header */}
             <div className="flex items-start justify-between">
               <div>
-                {/* Icon */}
-                <motion.div
-                  style={{ transform: "translateZ(60px)" }}
-                  className="text-4xl mb-4"
-                >
-                  {icon}
-                </motion.div>
-
                 {/* Subtitle / number */}
                 <motion.p
-                  style={{ transform: "translateZ(40px)", fontFamily: "var(--font-poppins)" }}
-                  className="text-xs font-semibold tracking-[0.25em] uppercase mb-2"
+                  style={{
+                    transform: "translateZ(40px)",
+                    fontFamily: "var(--font-poppins)",
+                    color: accentColor,
+                  }}
+                  className="text-xs font-semibold tracking-[0.25em] uppercase mb-3"
                 >
-                  <span style={{ color: accentColor }}>{subtitle}</span>
+                  {subtitle}
                 </motion.p>
 
                 {/* Title */}
@@ -125,41 +123,35 @@ export const InteractiveServiceCard = React.forwardRef<
                     transform: "translateZ(50px)",
                     fontFamily: "var(--font-poppins)",
                   }}
-                  className="text-2xl font-bold text-white leading-tight"
+                  className="text-3xl font-extrabold text-white leading-tight"
                 >
                   {title}
                 </motion.h2>
               </div>
 
-              {/* Arrow link */}
+              {/* Arrow link — ring-1 ring-inset ring-white/30 exact match */}
               <motion.a
                 href={href}
                 whileHover={{ scale: 1.1, rotate: "2.5deg" }}
                 whileTap={{ scale: 0.9 }}
-                style={{
-                  transform: "translateZ(60px)",
-                  background: `${accentColor}22`,
-                  border: `1px solid ${accentColor}44`,
-                }}
-                className="flex h-10 w-10 items-center justify-center rounded-full backdrop-blur-sm transition-colors flex-shrink-0"
+                style={{ transform: "translateZ(60px)" }}
+                className="flex h-10 w-10 items-center justify-center rounded-full bg-white/20 backdrop-blur-sm ring-1 ring-inset ring-white/30 transition-colors hover:bg-white/30 flex-shrink-0"
                 aria-label={`Go to ${title}`}
               >
                 <ArrowUpRight className="h-5 w-5 text-white" />
               </motion.a>
             </div>
 
-            {/* Footer button */}
+            {/* Action button — ring-1 ring-inset ring-white/20 exact match */}
             <motion.button
               onClick={onActionClick}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               style={{
                 transform: "translateZ(40px)",
-                background: `linear-gradient(135deg, ${accentColor}33, #A614B233)`,
-                border: `1px solid ${accentColor}44`,
                 fontFamily: "var(--font-poppins)",
               }}
-              className="w-full rounded-xl py-3 text-center font-semibold text-white text-sm backdrop-blur-md hover:opacity-90 transition-opacity"
+              className="w-full rounded-xl py-3 text-center font-semibold text-white text-sm backdrop-blur-md bg-white/10 ring-1 ring-inset ring-white/20 hover:bg-white/20 transition-colors"
             >
               {actionText}
             </motion.button>

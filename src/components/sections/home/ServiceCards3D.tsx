@@ -1,12 +1,12 @@
 'use client'
 
-import Link from 'next/link'
+import { useState, useRef, useCallback, useEffect } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
 import { InteractiveServiceCard } from '@/components/ui/3d-card'
 
 const services = [
   {
     id: 1,
-    icon: '◈',
     title: 'Branding',
     subtitle: '01 — Identity',
     actionText: 'Build your brand →',
@@ -15,7 +15,6 @@ const services = [
   },
   {
     id: 2,
-    icon: '✍️',
     title: 'Copywriting',
     subtitle: '02 — Voice',
     actionText: 'Script conversions →',
@@ -24,7 +23,6 @@ const services = [
   },
   {
     id: 3,
-    icon: '📱',
     title: 'Social Media',
     subtitle: '03 — Presence',
     actionText: 'Own the feed →',
@@ -33,7 +31,6 @@ const services = [
   },
   {
     id: 4,
-    icon: '📣',
     title: 'Digital Advertising',
     subtitle: '04 — Growth',
     actionText: 'Scale your reach →',
@@ -42,7 +39,6 @@ const services = [
   },
   {
     id: 5,
-    icon: '🌐',
     title: 'Web & UX/UI',
     subtitle: '05 — Experience',
     actionText: 'Build to convert →',
@@ -51,7 +47,6 @@ const services = [
   },
   {
     id: 6,
-    icon: '🔍',
     title: 'SEO',
     subtitle: '06 — Discovery',
     actionText: 'Rank higher →',
@@ -60,13 +55,55 @@ const services = [
   },
 ]
 
+function wrap(n: number, len: number) {
+  return ((n % len) + len) % len
+}
+
+// Position each card relative to the active index
+function getCardLayout(offset: number) {
+  const abs = Math.abs(offset)
+  if (abs > 2) return null
+  return {
+    x: offset * 260,
+    scale: offset === 0 ? 1 : 0.82 - abs * 0.04,
+    opacity: abs === 0 ? 1 : abs === 1 ? 0.55 : 0.25,
+    zIndex: 10 - abs,
+    rotateY: offset * -8,
+  }
+}
+
 export default function ServiceCards3D() {
+  const [active, setActive] = useState(0)
+  const len = services.length
+  const touchStartX = useRef(0)
+
+  const next = useCallback(() => setActive(a => wrap(a + 1, len)), [len])
+  const prev = useCallback(() => setActive(a => wrap(a - 1, len)), [len])
+
+  // Keyboard navigation
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'ArrowRight') next()
+      if (e.key === 'ArrowLeft') prev()
+    }
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
+  }, [next, prev])
+
+  const onTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0]!.clientX
+  }
+  const onTouchEnd = (e: React.TouchEvent) => {
+    const diff = touchStartX.current - e.changedTouches[0]!.clientX
+    if (Math.abs(diff) > 50) diff > 0 ? next() : prev()
+  }
+
   return (
-    <section style={{ width: '100%', padding: '96px 0', background: 'transparent' }}>
+    <section style={{ width: '100%', padding: '96px 0', position: 'relative', zIndex: 10 }}>
       <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 24px' }}>
 
         {/* Header */}
-        <div style={{ textAlign: 'center', marginBottom: '64px' }}>
+        <div style={{ textAlign: 'center', marginBottom: '72px' }}>
           <p style={{
             fontFamily: 'var(--font-poppins)', fontWeight: 600,
             fontSize: '11px', letterSpacing: '0.3em',
@@ -85,48 +122,128 @@ export default function ServiceCards3D() {
           </h2>
         </div>
 
-        {/* 3D Cards Grid */}
+        {/* Carousel */}
         <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-            gap: '32px',
-            justifyItems: 'center',
-            perspective: '1000px',
-          }}
+          style={{ position: 'relative', display: 'flex', justifyContent: 'center', alignItems: 'center', height: '440px', perspective: '1200px' }}
+          onTouchStart={onTouchStart}
+          onTouchEnd={onTouchEnd}
         >
-          {services.map((service) => (
-            <InteractiveServiceCard
-              key={service.id}
-              title={service.title}
-              subtitle={service.subtitle}
-              icon={service.icon}
-              actionText={service.actionText}
-              href={service.href}
-              accentColor={service.accentColor}
-              onActionClick={() => { window.location.href = service.href }}
-            />
-          ))}
+          <AnimatePresence initial={false}>
+            {services.map((service, i) => {
+              const raw = i - active
+              const alt = raw > 0 ? raw - len : raw + len
+              const offset = Math.abs(alt) < Math.abs(raw) ? alt : raw
+              const layout = getCardLayout(offset)
+              if (!layout) return null
+
+              return (
+                <motion.div
+                  key={service.id}
+                  style={{
+                    position: 'absolute',
+                    zIndex: layout.zIndex,
+                    cursor: offset === 0 ? 'default' : 'pointer',
+                  }}
+                  animate={{
+                    x: layout.x,
+                    scale: layout.scale,
+                    opacity: layout.opacity,
+                    rotateY: layout.rotateY,
+                  }}
+                  transition={{ type: 'spring', stiffness: 260, damping: 28 }}
+                  onClick={() => { if (offset !== 0) setActive(i) }}
+                >
+                  <InteractiveServiceCard
+                    title={service.title}
+                    subtitle={service.subtitle}
+                    actionText={service.actionText}
+                    href={service.href}
+                    accentColor={service.accentColor}
+                    active={offset === 0}
+                    onActionClick={() => { window.location.href = service.href }}
+                  />
+                </motion.div>
+              )
+            })}
+          </AnimatePresence>
         </div>
 
-        {/* Bottom CTA */}
-        <div style={{ textAlign: 'center', marginTop: '64px' }}>
-          <Link
-            href="/services"
+        {/* Navigation */}
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '24px', marginTop: '48px' }}>
+          <button
+            onClick={prev}
             style={{
-              display: 'inline-flex', alignItems: 'center', gap: '8px',
-              padding: '14px 36px', borderRadius: '999px',
-              fontFamily: 'var(--font-poppins)', fontWeight: 600,
-              fontSize: '14px', color: 'white', textDecoration: 'none',
-              background: 'linear-gradient(135deg, #A614B2 0%, #0C128D 50%, #049DFF 100%)',
-              transition: 'opacity 0.2s ease',
+              width: '44px', height: '44px', borderRadius: '50%',
+              display: 'flex', alignItems: 'center', justifyContent: 'center',
+              background: 'transparent',
+              border: '1px solid rgba(255,255,255,0.3)',
+              color: 'white', fontSize: '18px', cursor: 'pointer',
+              transition: 'background 0.2s ease, border-color 0.2s ease',
             }}
-            onMouseEnter={e => (e.currentTarget.style.opacity = '0.85')}
-            onMouseLeave={e => (e.currentTarget.style.opacity = '1')}
+            onMouseEnter={e => {
+              e.currentTarget.style.background = 'rgba(4,157,255,0.12)'
+              e.currentTarget.style.borderColor = 'rgba(4,157,255,0.6)'
+            }}
+            onMouseLeave={e => {
+              e.currentTarget.style.background = 'transparent'
+              e.currentTarget.style.borderColor = 'rgba(255,255,255,0.3)'
+            }}
+            aria-label="Previous"
           >
-            View All Services →
-          </Link>
+            ←
+          </button>
+
+          {/* Dots */}
+          <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
+            {services.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => setActive(i)}
+                style={{
+                  width: i === active ? '24px' : '6px',
+                  height: '6px',
+                  borderRadius: '999px',
+                  background: i === active ? '#049DFF' : 'rgba(255,255,255,0.25)',
+                  border: 'none', cursor: 'pointer', padding: 0,
+                  transition: 'all 0.3s ease',
+                }}
+                aria-label={`Go to slide ${i + 1}`}
+              />
+            ))}
+          </div>
+
+          <button
+            onClick={next}
+            style={{
+              width: '44px', height: '44px', borderRadius: '50%',
+              display: 'flex', alignItems: 'center', justifyContent: 'center',
+              background: 'transparent',
+              border: '1px solid rgba(255,255,255,0.3)',
+              color: 'white', fontSize: '18px', cursor: 'pointer',
+              transition: 'background 0.2s ease, border-color 0.2s ease',
+            }}
+            onMouseEnter={e => {
+              e.currentTarget.style.background = 'rgba(4,157,255,0.12)'
+              e.currentTarget.style.borderColor = 'rgba(4,157,255,0.6)'
+            }}
+            onMouseLeave={e => {
+              e.currentTarget.style.background = 'transparent'
+              e.currentTarget.style.borderColor = 'rgba(255,255,255,0.3)'
+            }}
+            aria-label="Next"
+          >
+            →
+          </button>
         </div>
+
+        {/* Counter */}
+        <p style={{
+          textAlign: 'center', marginTop: '16px',
+          fontFamily: 'var(--font-poppins)', fontSize: '12px',
+          letterSpacing: '0.15em', color: 'rgba(255,255,255,0.3)',
+        }}>
+          {String(active + 1).padStart(2, '0')} / {String(len).padStart(2, '0')}
+        </p>
 
       </div>
     </section>
