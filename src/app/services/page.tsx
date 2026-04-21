@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import SectionLabel from '@/components/ui/SectionLabel'
-import ServiceCardStack from '@/components/sections/ServiceCardStack'
+import ServiceShowcase3D from '@/components/sections/services/ServiceShowcase3D'
 
 export const metadata: Metadata = {
   title: 'Services — AI Creative Agency | Branding, Digital Marketing & Automation',
@@ -190,8 +190,8 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* 3D stacked flip card showcase */}
-      <ServiceCardStack />
+      {/* 3D coverflow showcase with flip */}
+      <ServiceShowcase3D services={services} />
     </>
   )
 }
