@@ -11,9 +11,9 @@ const services = [
     title: 'Branding',
     tagline: 'A system of influence',
     rotate: '6deg',
-    top: '15%',
-    left: '20%',
-    width: 220,
+    top: '12%',
+    left: '18%',
+    width: 'clamp(200px, 22vw, 320px)',
     accent: '#049DFF',
     href: '/services#branding',
   },
@@ -22,9 +22,9 @@ const services = [
     title: 'Copywriting',
     tagline: 'Words that convert',
     rotate: '-8deg',
-    top: '55%',
-    left: '15%',
-    width: 200,
+    top: '54%',
+    left: '12%',
+    width: 'clamp(185px, 20vw, 290px)',
     accent: '#A614B2',
     href: '/services#copywriting',
   },
@@ -33,9 +33,9 @@ const services = [
     title: 'Social Media',
     tagline: 'Strategy, not luck',
     rotate: '12deg',
-    top: '25%',
-    left: '55%',
-    width: 190,
+    top: '22%',
+    left: '54%',
+    width: 'clamp(178px, 19vw, 275px)',
     accent: '#049DFF',
     href: '/services#social-media',
   },
@@ -44,9 +44,9 @@ const services = [
     title: 'Digital Advertising',
     tagline: 'Paid media that performs',
     rotate: '-5deg',
-    top: '60%',
-    left: '50%',
-    width: 240,
+    top: '58%',
+    left: '48%',
+    width: 'clamp(210px, 24vw, 340px)',
     accent: '#A614B2',
     href: '/services#advertising',
   },
@@ -55,9 +55,9 @@ const services = [
     title: 'Web & UX/UI',
     tagline: 'Built to convert',
     rotate: '15deg',
-    top: '15%',
-    left: '38%',
-    width: 210,
+    top: '12%',
+    left: '37%',
+    width: 'clamp(192px, 21vw, 305px)',
     accent: '#049DFF',
     href: '/services#web',
   },
@@ -66,9 +66,9 @@ const services = [
     title: 'SEO',
     tagline: "Attention you don't pay for",
     rotate: '-12deg',
-    top: '45%',
-    left: '72%',
-    width: 185,
+    top: '42%',
+    left: '71%',
+    width: 'clamp(172px, 18vw, 265px)',
     accent: '#A614B2',
     href: '/services#seo',
   },
@@ -93,7 +93,7 @@ function ServiceCard({
   top: string
   left: string
   rotate: string
-  width: number
+  width: string
   accent: string
   href: string
 }) {
@@ -151,8 +151,8 @@ function ServiceCard({
         rotate,
         zIndex,
         width,
-        borderRadius: '16px',
-        padding: '20px',
+        borderRadius: '18px',
+        padding: 'clamp(20px, 2vw, 32px)',
         display: 'flex',
         flexDirection: 'column',
         gap: '12px',
@@ -180,7 +180,7 @@ function ServiceCard({
       {/* Title */}
       <h3 style={{
         fontFamily: 'var(--font-poppins)', fontWeight: 800,
-        fontSize: '17px', color: 'white',
+        fontSize: 'clamp(18px, 1.6vw, 26px)', color: 'white',
         lineHeight: 1.2, margin: 0,
       }}>
         {title}
@@ -189,7 +189,7 @@ function ServiceCard({
       {/* Tagline */}
       <p style={{
         fontFamily: 'var(--font-poppins)', fontWeight: 400,
-        fontSize: '12px', color: 'rgba(255,255,255,0.4)',
+        fontSize: 'clamp(12px, 0.9vw, 15px)', color: 'rgba(255,255,255,0.4)',
         lineHeight: 1.5, margin: 0,
       }}>
         {tagline}
@@ -198,7 +198,7 @@ function ServiceCard({
       {/* Tap hint */}
       <span style={{
         fontFamily: 'var(--font-poppins)', fontWeight: 600,
-        fontSize: '11px', letterSpacing: '0.06em',
+        fontSize: 'clamp(11px, 0.8vw, 13px)', letterSpacing: '0.06em',
         color: `${accent}99`,
       }}>
         Explore →
@@ -282,7 +282,7 @@ export default function DragServiceCards() {
       {/* Drag area */}
       <div
         ref={containerRef}
-        style={{ position: 'relative', width: '100%', height: '65vh' }}
+        style={{ position: 'relative', width: '100%', height: '70vh' }}
       >
         {services.map(service => (
           <ServiceCard
