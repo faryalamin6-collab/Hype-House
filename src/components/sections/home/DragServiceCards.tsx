@@ -156,17 +156,17 @@ function ServiceCard({
         flexDirection: 'column',
         gap: '14px',
         cursor: 'grab',
-        // Premium frosted glass
-        background: 'linear-gradient(145deg, rgba(255,255,255,0.10) 0%, rgba(166,20,178,0.10) 45%, rgba(4,157,255,0.07) 100%)',
-        backdropFilter: 'blur(22px)',
-        WebkitBackdropFilter: 'blur(22px)',
-        border: '1px solid rgba(255,255,255,0.16)',
+        // Solid dark glass — opaque indigo/violet base
+        background: 'linear-gradient(145deg, rgba(12,18,141,0.82) 0%, rgba(34,0,65,0.92) 60%, rgba(2,0,8,0.88) 100%)',
+        backdropFilter: 'blur(18px)',
+        WebkitBackdropFilter: 'blur(18px)',
+        border: `1px solid ${accent}55`,
         // Multi-layer shadow: inner highlight + purple outer glow + depth
         boxShadow: [
-          'inset 0 1px 0 rgba(255,255,255,0.22)',
-          `0 0 40px rgba(166,20,178,0.32)`,
-          `0 0 12px ${accent}22`,
-          '0 20px 60px rgba(0,0,0,0.55)',
+          'inset 0 1px 0 rgba(255,255,255,0.18)',
+          `0 0 48px rgba(166,20,178,0.38)`,
+          `0 0 16px ${accent}33`,
+          '0 24px 64px rgba(0,0,0,0.7)',
         ].join(', '),
         transformStyle: 'preserve-3d',
         // Active card: brighter border
