@@ -123,8 +123,8 @@ export default function ServiceShowcase3D({ services }: { services: Service[] })
                     </svg>
                   </div>
                   <span style={{
-                    fontFamily: 'var(--font-poppins)', fontWeight: 500,
-                    fontSize: 10, letterSpacing: '0.22em', textTransform: 'uppercase',
+                    fontFamily: 'var(--font-poppins)', fontWeight: 600,
+                    fontSize: 11, letterSpacing: '0.2em', textTransform: 'uppercase',
                     color: isActive ? 'rgba(192,132,252,0.82)' : 'rgba(192,132,252,0.3)',
                   }}>
                     ✦ {service.label}
@@ -144,9 +144,9 @@ export default function ServiceShowcase3D({ services }: { services: Service[] })
                     >
                       <h2 style={{
                         fontFamily: 'var(--font-poppins)', fontWeight: 800,
-                        fontSize: 'clamp(18px, 2.2vw, 30px)', color: '#fff',
-                        letterSpacing: '-0.02em', lineHeight: 1.14,
-                        marginBottom: 14,
+                        fontSize: 'clamp(24px, 3vw, 42px)', color: '#fff',
+                        letterSpacing: '-0.02em', lineHeight: 1.1,
+                        marginBottom: 16,
                       }}>
                         {service.title}
                       </h2>
