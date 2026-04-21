@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import SectionLabel from '@/components/ui/SectionLabel'
-import ServiceSection from '@/components/sections/services/ServiceSection'
+import ServiceShowcase3D from '@/components/sections/services/ServiceShowcase3D'
 
 export const metadata: Metadata = {
   title: 'Services — AI Creative Agency | Branding, Digital Marketing & Automation',
@@ -190,20 +190,8 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* Service sections */}
-      {services.map((service) => (
-        <ServiceSection
-          key={service.id}
-          id={service.id}
-          svgPath={service.svgPath}
-          label={service.label}
-          title={service.title}
-          description={service.description}
-          inclusions={service.inclusions}
-          reverse={service.reverse}
-          imageSrc={service.imageSrc}
-        />
-      ))}
+      {/* 3D service showcase */}
+      <ServiceShowcase3D services={services} />
     </>
   )
 }

@@ -2,6 +2,11 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+# Project Location
+This is the HypeHouse Digital website project.
+Location: C:/Users/farya/OneDrive/Desktop/HypeHouse Claude
+Always work in this directory.
+
 # HypeHouse Digital — Project Brief
 
 ## Live Site
