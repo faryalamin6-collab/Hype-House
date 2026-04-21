@@ -3,6 +3,7 @@
 import React, { useRef, useState } from 'react'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 
 const services = [
   {
@@ -83,6 +84,7 @@ function ServiceCard({
   rotate,
   width,
   accent,
+  href,
 }: {
   containerRef: React.RefObject<HTMLDivElement>
   number: string
@@ -93,8 +95,13 @@ function ServiceCard({
   rotate: string
   width: number
   accent: string
+  href: string
 }) {
   const [zIndex, setZIndex] = useState(0)
+  const router = useRouter()
+  // Track pointer-down position to distinguish tap vs drag
+  const pointerDownPos = useRef<{ x: number; y: number } | null>(null)
+  const didDrag = useRef(false)
 
   const bringToFront = () => {
     const els = document.querySelectorAll('.drag-card')
@@ -106,21 +113,37 @@ function ServiceCard({
     setZIndex(max + 1)
   }
 
+  const onPointerDown = (e: React.PointerEvent) => {
+    pointerDownPos.current = { x: e.clientX, y: e.clientY }
+    didDrag.current = false
+    bringToFront()
+  }
+
+  const onDragEnd = (_: unknown, info: { offset: { x: number; y: number } }) => {
+    // If total drag offset is small it was a tap
+    const dist = Math.sqrt(info.offset.x ** 2 + info.offset.y ** 2)
+    didDrag.current = dist > 8
+    if (!didDrag.current) {
+      router.push(href)
+    }
+  }
+
   return (
     <motion.div
-      className="drag-card absolute cursor-grab active:cursor-grabbing"
-      onMouseDown={bringToFront}
-      onTouchStart={bringToFront}
+      className="drag-card absolute"
+      onPointerDown={onPointerDown}
       drag
       dragConstraints={containerRef}
       dragElastic={0.55}
+      dragMomentum={false}
+      onDragEnd={onDragEnd}
       whileDrag={{
         scale: 1.06,
         rotateX: 10,
-        boxShadow: `0 30px 70px ${accent}44`,
         cursor: 'grabbing',
+        boxShadow: `0 0 60px rgba(166,20,178,0.55), 0 30px 70px ${accent}44`,
       }}
-      whileHover={{ scale: 1.04 }}
+      whileHover={{ scale: 1.04, cursor: 'grab' }}
       transition={{ type: 'spring', stiffness: 300, damping: 22 }}
       style={{
         top,
@@ -134,12 +157,15 @@ function ServiceCard({
         flexDirection: 'column',
         gap: '12px',
         position: 'absolute',
-        background: 'linear-gradient(135deg, rgba(12,18,141,0.65) 0%, rgba(34,0,65,0.85) 100%)',
-        border: `1px solid ${accent}44`,
-        backdropFilter: 'blur(14px)',
-        WebkitBackdropFilter: 'blur(14px)',
-        boxShadow: `0 8px 32px ${accent}22`,
+        // More translucent
+        background: 'linear-gradient(135deg, rgba(12,18,141,0.28) 0%, rgba(34,0,65,0.38) 100%)',
+        border: `1px solid ${accent}55`,
+        backdropFilter: 'blur(16px)',
+        WebkitBackdropFilter: 'blur(16px)',
+        // Purple glow always present, stronger
+        boxShadow: `0 0 32px rgba(166,20,178,0.28), 0 8px 32px ${accent}28`,
         transformStyle: 'preserve-3d',
+        cursor: 'grab',
       }}
     >
       {/* Number */}
@@ -163,11 +189,20 @@ function ServiceCard({
       {/* Tagline */}
       <p style={{
         fontFamily: 'var(--font-poppins)', fontWeight: 400,
-        fontSize: '12px', color: 'rgba(255,255,255,0.38)',
+        fontSize: '12px', color: 'rgba(255,255,255,0.4)',
         lineHeight: 1.5, margin: 0,
       }}>
         {tagline}
       </p>
+
+      {/* Tap hint */}
+      <span style={{
+        fontFamily: 'var(--font-poppins)', fontWeight: 600,
+        fontSize: '11px', letterSpacing: '0.06em',
+        color: `${accent}99`,
+      }}>
+        Explore →
+      </span>
 
       {/* Bottom glow line */}
       <div style={{
@@ -176,13 +211,14 @@ function ServiceCard({
         borderRadius: '999px',
       }} />
 
-      {/* Corner glow */}
+      {/* Purple corner glow */}
       <div style={{
         position: 'absolute', top: 0, right: 0,
-        width: '52px', height: '52px',
+        width: '60px', height: '60px',
         borderRadius: '0 16px 0 100%',
-        background: accent, opacity: 0.15,
-        filter: 'blur(12px)',
+        background: '#A614B2',
+        opacity: 0.25,
+        filter: 'blur(14px)',
         pointerEvents: 'none',
       }} />
     </motion.div>
@@ -201,34 +237,36 @@ export default function DragServiceCards() {
         display: 'flex', alignItems: 'center', justifyContent: 'center',
         pointerEvents: 'none', userSelect: 'none',
       }}>
-        <h2 style={{
+        <span style={{
           fontFamily: 'var(--font-poppins)', fontWeight: 900,
           fontSize: 'clamp(80px, 18vw, 220px)',
           lineHeight: 1, textAlign: 'center',
-          background: 'linear-gradient(135deg, rgba(12,18,141,0.08), rgba(166,20,178,0.08))',
+          background: 'linear-gradient(135deg, rgba(12,18,141,0.09), rgba(166,20,178,0.09))',
           WebkitBackgroundClip: 'text',
           WebkitTextFillColor: 'transparent',
           backgroundClip: 'text',
         }}>
           SERVICES
-        </h2>
+        </span>
       </div>
 
       {/* Header */}
-      <div style={{ position: 'relative', zIndex: 10, textAlign: 'center', paddingTop: '80px', paddingBottom: '32px', paddingLeft: '24px', paddingRight: '24px' }}>
+      <div style={{
+        position: 'relative', zIndex: 10, textAlign: 'center',
+        paddingTop: '80px', paddingBottom: '32px',
+        paddingLeft: '24px', paddingRight: '24px',
+      }}>
         <p style={{
           fontFamily: 'var(--font-poppins)', fontWeight: 600,
           fontSize: '11px', letterSpacing: '0.3em',
-          textTransform: 'uppercase', color: '#049DFF',
-          marginBottom: '16px',
+          textTransform: 'uppercase', color: '#049DFF', marginBottom: '16px',
         }}>
           ✦ What We Do
         </p>
         <h2 style={{
           fontFamily: 'var(--font-poppins)', fontWeight: 800,
           fontSize: 'clamp(32px, 5vw, 60px)', color: 'white',
-          letterSpacing: '-0.02em', lineHeight: 1.1,
-          marginBottom: '12px',
+          letterSpacing: '-0.02em', lineHeight: 1.1, marginBottom: '12px',
         }}>
           Six Pillars.{' '}
           <span className="gradient-text">One Agency.</span>
@@ -237,7 +275,7 @@ export default function DragServiceCards() {
           fontFamily: 'var(--font-poppins)', fontSize: '13px',
           color: 'rgba(255,255,255,0.28)',
         }}>
-          Drag the cards · Tap to bring forward
+          Drag the cards · Tap to explore
         </p>
       </div>
 
