@@ -12,10 +12,6 @@ const BackgroundCanvas = dynamic(
   { ssr: false }
 )
 
-const CustomCursor = dynamic(
-  () => import('@/components/cursor/CustomCursor'),
-  { ssr: false }
-)
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://hypehouse.digital'),
@@ -113,9 +109,6 @@ export default function RootLayout({
       >
         {/* Three.js background — persistent across routes */}
         <BackgroundCanvas />
-
-        {/* Custom cursor — persistent across routes */}
-        <CustomCursor />
 
         <LenisWrapper>
           {/* Navigation — persistent */}

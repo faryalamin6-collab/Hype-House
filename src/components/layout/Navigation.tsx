@@ -50,7 +50,8 @@ export default function Navigation() {
           left: 0,
           right: 0,
           zIndex: 1000,
-          padding: scrolled ? '10px 0' : '14px 0',
+          height: '64px',
+          padding: 0,
           background: scrolled
             ? 'rgba(2,0,8,0.85)'
             : 'transparent',
@@ -64,7 +65,8 @@ export default function Navigation() {
           style={{
             maxWidth: '1440px',
             margin: '0 auto',
-            padding: '0 24px',
+            padding: '0 32px',
+            height: '100%',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'space-between',

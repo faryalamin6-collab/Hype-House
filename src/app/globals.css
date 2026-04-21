@@ -17,7 +17,9 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  cursor: default;
 }
+a, button, [role="button"], label, select { cursor: pointer; }
 
 html {
   overflow-x: hidden;
@@ -42,9 +44,16 @@ h1, h2, h3, h4, h5, h6 {
   color: #ffffff;
   font-family: var(--font-poppins), sans-serif;
 }
-h1 { font-weight: 800; }
-h2 { font-weight: 800; }
-h3 { font-weight: 700; }
+h1 { font-weight: 800; font-size: clamp(2.5rem, 5vw, 5rem); }
+h2 { font-weight: 800; font-size: clamp(2rem, 4vw, 3.5rem); }
+h3 { font-weight: 700; font-size: clamp(1.25rem, 2vw, 1.75rem); }
+
+/* ── BODY COPY ───────────────────────────────────────────────────────────── */
+p {
+  font-size: 1.125rem;
+  line-height: 1.75;
+  color: rgba(255, 255, 255, 0.72);
+}
 
 /* ── ANIMATED GRADIENT TEXT ─────────────────────────────────────────────── */
 /* Exact spec: 135deg, C084FC → 818CF8 → 049DFF → 34D399, 4s ease infinite */
@@ -84,8 +93,11 @@ p, li, span:not(.gradient-text):not(.section-label) {
 /* Custom scrollbar */
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: #020008; }
-::-webkit-scrollbar-thumb { background: rgba(166, 20, 178, 0.5); border-radius: 3px; }
-::-webkit-scrollbar-thumb:hover { background: rgba(166, 20, 178, 0.8); }
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #A614B2, #049DFF);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover { background: #049DFF; }
 
 /* Glass card base */
 .glass-card {
@@ -327,7 +339,8 @@ p, li, span:not(.gradient-text):not(.section-label) {
 .about-clip-wrap {
   display: block;
   overflow: hidden;
-  padding-bottom: 0.08em; /* prevent descender clipping */
+  padding-bottom: 0.2em; /* prevent descender clipping on g, y, p, etc */
+  line-height: 1.1;
 }
 
 /* Clip-reveal inner — starts below the fold of its wrapper, slides up */
