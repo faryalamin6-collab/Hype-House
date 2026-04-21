@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import Hero from '@/components/sections/home/Hero'
 import ServiceTicker from '@/components/sections/home/ServiceTicker'
 import WhyHypeHouse from '@/components/sections/home/WhyHypeHouse'
-import ServicesOverview from '@/components/sections/home/ServicesOverview'
+import ServiceCards3D from '@/components/sections/home/ServiceCards3D'
 import TachyonTeaser from '@/components/sections/home/TachyonTeaser'
 import FinalCTA from '@/components/sections/home/FinalCTA'
 
@@ -21,7 +21,7 @@ export default function HomePage() {
       <Hero />
       <ServiceTicker />
       <WhyHypeHouse />
-      <ServicesOverview />
+      <ServiceCards3D />
       <TachyonTeaser />
       <FinalCTA />
     </>
