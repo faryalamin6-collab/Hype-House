@@ -11,6 +11,7 @@ interface ButtonProps {
   children: ReactNode
   fullWidth?: boolean
   className?: string
+  style?: React.CSSProperties
 }
 
 export default function Button({
@@ -21,6 +22,7 @@ export default function Button({
   children,
   fullWidth = false,
   className = '',
+  style: styleOverride,
 }: ButtonProps) {
   const elRef = useRef<HTMLAnchorElement & HTMLButtonElement>(null)
 
@@ -70,6 +72,7 @@ export default function Button({
           border: '1px solid rgba(166,20,178,0.5)',
           color: 'rgba(255,255,255,0.88)',
         }),
+    ...styleOverride,
   }
 
   const shimmerStyle: React.CSSProperties = {

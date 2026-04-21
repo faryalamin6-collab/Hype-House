@@ -103,12 +103,35 @@ export default function Hero() {
             margin: '0 auto 20px',
           }}
         >
-          <div style={{ flex: 1 }}>
-            <Button href="https://hypehouse-client-intake-form.netlify.app" variant="primary" external fullWidth>Start a Project</Button>
-          </div>
-          <div style={{ flex: 1 }}>
-            <Button href="/services" variant="primary" fullWidth>Explore Our Services</Button>
-          </div>
+          <Button
+            href="https://hypehouse-client-intake-form.netlify.app"
+            variant="primary"
+            external
+            style={{
+              flex: 1,
+              height: '52px',
+              minHeight: 'unset',
+              padding: '0 16px',
+              fontSize: 'clamp(12px, 3.2vw, 15px)',
+              whiteSpace: 'nowrap',
+            }}
+          >
+            Start a Project
+          </Button>
+          <Button
+            href="/services"
+            variant="primary"
+            style={{
+              flex: 1,
+              height: '52px',
+              minHeight: 'unset',
+              padding: '0 16px',
+              fontSize: 'clamp(12px, 3.2vw, 15px)',
+              whiteSpace: 'nowrap',
+            }}
+          >
+            Explore Our Services
+          </Button>
         </div>
       </div>
     </section>
