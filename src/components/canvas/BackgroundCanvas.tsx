@@ -41,10 +41,10 @@ export default function BackgroundCanvas() {
     }
     const orbData: OrbDatum[] = []
     for (let i = 0; i < orbCount; i++) {
-      const isBlue = i >= Math.floor(orbCount / 2)
-      // Purple orbs: HSL 285–300 (#A614B2) | Blue orbs: HSL 198–212 (#049DFF)
-      const hueMin = isBlue ? 198 : 285
-      const hueMax = isBlue ? 212 : 300
+      const isBlue = i >= Math.floor(orbCount / 3)  // 2/3 blue, 1/3 indigo
+      // Indigo orbs: HSL 258–272 (true indigo/violet, not pink) | Blue orbs: HSL 198–214 (#049DFF)
+      const hueMin = isBlue ? 198 : 258
+      const hueMax = isBlue ? 214 : 272
       const hueBase = hueMin + Math.random() * (hueMax - hueMin)
       orbData.push({
         x: Math.random(),
@@ -58,7 +58,7 @@ export default function BackgroundCanvas() {
         hueRange: [hueMin, hueMax],
         huePhase: Math.random() * Math.PI * 2,
         hueSpeed: 0.0008 + Math.random() * 0.0006,
-        baseOpacity: 0.55 + Math.random() * 0.10, // 0.55–0.65 at centre
+        baseOpacity: 0.22 + Math.random() * 0.08, // 0.22–0.30 at centre — subtle, not pink
       })
     }
 
@@ -267,7 +267,7 @@ export default function BackgroundCanvas() {
         const size = sp.size * (0.85 + 0.15 * pulse)
         const px = sp.x * w
         const py = sp.y * h
-        const color = sp.isPurple ? '166,20,178' : '4,157,255'
+        const color = sp.isPurple ? '90,60,200' : '4,157,255'
 
         ctx.save()
         ctx.translate(px, py)
@@ -293,8 +293,8 @@ export default function BackgroundCanvas() {
             if (dist < threshold) {
               const alpha = (1 - dist / threshold) * 0.6
               const grad = ctx.createLinearGradient(node.x * w, node.y * h, other.x * w, other.y * h)
-              grad.addColorStop(0, `rgba(${node.isPurple ? '166,20,178' : '4,157,255'},${alpha})`)
-              grad.addColorStop(1, `rgba(${other.isPurple ? '166,20,178' : '4,157,255'},${alpha})`)
+              grad.addColorStop(0, `rgba(${node.isPurple ? '80,50,190' : '4,157,255'},${alpha})`)
+              grad.addColorStop(1, `rgba(${other.isPurple ? '80,50,190' : '4,157,255'},${alpha})`)
               ctx.beginPath()
               ctx.moveTo(node.x * w, node.y * h); ctx.lineTo(other.x * w, other.y * h)
               ctx.strokeStyle = grad; ctx.lineWidth = 1; ctx.stroke()
@@ -302,7 +302,7 @@ export default function BackgroundCanvas() {
           }
           ctx.beginPath()
           ctx.arc(node.x * w, node.y * h, 2.5, 0, Math.PI * 2)
-          ctx.fillStyle = node.isPurple ? '#A614B2' : '#0C128D'
+          ctx.fillStyle = node.isPurple ? '#4A30C8' : '#0C128D'
           ctx.fill()
         }
       }
@@ -315,7 +315,7 @@ export default function BackgroundCanvas() {
           line.phase += 0.01
           ctx.beginPath()
           ctx.lineWidth = 0.6
-          ctx.strokeStyle = `rgba(${line.isPurple ? '166,20,178' : '4,157,255'},${line.opacity})`
+          ctx.strokeStyle = `rgba(${line.isPurple ? '80,50,190' : '4,157,255'},${line.opacity})`
           for (let x = 0; x <= w; x += 3) {
             const frac = x / w
             const yOff = Math.sin(frac * Math.PI * 2 * line.frequency + line.phase) * line.amplitude * h
@@ -328,7 +328,7 @@ export default function BackgroundCanvas() {
 
       // ── WAVE GRID ────────────────────────────────────────────────────────
       for (let r = 0; r < gridRows; r++) {
-        ctx.beginPath(); ctx.lineWidth = 0.6; ctx.strokeStyle = 'rgba(166,20,178,0.05)'
+        ctx.beginPath(); ctx.lineWidth = 0.6; ctx.strokeStyle = 'rgba(70,40,180,0.04)'
         for (let c = 0; c < gridCols; c++) {
           const gp = gridPoints[r][c]
           const osc = Math.sin(t * gp.speed + gp.phase) * gp.amplitude
@@ -365,7 +365,7 @@ export default function BackgroundCanvas() {
         if (ss.life < 0.12) alpha = ss.life / 0.12
         else if (ss.life > 0.65) alpha = 1 - (ss.life - 0.65) / 0.35
 
-        const tailColor = ss.isPurple ? '166,20,178' : '4,157,255'
+        const tailColor = ss.isPurple ? '80,50,190' : '4,157,255'
         const tx = ss.x * w; const ty = ss.y * h
         const tailLen = ss.tailLength * w
         const angle = Math.atan2(ss.vy, ss.vx)
