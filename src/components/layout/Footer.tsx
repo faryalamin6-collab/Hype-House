@@ -20,15 +20,24 @@ const footerLinks = {
   ],
 }
 
+const colHeaderStyle: React.CSSProperties = {
+  fontFamily: 'var(--font-poppins)',
+  fontWeight: 600,
+  fontSize: '12px',
+  letterSpacing: '0.15em',
+  textTransform: 'uppercase',
+  color: 'rgba(255,255,255,0.35)',
+  marginBottom: '20px',
+}
+
 export default function Footer() {
   return (
     <footer
       style={{
         position: 'relative',
         zIndex: 10,
-        borderTop: '1px solid rgba(255,255,255,0.06)',
-        background: 'rgba(2,0,8,0.8)',
-        backdropFilter: 'blur(12px)',
+        borderTop: '1px solid rgba(4,157,255,0.10)',
+        background: '#020008',
       }}
     >
       <div
@@ -42,15 +51,17 @@ export default function Footer() {
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))',
+            gridTemplateColumns: 'repeat(4, 1fr)',
             gap: '40px',
             alignItems: 'start',
             marginBottom: '48px',
           }}
         >
           {/* Brand column */}
-          <div>
-            <div style={{ marginBottom: '12px' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '3px' }}>
+            {/* Invisible spacer matching the column header height in other columns */}
+            <div style={{ height: '32px' }} />
+            <div style={{ marginBottom: '10px' }}>
               <Image
                 src="/images/logo-white.png"
                 alt="HypeHouse Digital"
@@ -66,7 +77,7 @@ export default function Footer() {
                 color: 'rgba(255,255,255,0.72)',
                 lineHeight: 1.7,
                 maxWidth: '260px',
-                marginBottom: '24px',
+                marginBottom: '12px',
               }}
             >
               Full-service AI-powered creative agency.
@@ -78,7 +89,7 @@ export default function Footer() {
                 fontSize: '13px',
                 color: 'rgba(255,255,255,0.60)',
                 lineHeight: 1.8,
-                display: 'flex', flexDirection: 'column', gap: '8px',
+                display: 'flex', flexDirection: 'column', gap: '6px',
               }}
             >
               <div>📍 Headquartered in Karachi · Operating globally</div>
@@ -106,19 +117,7 @@ export default function Footer() {
           {/* Link columns */}
           {Object.entries(footerLinks).map(([section, links]) => (
             <div key={section}>
-              <div
-                style={{
-                  fontFamily: 'var(--font-poppins)',
-                  fontWeight: 600,
-                  fontSize: '12px',
-                  letterSpacing: '0.15em',
-                  textTransform: 'uppercase',
-                  color: 'rgba(255,255,255,0.55)',
-                  marginBottom: '20px',
-                }}
-              >
-                {section}
-              </div>
+              <div style={colHeaderStyle}>{section}</div>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
                 {links.map(link => (
                   <Link
@@ -147,19 +146,7 @@ export default function Footer() {
 
           {/* CTA column */}
           <div>
-            <div
-              style={{
-                fontFamily: 'var(--font-poppins)',
-                fontWeight: 600,
-                fontSize: '12px',
-                letterSpacing: '0.15em',
-                textTransform: 'uppercase',
-                color: 'rgba(255,255,255,0.35)',
-                marginBottom: '20px',
-              }}
-            >
-              Start Today
-            </div>
+            <div style={colHeaderStyle}>Start Today</div>
             <p
               style={{
                 fontFamily: 'var(--font-poppins)',
@@ -201,7 +188,7 @@ export default function Footer() {
           }}
         />
 
-        {/* Row 4: Legal */}
+        {/* Legal */}
         <div
           style={{
             display: 'flex',
@@ -220,12 +207,7 @@ export default function Footer() {
           >
             © {new Date().getFullYear()} HypeHouse Digital. All rights reserved.
           </p>
-          <div
-            style={{
-              display: 'flex',
-              gap: '24px',
-            }}
-          >
+          <div style={{ display: 'flex', gap: '24px' }}>
             {['Privacy Policy', 'Terms of Service'].map(item => (
               <span
                 key={item}
