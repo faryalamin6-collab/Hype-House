@@ -151,7 +151,7 @@ export default function RateCardPage() {
 
       {/* ── MONTHLY RETAINERS ─────────────────────────────────────────────── */}
       <section style={{ position: 'relative', zIndex: 10, padding: '48px 24px 80px' }}>
-        <div style={{ maxWidth: '1280px', margin: '0 auto' }}>
+        <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
           <ScrollReveal>
             <div style={{ textAlign: 'center', marginBottom: '48px' }}>
               <SectionLabel>Monthly Retainers</SectionLabel>
@@ -218,7 +218,7 @@ export default function RateCardPage() {
       </section>
 
       {/* ── BRANDING PACKAGES ─────────────────────────────────────────────── */}
-      <section style={{ position: 'relative', zIndex: 10, padding: '64px 48px' }}>
+      <section style={{ position: 'relative', zIndex: 10, padding: '64px 24px' }}>
         <div style={{ maxWidth: '900px', margin: '0 auto' }}>
           <ScrollReveal>
             <div style={{ textAlign: 'center', marginBottom: '48px' }}>
@@ -266,7 +266,7 @@ export default function RateCardPage() {
       </section>
 
       {/* ── ONE-TIME SERVICES ─────────────────────────────────────────────── */}
-      <section style={{ position: 'relative', zIndex: 10, padding: '64px 48px' }}>
+      <section style={{ position: 'relative', zIndex: 10, padding: '64px 24px' }}>
         <div style={{ maxWidth: '960px', margin: '0 auto' }}>
           <ScrollReveal>
             <div style={{ textAlign: 'center', marginBottom: '48px' }}>

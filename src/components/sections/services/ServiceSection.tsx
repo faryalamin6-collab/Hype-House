@@ -70,7 +70,7 @@ export default function ServiceSection({
       )}
 
       {/* ── TEXT CARD ────────────────────────────────────────────────────── */}
-      <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 24px' }}>
+      <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '0 24px' }}>
         <div style={{
           background: 'rgba(4,0,20,0.60)',
           backdropFilter: 'blur(16px)',

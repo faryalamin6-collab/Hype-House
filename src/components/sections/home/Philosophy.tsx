@@ -16,10 +16,10 @@ export default function Philosophy() {
       style={{
         position: 'relative',
         zIndex: 10,
-        padding: '60px 48px',
+        padding: '60px 24px',
       }}
     >
-      <div style={{ maxWidth: '1280px', margin: '0 auto' }}>
+      <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
         <ScrollReveal>
           <div style={{ textAlign: 'center', marginBottom: '48px' }}>
             <SectionLabel>Our Philosophy</SectionLabel>

@@ -100,7 +100,7 @@ export default function ServiceCards3D() {
 
   return (
     <section style={{ width: '100%', padding: '96px 0', position: 'relative', zIndex: 10 }}>
-      <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 24px' }}>
+      <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '0 24px' }}>
 
         {/* Header */}
         <div style={{ textAlign: 'center', marginBottom: '72px' }}>

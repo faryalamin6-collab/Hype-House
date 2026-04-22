@@ -14,7 +14,7 @@ export default function TachyonTeaser() {
       style={{
         position: 'relative',
         zIndex: 10,
-        padding: '60px 48px',
+        padding: '60px 24px',
         overflow: 'hidden',
       }}
     >

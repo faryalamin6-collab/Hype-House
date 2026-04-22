@@ -67,7 +67,7 @@ export default function PhilosophyPage() {
 
       {/* ── BODY COPY ────────────────────────────────────────────────────── */}
       <section style={{ position: 'relative', zIndex: 10, padding: '36px 24px' }}>
-        <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+        <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
           <div style={{
             background: 'rgba(255,255,255,0.04)',
             backdropFilter: 'blur(14px)',
@@ -105,8 +105,8 @@ export default function PhilosophyPage() {
       </section>
 
       {/* ── PRINCIPLES CARDS ─────────────────────────────────────────────── */}
-      <section style={{ position: 'relative', zIndex: 10, padding: '36px 48px' }}>
-        <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+      <section style={{ position: 'relative', zIndex: 10, padding: '36px 24px' }}>
+        <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
           <ScrollReveal>
             <div style={{ textAlign: 'center', marginBottom: '40px' }}>
               <SectionLabel>Our Principles</SectionLabel>
@@ -145,7 +145,7 @@ export default function PhilosophyPage() {
       </section>
 
       {/* ── CLOSING ──────────────────────────────────────────────────────── */}
-      <section style={{ position: 'relative', zIndex: 10, padding: '36px 48px', textAlign: 'center' }}>
+      <section style={{ position: 'relative', zIndex: 10, padding: '36px 24px', textAlign: 'center' }}>
         <ScrollReveal>
           <div style={{ maxWidth: '800px', margin: '0 auto' }}>
             <blockquote style={{

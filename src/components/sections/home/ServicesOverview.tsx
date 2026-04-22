@@ -95,7 +95,7 @@ export default function ServicesOverview() {
       ref={sectionRef}
       style={{ position: 'relative', zIndex: 10, padding: '90px 24px 110px' }}
     >
-      <div style={{ maxWidth: '1280px', margin: '0 auto' }}>
+      <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
 
         {/* Header */}
         <div style={{ textAlign: 'center', marginBottom: '72px' }}>

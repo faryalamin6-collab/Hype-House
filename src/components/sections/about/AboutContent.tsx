@@ -245,7 +245,7 @@ export default function AboutContent() {
       <section
         style={{
           position: 'relative', zIndex: 10,
-          padding: '36px 48px 0',
+          padding: '36px 24px 0',
         }}
       >
         <div style={{ maxWidth: '780px', margin: '0 auto' }}>
@@ -290,7 +290,7 @@ export default function AboutContent() {
       <section
         style={{
           position: 'relative', zIndex: 10,
-          padding: '0 48px 36px',
+          padding: '0 24px 36px',
         }}
       >
         <div style={{ maxWidth: '780px', margin: '0 auto', paddingTop: '24px' }}>
@@ -335,7 +335,7 @@ export default function AboutContent() {
       <section
         style={{
           position: 'relative', zIndex: 10,
-          padding: '36px 48px 72px',
+          padding: '36px 24px 72px',
           textAlign: 'center', overflow: 'hidden',
         }}
       >

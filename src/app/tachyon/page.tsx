@@ -67,7 +67,7 @@ export default function TachyonPage() {
   return (
     <>
       {/* ── SECTION 1: HERO ───────────────────────────────────────────────── */}
-      <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 24px', overflow: 'hidden' }}>
+      <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '0 24px', overflow: 'hidden' }}>
         <TachyonHero />
       </div>
 
@@ -81,7 +81,7 @@ export default function TachyonPage() {
         id="problem"
         style={{
           position: 'relative', zIndex: 10,
-          padding: '72px 48px',
+          padding: '72px 24px',
           background: 'rgba(30,79,140,0.12)',
           borderTop: '1px solid rgba(58,141,255,0.15)',
           borderBottom: '1px solid rgba(58,141,255,0.15)',
@@ -133,7 +133,7 @@ export default function TachyonPage() {
       </section>
 
       {/* ── SECTION 3: WHAT TACHYON IS ───────────────────────────────────── */}
-      <section style={{ position: 'relative', zIndex: 10, padding: '72px 48px' }}>
+      <section style={{ position: 'relative', zIndex: 10, padding: '72px 24px' }}>
         <div style={{ maxWidth: '800px', margin: '0 auto', textAlign: 'center' }}>
           <ScrollReveal>
             <SectionLabel className="tachyon-label">Tachyon Is Your Backend Brain</SectionLabel>
@@ -155,12 +155,12 @@ export default function TachyonPage() {
 
       {/* ── SECTION 4: FIVE CAPABILITY CARDS ────────────────────────────── */}
       <section style={{
-        position: 'relative', zIndex: 10, padding: '72px 48px',
+        position: 'relative', zIndex: 10, padding: '72px 24px',
         background: 'rgba(30,79,140,0.10)',
         borderTop: '1px solid rgba(0,240,255,0.08)',
         borderBottom: '1px solid rgba(0,240,255,0.08)',
       }}>
-        <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+        <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
           <ScrollReveal>
             <div style={{ textAlign: 'center', marginBottom: '56px' }}>
               <SectionLabel className="tachyon-label">What We Build</SectionLabel>
@@ -269,7 +269,7 @@ export default function TachyonPage() {
       </section>
 
       {/* ── SECTION 5: WHO IT'S BUILT FOR ────────────────────────────────── */}
-      <section style={{ position: 'relative', zIndex: 10, padding: '72px 48px' }}>
+      <section style={{ position: 'relative', zIndex: 10, padding: '72px 24px' }}>
         <div style={{ maxWidth: '900px', margin: '0 auto', textAlign: 'center' }}>
           <ScrollReveal>
             <SectionLabel className="tachyon-label">Built For Companies Who Move Fast</SectionLabel>
@@ -319,7 +319,7 @@ export default function TachyonPage() {
 
       {/* ── SECTION 6: DELIVERY DETAILS ──────────────────────────────────── */}
       <section style={{
-        position: 'relative', zIndex: 10, padding: '72px 48px',
+        position: 'relative', zIndex: 10, padding: '72px 24px',
         background: 'rgba(30,79,140,0.10)',
         borderTop: '1px solid rgba(0,240,255,0.08)',
         borderBottom: '1px solid rgba(0,240,255,0.08)',
@@ -400,7 +400,7 @@ export default function TachyonPage() {
       {/* ── SECTION 7: CLOSING CTA ────────────────────────────────────────── */}
       <section style={{
         position: 'relative', zIndex: 10,
-        padding: '80px 48px',
+        padding: '80px 24px',
         textAlign: 'center', overflow: 'hidden',
       }}>
         {/* Plasma background */}
