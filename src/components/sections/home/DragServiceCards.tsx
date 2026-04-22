@@ -181,9 +181,9 @@ function ServiceCard({
       // ── Visual states ──
       whileHover={{ scale: 1.03 }}
       whileDrag={{
-        scale: 1.07,
+        scale: 1.05,
         rotateX: 8,
-        boxShadow: `0 0 80px rgba(166,20,178,0.7), 0 32px 80px ${accent}55, inset 0 1px 0 rgba(255,255,255,0.25)`,
+        boxShadow: `0 20px 40px rgba(0,0,0,0.6), 0 0 20px ${accent}15`,
         cursor: 'grabbing',
       }}
       style={{
@@ -198,24 +198,21 @@ function ServiceCard({
         flexDirection: 'column',
         gap: '14px',
         cursor: 'grab',
-        background: 'linear-gradient(145deg, rgba(12,18,141,0.82) 0%, rgba(34,0,65,0.92) 60%, rgba(2,0,8,0.88) 100%)',
+        background: 'linear-gradient(145deg, rgba(12,18,141,0.50) 0%, rgba(34,0,65,0.70) 60%, rgba(2,0,8,0.85) 100%)',
         backdropFilter: 'blur(18px)',
         WebkitBackdropFilter: 'blur(18px)',
-        // Border brightens while pressing
-        border: isPressing ? `1px solid ${accent}cc` : `1px solid ${accent}55`,
-        // Glow intensifies while pressing — gives progress feedback
+        border: isPressing ? `1px solid ${accent}88` : `1px solid ${accent}25`,
         boxShadow: isPressing
           ? [
-              'inset 0 1px 0 rgba(255,255,255,0.25)',
-              `0 0 80px rgba(166,20,178,0.65)`,
-              `0 0 30px ${accent}66`,
-              '0 24px 64px rgba(0,0,0,0.7)',
+              'inset 0 1px 0 rgba(255,255,255,0.18)',
+              `0 0 40px rgba(166,20,178,0.30)`,
+              `0 0 18px ${accent}25`,
+              '0 16px 48px rgba(0,0,0,0.6)',
             ].join(', ')
           : [
-              'inset 0 1px 0 rgba(255,255,255,0.18)',
-              `0 0 48px rgba(166,20,178,0.38)`,
-              `0 0 16px ${accent}33`,
-              '0 24px 64px rgba(0,0,0,0.7)',
+              'inset 0 1px 0 rgba(255,255,255,0.10)',
+              `0 8px 32px rgba(0,0,0,0.5)`,
+              `0 0 12px ${accent}12`,
             ].join(', '),
         transformStyle: 'preserve-3d',
         transition: 'border 0.15s ease, box-shadow 0.15s ease',
@@ -283,7 +280,7 @@ function ServiceCard({
       {!isPressing && (
         <div style={{
           position: 'absolute', bottom: 0, left: '12px', right: '12px', height: '1px',
-          background: `linear-gradient(90deg, transparent, ${accent}cc, transparent)`,
+          background: `linear-gradient(90deg, transparent, ${accent}55, transparent)`,
           borderRadius: '999px',
         }} />
       )}
@@ -291,16 +288,16 @@ function ServiceCard({
       {/* Purple corner glow */}
       <div style={{
         position: 'absolute', top: '-8px', right: '-8px',
-        width: '70px', height: '70px', borderRadius: '50%',
-        background: 'rgba(166,20,178,0.45)', filter: 'blur(20px)',
+        width: '60px', height: '60px', borderRadius: '50%',
+        background: 'rgba(166,20,178,0.15)', filter: 'blur(20px)',
         pointerEvents: 'none',
       }} />
 
       {/* Accent corner glow (bottom-left) */}
       <div style={{
         position: 'absolute', bottom: '-8px', left: '-8px',
-        width: '50px', height: '50px', borderRadius: '50%',
-        background: `${accent}55`, filter: 'blur(18px)',
+        width: '40px', height: '40px', borderRadius: '50%',
+        background: `${accent}20`, filter: 'blur(18px)',
         pointerEvents: 'none',
       }} />
     </motion.div>
@@ -312,7 +309,7 @@ export default function DragServiceCards() {
   const containerRef = useRef<HTMLDivElement>(null)
 
   return (
-    <section style={{ position: 'relative', width: '100%', minHeight: '100vh', overflow: 'hidden', zIndex: 10 }}>
+    <section style={{ position: 'relative', width: '100%', minHeight: '100vh', overflow: 'hidden', zIndex: 10, background: '#020008', isolation: 'isolate' }}>
 
       {/* Watermark */}
       <div style={{
@@ -323,7 +320,7 @@ export default function DragServiceCards() {
         <span style={{
           fontFamily: 'var(--font-poppins)', fontWeight: 900,
           fontSize: 'clamp(80px, 18vw, 220px)', lineHeight: 1,
-          background: 'linear-gradient(135deg, rgba(12,18,141,0.08), rgba(166,20,178,0.08))',
+          background: 'linear-gradient(135deg, rgba(12,18,141,0.06), rgba(166,20,178,0.06))',
           WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text',
         }}>
           SERVICES
