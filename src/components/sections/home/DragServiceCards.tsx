@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useRef, useState, useEffect } from 'react'
+import React, { useRef, useState } from 'react'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
@@ -16,6 +16,7 @@ const services = [
     width: 'clamp(200px, 22vw, 310px)',
     accent: '#049DFF',
     href: '/services#branding',
+    initZ: 1,
   },
   {
     number: '02',
@@ -27,6 +28,7 @@ const services = [
     width: 'clamp(185px, 20vw, 285px)',
     accent: '#A614B2',
     href: '/services#copywriting',
+    initZ: 2,
   },
   {
     number: '03',
@@ -38,6 +40,7 @@ const services = [
     width: 'clamp(178px, 19vw, 270px)',
     accent: '#049DFF',
     href: '/services#social-media',
+    initZ: 3,
   },
   {
     number: '04',
@@ -49,6 +52,7 @@ const services = [
     width: 'clamp(210px, 24vw, 335px)',
     accent: '#A614B2',
     href: '/services#advertising',
+    initZ: 4,
   },
   {
     number: '05',
@@ -60,6 +64,7 @@ const services = [
     width: 'clamp(190px, 21vw, 300px)',
     accent: '#049DFF',
     href: '/services#web',
+    initZ: 5,
   },
   {
     number: '06',
@@ -71,8 +76,12 @@ const services = [
     width: 'clamp(170px, 18vw, 260px)',
     accent: '#A614B2',
     href: '/services#seo',
+    initZ: 6,
   },
 ]
+
+const LONG_PRESS_MS = 600
+const DRAG_THRESHOLD = 8
 
 // ─── Card ────────────────────────────────────────────────────────────────────
 function ServiceCard({
@@ -86,9 +95,7 @@ function ServiceCard({
   width,
   accent,
   href,
-  zIndex,
-  isActive,
-  onTapCard,
+  initZ,
   animDelay,
 }: {
   containerRef: React.RefObject<HTMLDivElement>
@@ -101,19 +108,48 @@ function ServiceCard({
   width: string
   accent: string
   href: string
-  zIndex: number
-  isActive: boolean
-  onTapCard: () => void
+  initZ: number
   animDelay: number
 }) {
   const router = useRouter()
+  const [zIndex, setZIndex] = useState(initZ)
+  const [isPressing, setIsPressing] = useState(false)
 
-  const handleTap = () => {
-    if (isActive) {
+  const pressTimer  = useRef<ReturnType<typeof setTimeout> | null>(null)
+  const pressOrigin = useRef<{ x: number; y: number } | null>(null)
+
+  // Bring this card above all others
+  const bringToFront = () => {
+    const els = document.querySelectorAll('.drag-card')
+    let max = 0
+    els.forEach(el => {
+      const z = parseInt(window.getComputedStyle(el).zIndex) || 0
+      if (z > max) max = z
+    })
+    setZIndex(max + 1)
+  }
+
+  const clearPress = () => {
+    if (pressTimer.current) { clearTimeout(pressTimer.current); pressTimer.current = null }
+    setIsPressing(false)
+    pressOrigin.current = null
+  }
+
+  const onPointerDown = (e: React.PointerEvent) => {
+    bringToFront()
+    pressOrigin.current = { x: e.clientX, y: e.clientY }
+    setIsPressing(true)
+    pressTimer.current = setTimeout(() => {
+      setIsPressing(false)
       router.push(href)
-    } else {
-      onTapCard()
-    }
+    }, LONG_PRESS_MS)
+  }
+
+  const onPointerMove = (e: React.PointerEvent) => {
+    if (!pressOrigin.current || !pressTimer.current) return
+    const dx = e.clientX - pressOrigin.current.x
+    const dy = e.clientY - pressOrigin.current.y
+    if (Math.sqrt(dx * dx + dy * dy) > DRAG_THRESHOLD) clearPress()
   }
 
   return (
@@ -123,20 +159,18 @@ function ServiceCard({
       initial={{ opacity: 0, y: -380, rotate }}
       whileInView={{ opacity: 1, y: 0, rotate }}
       viewport={{ once: true, amount: 0.05 }}
-      transition={{
-        type: 'spring',
-        stiffness: 90,
-        damping: 14,
-        delay: animDelay,
-      }}
+      transition={{ type: 'spring', stiffness: 90, damping: 14, delay: animDelay }}
       // ── Drag ──
       drag
       dragConstraints={containerRef}
       dragElastic={0.45}
       dragMomentum={false}
-      // ── Tap — Framer Motion only fires this when no drag occurred ──
-      onTap={handleTap}
-      // ── Hover / drag states ──
+      // ── Long-press detection ──
+      onPointerDown={onPointerDown}
+      onPointerMove={onPointerMove}
+      onPointerUp={clearPress}
+      onPointerCancel={clearPress}
+      // ── Visual states ──
       whileHover={{ scale: 1.03 }}
       whileDrag={{
         scale: 1.07,
@@ -156,28 +190,32 @@ function ServiceCard({
         flexDirection: 'column',
         gap: '14px',
         cursor: 'grab',
-        // Solid dark glass — opaque indigo/violet base
         background: 'linear-gradient(145deg, rgba(12,18,141,0.82) 0%, rgba(34,0,65,0.92) 60%, rgba(2,0,8,0.88) 100%)',
         backdropFilter: 'blur(18px)',
         WebkitBackdropFilter: 'blur(18px)',
-        border: `1px solid ${accent}55`,
-        // Multi-layer shadow: inner highlight + purple outer glow + depth
-        boxShadow: [
-          'inset 0 1px 0 rgba(255,255,255,0.18)',
-          `0 0 48px rgba(166,20,178,0.38)`,
-          `0 0 16px ${accent}33`,
-          '0 24px 64px rgba(0,0,0,0.7)',
-        ].join(', '),
+        // Border brightens while pressing
+        border: isPressing ? `1px solid ${accent}cc` : `1px solid ${accent}55`,
+        // Glow intensifies while pressing — gives progress feedback
+        boxShadow: isPressing
+          ? [
+              'inset 0 1px 0 rgba(255,255,255,0.25)',
+              `0 0 80px rgba(166,20,178,0.65)`,
+              `0 0 30px ${accent}66`,
+              '0 24px 64px rgba(0,0,0,0.7)',
+            ].join(', ')
+          : [
+              'inset 0 1px 0 rgba(255,255,255,0.18)',
+              `0 0 48px rgba(166,20,178,0.38)`,
+              `0 0 16px ${accent}33`,
+              '0 24px 64px rgba(0,0,0,0.7)',
+            ].join(', '),
         transformStyle: 'preserve-3d',
-        // Active card: brighter border
-        outline: isActive ? `1.5px solid ${accent}` : 'none',
-        outlineOffset: '2px',
+        transition: 'border 0.15s ease, box-shadow 0.15s ease',
       }}
     >
       {/* Inner top-edge shimmer */}
       <div style={{
-        position: 'absolute', top: 0, left: '10%', right: '10%',
-        height: '1px',
+        position: 'absolute', top: 0, left: '10%', right: '10%', height: '1px',
         background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent)',
         pointerEvents: 'none',
       }} />
@@ -209,40 +247,52 @@ function ServiceCard({
         {tagline}
       </p>
 
-      {/* CTA — changes on active */}
+      {/* CTA hint */}
       <span style={{
         fontFamily: 'var(--font-poppins)', fontWeight: 600,
         fontSize: '12px', letterSpacing: '0.06em',
-        color: isActive ? accent : 'rgba(255,255,255,0.28)',
-        transition: 'color 0.2s ease',
+        color: isPressing ? accent : 'rgba(255,255,255,0.28)',
+        transition: 'color 0.15s ease',
       }}>
-        {isActive ? 'Tap again to explore →' : 'Tap to select'}
+        {isPressing ? 'Hold…' : 'Hold to explore →'}
       </span>
 
-      {/* Bottom glow line */}
-      <div style={{
-        position: 'absolute', bottom: 0, left: '12px', right: '12px', height: '1px',
-        background: `linear-gradient(90deg, transparent, ${accent}cc, transparent)`,
-        borderRadius: '999px',
-      }} />
+      {/* Long-press progress bar */}
+      {isPressing && (
+        <div style={{
+          position: 'absolute', bottom: 0, left: 0, right: 0,
+          height: '3px', borderRadius: '0 0 20px 20px', overflow: 'hidden',
+        }}>
+          <div style={{
+            height: '100%',
+            background: `linear-gradient(90deg, ${accent}, #A614B2)`,
+            animation: `lp-fill ${LONG_PRESS_MS}ms linear forwards`,
+          }} />
+        </div>
+      )}
+
+      {/* Bottom glow line (hidden when progress bar shows) */}
+      {!isPressing && (
+        <div style={{
+          position: 'absolute', bottom: 0, left: '12px', right: '12px', height: '1px',
+          background: `linear-gradient(90deg, transparent, ${accent}cc, transparent)`,
+          borderRadius: '999px',
+        }} />
+      )}
 
       {/* Purple corner glow */}
       <div style={{
         position: 'absolute', top: '-8px', right: '-8px',
-        width: '70px', height: '70px',
-        borderRadius: '50%',
-        background: 'rgba(166,20,178,0.45)',
-        filter: 'blur(20px)',
+        width: '70px', height: '70px', borderRadius: '50%',
+        background: 'rgba(166,20,178,0.45)', filter: 'blur(20px)',
         pointerEvents: 'none',
       }} />
 
       {/* Accent corner glow (bottom-left) */}
       <div style={{
         position: 'absolute', bottom: '-8px', left: '-8px',
-        width: '50px', height: '50px',
-        borderRadius: '50%',
-        background: `${accent}55`,
-        filter: 'blur(18px)',
+        width: '50px', height: '50px', borderRadius: '50%',
+        background: `${accent}55`, filter: 'blur(18px)',
         pointerEvents: 'none',
       }} />
     </motion.div>
@@ -252,22 +302,6 @@ function ServiceCard({
 // ─── Section ─────────────────────────────────────────────────────────────────
 export default function DragServiceCards() {
   const containerRef = useRef<HTMLDivElement>(null)
-  const [activeCard, setActiveCard] = useState<string | null>(null)
-  // Track per-card z-index
-  const [zMap, setZMap] = useState<Record<string, number>>(() =>
-    Object.fromEntries(services.map((s, i) => [s.number, i + 1]))
-  )
-  const zCounter = useRef(services.length + 1)
-
-  const bringToFront = (number: string) => {
-    zCounter.current += 1
-    setZMap(prev => ({ ...prev, [number]: zCounter.current }))
-  }
-
-  const handleTapCard = (number: string) => {
-    bringToFront(number)
-    setActiveCard(number)
-  }
 
   return (
     <section style={{ position: 'relative', width: '100%', minHeight: '100vh', overflow: 'hidden', zIndex: 10 }}>
@@ -280,12 +314,9 @@ export default function DragServiceCards() {
       }}>
         <span style={{
           fontFamily: 'var(--font-poppins)', fontWeight: 900,
-          fontSize: 'clamp(80px, 18vw, 220px)',
-          lineHeight: 1,
+          fontSize: 'clamp(80px, 18vw, 220px)', lineHeight: 1,
           background: 'linear-gradient(135deg, rgba(12,18,141,0.08), rgba(166,20,178,0.08))',
-          WebkitBackgroundClip: 'text',
-          WebkitTextFillColor: 'transparent',
-          backgroundClip: 'text',
+          WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text',
         }}>
           SERVICES
         </span>
@@ -316,7 +347,7 @@ export default function DragServiceCards() {
           fontFamily: 'var(--font-poppins)', fontSize: '13px',
           color: 'rgba(255,255,255,0.28)',
         }}>
-          Drag freely · Tap once to select · Tap again to explore
+          Drag freely · Hold a card to explore it
         </p>
       </div>
 
@@ -324,21 +355,24 @@ export default function DragServiceCards() {
       <div
         ref={containerRef}
         style={{ position: 'relative', width: '100%', height: '72vh' }}
-        // Clicking the backdrop deselects
-        onClick={() => setActiveCard(null)}
       >
         {services.map((service, i) => (
           <ServiceCard
             key={service.number}
             containerRef={containerRef as React.RefObject<HTMLDivElement>}
             {...service}
-            zIndex={zMap[service.number] ?? i + 1}
-            isActive={activeCard === service.number}
-            onTapCard={() => handleTapCard(service.number)}
             animDelay={i * 0.1}
           />
         ))}
       </div>
+
+      {/* Long-press fill animation */}
+      <style>{`
+        @keyframes lp-fill {
+          from { width: 0%; }
+          to   { width: 100%; }
+        }
+      `}</style>
 
       {/* Bottom CTA */}
       <div style={{ position: 'relative', zIndex: 10, textAlign: 'center', paddingBottom: '72px' }}>
