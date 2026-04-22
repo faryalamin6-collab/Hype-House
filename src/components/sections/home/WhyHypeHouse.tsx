@@ -19,14 +19,14 @@ export default function WhyHypeHouse() {
           </div>
           <h2 style={{
             fontFamily: 'var(--font-poppins)', fontWeight: 800,
-            fontSize: 'clamp(28px, 4vw, 52px)', color: 'white',
+            fontSize: 'clamp(24px, 3.5vw, 44px)', color: 'white',
             marginTop: '20px', marginBottom: '24px', letterSpacing: '-0.02em',
           }}>
             Strategy before execution.{' '}
             <span className="gradient-text">Always.</span>
           </h2>
           <p style={{
-            fontFamily: 'var(--font-poppins)', fontSize: '18px',
+            fontFamily: 'var(--font-poppins)', fontSize: '16px',
             color: 'rgba(255,255,255,0.80)', lineHeight: 1.7,
             maxWidth: '580px', margin: '0 auto 56px',
           }}>
@@ -39,7 +39,7 @@ export default function WhyHypeHouse() {
               <div key={stat.label}>
                 <div style={{
                   fontFamily: 'var(--font-poppins)', fontWeight: 800,
-                  fontSize: 'clamp(24px, 3vw, 40px)', lineHeight: 1, marginBottom: '6px',
+                  fontSize: 'clamp(20px, 2.5vw, 34px)', lineHeight: 1, marginBottom: '6px',
                 }} className="gradient-text">
                   {stat.number}
                 </div>

@@ -163,7 +163,7 @@ export default function ServicesPage() {
           <p
             style={{
               fontFamily: 'var(--font-poppins)',
-              fontSize: '18px',
+              fontSize: '16px',
               color: 'rgba(255,255,255,0.75)',
               lineHeight: 1.8,
               maxWidth: '620px',
@@ -177,7 +177,7 @@ export default function ServicesPage() {
           <p
             style={{
               fontFamily: 'var(--font-poppins)',
-              fontSize: '18px',
+              fontSize: '16px',
               color: 'rgba(255,255,255,0.75)',
               lineHeight: 1.8,
               maxWidth: '620px',

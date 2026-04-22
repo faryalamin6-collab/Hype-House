@@ -111,7 +111,7 @@ export default function ServiceSection({
             {/* Title */}
             <h2 style={{
               fontFamily: 'var(--font-poppins)', fontWeight: 800,
-              fontSize: 'clamp(24px, 3.5vw, 48px)', color: 'white',
+              fontSize: 'clamp(20px, 3vw, 42px)', color: 'white',
               letterSpacing: '-0.02em', lineHeight: 1.12,
               marginBottom: '20px', maxWidth: '860px',
             }}>
@@ -120,7 +120,7 @@ export default function ServiceSection({
 
             {/* Description */}
             <p style={{
-              fontFamily: 'var(--font-poppins)', fontSize: '17px',
+              fontFamily: 'var(--font-poppins)', fontSize: '15px',
               color: 'rgba(255,255,255,0.75)', lineHeight: 1.8,
               maxWidth: '760px', marginBottom: '40px',
             }}>

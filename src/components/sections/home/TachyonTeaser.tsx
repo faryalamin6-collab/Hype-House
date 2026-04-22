@@ -43,7 +43,7 @@ export default function TachyonTeaser() {
             style={{
               fontFamily: 'var(--font-poppins)',
               fontWeight: 800,
-              fontSize: 'clamp(28px, 4vw, 52px)',
+              fontSize: 'clamp(24px, 3.5vw, 44px)',
               color: 'white',
               marginTop: '20px',
               marginBottom: '20px',
@@ -57,7 +57,7 @@ export default function TachyonTeaser() {
           <p
             style={{
               fontFamily: 'var(--font-poppins)',
-              fontSize: '17px',
+              fontSize: '15px',
               color: 'rgba(255,255,255,0.72)',
               lineHeight: 1.75,
               marginBottom: '16px',
@@ -70,7 +70,7 @@ export default function TachyonTeaser() {
           <p
             style={{
               fontFamily: 'var(--font-poppins)',
-              fontSize: '17px',
+              fontSize: '15px',
               color: 'rgba(255,255,255,0.72)',
               lineHeight: 1.75,
               marginBottom: '36px',

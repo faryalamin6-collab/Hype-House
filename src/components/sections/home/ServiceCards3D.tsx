@@ -114,7 +114,7 @@ export default function ServiceCards3D() {
           </p>
           <h2 style={{
             fontFamily: 'var(--font-poppins)', fontWeight: 800,
-            fontSize: 'clamp(32px, 5vw, 60px)', color: 'white',
+            fontSize: 'clamp(28px, 4.5vw, 52px)', color: 'white',
             letterSpacing: '-0.02em', lineHeight: 1.1,
           }}>
             Six Pillars.{' '}
@@ -177,7 +177,7 @@ export default function ServiceCards3D() {
               display: 'flex', alignItems: 'center', justifyContent: 'center',
               background: 'transparent',
               border: '1px solid rgba(255,255,255,0.3)',
-              color: 'white', fontSize: '18px', cursor: 'pointer',
+              color: 'white', fontSize: '16px', cursor: 'pointer',
               transition: 'background 0.2s ease, border-color 0.2s ease',
             }}
             onMouseEnter={e => {
@@ -219,7 +219,7 @@ export default function ServiceCards3D() {
               display: 'flex', alignItems: 'center', justifyContent: 'center',
               background: 'transparent',
               border: '1px solid rgba(255,255,255,0.3)',
-              color: 'white', fontSize: '18px', cursor: 'pointer',
+              color: 'white', fontSize: '16px', cursor: 'pointer',
               transition: 'background 0.2s ease, border-color 0.2s ease',
             }}
             onMouseEnter={e => {

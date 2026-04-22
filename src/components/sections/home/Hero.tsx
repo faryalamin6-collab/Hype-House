@@ -60,7 +60,7 @@ export default function Hero() {
           style={{
             fontFamily: 'var(--font-poppins)',
             fontWeight: 800,
-            fontSize: 'clamp(32px, 7vw, 88px)',
+            fontSize: 'clamp(28px, 6vw, 76px)',
             lineHeight: 1.05,
             letterSpacing: '-0.02em',
             marginBottom: '24px',
@@ -80,7 +80,7 @@ export default function Hero() {
           style={{
             fontFamily: 'var(--font-poppins)',
             fontWeight: 400,
-            fontSize: '18px',
+            fontSize: '16px',
             color: 'rgba(255,255,255,0.72)',
             maxWidth: '560px',
             margin: '0 auto 40px',

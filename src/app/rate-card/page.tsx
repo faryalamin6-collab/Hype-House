@@ -143,7 +143,7 @@ export default function RateCardPage() {
             Investment that{' '}
             <span className="gradient-text">pays for itself.</span>
           </h1>
-          <p style={{ fontSize: '18px', color: 'rgba(255,255,255,0.80)', lineHeight: 1.75, maxWidth: '560px', margin: '0 auto 28px' }}>
+          <p style={{ fontSize: '16px', color: 'rgba(255,255,255,0.80)', lineHeight: 1.75, maxWidth: '560px', margin: '0 auto 28px' }}>
             Every package is tailored to your market and goals. Get in touch and we&apos;ll build the right scope for you.
           </p>
         </div>
@@ -191,7 +191,7 @@ export default function RateCardPage() {
                     </div>
                   )}
 
-                  <h3 style={{ fontWeight: 800, fontSize: '24px', color: '#ffffff', marginBottom: '8px' }}>
+                  <h3 style={{ fontWeight: 800, fontSize: '21px', color: '#ffffff', marginBottom: '8px' }}>
                     {tier.name}
                   </h3>
                   <p style={{ fontSize: '13px', color: 'rgba(255,255,255,0.50)', lineHeight: 1.55, marginBottom: '20px' }}>
@@ -244,7 +244,7 @@ export default function RateCardPage() {
                       : '1px solid rgba(255,255,255,0.10)',
                   }}
                 >
-                  <h3 style={{ fontWeight: 700, fontSize: '22px', color: '#ffffff', marginBottom: '20px' }}>
+                  <h3 style={{ fontWeight: 700, fontSize: '19px', color: '#ffffff', marginBottom: '20px' }}>
                     {pkg.name}
                   </h3>
                   <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', flex: 1, marginBottom: '28px' }}>

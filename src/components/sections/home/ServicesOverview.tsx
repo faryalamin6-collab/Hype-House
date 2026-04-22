@@ -116,7 +116,7 @@ export default function ServicesOverview() {
             <span className="gradient-text">not just seen.</span>
           </h2>
           <p style={{
-            fontFamily: 'var(--font-poppins)', fontSize: '17px',
+            fontFamily: 'var(--font-poppins)', fontSize: '15px',
             color: 'rgba(255,255,255,0.55)', lineHeight: 1.75,
             maxWidth: '560px', margin: '0 auto',
           }}>

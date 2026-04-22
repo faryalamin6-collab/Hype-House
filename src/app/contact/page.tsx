@@ -25,7 +25,7 @@ export default function ContactPage() {
           }}>✦ LET&apos;S BUILD</span>
 
           <h1 style={{
-            fontSize: 'clamp(32px, 6vw, 64px)',
+            fontSize: 'clamp(28px, 5vw, 56px)',
             fontWeight: 800,
             color: '#FFFFFF',
             lineHeight: 1.1,
@@ -35,7 +35,7 @@ export default function ContactPage() {
           </h1>
 
           <p style={{
-            fontSize: '18px',
+            fontSize: '16px',
             color: 'rgba(255,255,255,0.72)',
             maxWidth: '560px',
             margin: '0 auto',
@@ -95,7 +95,7 @@ export default function ContactPage() {
         {/* INTAKE FORM HEADING */}
         <div style={{ textAlign: 'center', marginBottom: '32px' }}>
           <h2 style={{
-            fontSize: 'clamp(24px, 4vw, 36px)',
+            fontSize: 'clamp(20px, 3.5vw, 30px)',
             fontWeight: 800,
             color: '#FFFFFF',
             marginBottom: '12px',

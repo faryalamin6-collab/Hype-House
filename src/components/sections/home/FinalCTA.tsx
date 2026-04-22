@@ -41,7 +41,7 @@ export default function FinalCTA() {
             style={{
               fontFamily: 'var(--font-poppins)',
               fontWeight: 800,
-              fontSize: 'clamp(28px, 5vw, 64px)',
+              fontSize: 'clamp(24px, 4.5vw, 56px)',
               lineHeight: 1.1,
               letterSpacing: '-0.02em',
               color: 'white',
@@ -54,7 +54,7 @@ export default function FinalCTA() {
           <p
             style={{
               fontFamily: 'var(--font-poppins)',
-              fontSize: '18px',
+              fontSize: '16px',
               color: 'rgba(255,255,255,0.72)',
               lineHeight: 1.7,
               marginBottom: '48px',

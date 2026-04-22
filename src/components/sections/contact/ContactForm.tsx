@@ -100,7 +100,7 @@ export default function ContactForm() {
             alignItems: 'center',
             justifyContent: 'center',
             margin: '0 auto 20px',
-            fontSize: '24px',
+            fontSize: '21px',
           }}
         >
           ✓
@@ -109,7 +109,7 @@ export default function ContactForm() {
           style={{
             fontFamily: 'var(--font-poppins)',
             fontWeight: 700,
-            fontSize: '24px',
+            fontSize: '21px',
             color: 'white',
             marginBottom: '12px',
           }}

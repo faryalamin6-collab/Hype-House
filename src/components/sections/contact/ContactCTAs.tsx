@@ -11,7 +11,7 @@ export default function ContactCTAs() {
         border: '1px solid rgba(255,255,255,0.10)', borderRadius: '20px', padding: '40px',
       }}
     >
-      <h3 style={{ fontWeight: 700, fontSize: '22px', color: '#ffffff', marginBottom: '8px' }}>
+      <h3 style={{ fontWeight: 700, fontSize: '19px', color: '#ffffff', marginBottom: '8px' }}>
         Ready to begin?
       </h3>
       <p style={{ fontSize: '15px', color: 'rgba(255,255,255,0.72)', marginBottom: '32px', lineHeight: 1.65 }}>

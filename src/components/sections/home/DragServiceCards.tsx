@@ -237,7 +237,7 @@ function ServiceCard({
       {/* Title */}
       <h3 style={{
         fontFamily: 'var(--font-poppins)', fontWeight: 800,
-        fontSize: 'clamp(19px, 1.7vw, 27px)', color: 'white',
+        fontSize: 'clamp(16px, 1.5vw, 23px)', color: 'white',
         lineHeight: 1.15, margin: 0,
       }}>
         {title}
@@ -342,7 +342,7 @@ export default function DragServiceCards() {
         </p>
         <h2 style={{
           fontFamily: 'var(--font-poppins)', fontWeight: 800,
-          fontSize: 'clamp(32px, 5vw, 60px)', color: 'white',
+          fontSize: 'clamp(28px, 4.5vw, 52px)', color: 'white',
           letterSpacing: '-0.02em', lineHeight: 1.1, marginBottom: '12px',
         }}>
           Six Pillars.{' '}

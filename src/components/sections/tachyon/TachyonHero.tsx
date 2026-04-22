@@ -29,7 +29,7 @@ export default function TachyonHero() {
           <h1 style={{
             fontFamily: 'var(--font-poppins)',
             fontWeight: 800,
-            fontSize: 'clamp(32px, 5vw, 60px)',
+            fontSize: 'clamp(28px, 4.5vw, 52px)',
             letterSpacing: '-0.02em',
             lineHeight: 1.1,
             marginBottom: '16px',

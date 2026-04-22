@@ -92,15 +92,15 @@ export default function TachyonPage() {
             <SectionLabel className="tachyon-label">The Modern Growth Dilemma</SectionLabel>
             <h2 style={{
               fontFamily: 'var(--font-poppins)', fontWeight: 800,
-              fontSize: 'clamp(28px, 4vw, 52px)', color: 'white',
+              fontSize: 'clamp(24px, 3.5vw, 44px)', color: 'white',
               marginTop: '20px', marginBottom: '28px', letterSpacing: '-0.02em', lineHeight: 1.15,
             }}>
               Your campaigns aren&apos;t the problem. Your internal systems are.
             </h2>
-            <p style={{ fontSize: '18px', color: 'rgba(255,255,255,0.80)', lineHeight: 1.75, marginBottom: '20px' }}>
+            <p style={{ fontSize: '16px', color: 'rgba(255,255,255,0.80)', lineHeight: 1.75, marginBottom: '20px' }}>
               You&apos;re running ads. Leads are coming in. But conversions? Scattered. Delayed. Lost.
             </p>
-            <p style={{ fontSize: '18px', color: 'rgba(255,255,255,0.80)', lineHeight: 1.75, marginBottom: '36px' }}>
+            <p style={{ fontSize: '16px', color: 'rgba(255,255,255,0.80)', lineHeight: 1.75, marginBottom: '36px' }}>
               Most small and medium businesses pour money into marketing without building the
               infrastructure needed to catch, respond to, and convert the interest they generate.
             </p>
@@ -113,8 +113,8 @@ export default function TachyonPage() {
                 'Your team blames the ad budget — but the real leak is what happens after the click.',
               ].map((line) => (
                 <div key={line} style={{ display: 'flex', alignItems: 'flex-start', gap: '14px' }}>
-                  <span style={{ color: '#3A8DFF', fontSize: '17px', flexShrink: 0, marginTop: '2px' }}>→</span>
-                  <span style={{ fontFamily: 'var(--font-poppins)', fontSize: '17px', color: 'rgba(255,255,255,0.80)', lineHeight: 1.6 }}>
+                  <span style={{ color: '#3A8DFF', fontSize: '15px', flexShrink: 0, marginTop: '2px' }}>→</span>
+                  <span style={{ fontFamily: 'var(--font-poppins)', fontSize: '15px', color: 'rgba(255,255,255,0.80)', lineHeight: 1.6 }}>
                     {line}
                   </span>
                 </div>
@@ -124,7 +124,7 @@ export default function TachyonPage() {
             {/* Bold accent line */}
             <p style={{
               fontFamily: 'var(--font-poppins)', fontWeight: 700,
-              fontSize: 'clamp(20px, 3vw, 28px)', color: '#3A8DFF', lineHeight: 1.4,
+              fontSize: 'clamp(18px, 2.5vw, 24px)', color: '#3A8DFF', lineHeight: 1.4,
             }}>
               The real leak is what happens after the click.
             </p>
@@ -139,12 +139,12 @@ export default function TachyonPage() {
             <SectionLabel className="tachyon-label">Tachyon Is Your Backend Brain</SectionLabel>
             <h2 style={{
               fontFamily: 'var(--font-poppins)', fontWeight: 800,
-              fontSize: 'clamp(28px, 4vw, 52px)', color: 'white',
+              fontSize: 'clamp(24px, 3.5vw, 44px)', color: 'white',
               marginTop: '20px', marginBottom: '24px', letterSpacing: '-0.02em', lineHeight: 1.15,
             }}>
               It&apos;s not automation. It&apos;s business infrastructure with intelligence.
             </h2>
-            <p style={{ fontSize: '18px', color: 'rgba(255,255,255,0.80)', lineHeight: 1.75 }}>
+            <p style={{ fontSize: '16px', color: 'rgba(255,255,255,0.80)', lineHeight: 1.75 }}>
               We build and embed responsive digital systems that sit quietly in the background —
               watching, responding, organising, and pushing leads forward before your team even
               lifts a finger.
@@ -166,7 +166,7 @@ export default function TachyonPage() {
               <SectionLabel className="tachyon-label">What We Build</SectionLabel>
               <h2 style={{
                 fontFamily: 'var(--font-poppins)', fontWeight: 800,
-                fontSize: 'clamp(28px, 4vw, 52px)', color: 'white',
+                fontSize: 'clamp(24px, 3.5vw, 44px)', color: 'white',
                 marginTop: '20px', letterSpacing: '-0.02em', lineHeight: 1.15,
               }}>
                 Five systems.{' '}
@@ -212,7 +212,7 @@ export default function TachyonPage() {
                   </div>
                   <h3 style={{
                     fontFamily: 'var(--font-poppins)', fontWeight: 700,
-                    fontSize: '20px', color: 'white', marginBottom: '12px',
+                    fontSize: '18px', color: 'white', marginBottom: '12px',
                   }}>
                     {item.title}
                   </h3>
@@ -255,7 +255,7 @@ export default function TachyonPage() {
                 </div>
                 <h3 style={{
                   fontFamily: 'var(--font-poppins)', fontWeight: 700,
-                  fontSize: '20px', color: 'white', marginBottom: '12px',
+                  fontSize: '18px', color: 'white', marginBottom: '12px',
                 }}>
                   {capabilities[4].title}
                 </h3>
@@ -275,16 +275,16 @@ export default function TachyonPage() {
             <SectionLabel className="tachyon-label">Built For Companies Who Move Fast</SectionLabel>
             <h2 style={{
               fontFamily: 'var(--font-poppins)', fontWeight: 800,
-              fontSize: 'clamp(28px, 4vw, 52px)', color: 'white',
+              fontSize: 'clamp(24px, 3.5vw, 44px)', color: 'white',
               marginTop: '20px', marginBottom: '24px', letterSpacing: '-0.02em', lineHeight: 1.15,
             }}>
               If your business depends on leads, Tachyon turns those moments into momentum.
             </h2>
-            <p style={{ fontSize: '18px', color: 'rgba(255,255,255,0.80)', lineHeight: 1.75, marginBottom: '16px' }}>
+            <p style={{ fontSize: '16px', color: 'rgba(255,255,255,0.80)', lineHeight: 1.75, marginBottom: '16px' }}>
               Tachyon works with SMEs across industries — whether you&apos;re a clinic, design firm,
               logistics company, or e-commerce brand.
             </p>
-            <p style={{ fontSize: '18px', color: 'rgba(255,255,255,0.80)', lineHeight: 1.75, marginBottom: '40px' }}>
+            <p style={{ fontSize: '16px', color: 'rgba(255,255,255,0.80)', lineHeight: 1.75, marginBottom: '40px' }}>
               This isn&apos;t software your team has to learn. This isn&apos;t a tool your assistant has to babysit.
             </p>
 
@@ -336,12 +336,12 @@ export default function TachyonPage() {
                 <SectionLabel className="tachyon-label">How It Works</SectionLabel>
                 <h2 style={{
                   fontFamily: 'var(--font-poppins)', fontWeight: 800,
-                  fontSize: 'clamp(24px, 4vw, 40px)', color: 'white',
+                  fontSize: 'clamp(18px, 3vw, 30px)', color: 'white',
                   marginTop: '20px', marginBottom: '16px', letterSpacing: '-0.02em', lineHeight: 1.15,
                 }}>
                   This isn&apos;t a tool. It&apos;s an upgrade to your business.
                 </h2>
-                <p style={{ fontSize: '17px', color: 'rgba(255,255,255,0.80)', lineHeight: 1.75 }}>
+                <p style={{ fontSize: '15px', color: 'rgba(255,255,255,0.80)', lineHeight: 1.75 }}>
                   Tachyon isn&apos;t visible to your clients — but they feel it at every step. Faster replies.
                   Smarter follow-ups. Better meetings.
                 </p>
@@ -414,20 +414,20 @@ export default function TachyonPage() {
           <div style={{ maxWidth: '720px', margin: '0 auto', position: 'relative' }}>
             <h2 style={{
               fontFamily: 'var(--font-poppins)', fontWeight: 800,
-              fontSize: 'clamp(28px, 5vw, 56px)', color: 'white',
+              fontSize: 'clamp(24px, 4.5vw, 48px)', color: 'white',
               letterSpacing: '-0.02em', lineHeight: 1.1, marginBottom: '16px',
             }}>
               You don&apos;t need more people. You need better systems.
             </h2>
             <p style={{
-              fontSize: '18px', color: 'rgba(255,255,255,0.80)',
+              fontSize: '16px', color: 'rgba(255,255,255,0.80)',
               lineHeight: 1.75, marginBottom: '28px',
             }}>
               Welcome to business at Tachyon speed.
             </p>
             <p style={{
               fontFamily: 'var(--font-poppins)', fontWeight: 800,
-              fontSize: 'clamp(20px, 3vw, 32px)', color: '#3A8DFF',
+              fontSize: 'clamp(18px, 2.5vw, 28px)', color: '#3A8DFF',
               letterSpacing: '-0.01em', marginBottom: '40px',
             }}>
               Ready to stop losing leads?
@@ -439,7 +439,7 @@ export default function TachyonPage() {
               className="tachyon-cta-link"
               style={{
                 display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
-                fontFamily: 'var(--font-poppins)', fontWeight: 700, fontSize: '17px',
+                fontFamily: 'var(--font-poppins)', fontWeight: 700, fontSize: '15px',
                 color: '#FFFFFF', textDecoration: 'none',
                 padding: '18px 40px', borderRadius: '10px',
                 background: 'linear-gradient(135deg, #B040FF 0%, #5B8FFF 50%, #00F0FF 100%)',

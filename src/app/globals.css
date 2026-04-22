@@ -49,13 +49,13 @@ h1, h2, h3, h4, h5, h6 {
   color: #ffffff;
   font-family: var(--font-poppins), sans-serif;
 }
-h1 { font-weight: 800; font-size: clamp(2.5rem, 5vw, 5rem); }
-h2 { font-weight: 800; font-size: clamp(2rem, 4vw, 3.5rem); }
-h3 { font-weight: 700; font-size: clamp(1.25rem, 2vw, 1.75rem); }
+h1 { font-weight: 800; font-size: clamp(2rem, 4vw, 4rem); }
+h2 { font-weight: 800; font-size: clamp(1.75rem, 3.5vw, 3rem); }
+h3 { font-weight: 700; font-size: clamp(1.1rem, 1.75vw, 1.5rem); }
 
 /* ── BODY COPY ───────────────────────────────────────────────────────────── */
 p {
-  font-size: 1.125rem;
+  font-size: 1rem;
   line-height: 1.75;
   color: rgba(255, 255, 255, 0.72);
 }
@@ -145,10 +145,10 @@ p, li, span:not(.gradient-text):not(.section-label) {
 
 /* ── MOBILE NAV LOGO — see bottom of file for override ──────────────────── */
 @media (max-width: 768px) {
-  h1 { font-size: clamp(32px, 9vw, 52px); line-height: 1.1; }
-  h2 { font-size: clamp(28px, 7vw, 42px); line-height: 1.15; }
-  h3 { font-size: clamp(20px, 5vw, 28px); line-height: 1.2; }
-  p  { font-size: 16px; line-height: 1.75; }
+  h1 { font-size: clamp(28px, 8vw, 44px); line-height: 1.1; }
+  h2 { font-size: clamp(24px, 6vw, 36px); line-height: 1.15; }
+  h3 { font-size: clamp(18px, 4.5vw, 24px); line-height: 1.2; }
+  p  { font-size: 15px; line-height: 1.75; }
   .section-label { font-size: 12px; letter-spacing: 0.2em; }
 
   /* ── GLOBAL MOBILE SECTION PADDING ── */
@@ -380,7 +380,7 @@ p, li, span:not(.gradient-text):not(.section-label) {
 .about-h1-line {
   font-family: var(--font-poppins), sans-serif;
   font-weight: 800;
-  font-size: clamp(32px, 6vw, 76px);
+  font-size: clamp(28px, 5vw, 64px);
   letter-spacing: -0.02em;
   line-height: 1.1;
   color: white;
@@ -391,7 +391,7 @@ p, li, span:not(.gradient-text):not(.section-label) {
 .about-statement-text {
   font-family: var(--font-poppins), sans-serif;
   font-weight: 800;
-  font-size: clamp(26px, 5vw, 62px);
+  font-size: clamp(22px, 4.5vw, 52px);
   letter-spacing: -0.025em;
   line-height: 1.1;
   color: white;
@@ -414,7 +414,7 @@ p, li, span:not(.gradient-text):not(.section-label) {
 .about-lead {
   font-family: var(--font-poppins), sans-serif;
   font-weight: 700;
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: clamp(15px, 1.8vw, 18px);
   color: rgba(255,255,255,0.94);
   line-height: 1.55;
   display: block;
@@ -424,7 +424,7 @@ p, li, span:not(.gradient-text):not(.section-label) {
 .about-mid {
   font-family: var(--font-poppins), sans-serif;
   font-weight: 600;
-  font-size: clamp(15px, 1.8vw, 17px);
+  font-size: clamp(13px, 1.6vw, 15px);
   color: rgba(255,255,255,0.88);
   line-height: 1.65;
   display: block;
@@ -432,7 +432,7 @@ p, li, span:not(.gradient-text):not(.section-label) {
 
 /* Body copy */
 .about-body {
-  font-size: 15px;
+  font-size: 14px;
   color: rgba(255,255,255,0.72);
   line-height: 1.85;
 }
@@ -441,13 +441,13 @@ p, li, span:not(.gradient-text):not(.section-label) {
 .about-closing-line {
   font-family: var(--font-poppins), sans-serif;
   font-weight: 700;
-  font-size: clamp(17px, 2.2vw, 22px);
+  font-size: clamp(15px, 2vw, 19px);
   color: rgba(255,255,255,0.92);
   line-height: 1.45;
   display: block;
 }
 .about-closing-sub {
-  font-size: 15px;
+  font-size: 14px;
   color: rgba(255,255,255,0.62);
   line-height: 1.7;
   display: block;

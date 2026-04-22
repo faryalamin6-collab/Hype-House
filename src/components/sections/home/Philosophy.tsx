@@ -39,7 +39,7 @@ export default function Philosophy() {
             style={{
               fontFamily: 'var(--font-poppins)',
               fontWeight: 800,
-              fontSize: 'clamp(28px, 4vw, 56px)',
+              fontSize: 'clamp(24px, 3.5vw, 48px)',
               textAlign: 'center',
               lineHeight: 1.2,
               letterSpacing: '-0.02em',
