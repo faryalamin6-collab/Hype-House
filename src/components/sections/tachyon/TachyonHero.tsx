@@ -5,10 +5,10 @@ import { Spotlight } from '@/components/ui/spotlight'
 
 export default function TachyonHero() {
   return (
-    <section className="page-top w-full bg-[#020008] relative overflow-hidden rounded-2xl border border-[#00F0FF]/20" style={{ minHeight: '600px' }}>
+    <section className="page-top w-full relative overflow-hidden rounded-2xl" style={{ minHeight: '600px', background: '#020008', border: '1px solid rgba(4,157,255,0.12)' }}>
       <Spotlight
         className="-top-40 left-0 md:left-60 md:-top-20"
-        fill="#00F0FF"
+        fill="#5B5BFF"
       />
 
       <div className="flex flex-col md:flex-row h-full" style={{ minHeight: '600px' }}>
@@ -88,7 +88,7 @@ export default function TachyonHero() {
         </div>
 
         {/* Right — 3D Spline Scene */}
-        <div className="flex-1 relative" style={{ minHeight: '300px' }}>
+        <div className="flex-1 relative overflow-hidden" style={{ minHeight: '300px', maxWidth: '50%' }}>
           <SplineScene
             scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
             className="w-full h-full absolute inset-0"

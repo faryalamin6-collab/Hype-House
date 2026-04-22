@@ -50,15 +50,13 @@ export default function Navigation() {
           left: 0,
           right: 0,
           zIndex: 1000,
-          height: '64px',
-          padding: 0,
-          background: scrolled
-            ? 'rgba(2,0,8,0.85)'
-            : 'transparent',
-          backdropFilter: scrolled ? 'blur(20px)' : 'none',
-          WebkitBackdropFilter: scrolled ? 'blur(20px)' : 'none',
-          borderBottom: scrolled ? '1px solid rgba(255,255,255,0.06)' : 'none',
-          transition: 'padding 0.3s ease, background 0.3s ease, border-color 0.3s ease',
+          height: '72px',
+          padding: '6px 0 0',   // 6px breathing room from browser chrome
+          background: 'rgba(2,0,8,0.85)',
+          backdropFilter: 'blur(20px)',
+          WebkitBackdropFilter: 'blur(20px)',
+          borderBottom: '1px solid rgba(4,157,255,0.10)',
+          transition: 'background 0.3s ease',
         }}
       >
         <div

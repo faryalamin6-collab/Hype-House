@@ -51,7 +51,7 @@ export default function ServiceSection({
         zIndex: 10,
         paddingBottom: '80px',
         borderBottom: '1px solid rgba(255,255,255,0.05)',
-        scrollMarginTop: '76px',
+        scrollMarginTop: '88px',
       }}
     >
       {/* ── HEADER IMAGE ─────────────────────────────────────────────────── */}

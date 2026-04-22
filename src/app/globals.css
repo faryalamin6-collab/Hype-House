@@ -25,8 +25,12 @@ a, button, [role="button"], label, select { cursor: pointer; }
 html {
   overflow-x: hidden;
   scroll-padding-top: 80px;
-  scroll-behavior: smooth;
-  scroll-behavior: auto;
+  scroll-behavior: auto; /* Lenis handles smooth scroll */
+}
+
+/* All anchor targets clear the fixed navbar */
+[id] {
+  scroll-margin-top: 80px;
 }
 
 body {
@@ -179,8 +183,8 @@ p, li, span:not(.gradient-text):not(.section-label) {
 
 /* ── INNER PAGE TOP SPACING ──────────────────────────────────────────────── */
 /* Clears the fixed navbar (≈68px) with intentional breathing room.         */
-.page-top { padding-top: 130px; }
-@media (max-width: 768px) { .page-top { padding-top: 140px; } }
+.page-top { padding-top: 136px; }
+@media (max-width: 768px) { .page-top { padding-top: 144px; } }
 
 /* Magnetic button base */
 .btn-primary {
@@ -305,7 +309,7 @@ p, li, span:not(.gradient-text):not(.section-label) {
 /* Ensures the image header clears the fixed navbar when scrolled to via    */
 /* anchor link (both native and Next.js client-side navigation).            */
 .service-anchor {
-  scroll-margin-top: 80px;
+  scroll-margin-top: 88px;
 }
 
 /* ── SERVICE ICON ANIMATION ─────────────────────────────────────────────── */
