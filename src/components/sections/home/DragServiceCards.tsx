@@ -132,24 +132,34 @@ function ServiceCard({
   const clearPress = () => {
     if (pressTimer.current) { clearTimeout(pressTimer.current); pressTimer.current = null }
     setIsPressing(false)
-    pressOrigin.current = null
   }
 
   const onPointerDown = (e: React.PointerEvent) => {
     bringToFront()
-    pressOrigin.current = { x: e.clientX, y: e.clientY }
     setIsPressing(true)
+
     pressTimer.current = setTimeout(() => {
       setIsPressing(false)
       router.push(href)
     }, LONG_PRESS_MS)
-  }
 
-  const onPointerMove = (e: React.PointerEvent) => {
-    if (!pressOrigin.current || !pressTimer.current) return
-    const dx = e.clientX - pressOrigin.current.x
-    const dy = e.clientY - pressOrigin.current.y
-    if (Math.sqrt(dx * dx + dy * dy) > DRAG_THRESHOLD) clearPress()
+    // Attach cancel to window — fires even when FM captures the pointer
+    const onWindowUp = () => {
+      clearPress()
+      window.removeEventListener('pointerup', onWindowUp)
+      window.removeEventListener('pointermove', onWindowMove)
+    }
+    const onWindowMove = (ev: PointerEvent) => {
+      const dx = ev.clientX - e.clientX
+      const dy = ev.clientY - e.clientY
+      if (Math.sqrt(dx * dx + dy * dy) > DRAG_THRESHOLD) {
+        clearPress()
+        window.removeEventListener('pointerup', onWindowUp)
+        window.removeEventListener('pointermove', onWindowMove)
+      }
+    }
+    window.addEventListener('pointerup', onWindowUp, { once: true })
+    window.addEventListener('pointermove', onWindowMove)
   }
 
   return (
@@ -167,9 +177,7 @@ function ServiceCard({
       dragMomentum={false}
       // ── Long-press detection ──
       onPointerDown={onPointerDown}
-      onPointerMove={onPointerMove}
-      onPointerUp={clearPress}
-      onPointerCancel={clearPress}
+      onDragStart={clearPress}      // FM drag detected → kill long-press immediately
       // ── Visual states ──
       whileHover={{ scale: 1.03 }}
       whileDrag={{
