@@ -32,11 +32,13 @@ export default function TachyonTeaser() {
         style={{
           maxWidth: '760px',
           margin: '0 auto',
+          textAlign: 'center',
         }}
       >
-        {/* Left: Content */}
         <ScrollReveal>
-          <SectionLabel className="tachyon-label">Tachyon AI System</SectionLabel>
+          <div style={{ display: 'flex', justifyContent: 'center' }}>
+            <SectionLabel className="tachyon-label">Tachyon AI System</SectionLabel>
+          </div>
           <h2
             style={{
               fontFamily: 'var(--font-poppins)',
