@@ -20,14 +20,24 @@ const footerLinks = {
   ],
 }
 
-const colHeaderStyle: React.CSSProperties = {
+const colHeader: React.CSSProperties = {
   fontFamily: 'var(--font-poppins)',
   fontWeight: 600,
-  fontSize: '12px',
-  letterSpacing: '0.15em',
+  fontSize: '11px',
+  letterSpacing: '0.2em',
   textTransform: 'uppercase',
   color: 'rgba(255,255,255,0.35)',
   marginBottom: '20px',
+  lineHeight: 1,
+}
+
+const linkStyle: React.CSSProperties = {
+  fontFamily: 'var(--font-poppins)',
+  fontSize: '14px',
+  color: 'rgba(255,255,255,0.50)',
+  textDecoration: 'none',
+  transition: 'color 0.2s ease',
+  display: 'block',
 }
 
 export default function Footer() {
@@ -42,12 +52,12 @@ export default function Footer() {
     >
       <div
         style={{
-          maxWidth: '1280px',
+          maxWidth: '1400px',
           margin: '0 auto',
           padding: '64px 24px 32px',
         }}
       >
-        {/* Row 1: Brand + Links */}
+        {/* Grid — 4 equal columns, all start at top */}
         <div
           style={{
             display: 'grid',
@@ -57,85 +67,51 @@ export default function Footer() {
             marginBottom: '48px',
           }}
         >
-          {/* Brand column */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '3px' }}>
-            {/* Invisible spacer matching the column header height in other columns */}
-            <div style={{ height: '32px' }} />
-            <div style={{ marginBottom: '10px' }}>
-              <Image
-                src="/images/logo-white.png"
-                alt="HypeHouse Digital"
-                width={140}
-                height={35}
-                style={{ objectFit: 'contain' }}
-              />
-            </div>
-            <p
-              style={{
-                fontFamily: 'var(--font-poppins)',
-                fontSize: '14px',
-                color: 'rgba(255,255,255,0.72)',
-                lineHeight: 1.7,
-                maxWidth: '260px',
-                marginBottom: '12px',
-              }}
-            >
+          {/* ── Brand column ── */}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+            {/* Spacer = colHeader lineHeight (11px) + marginBottom (20px) + a little breathing = 40px */}
+            <div style={{ height: '40px' }} />
+
+            <Image
+              src="/images/logo-white.png"
+              alt="HypeHouse Digital"
+              width={130}
+              height={32}
+              style={{ objectFit: 'contain', display: 'block' }}
+            />
+
+            <p style={{
+              fontFamily: 'var(--font-poppins)',
+              fontSize: '13px',
+              color: 'rgba(255,255,255,0.50)',
+              lineHeight: 1.65,
+              margin: 0,
+            }}>
               Full-service AI-powered creative agency.
               Strategy. Systems. Creative. Unified.
             </p>
-            <div
-              style={{
-                fontFamily: 'var(--font-poppins)',
-                fontSize: '13px',
-                color: 'rgba(255,255,255,0.60)',
-                lineHeight: 1.8,
-                display: 'flex', flexDirection: 'column', gap: '6px',
-              }}
-            >
-              <div>📍 Headquartered in Karachi · Operating globally</div>
-              <div>
-                <a
-                  href="https://hypehouse-client-intake-form.netlify.app"
-                  target="_blank" rel="noopener noreferrer"
-                  style={{ color: 'rgba(4,157,255,0.8)', textDecoration: 'none' }}
-                >
-                  📋 Start a project
-                </a>
-              </div>
-              <div>
-                <a
-                  href="https://wa.me/971509790412?text=Hi%20HypeHouse%2C%20I%27d%20like%20to%20discuss%20a%20project"
-                  target="_blank" rel="noopener noreferrer"
-                  style={{ color: 'rgba(37,211,102,0.8)', textDecoration: 'none' }}
-                >
-                  💬 WhatsApp us
-                </a>
-              </div>
-            </div>
+
+            <span style={{
+              fontFamily: 'var(--font-poppins)',
+              fontSize: '12px',
+              color: 'rgba(255,255,255,0.35)',
+            }}>
+              📍 Karachi · Operating globally
+            </span>
           </div>
 
-          {/* Link columns */}
+          {/* ── Services column ── */}
           {Object.entries(footerLinks).map(([section, links]) => (
             <div key={section}>
-              <div style={colHeaderStyle}>{section}</div>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+              <div style={colHeader}>{section}</div>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
                 {links.map(link => (
                   <Link
                     key={link.href}
                     href={link.href}
-                    style={{
-                      fontFamily: 'var(--font-poppins)',
-                      fontSize: '14px',
-                      color: 'rgba(255,255,255,0.55)',
-                      textDecoration: 'none',
-                      transition: 'color 0.2s ease',
-                    }}
-                    onMouseEnter={e =>
-                      ((e.target as HTMLElement).style.color = 'rgba(255,255,255,0.9)')
-                    }
-                    onMouseLeave={e =>
-                      ((e.target as HTMLElement).style.color = 'rgba(255,255,255,0.55)')
-                    }
+                    style={linkStyle}
+                    onMouseEnter={e => ((e.target as HTMLElement).style.color = 'rgba(255,255,255,0.90)')}
+                    onMouseLeave={e => ((e.target as HTMLElement).style.color = 'rgba(255,255,255,0.50)')}
                   >
                     {link.label}
                   </Link>
@@ -144,18 +120,16 @@ export default function Footer() {
             </div>
           ))}
 
-          {/* CTA column */}
-          <div>
-            <div style={colHeaderStyle}>Start Today</div>
-            <p
-              style={{
-                fontFamily: 'var(--font-poppins)',
-                fontSize: '14px',
-                color: 'rgba(255,255,255,0.72)',
-                lineHeight: 1.7,
-                marginBottom: '20px',
-              }}
-            >
+          {/* ── Start Today column ── */}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', alignItems: 'flex-start' }}>
+            <div style={colHeader}>Start Today</div>
+            <p style={{
+              fontFamily: 'var(--font-poppins)',
+              fontSize: '13px',
+              color: 'rgba(255,255,255,0.55)',
+              lineHeight: 1.65,
+              margin: 0,
+            }}>
               Ready to build something unforgettable? Let&apos;s talk strategy.
             </p>
             <a
@@ -163,61 +137,51 @@ export default function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               style={{
-                display: 'inline-block',
                 fontFamily: 'var(--font-poppins)',
                 fontWeight: 600,
-                fontSize: '14px',
+                fontSize: '13px',
                 color: 'white',
                 textDecoration: 'none',
-                padding: '11px 24px',
+                padding: '10px 20px',
                 borderRadius: '8px',
                 background: 'linear-gradient(135deg, #A614B2, #0C128D)',
+                display: 'inline-block',
               }}
             >
               Start a Project →
             </a>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+              <a
+                href="https://wa.me/971509790412?text=Hi%20HypeHouse%2C%20I%27d%20like%20to%20discuss%20a%20project"
+                target="_blank" rel="noopener noreferrer"
+                style={{ fontFamily: 'var(--font-poppins)', fontSize: '13px', color: 'rgba(37,211,102,0.75)', textDecoration: 'none' }}
+              >
+                💬 WhatsApp us
+              </a>
+              <a
+                href="https://hypehouse-client-intake-form.netlify.app"
+                target="_blank" rel="noopener noreferrer"
+                style={{ fontFamily: 'var(--font-poppins)', fontSize: '13px', color: 'rgba(4,157,255,0.75)', textDecoration: 'none' }}
+              >
+                📋 Start a project
+              </a>
+            </div>
           </div>
         </div>
 
         {/* Divider */}
-        <div
-          style={{
-            height: '1px',
-            background: 'rgba(255,255,255,0.06)',
-            marginBottom: '24px',
-          }}
-        />
+        <div style={{ height: '1px', background: 'rgba(255,255,255,0.06)', marginBottom: '24px' }} />
 
         {/* Legal */}
-        <div
-          style={{
-            display: 'flex',
-            justifyContent: 'space-between',
-            alignItems: 'center',
-            flexWrap: 'wrap',
-            gap: '12px',
-          }}
-        >
-          <p
-            style={{
-              fontFamily: 'var(--font-poppins)',
-              fontSize: '13px',
-              color: 'rgba(255,255,255,0.45)',
-            }}
-          >
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '12px' }}>
+          <p style={{ fontFamily: 'var(--font-poppins)', fontSize: '13px', color: 'rgba(255,255,255,0.35)', margin: 0 }}>
             © {new Date().getFullYear()} HypeHouse Digital. All rights reserved.
           </p>
           <div style={{ display: 'flex', gap: '24px' }}>
             {['Privacy Policy', 'Terms of Service'].map(item => (
               <span
                 key={item}
-                style={{
-                  fontFamily: 'var(--font-poppins)',
-                  fontSize: '13px',
-                  color: 'rgba(255,255,255,0.45)',
-                  cursor: 'pointer',
-                  transition: 'color 0.2s ease',
-                }}
+                style={{ fontFamily: 'var(--font-poppins)', fontSize: '13px', color: 'rgba(255,255,255,0.35)', cursor: 'pointer' }}
               >
                 {item}
               </span>
