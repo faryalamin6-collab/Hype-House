@@ -506,3 +506,39 @@ p, li, span:not(.gradient-text):not(.section-label) {
   0%, 100% { opacity: 0.7; transform: translate(-50%, -50%) scale(1);    }
   50%       { opacity: 1;   transform: translate(-50%, -50%) scale(1.12); }
 }
+
+/* ── FOOTER RESPONSIVE GRID ─────────────────────────────────────────────── */
+.footer-grid {
+  display: grid;
+  gap: 32px;
+  /* Mobile: brand full-width row, then Services + Company side-by-side */
+  grid-template-columns: 1fr 1fr;
+}
+.footer-brand-col {
+  grid-column: 1 / -1; /* spans all columns — full width on mobile */
+}
+.footer-cta-col {
+  display: none; /* hidden on mobile — brand col has the contact links */
+}
+/* Tablet (640px+): 3 equal columns, no Start Today */
+@media (min-width: 640px) {
+  .footer-grid {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  .footer-brand-col {
+    grid-column: span 1;
+  }
+}
+/* Desktop (1024px+): brand + services + company + start today */
+@media (min-width: 1024px) {
+  .footer-grid {
+    grid-template-columns: 2fr 1fr 1fr 1.4fr;
+    gap: 48px;
+  }
+  .footer-brand-col {
+    grid-column: span 1;
+  }
+  .footer-cta-col {
+    display: flex; /* restore Start Today column on desktop */
+  }
+}

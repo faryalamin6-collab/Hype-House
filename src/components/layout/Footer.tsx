@@ -54,24 +54,14 @@ export default function Footer() {
         style={{
           maxWidth: '1400px',
           margin: '0 auto',
-          padding: '64px 24px 32px',
+          padding: '56px 24px 32px',
         }}
       >
-        {/* Grid — 4 equal columns, all start at top */}
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(4, 1fr)',
-            gap: '40px',
-            alignItems: 'start',
-            marginBottom: '48px',
-          }}
-        >
-          {/* ── Brand column ── */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-            {/* Spacer = colHeader lineHeight (11px) + marginBottom (20px) + a little breathing = 40px */}
-            <div style={{ height: '40px' }} />
+        {/* Responsive grid — stacks on mobile, 4 cols on desktop */}
+        <div className="footer-grid" style={{ marginBottom: '48px' }}>
 
+          {/* Brand */}
+          <div className="footer-brand-col" style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
             <Image
               src="/images/logo-white.png"
               alt="HypeHouse Digital"
@@ -79,7 +69,6 @@ export default function Footer() {
               height={32}
               style={{ objectFit: 'contain', display: 'block' }}
             />
-
             <p style={{
               fontFamily: 'var(--font-poppins)',
               fontSize: '13px',
@@ -90,38 +79,53 @@ export default function Footer() {
               Full-service AI-powered creative agency.
               Strategy. Systems. Creative. Unified.
             </p>
-
-            <span style={{
-              fontFamily: 'var(--font-poppins)',
-              fontSize: '12px',
-              color: 'rgba(255,255,255,0.35)',
-            }}>
-              📍 Karachi · Operating globally
-            </span>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+              <span style={{ fontFamily: 'var(--font-poppins)', fontSize: '12px', color: 'rgba(255,255,255,0.35)' }}>
+                📍 Karachi · Operating globally
+              </span>
+              <a href="https://wa.me/971509790412?text=Hi%20HypeHouse%2C%20I%27d%20like%20to%20discuss%20a%20project"
+                target="_blank" rel="noopener noreferrer"
+                style={{ fontFamily: 'var(--font-poppins)', fontSize: '13px', color: 'rgba(37,211,102,0.75)', textDecoration: 'none' }}>
+                💬 WhatsApp us
+              </a>
+              <a href="https://hypehouse-client-intake-form.netlify.app"
+                target="_blank" rel="noopener noreferrer"
+                style={{ fontFamily: 'var(--font-poppins)', fontSize: '13px', color: 'rgba(4,157,255,0.75)', textDecoration: 'none' }}>
+                📋 Start a project
+              </a>
+            </div>
           </div>
 
-          {/* ── Services column ── */}
-          {Object.entries(footerLinks).map(([section, links]) => (
-            <div key={section}>
-              <div style={colHeader}>{section}</div>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-                {links.map(link => (
-                  <Link
-                    key={link.href}
-                    href={link.href}
-                    style={linkStyle}
-                    onMouseEnter={e => ((e.target as HTMLElement).style.color = 'rgba(255,255,255,0.90)')}
-                    onMouseLeave={e => ((e.target as HTMLElement).style.color = 'rgba(255,255,255,0.50)')}
-                  >
-                    {link.label}
-                  </Link>
-                ))}
-              </div>
+          {/* Services */}
+          <div>
+            <div style={colHeader}>Services</div>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+              {footerLinks.Services.map(link => (
+                <Link key={link.href} href={link.href} style={linkStyle}
+                  onMouseEnter={e => ((e.target as HTMLElement).style.color = 'rgba(255,255,255,0.90)')}
+                  onMouseLeave={e => ((e.target as HTMLElement).style.color = 'rgba(255,255,255,0.50)')}>
+                  {link.label}
+                </Link>
+              ))}
             </div>
-          ))}
+          </div>
 
-          {/* ── Start Today column ── */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', alignItems: 'flex-start' }}>
+          {/* Company */}
+          <div>
+            <div style={colHeader}>Company</div>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+              {footerLinks.Company.map(link => (
+                <Link key={link.href} href={link.href} style={linkStyle}
+                  onMouseEnter={e => ((e.target as HTMLElement).style.color = 'rgba(255,255,255,0.90)')}
+                  onMouseLeave={e => ((e.target as HTMLElement).style.color = 'rgba(255,255,255,0.50)')}>
+                  {link.label}
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          {/* Start Today — visible on desktop only */}
+          <div className="footer-cta-col" style={{ display: 'flex', flexDirection: 'column', gap: '16px', alignItems: 'flex-start' }}>
             <div style={colHeader}>Start Today</div>
             <p style={{
               fontFamily: 'var(--font-poppins)',
@@ -134,8 +138,7 @@ export default function Footer() {
             </p>
             <a
               href="https://hypehouse-client-intake-form.netlify.app"
-              target="_blank"
-              rel="noopener noreferrer"
+              target="_blank" rel="noopener noreferrer"
               style={{
                 fontFamily: 'var(--font-poppins)',
                 fontWeight: 600,
@@ -146,26 +149,9 @@ export default function Footer() {
                 borderRadius: '8px',
                 background: 'linear-gradient(135deg, #A614B2, #0C128D)',
                 display: 'inline-block',
-              }}
-            >
+              }}>
               Start a Project →
             </a>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-              <a
-                href="https://wa.me/971509790412?text=Hi%20HypeHouse%2C%20I%27d%20like%20to%20discuss%20a%20project"
-                target="_blank" rel="noopener noreferrer"
-                style={{ fontFamily: 'var(--font-poppins)', fontSize: '13px', color: 'rgba(37,211,102,0.75)', textDecoration: 'none' }}
-              >
-                💬 WhatsApp us
-              </a>
-              <a
-                href="https://hypehouse-client-intake-form.netlify.app"
-                target="_blank" rel="noopener noreferrer"
-                style={{ fontFamily: 'var(--font-poppins)', fontSize: '13px', color: 'rgba(4,157,255,0.75)', textDecoration: 'none' }}
-              >
-                📋 Start a project
-              </a>
-            </div>
           </div>
         </div>
 
@@ -174,15 +160,12 @@ export default function Footer() {
 
         {/* Legal */}
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '12px' }}>
-          <p style={{ fontFamily: 'var(--font-poppins)', fontSize: '13px', color: 'rgba(255,255,255,0.35)', margin: 0 }}>
+          <p style={{ fontFamily: 'var(--font-poppins)', fontSize: '13px', color: 'rgba(255,255,255,0.40)' }}>
             © {new Date().getFullYear()} HypeHouse Digital. All rights reserved.
           </p>
           <div style={{ display: 'flex', gap: '24px' }}>
             {['Privacy Policy', 'Terms of Service'].map(item => (
-              <span
-                key={item}
-                style={{ fontFamily: 'var(--font-poppins)', fontSize: '13px', color: 'rgba(255,255,255,0.35)', cursor: 'pointer' }}
-              >
+              <span key={item} style={{ fontFamily: 'var(--font-poppins)', fontSize: '13px', color: 'rgba(255,255,255,0.40)', cursor: 'pointer' }}>
                 {item}
               </span>
             ))}
