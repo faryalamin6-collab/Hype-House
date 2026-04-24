@@ -51,11 +51,13 @@ export default function Footer() {
 
           {/* ── Col 1: Brand — full width on mobile, 1 col on desktop ── */}
           <div className="col-span-2 md:col-span-1 flex flex-col gap-3 items-start">
+            <div className="hidden md:block h-[20px]" />
             <Image
               src="/images/logo-white.png"
               alt="HypeHouse Digital"
               width={130}
               height={32}
+              className="mb-0 pb-0"
               style={{ objectFit: 'contain', objectPosition: 'left top', display: 'block' }}
             />
             <p style={{ fontFamily: 'var(--font-poppins)', fontSize: '13px', color: 'rgba(255,255,255,0.50)', lineHeight: 1.65, margin: 0 }}>
