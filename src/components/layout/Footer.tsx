@@ -51,8 +51,6 @@ export default function Footer() {
 
           {/* ── Col 1: Brand — full width on mobile, 1 col on desktop ── */}
           <div className="col-span-2 md:col-span-1 flex flex-col gap-3 items-start">
-            {/* Desktop spacer aligns logo with colHeader baseline on other columns */}
-            <div className="hidden md:block h-[22px]" />
             <Image
               src="/images/logo-white.png"
               alt="HypeHouse Digital"
