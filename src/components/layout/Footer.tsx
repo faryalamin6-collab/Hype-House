@@ -154,11 +154,12 @@ export default function Footer() {
             © {new Date().getFullYear()} HypeHouse Digital. All rights reserved.
           </p>
           <div className="flex gap-4">
-            {['Privacy Policy', 'Terms of Service'].map(item => (
-              <span key={item} style={{ fontFamily: 'var(--font-poppins)', fontSize: '12px', color: 'rgba(255,255,255,0.30)', cursor: 'pointer' }}>
-                {item}
-              </span>
-            ))}
+            <Link href="/privacy-policy" style={{ fontFamily: 'var(--font-poppins)', fontSize: '12px', color: 'rgba(255,255,255,0.30)', textDecoration: 'none' }}>
+              Privacy Policy
+            </Link>
+            <Link href="/terms-of-service" style={{ fontFamily: 'var(--font-poppins)', fontSize: '12px', color: 'rgba(255,255,255,0.30)', textDecoration: 'none' }}>
+              Terms of Service
+            </Link>
           </div>
         </div>
       </div>
