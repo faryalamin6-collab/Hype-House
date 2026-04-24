@@ -66,10 +66,8 @@ const industryTags = [
 export default function TachyonPage() {
   return (
     <>
-      {/* ── SECTION 1: HERO ───────────────────────────────────────────────── */}
-      <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '0 24px', overflow: 'hidden' }}>
-        <TachyonHero />
-      </div>
+      {/* ── SECTION 1: HERO — full viewport width ────────────────────────── */}
+      <TachyonHero />
 
       {/* ── IMAGE — edge to edge ──────────────────────────────────────────── */}
       <section style={{ position: 'relative', zIndex: 10, paddingBottom: '72px' }}>

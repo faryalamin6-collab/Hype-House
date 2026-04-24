@@ -5,7 +5,7 @@ import { Spotlight } from '@/components/ui/spotlight'
 
 export default function TachyonHero() {
   return (
-    <section className="page-top w-full relative overflow-hidden rounded-2xl" style={{ minHeight: '600px', background: '#020008', border: '1px solid rgba(4,157,255,0.12)' }}>
+    <section className="page-top w-full relative overflow-hidden" style={{ minHeight: '600px', background: '#020008' }}>
       <Spotlight
         className="-top-40 left-0 md:left-60 md:-top-20"
         fill="#5B5BFF"
