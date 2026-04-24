@@ -56,7 +56,7 @@ export default function Footer() {
               alt="HypeHouse Digital"
               width={130}
               height={32}
-              style={{ objectFit: 'contain', display: 'block' }}
+              style={{ objectFit: 'contain', objectPosition: 'left top', display: 'block' }}
             />
             <p style={{ fontFamily: 'var(--font-poppins)', fontSize: '13px', color: 'rgba(255,255,255,0.50)', lineHeight: 1.65, margin: 0 }}>
               Full-service AI-powered creative agency.
