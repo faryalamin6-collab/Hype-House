@@ -153,7 +153,7 @@ export default function Navigation() {
                 ;(e.currentTarget).style.transform = 'translateY(0)'
               }}
             >
-              Start a Project →
+              Start a Project
             </a>
           </div>
 
@@ -276,7 +276,7 @@ export default function Navigation() {
             display: 'block',
           }}
         >
-          Start a Project →
+          Start a Project
         </a>
       </div>
     </>

@@ -66,7 +66,7 @@ export default function FinalCTA() {
             and a partner that plays at a different level, this is where we start.
           </p>
           <div style={{ display: 'flex', gap: '16px', justifyContent: 'center', flexWrap: 'wrap' }}>
-            <Button href="https://hypehouse-client-intake-form.netlify.app" variant="primary" external>Start a Project →</Button>
+            <Button href="https://hypehouse-client-intake-form.netlify.app" variant="primary" external>Start a Project</Button>
           </div>
         </ScrollReveal>
       </div>

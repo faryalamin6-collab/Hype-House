@@ -169,7 +169,7 @@ export default function ServiceSection({
             )}
 
             <Button href="https://hypehouse-client-intake-form.netlify.app" variant="primary" external>
-              Get Started →
+              Get Started
             </Button>
           </ScrollReveal>
         </div>

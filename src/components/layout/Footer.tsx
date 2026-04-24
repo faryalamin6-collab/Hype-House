@@ -109,7 +109,7 @@ export default function Footer() {
               target="_blank" rel="noopener noreferrer"
               style={{ fontFamily: 'var(--font-poppins)', fontWeight: 600, fontSize: '13px', color: 'white', textDecoration: 'none', padding: '10px 20px', borderRadius: '8px', background: 'linear-gradient(135deg, #A614B2, #0C128D)', display: 'inline-block' }}
             >
-              Start a Project →
+              Start a Project
             </a>
             <div className="flex flex-col gap-2">
               <a href="https://wa.me/971509790412?text=Hi%20HypeHouse%2C%20I%27d%20like%20to%20discuss%20a%20project"
@@ -140,7 +140,7 @@ export default function Footer() {
             target="_blank" rel="noopener noreferrer"
             style={{ fontFamily: 'var(--font-poppins)', fontSize: '13px', fontWeight: 600, color: 'white', textDecoration: 'none', padding: '8px 16px', borderRadius: '8px', background: 'linear-gradient(135deg, #A614B2, #0C128D)' }}
           >
-            Start a Project →
+            Start a Project
           </a>
         </div>
 

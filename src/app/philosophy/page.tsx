@@ -169,7 +169,7 @@ export default function PhilosophyPage() {
             </p>
             <div style={{ marginTop: '48px' }}>
               <Button href="https://hypehouse-client-intake-form.netlify.app" variant="primary" external>
-                Start a Project →
+                Start a Project
               </Button>
             </div>
           </div>

@@ -208,7 +208,7 @@ export default function RateCardPage() {
                   </div>
 
                   <Button href="https://hypehouse-client-intake-form.netlify.app" variant={tier.highlight ? 'primary' : 'secondary'} fullWidth external>
-                    Get Started →
+                    Get Started
                   </Button>
                 </HoverCard>
               </ScrollReveal>
@@ -256,7 +256,7 @@ export default function RateCardPage() {
                     ))}
                   </div>
                   <Button href="https://hypehouse-client-intake-form.netlify.app" variant={pkg.highlight ? 'primary' : 'secondary'} fullWidth external>
-                    Enquire →
+                    Enquire
                   </Button>
                 </HoverCard>
               </ScrollReveal>
@@ -325,7 +325,7 @@ export default function RateCardPage() {
             Every project is scoped to your specific goals and market. Reach out and we&apos;ll put together the right plan for you.
           </p>
           <Button href="https://hypehouse-client-intake-form.netlify.app" variant="primary" external>
-            Start a Project →
+            Start a Project
           </Button>
 
           {/* Operational fine print */}

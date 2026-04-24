@@ -226,7 +226,7 @@ export default function AboutContent() {
 
           <FadeUp delay={440} style={{ marginTop: '32px' }}>
             <Button href="https://hypehouse-client-intake-form.netlify.app" variant="primary" external>
-              Work With Us →
+              Work With Us
             </Button>
           </FadeUp>
         </div>
@@ -356,7 +356,7 @@ export default function AboutContent() {
 
           <FadeUp delay={100}>
             <Button href="https://hypehouse-client-intake-form.netlify.app" variant="primary" external>
-              Work With Us →
+              Work With Us
             </Button>
           </FadeUp>
         </div>

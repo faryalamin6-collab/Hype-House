@@ -88,7 +88,7 @@ export default function TachyonHero() {
         </div>
 
         {/* Right — 3D Spline Scene */}
-        <div className="flex-1 relative overflow-hidden" style={{ minHeight: '300px', maxWidth: '50%' }}>
+        <div className="flex-1 relative overflow-hidden md:max-w-[50%] w-full" style={{ minHeight: '300px' }}>
           <SplineScene
             scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
             className="w-full h-full absolute inset-0"

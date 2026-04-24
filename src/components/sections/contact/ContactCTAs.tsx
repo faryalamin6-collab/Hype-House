@@ -47,7 +47,7 @@ export default function ContactCTAs() {
           background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.18), transparent)',
           transform: 'skewX(-20deg)', animation: 'shimmer 2.5s linear infinite', pointerEvents: 'none',
         }} />
-        <span style={{ position: 'relative', zIndex: 1 }}>Fill Out Our Intake Form →</span>
+        <span style={{ position: 'relative', zIndex: 1 }}>Fill Out Our Intake Form</span>
       </a>
 
       <p style={{

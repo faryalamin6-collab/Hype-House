@@ -277,7 +277,7 @@ export default function ServiceShowcase3D({ services }: { services: Service[] })
                       {/* CTA + back */}
                       <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
                         <Button href="https://hypehouse-client-intake-form.netlify.app" variant="primary" external>
-                          Get Started →
+                          Get Started
                         </Button>
                         <button
                           onClick={() => setFlipped(false)}
