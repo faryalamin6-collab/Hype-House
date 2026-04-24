@@ -46,13 +46,13 @@ export default function Footer() {
     <footer className="relative z-10" style={{ borderTop: '1px solid rgba(4,157,255,0.10)', background: '#020008' }}>
       <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '64px 24px 32px' }}>
 
-        {/* 1 col on mobile → 4 equal cols from md, all pinned to top */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 items-start mb-12">
+        {/* Main grid: 2-col mobile (logo full-width + 2 link cols + hidden CTA), 4-col desktop */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 items-start mb-10">
 
-          {/* ── Col 1: Brand ── */}
-          <div className="flex flex-col gap-3">
-            {/* Spacer = colHeader height (11px line-height:1) + marginBottom 20px + 9px breathing = 40px total */}
-            <div style={{ height: '40px' }} />
+          {/* ── Col 1: Brand — full width on mobile, 1 col on desktop ── */}
+          <div className="col-span-2 md:col-span-1 flex flex-col gap-3">
+            {/* Desktop spacer aligns logo with colHeader baseline on other columns */}
+            <div className="hidden md:block" style={{ height: '40px' }} />
             <Image
               src="/images/logo-white.png"
               alt="HypeHouse Digital"
@@ -64,7 +64,8 @@ export default function Footer() {
               Full-service AI-powered creative agency.
               Strategy. Systems. Creative. Unified.
             </p>
-            <span style={{ fontFamily: 'var(--font-poppins)', fontSize: '12px', color: 'rgba(255,255,255,0.30)' }}>
+            {/* Location — desktop only */}
+            <span className="hidden md:inline" style={{ fontFamily: 'var(--font-poppins)', fontSize: '12px', color: 'rgba(255,255,255,0.30)' }}>
               📍 Karachi · Operating globally
             </span>
           </div>
@@ -72,7 +73,7 @@ export default function Footer() {
           {/* ── Col 2: Services ── */}
           <div>
             <div style={colHeader}>Services</div>
-            <div className="flex flex-col gap-3">
+            <div className="flex flex-col gap-2">
               {footerLinks.Services.map(link => (
                 <Link key={link.href} href={link.href} style={linkStyle}
                   onMouseEnter={e => ((e.target as HTMLElement).style.color = 'rgba(255,255,255,0.90)')}
@@ -86,7 +87,7 @@ export default function Footer() {
           {/* ── Col 3: Company ── */}
           <div>
             <div style={colHeader}>Company</div>
-            <div className="flex flex-col gap-3">
+            <div className="flex flex-col gap-2">
               {footerLinks.Company.map(link => (
                 <Link key={link.href} href={link.href} style={linkStyle}
                   onMouseEnter={e => ((e.target as HTMLElement).style.color = 'rgba(255,255,255,0.90)')}
@@ -97,8 +98,8 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* ── Col 4: Start Today ── */}
-          <div className="flex flex-col gap-4 items-start">
+          {/* ── Col 4: Start Today — desktop only ── */}
+          <div className="hidden md:flex flex-col gap-4 items-start">
             <div style={colHeader}>Start Today</div>
             <p style={{ fontFamily: 'var(--font-poppins)', fontSize: '13px', color: 'rgba(255,255,255,0.55)', lineHeight: 1.65, margin: 0 }}>
               Ready to build something unforgettable? Let&apos;s talk strategy.
@@ -125,17 +126,36 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Divider */}
-        <div style={{ height: '1px', background: 'rgba(255,255,255,0.06)', marginBottom: '24px' }} />
+        {/* Mobile-only CTA row */}
+        <div className="flex md:hidden items-center gap-6 pb-6" style={{ borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
+          <a
+            href="https://wa.me/971509790412?text=Hi%20HypeHouse%2C%20I%27d%20like%20to%20discuss%20a%20project"
+            target="_blank" rel="noopener noreferrer"
+            style={{ fontFamily: 'var(--font-poppins)', fontSize: '13px', color: 'rgba(37,211,102,0.85)', textDecoration: 'none' }}
+          >
+            💬 WhatsApp
+          </a>
+          <a
+            href="https://hypehouse-client-intake-form.netlify.app"
+            target="_blank" rel="noopener noreferrer"
+            style={{ fontFamily: 'var(--font-poppins)', fontSize: '13px', fontWeight: 600, color: 'white', textDecoration: 'none', padding: '8px 16px', borderRadius: '8px', background: 'linear-gradient(135deg, #A614B2, #0C128D)' }}
+          >
+            Start a Project →
+          </a>
+        </div>
+
+        {/* Desktop divider (hidden on mobile — above row handles it) */}
+        <div className="hidden md:block" style={{ height: '1px', background: 'rgba(255,255,255,0.06)', marginBottom: '24px' }} />
+        <div className="md:hidden" style={{ height: '24px' }} />
 
         {/* Legal */}
         <div className="flex flex-wrap justify-between items-center gap-3">
-          <p style={{ fontFamily: 'var(--font-poppins)', fontSize: '13px', color: 'rgba(255,255,255,0.35)', margin: 0 }}>
+          <p style={{ fontFamily: 'var(--font-poppins)', fontSize: '12px', color: 'rgba(255,255,255,0.30)', margin: 0 }}>
             © {new Date().getFullYear()} HypeHouse Digital. All rights reserved.
           </p>
-          <div className="flex gap-6">
+          <div className="flex gap-4">
             {['Privacy Policy', 'Terms of Service'].map(item => (
-              <span key={item} style={{ fontFamily: 'var(--font-poppins)', fontSize: '13px', color: 'rgba(255,255,255,0.35)', cursor: 'pointer' }}>
+              <span key={item} style={{ fontFamily: 'var(--font-poppins)', fontSize: '12px', color: 'rgba(255,255,255,0.30)', cursor: 'pointer' }}>
                 {item}
               </span>
             ))}
