@@ -43,16 +43,16 @@ const linkStyle: React.CSSProperties = {
 
 export default function Footer() {
   return (
-    <footer className="relative z-10" style={{ borderTop: '1px solid rgba(4,157,255,0.10)', background: '#020008' }}>
-      <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '64px 24px 32px' }}>
+    <footer className="relative z-10 bg-[#020008] border-t border-white/10 pt-12 md:pt-16">
+      <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '0 24px 32px' }}>
 
         {/* Main grid: 2-col mobile (logo full-width + 2 link cols + hidden CTA), 4-col desktop */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 items-start mb-10">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 items-start w-full mb-10">
 
           {/* ── Col 1: Brand — full width on mobile, 1 col on desktop ── */}
-          <div className="col-span-2 md:col-span-1 flex flex-col gap-3">
+          <div className="col-span-2 md:col-span-1 flex flex-col gap-3 items-start">
             {/* Desktop spacer aligns logo with colHeader baseline on other columns */}
-            <div className="hidden md:block" style={{ height: '40px' }} />
+            <div className="hidden md:block h-[22px]" />
             <Image
               src="/images/logo-white.png"
               alt="HypeHouse Digital"
