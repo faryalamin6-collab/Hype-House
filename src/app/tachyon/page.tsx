@@ -3,7 +3,6 @@ import SectionLabel from '@/components/ui/SectionLabel'
 import ScrollReveal from '@/components/ui/ScrollReveal'
 import Button from '@/components/ui/Button'
 import HoverCard from '@/components/ui/HoverCard'
-import ImageReveal from '@/components/ui/ImageReveal'
 import TachyonHero from '@/components/sections/tachyon/TachyonHero'
 
 export const metadata: Metadata = {
@@ -68,11 +67,6 @@ export default function TachyonPage() {
     <>
       {/* ── SECTION 1: HERO — full viewport width ────────────────────────── */}
       <TachyonHero />
-
-      {/* ── IMAGE — edge to edge ──────────────────────────────────────────── */}
-      <section style={{ position: 'relative', zIndex: 10, paddingBottom: '72px' }}>
-        <ImageReveal src="/images/additional-2.png" alt="Tachyon AI System" />
-      </section>
 
       {/* ── SECTION 2: THE PROBLEM ────────────────────────────────────────── */}
       <section
