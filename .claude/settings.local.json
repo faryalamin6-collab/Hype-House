@@ -30,7 +30,14 @@
       "Bash(grep -v \"letterSpacing\\\\|width\\\\|//\")",
       "Bash(grep -v \"node_modules\\\\|//\")",
       "Bash(sed -i \"s/  padding: 0 48px;/  padding: 0 24px;/g\" src/app/globals.css)",
-      "Bash(sed -i \"s/  max-width: 1200px;/  max-width: 1400px;/g\" src/app/globals.css)"
+      "Bash(sed -i \"s/  max-width: 1200px;/  max-width: 1400px;/g\" src/app/globals.css)",
+      "Bash(git commit *)",
+      "Bash(npm run *)",
+      "Bash(node -e \"const icons = require\\('lucide-react'\\); console.log\\(Object.keys\\(icons\\).filter\\(k => k.toLowerCase\\(\\).includes\\('instagram'\\) || k.toLowerCase\\(\\).includes\\('linkedin'\\)\\)\\)\")",
+      "Bash(node -e \"const icons = require\\('lucide-react'\\); const keys = Object.keys\\(icons\\); console.log\\('Total icons:', keys.length\\); console.log\\(keys.filter\\(k => /insta|linked|social|share/i.test\\(k\\)\\)\\)\")",
+      "Bash(node -e \"const { MessageCircle } = require\\('lucide-react'\\); console.log\\(typeof MessageCircle\\)\")",
+      "Bash(git show *)",
+      "Bash(git checkout *)"
     ]
   }
 }
