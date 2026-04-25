@@ -79,55 +79,8 @@ export function useScrollAnimations() {
           )
         })
 
-        // Pinned horizontal scroll — desktop only
-        if (window.innerWidth >= 768) {
-          gsap.utils.toArray('.scroll-pin').forEach((el: any) => {
-            const inner = el.querySelector('.scroll-pin-inner')
-            if (!inner) return
-            const panelCount = inner.children.length
-            const totalScroll = (panelCount - 1) * window.innerWidth
 
-            // Main horizontal slide
-            gsap.to(inner, {
-              x: () => -totalScroll,
-              ease: 'none',
-              scrollTrigger: {
-                trigger: el,
-                pin: true,
-                scrub: true,
-                start: 'top top',
-                end: () => `+=${totalScroll}`,
-                anticipatePin: 1,
-                invalidateOnRefresh: true,
-              },
-            })
-
-            // Per-panel text reveal — fires as each panel enters center
-            const panelTexts = Array.from(inner.querySelectorAll('.panel-text'))
-            panelTexts.forEach((textBlock: any, i: number) => {
-              const children = Array.from(textBlock.children)
-              const scrollOffset = i * window.innerWidth
-
-              gsap.fromTo(children,
-                { opacity: 0, y: 28 },
-                {
-                  opacity: 1, y: 0,
-                  duration: 0.7,
-                  stagger: 0.14,
-                  ease: 'power3.out',
-                  scrollTrigger: {
-                    trigger: el,
-                    start: () => `top+=${scrollOffset} top`,
-                    end: () => `top+=${scrollOffset + 60} top`,
-                    toggleActions: 'play none none reverse',
-                  },
-                }
-              )
-            })
-          })
-        }
-
-      })
+})
     }
 
     init()

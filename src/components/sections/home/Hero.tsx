@@ -1,27 +1,36 @@
 'use client'
 
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import Button from '@/components/ui/Button'
 import SectionLabel from '@/components/ui/SectionLabel'
 
-export default function Hero() {
-  const badgeRef = useRef<HTMLDivElement>(null)
-  const line1Ref = useRef<HTMLDivElement>(null)
-  const line2Ref = useRef<HTMLDivElement>(null)
-  const line3Ref = useRef<HTMLDivElement>(null)
-  const paraRef = useRef<HTMLParagraphElement>(null)
-  const btnsRef = useRef<HTMLDivElement>(null)
-  useEffect(() => {
-    const elements = [
-      { el: badgeRef.current, delay: 0 },
-      { el: line1Ref.current, delay: 100 },
-      { el: line2Ref.current, delay: 200 },
-      { el: line3Ref.current, delay: 300 },
-      { el: paraRef.current, delay: 450 },
-      { el: btnsRef.current, delay: 600 },
-    ]
+const PHRASES = ['Strategy first.', 'Built with intent.', 'Built to outperform.']
 
-    elements.forEach(({ el, delay }) => {
+export default function Hero() {
+  const badgeRef    = useRef<HTMLDivElement>(null)
+  const line1Ref    = useRef<HTMLDivElement>(null)
+  const line2Ref    = useRef<HTMLDivElement>(null)
+  const typeLineRef = useRef<HTMLDivElement>(null)
+  const paraRef     = useRef<HTMLParagraphElement>(null)
+  const btnsRef     = useRef<HTMLDivElement>(null)
+
+  const [ready,     setReady]     = useState(false)
+  const [typed,     setTyped]     = useState('')
+  const [phraseIdx, setPhraseIdx] = useState(0)
+  const [deleting,  setDeleting]  = useState(false)
+  const [cursor,    setCursor]    = useState(true)
+
+  // Entrance animation
+  useEffect(() => {
+    const els = [
+      { el: badgeRef.current,    delay: 0 },
+      { el: line1Ref.current,    delay: 100 },
+      { el: line2Ref.current,    delay: 200 },
+      { el: typeLineRef.current, delay: 360 },
+      { el: paraRef.current,     delay: 520 },
+      { el: btnsRef.current,     delay: 680 },
+    ]
+    els.forEach(({ el, delay }) => {
       if (!el) return
       el.style.opacity = '0'
       el.style.transform = 'translateY(30px)'
@@ -31,9 +40,33 @@ export default function Hero() {
         el.style.transform = 'translateY(0)'
       }, delay)
     })
-
-    return () => {}
+    const t = setTimeout(() => setReady(true), 950)
+    return () => clearTimeout(t)
   }, [])
+
+  // Blinking cursor
+  useEffect(() => {
+    const t = setInterval(() => setCursor(v => !v), 500)
+    return () => clearInterval(t)
+  }, [])
+
+  // Typewriter loop
+  useEffect(() => {
+    if (!ready) return
+    const phrase = PHRASES[phraseIdx]
+    let t: ReturnType<typeof setTimeout>
+    if (!deleting && typed.length < phrase.length) {
+      t = setTimeout(() => setTyped(phrase.slice(0, typed.length + 1)), 80)
+    } else if (!deleting && typed.length === phrase.length) {
+      t = setTimeout(() => setDeleting(true), 2000)
+    } else if (deleting && typed.length > 0) {
+      t = setTimeout(() => setTyped(phrase.slice(0, typed.length - 1)), 45)
+    } else {
+      setDeleting(false)
+      setPhraseIdx(i => (i + 1) % PHRASES.length)
+    }
+    return () => clearTimeout(t)
+  }, [ready, typed, phraseIdx, deleting])
 
   return (
     <section
@@ -50,6 +83,7 @@ export default function Hero() {
       }}
     >
       <div style={{ maxWidth: '840px', width: '100%', position: 'relative', zIndex: 2 }}>
+
         {/* Badge */}
         <div ref={badgeRef} style={{ marginBottom: '32px', display: 'flex', justifyContent: 'center' }}>
           <SectionLabel>An AI-Powered Creative Agency</SectionLabel>
@@ -63,7 +97,7 @@ export default function Hero() {
             fontSize: 'clamp(28px, 6vw, 76px)',
             lineHeight: 1.05,
             letterSpacing: '-0.02em',
-            marginBottom: '24px',
+            marginBottom: '20px',
           }}
         >
           <div ref={line1Ref} style={{ color: 'white' }}>
@@ -73,6 +107,46 @@ export default function Hero() {
             <span className="gradient-text">We Engineer Hype.</span>
           </div>
         </h1>
+
+        {/* Typewriter line */}
+        <div
+          ref={typeLineRef}
+          style={{
+            fontFamily: 'var(--font-poppins)',
+            fontWeight: 600,
+            fontSize: 'clamp(15px, 1.6vw, 22px)',
+            letterSpacing: '0.03em',
+            marginBottom: '28px',
+            minHeight: '1.6em',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            gap: '2px',
+          }}
+        >
+          <span
+            style={{
+              background: 'linear-gradient(135deg, #9F01F6 0%, #021FC3 35%, #00F0FF 100%)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              backgroundClip: 'text',
+            }}
+          >
+            {typed}
+          </span>
+          <span
+            style={{
+              display: 'inline-block',
+              width: '2px',
+              height: '1em',
+              background: 'linear-gradient(180deg, #9F01F6, #00F0FF)',
+              opacity: cursor ? 1 : 0,
+              transition: 'opacity 0.1s',
+              verticalAlign: 'middle',
+              borderRadius: '1px',
+            }}
+          />
+        </div>
 
         {/* Subheading */}
         <p
@@ -133,6 +207,7 @@ export default function Hero() {
             Explore Our Services
           </Button>
         </div>
+
       </div>
     </section>
   )

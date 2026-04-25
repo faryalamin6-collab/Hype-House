@@ -48,13 +48,12 @@ export default function PhilosophyPage() {
             <SectionLabel>Our Philosophy · The HypeHouse Code</SectionLabel>
             <h1 style={{
               fontFamily: 'var(--font-poppins)', fontWeight: 800,
-              fontSize: 'clamp(32px, 6vw, 76px)', color: 'white',
+              fontSize: 'clamp(28px, 3.5vw, 48px)', color: 'white',
               marginTop: '24px', marginBottom: '32px',
-              letterSpacing: '-0.02em', lineHeight: 1.05,
+              letterSpacing: '-0.02em', lineHeight: 1.1,
             }}>
-              We Don&apos;t Follow The<br />
-              Formula.<br />
-              <span className="gradient-text">We Write The Blueprint</span>
+              We Don&apos;t Follow The Formula.<br />
+              <span className="gradient-text">We Write The Blueprint.</span>
             </h1>
           </ScrollReveal>
         </div>
@@ -159,14 +158,6 @@ export default function PhilosophyPage() {
                 Unlimited Creativity. True Partnership.<br />Exceptional Quality. Unmatched Hype.
               </span>
             </blockquote>
-            <p style={{
-              fontSize: '14px', color: 'rgba(255,255,255,0.60)',
-              lineHeight: 1.8, marginBottom: '8px',
-            }}>
-              This is how we build.<br />
-              This is how we care.<br />
-              This is HypeHouse.
-            </p>
             <div style={{ marginTop: '48px' }}>
               <Button href="https://hypehouse-client-intake-form.netlify.app" variant="primary" external>
                 Start a Project

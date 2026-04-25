@@ -293,7 +293,7 @@ export default function AboutContent() {
           padding: '0 24px 36px',
         }}
       >
-        <div style={{ maxWidth: '780px', margin: '0 auto', paddingTop: '24px' }}>
+        <div style={{ maxWidth: '780px', margin: '0 auto', paddingTop: '24px', textAlign: 'center' }}>
           <div style={{ marginBottom: '20px' }}>
             <ClipReveal tag="p" className="about-lead" delay={0}>
               Everyone talks about AI.

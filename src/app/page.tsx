@@ -7,11 +7,6 @@ import DragServiceCards from '@/components/sections/home/DragServiceCards'
 import TachyonTeaser from '@/components/sections/home/TachyonTeaser'
 import FinalCTA from '@/components/sections/home/FinalCTA'
 
-const ApplePinSection = dynamic(
-  () => import('@/components/sections/home/ApplePinSection'),
-  { ssr: false }
-)
-
 const ScrollAnimationsInit = dynamic(
   () => import('@/components/ScrollAnimationsInit'),
   { ssr: false }
@@ -32,7 +27,6 @@ export default function HomePage() {
       <ScrollAnimationsInit />
       <Hero />
       <ServiceTicker />
-      <ApplePinSection />
       <WhyHypeHouse />
       <DragServiceCards />
       <TachyonTeaser />
