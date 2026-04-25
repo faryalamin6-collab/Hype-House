@@ -385,7 +385,7 @@ export default function DragServiceCards() {
           href="/services"
           style={{
             display: 'inline-flex', alignItems: 'center', gap: '8px',
-            padding: '14px 36px', borderRadius: '999px',
+            height: '48px', padding: '0 36px', borderRadius: '999px',
             fontFamily: 'var(--font-poppins)', fontWeight: 600,
             fontSize: '14px', color: 'white', textDecoration: 'none',
             background: 'linear-gradient(135deg, #A614B2 0%, #0C128D 50%, #049DFF 100%)',

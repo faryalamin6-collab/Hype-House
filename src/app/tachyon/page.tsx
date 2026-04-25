@@ -433,8 +433,8 @@ export default function TachyonPage() {
                 display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
                 fontFamily: 'var(--font-poppins)', fontWeight: 700, fontSize: '15px',
                 color: '#FFFFFF', textDecoration: 'none',
-                padding: '18px 40px', borderRadius: '9999px',
-                background: 'linear-gradient(135deg, #9F01F6 0%, #021FC3 35%, #00F0FF 100%)',
+                height: '48px', padding: '0 40px', borderRadius: '9999px',
+                background: 'linear-gradient(135deg, #A614B2 0%, #0C128D 50%, #049DFF 100%)',
                 border: 'none',
                 transition: 'box-shadow 0.3s ease',
               }}

@@ -54,8 +54,8 @@ export default function Button({
     fontFamily: 'var(--font-poppins)',
     fontWeight: 600,
     fontSize: '15px',
-    minHeight: '52px',
-    padding: '14px 32px',
+    height: '48px',
+    padding: '0 28px',
     borderRadius: '9999px',
     textDecoration: 'none',
     cursor: 'pointer',
@@ -64,7 +64,7 @@ export default function Button({
     width: fullWidth ? '100%' : 'auto',
     ...(variant === 'primary'
       ? {
-          background: 'linear-gradient(135deg, #9F01F6 0%, #021FC3 35%, #00F0FF 100%)',
+          background: 'linear-gradient(135deg, #A614B2 0%, #0C128D 50%, #049DFF 100%)',
           color: 'white',
         }
       : {
