@@ -248,7 +248,7 @@ export default function AboutContent() {
           padding: '36px 24px 0',
         }}
       >
-        <div style={{ maxWidth: '780px', margin: '0 auto' }}>
+        <div style={{ maxWidth: '780px', margin: '0 auto', textAlign: 'center' }}>
 
           <div style={{ marginBottom: '20px' }}>
             <ClipReveal tag="p" className="about-lead" delay={0}>

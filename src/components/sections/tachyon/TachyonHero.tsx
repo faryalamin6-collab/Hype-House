@@ -81,7 +81,7 @@ export default function TachyonHero() {
               color: '#FFFFFF',
               textDecoration: 'none',
               width: 'fit-content',
-              background: 'linear-gradient(135deg, #9F01F6 0%, #021FC3 35%, #00F0FF 100%)',
+              background: 'linear-gradient(135deg, #A614B2 0%, #0C128D 50%, #049DFF 100%)',
             }}
           >
             Activate Tachyon →

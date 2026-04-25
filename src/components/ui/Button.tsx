@@ -64,7 +64,7 @@ export default function Button({
     width: fullWidth ? '100%' : 'auto',
     ...(variant === 'primary'
       ? {
-          background: 'linear-gradient(135deg, #A614B2, #0C128D)',
+          background: 'linear-gradient(135deg, #A614B2 0%, #0C128D 50%, #049DFF 100%)',
           color: 'white',
         }
       : {

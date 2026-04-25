@@ -30,37 +30,42 @@ function Panel({ label, labelColor, line1, line2, gradient }: typeof panels[0]) 
       className="w-screen h-full flex flex-col items-center justify-center px-8 md:px-20"
       style={{ flexShrink: 0 }}
     >
-      <p style={{
-        fontFamily: 'var(--font-poppins)',
-        fontWeight: 600,
-        fontSize: '13px',
-        letterSpacing: '0.3em',
-        textTransform: 'uppercase',
-        color: labelColor,
-        marginBottom: '24px',
-      }}>
-        {label}
-      </p>
-      <h2 style={{
-        fontFamily: 'var(--font-poppins)',
-        fontWeight: 800,
-        fontSize: 'clamp(36px, 6vw, 80px)',
-        color: 'white',
-        textAlign: 'center',
-        lineHeight: 1.1,
-        letterSpacing: '-0.02em',
-        margin: 0,
-      }}>
-        {line1}<br />
-        <span style={{
-          background: gradient,
-          WebkitBackgroundClip: 'text',
-          WebkitTextFillColor: 'transparent',
-          backgroundClip: 'text',
+      {/* panel-text wrapper: children are animated by useScrollAnimations */}
+      <div className="panel-text flex flex-col items-center gap-6">
+        <p style={{
+          fontFamily: 'var(--font-poppins)',
+          fontWeight: 600,
+          fontSize: '13px',
+          letterSpacing: '0.3em',
+          textTransform: 'uppercase',
+          color: labelColor,
+          margin: 0,
+          opacity: 0,
         }}>
-          {line2}
-        </span>
-      </h2>
+          {label}
+        </p>
+        <h2 style={{
+          fontFamily: 'var(--font-poppins)',
+          fontWeight: 800,
+          fontSize: 'clamp(36px, 6vw, 80px)',
+          color: 'white',
+          textAlign: 'center',
+          lineHeight: 1.1,
+          letterSpacing: '-0.02em',
+          margin: 0,
+          opacity: 0,
+        }}>
+          {line1}<br />
+          <span style={{
+            background: gradient,
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent',
+            backgroundClip: 'text',
+          }}>
+            {line2}
+          </span>
+        </h2>
+      </div>
     </div>
   )
 }

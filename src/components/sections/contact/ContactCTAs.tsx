@@ -27,7 +27,7 @@ export default function ContactCTAs() {
         style={{
           display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '10px',
           width: '100%', padding: '16px 24px', borderRadius: '9999px',
-          background: 'linear-gradient(135deg, #A614B2, #0C128D)',
+          background: 'linear-gradient(135deg, #A614B2 0%, #0C128D 50%, #049DFF 100%)',
           fontFamily: 'var(--font-poppins)', fontWeight: 600, fontSize: '16px',
           color: '#ffffff', textDecoration: 'none', marginBottom: '12px',
           position: 'relative', overflow: 'hidden',
