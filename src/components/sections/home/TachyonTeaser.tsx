@@ -49,6 +49,7 @@ export default function TachyonTeaser() {
               marginBottom: '20px',
               letterSpacing: '-0.02em',
               lineHeight: 1.15,
+              textWrap: 'balance' as any,
             }}
           >
             Business Systems{' '}
@@ -91,8 +92,8 @@ export default function TachyonTeaser() {
               color: 'white',
               textDecoration: 'none',
               padding: '14px 28px',
-              borderRadius: '8px',
-              background: 'linear-gradient(135deg, #5B8FFF 0%, #B040FF 55%, #00F0FF 100%)',
+              borderRadius: '9999px',
+              background: 'linear-gradient(135deg, #9F01F6 0%, #021FC3 35%, #00F0FF 100%)',
             }}
           >
             Explore Tachyon →

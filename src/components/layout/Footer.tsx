@@ -107,7 +107,7 @@ export default function Footer() {
             <a
               href="https://hypehouse-client-intake-form.netlify.app"
               target="_blank" rel="noopener noreferrer"
-              style={{ fontFamily: 'var(--font-poppins)', fontWeight: 600, fontSize: '13px', color: 'white', textDecoration: 'none', padding: '10px 20px', borderRadius: '8px', background: 'linear-gradient(135deg, #A614B2, #0C128D)', display: 'inline-block' }}
+              style={{ fontFamily: 'var(--font-poppins)', fontWeight: 600, fontSize: '13px', color: 'white', textDecoration: 'none', padding: '10px 20px', borderRadius: '9999px', background: 'linear-gradient(135deg, #A614B2, #0C128D)', display: 'inline-block' }}
             >
               Start a Project
             </a>
@@ -138,7 +138,7 @@ export default function Footer() {
           <a
             href="https://hypehouse-client-intake-form.netlify.app"
             target="_blank" rel="noopener noreferrer"
-            style={{ fontFamily: 'var(--font-poppins)', fontSize: '13px', fontWeight: 600, color: 'white', textDecoration: 'none', padding: '8px 16px', borderRadius: '8px', background: 'linear-gradient(135deg, #A614B2, #0C128D)' }}
+            style={{ fontFamily: 'var(--font-poppins)', fontSize: '13px', fontWeight: 600, color: 'white', textDecoration: 'none', padding: '8px 16px', borderRadius: '9999px', background: 'linear-gradient(135deg, #A614B2, #0C128D)' }}
           >
             Start a Project
           </a>

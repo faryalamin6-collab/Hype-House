@@ -26,7 +26,7 @@ export default function ContactCTAs() {
         rel="noopener noreferrer"
         style={{
           display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '10px',
-          width: '100%', padding: '16px 24px', borderRadius: '10px',
+          width: '100%', padding: '16px 24px', borderRadius: '9999px',
           background: 'linear-gradient(135deg, #A614B2, #0C128D)',
           fontFamily: 'var(--font-poppins)', fontWeight: 600, fontSize: '16px',
           color: '#ffffff', textDecoration: 'none', marginBottom: '12px',
@@ -71,7 +71,7 @@ export default function ContactCTAs() {
         rel="noopener noreferrer"
         style={{
           display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '10px',
-          width: '100%', padding: '15px 24px', borderRadius: '10px',
+          width: '100%', padding: '15px 24px', borderRadius: '9999px',
           background: 'rgba(37,211,102,0.10)', border: '1px solid rgba(37,211,102,0.35)',
           fontFamily: 'var(--font-poppins)', fontWeight: 600, fontSize: '15px',
           color: '#25D366', textDecoration: 'none',

@@ -29,10 +29,11 @@ export default function TachyonHero() {
           <h1 style={{
             fontFamily: 'var(--font-poppins)',
             fontWeight: 800,
-            fontSize: 'clamp(28px, 4.5vw, 52px)',
+            fontSize: 'clamp(28px, 3.8vw, 48px)',
             letterSpacing: '-0.02em',
             lineHeight: 1.1,
             marginBottom: '16px',
+            maxWidth: '480px',
           }}>
             <span style={{
               background: 'linear-gradient(180deg, #ffffff 0%, rgba(255,255,255,0.6) 100%)',

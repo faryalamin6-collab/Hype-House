@@ -56,7 +56,7 @@ export default function Button({
     fontSize: '15px',
     minHeight: '52px',
     padding: '14px 32px',
-    borderRadius: '8px',
+    borderRadius: '9999px',
     textDecoration: 'none',
     cursor: 'pointer',
     border: 'none',

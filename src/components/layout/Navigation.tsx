@@ -100,7 +100,7 @@ export default function Navigation() {
                     : 'rgba(255,255,255,0.80)',
                   textDecoration: 'none',
                   padding: '8px 14px',
-                  borderRadius: '8px',
+                  borderRadius: '9999px',
                   background: pathname === link.href
                     ? 'rgba(166,20,178,0.12)'
                     : 'transparent',
@@ -138,7 +138,7 @@ export default function Navigation() {
                 color: 'white',
                 textDecoration: 'none',
                 padding: '9px 20px',
-                borderRadius: '8px',
+                borderRadius: '9999px',
                 background: 'linear-gradient(135deg, #A614B2, #0C128D)',
                 marginLeft: '8px',
                 transition: 'box-shadow 0.2s ease, transform 0.2s ease',
@@ -265,7 +265,7 @@ export default function Navigation() {
             color: 'white',
             textDecoration: 'none',
             padding: '14px 40px',
-            borderRadius: '8px',
+            borderRadius: '9999px',
             background: 'linear-gradient(135deg, #A614B2, #0C128D)',
             width: '100%',
             maxWidth: '240px',

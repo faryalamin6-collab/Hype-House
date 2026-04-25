@@ -79,24 +79,29 @@ export function useScrollAnimations() {
           )
         })
 
-        // Pinned horizontal scroll — Apple style
-        gsap.utils.toArray('.scroll-pin').forEach((el: any) => {
-          const inner = el.querySelector('.scroll-pin-inner')
-          if (!inner) return
-          gsap.to(inner, {
-            xPercent: -100 * (inner.children.length - 1),
-            ease: 'none',
-            scrollTrigger: {
-              trigger: el,
-              pin: true,
-              scrub: 1,
-              start: 'top top',
-              end: () => `+=${inner.scrollWidth - window.innerWidth}`,
-              anticipatePin: 1,
-              invalidateOnRefresh: true,
-            },
+        // Pinned horizontal scroll — desktop only
+        if (window.innerWidth >= 768) {
+          gsap.utils.toArray('.scroll-pin').forEach((el: any) => {
+            const inner = el.querySelector('.scroll-pin-inner')
+            if (!inner) return
+            const panelCount = inner.children.length
+            const totalScroll = (panelCount - 1) * window.innerWidth
+
+            gsap.to(inner, {
+              x: () => -totalScroll,
+              ease: 'none',
+              scrollTrigger: {
+                trigger: el,
+                pin: true,
+                scrub: true,
+                start: 'top top',
+                end: () => `+=${totalScroll}`,
+                anticipatePin: 1,
+                invalidateOnRefresh: true,
+              },
+            })
           })
-        })
+        }
 
       })
     }
