@@ -13,7 +13,7 @@ export default function WhyHypeHouse() {
   return (
     <section style={{ position: 'relative', zIndex: 10 }}>
       <ScrollReveal>
-        <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '60px 24px', textAlign: 'center' }}>
+        <div style={{ maxWidth: '1400px', margin: '0 auto', padding: 'clamp(28px, 5vw, 60px) 24px', textAlign: 'center' }}>
           <div style={{ display: 'flex', justifyContent: 'center' }}>
             <SectionLabel>Why HypeHouse</SectionLabel>
           </div>
