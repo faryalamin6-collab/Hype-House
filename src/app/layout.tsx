@@ -9,6 +9,7 @@ import PageTransition from './PageTransition'
 import HashAnchorScroll from '@/components/ui/HashAnchorScroll'
 import PageLoader from '@/components/PageLoader'
 import { SpeedInsights } from '@vercel/speed-insights/next'
+import { Analytics } from '@vercel/analytics/react'
 
 const BackgroundCanvas = dynamic(
   () => import('@/components/canvas/BackgroundCanvas'),
@@ -145,6 +146,7 @@ export default function RootLayout({
 
           <Footer />
         </LenisWrapper>
+        <Analytics />
         <SpeedInsights />
       </body>
     </html>
