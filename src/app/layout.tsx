@@ -81,6 +81,9 @@ export default function RootLayout({
         {/* Google Fonts — Poppins */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        {/* Spline CDN — early connection so the scene fetches faster */}
+        <link rel="preconnect" href="https://prod.spline.design" />
+        <link rel="dns-prefetch" href="https://prod.spline.design" />
         {/* eslint-disable-next-line @next/next/no-page-custom-font */}
         <link
           rel="preload"
