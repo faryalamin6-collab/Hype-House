@@ -248,41 +248,51 @@ export default function AboutContent() {
           padding: '36px 24px 0',
         }}
       >
-        <div style={{ maxWidth: '780px', margin: '0 auto', textAlign: 'center' }}>
+        <div style={{ maxWidth: '780px', margin: '0 auto' }}>
+          <div style={{
+            background: 'rgba(255,255,255,0.04)',
+            backdropFilter: 'blur(14px)',
+            WebkitBackdropFilter: 'blur(14px)',
+            border: '1px solid rgba(255,255,255,0.08)',
+            borderRadius: '20px',
+            padding: '40px 32px',
+            textAlign: 'center',
+          }}>
 
-          <div style={{ marginBottom: '20px' }}>
-            <ClipReveal tag="p" className="about-lead" delay={0}>
-              We&apos;re not your typical agency.
-            </ClipReveal>
+            <div style={{ marginBottom: '20px' }}>
+              <ClipReveal tag="p" className="about-lead" delay={0}>
+                We&apos;re not your typical agency.
+              </ClipReveal>
+            </div>
+
+            <FadeUp delay={80} style={{ marginBottom: '16px' }}>
+              <p className="about-body">
+                We&apos;re architects of velocity, where design, storytelling, and AI collide to create
+                ecosystems that move at lightspeed and perform with precision.
+              </p>
+            </FadeUp>
+
+            <FadeUp delay={80} style={{ marginBottom: '16px' }}>
+              <p className="about-body">
+                Where bold creative ignites movements.
+              </p>
+            </FadeUp>
+
+            <FadeUp delay={80} style={{ marginBottom: '16px' }}>
+              <p className="about-body">
+                Where every visual, every line, and every campaign is built to inspire
+                and engineered to perform.
+              </p>
+            </FadeUp>
+
+            <FadeUp delay={0}>
+              <p className="about-body">
+                At HypeHouse, we believe that modern brands need more than marketing.
+                They need systems that evolve. Stories that spread like wildfire.
+                Visuals that rewire perception.
+              </p>
+            </FadeUp>
           </div>
-
-          <FadeUp delay={80} style={{ marginBottom: '20px' }}>
-            <p className="about-body">
-              We&apos;re architects of velocity, where design, storytelling, and AI collide to create
-              ecosystems that move at lightspeed and perform with precision.
-            </p>
-          </FadeUp>
-
-          <FadeUp delay={80} style={{ marginBottom: '20px' }}>
-            <p className="about-body">
-              Where bold creative ignites movements.
-            </p>
-          </FadeUp>
-
-          <FadeUp delay={80} style={{ marginBottom: '20px' }}>
-            <p className="about-body">
-              Where every visual, every line, and every campaign is built to inspire
-              and engineered to perform.
-            </p>
-          </FadeUp>
-
-          <FadeUp delay={0} style={{ marginBottom: '20px' }}>
-            <p className="about-body">
-              At HypeHouse, we believe that modern brands need more than marketing.
-              They need systems that evolve. Stories that spread like wildfire.
-              Visuals that rewire perception.
-            </p>
-          </FadeUp>
         </div>
       </section>
 
@@ -293,33 +303,44 @@ export default function AboutContent() {
           padding: '0 24px 36px',
         }}
       >
-        <div style={{ maxWidth: '780px', margin: '0 auto', paddingTop: '24px', textAlign: 'center' }}>
-          <div style={{ marginBottom: '20px' }}>
-            <ClipReveal tag="p" className="about-lead" delay={0}>
-              Everyone talks about AI.
-            </ClipReveal>
-            <ClipReveal tag="p" className="about-lead" delay={80}>
-              We actually build with it.
-            </ClipReveal>
-          </div>
+        <div style={{ maxWidth: '780px', margin: '0 auto', paddingTop: '24px' }}>
+          <div style={{
+            background: 'linear-gradient(135deg, rgba(9,15,60,0.60) 0%, rgba(0,240,255,0.04) 100%)',
+            backdropFilter: 'blur(14px)',
+            WebkitBackdropFilter: 'blur(14px)',
+            border: '1px solid rgba(0,240,255,0.14)',
+            borderRadius: '20px',
+            padding: '40px 32px',
+            textAlign: 'center',
+          }}>
 
-          <FadeUp style={{ marginBottom: '16px' }}>
-            <p className="about-body">
-              Powered by Tachyon, our AI backbone, we launch brands, scale performance,
-              and turn attention into revenue.
-            </p>
-          </FadeUp>
-          <FadeUp delay={120} style={{ marginBottom: '24px' }}>
-            <p className="about-body">
-              Tachyon is an AI and automation engine we&apos;ve built, designed to help businesses
-              operate smarter, move faster, and scale without friction with AI business integrations.
-            </p>
-          </FadeUp>
-          <FadeUp delay={200}>
-            <Link href="/tachyon" className="about-tachyon-link">
-              Explore Tachyon →
-            </Link>
-          </FadeUp>
+            <div style={{ marginBottom: '20px' }}>
+              <ClipReveal tag="p" className="about-lead" delay={0}>
+                Everyone talks about AI.
+              </ClipReveal>
+              <ClipReveal tag="p" className="about-lead" delay={80}>
+                We actually build with it.
+              </ClipReveal>
+            </div>
+
+            <FadeUp style={{ marginBottom: '16px' }}>
+              <p className="about-body">
+                Powered by Tachyon, our AI backbone, we launch brands, scale performance,
+                and turn attention into revenue.
+              </p>
+            </FadeUp>
+            <FadeUp delay={120} style={{ marginBottom: '24px' }}>
+              <p className="about-body">
+                Tachyon is an AI and automation engine we&apos;ve built, designed to help businesses
+                operate smarter, move faster, and scale without friction with AI business integrations.
+              </p>
+            </FadeUp>
+            <FadeUp delay={200}>
+              <Link href="/tachyon" className="about-tachyon-link">
+                Explore Tachyon →
+              </Link>
+            </FadeUp>
+          </div>
         </div>
       </section>
 
