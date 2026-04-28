@@ -326,7 +326,7 @@ export default function AboutContent() {
             <FadeUp style={{ marginBottom: '16px' }}>
               <p className="about-body">
                 Powered by Tachyon, our AI backbone, we launch brands, scale performance,
-                and turn attention into&nbsp;revenue.
+                and turn attention&nbsp;into&nbsp;revenue.
               </p>
             </FadeUp>
             <FadeUp delay={120} style={{ marginBottom: '24px' }}>
