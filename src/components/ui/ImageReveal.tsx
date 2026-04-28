@@ -10,6 +10,7 @@ interface ImageRevealProps {
   height?: number
   priority?: boolean
   className?: string
+  sizes?: string
 }
 
 export default function ImageReveal({
@@ -19,6 +20,7 @@ export default function ImageReveal({
   height = 560,
   priority = false,
   className = '',
+  sizes,
 }: ImageRevealProps) {
   const ref = useRef<HTMLDivElement>(null)
 
@@ -83,6 +85,7 @@ export default function ImageReveal({
         width={width}
         height={height}
         priority={priority}
+        sizes={sizes}
         style={{ width: '100%', height: 'auto', display: 'block' }}
         loading={priority ? undefined : 'eager'}
       />

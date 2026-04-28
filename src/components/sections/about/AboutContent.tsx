@@ -250,9 +250,7 @@ export default function AboutContent() {
       >
         <div style={{ maxWidth: '780px', margin: '0 auto' }}>
           <div style={{
-            background: 'rgba(255,255,255,0.04)',
-            backdropFilter: 'blur(14px)',
-            WebkitBackdropFilter: 'blur(14px)',
+            background: 'rgba(10,6,30,0.80)',
             border: '1px solid rgba(255,255,255,0.08)',
             borderRadius: '20px',
             padding: '40px 32px',
@@ -305,9 +303,7 @@ export default function AboutContent() {
       >
         <div style={{ maxWidth: '780px', margin: '0 auto', paddingTop: '24px' }}>
           <div style={{
-            background: 'linear-gradient(135deg, rgba(9,15,60,0.60) 0%, rgba(0,240,255,0.04) 100%)',
-            backdropFilter: 'blur(14px)',
-            WebkitBackdropFilter: 'blur(14px)',
+            background: 'linear-gradient(135deg, rgba(9,15,60,0.90) 0%, rgba(0,240,255,0.06) 100%)',
             border: '1px solid rgba(0,240,255,0.14)',
             borderRadius: '20px',
             padding: '40px 32px',
