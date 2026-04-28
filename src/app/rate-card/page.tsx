@@ -9,6 +9,20 @@ export const metadata: Metadata = {
   description:
     'Explore what\'s included in every HypeHouse package — from monthly retainers and branding to one-time services. Get in touch for a tailored quote.',
   alternates: { canonical: 'https://hypehouse.digital/rate-card' },
+  openGraph: {
+    title: 'Packages & Pricing — HypeHouse Digital',
+    description: 'Transparent pricing for creative agencies. Starter, Growth and Full House retainer packages plus one-time services.',
+    url: 'https://hypehouse.digital/rate-card',
+    siteName: 'HypeHouse Digital',
+    type: 'website',
+    images: [{ url: '/og-image.jpg', width: 1200, height: 630, alt: 'HypeHouse Digital Packages' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Packages & Pricing — HypeHouse Digital',
+    description: 'Transparent pricing. Starter, Growth and Full House retainers.',
+    images: ['/og-image.jpg'],
+  },
 }
 
 const retainers = [

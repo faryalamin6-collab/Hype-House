@@ -542,3 +542,49 @@ p, li, span:not(.gradient-text):not(.section-label) {
     display: flex; /* restore Start Today column on desktop */
   }
 }
+
+/* ── GPU ACCELERATION FOR ANIMATED ELEMENTS ─────────────────────────────── */
+.drag-elements,
+.scroll-reveal,
+.scroll-scale,
+.scroll-stagger > * {
+  will-change: transform, opacity;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+.animation-complete {
+  will-change: auto;
+}
+
+/* ── REDUCED MOTION ──────────────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ── MOBILE TAP TARGETS (min 44×44 per WCAG) ────────────────────────────── */
+@media (max-width: 768px) {
+  a, button {
+    min-height: 44px;
+    min-width: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+}
+
+/* ── KEYBOARD FOCUS STYLES ───────────────────────────────────────────────── */
+:focus-visible {
+  outline: 2px solid #049DFF;
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+/* ── PAGE LOAD PROGRESS BAR ANIMATION ───────────────────────────────────── */
+@keyframes pageLoad {
+  from { width: 0%; opacity: 1; }
+  to   { width: 100%; opacity: 0; }
+}

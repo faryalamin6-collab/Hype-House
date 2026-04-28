@@ -10,6 +10,20 @@ export const metadata: Metadata = {
   description:
     'Tachyon is HypeHouse Digital\'s AI automation division. We design, build, and operate the business systems that remove friction, eliminate manual work, and create compounding growth.',
   alternates: { canonical: 'https://hypehouse.digital/tachyon' },
+  openGraph: {
+    title: 'Tachyon by HypeHouse — AI Business Systems',
+    description: 'Business systems that think for you. AI automation, smart CRM, instant response engines and campaign intelligence.',
+    url: 'https://hypehouse.digital/tachyon',
+    siteName: 'HypeHouse Digital',
+    type: 'website',
+    images: [{ url: '/og-image.jpg', width: 1200, height: 630, alt: 'Tachyon AI Business Systems' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Tachyon by HypeHouse — AI Business Systems',
+    description: 'Business systems that think for you.',
+    images: ['/og-image.jpg'],
+  },
 }
 
 // ── CAPABILITY CARDS DATA ──────────────────────────────────────────────────

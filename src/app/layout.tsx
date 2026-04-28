@@ -1,11 +1,13 @@
 import type { Metadata } from 'next'
 import dynamic from 'next/dynamic'
+import { Suspense } from 'react'
 import './globals.css'
 import LenisWrapper from '@/components/layout/LenisWrapper'
 import Navigation from '@/components/layout/Navigation'
 import Footer from '@/components/layout/Footer'
 import PageTransition from './PageTransition'
 import HashAnchorScroll from '@/components/ui/HashAnchorScroll'
+import PageLoader from '@/components/PageLoader'
 
 const BackgroundCanvas = dynamic(
   () => import('@/components/canvas/BackgroundCanvas'),
@@ -81,6 +83,12 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         {/* eslint-disable-next-line @next/next/no-page-custom-font */}
         <link
+          rel="preload"
+          href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+          as="style"
+        />
+        {/* eslint-disable-next-line @next/next/no-page-custom-font */}
+        <link
           href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
           rel="stylesheet"
         />
@@ -107,6 +115,9 @@ export default function RootLayout({
           minHeight: '100vh',
         }}
       >
+        {/* Page load progress bar */}
+        <PageLoader />
+
         {/* Three.js background — persistent across routes */}
         <BackgroundCanvas />
 
@@ -119,7 +130,13 @@ export default function RootLayout({
 
           {/* Page content with Framer Motion transitions */}
           <main style={{ position: 'relative', zIndex: 10 }}>
-            <PageTransition>{children}</PageTransition>
+            <Suspense fallback={
+              <div className="min-h-screen flex items-center justify-center" style={{ background: '#020008' }}>
+                <div className="w-8 h-8 rounded-full border-2 border-[#049DFF] border-t-transparent animate-spin" />
+              </div>
+            }>
+              <PageTransition>{children}</PageTransition>
+            </Suspense>
           </main>
 
           <Footer />

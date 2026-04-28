@@ -10,6 +10,20 @@ export const metadata: Metadata = {
   description:
     'The HypeHouse code: Freedom. Precision. Partnership. Quality. Hype. We don\'t follow the formula — we write the blueprint for what modern creative agencies should be.',
   alternates: { canonical: 'https://hypehouse.digital/philosophy' },
+  openGraph: {
+    title: 'Our Philosophy — The HypeHouse Code',
+    description: 'Freedom. Precision. Partnership. Quality. Hype. We write the blueprint.',
+    url: 'https://hypehouse.digital/philosophy',
+    siteName: 'HypeHouse Digital',
+    type: 'website',
+    images: [{ url: '/og-image.jpg', width: 1200, height: 630, alt: 'HypeHouse Digital Philosophy' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Our Philosophy — The HypeHouse Code',
+    description: 'Freedom. Precision. Partnership. Quality. Hype.',
+    images: ['/og-image.jpg'],
+  },
 }
 
 const principles = [

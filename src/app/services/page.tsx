@@ -9,6 +9,20 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://hypehouse.digital/services',
   },
+  openGraph: {
+    title: 'Services — HypeHouse Digital',
+    description: 'Six weapons. One agency. Branding, copywriting, social media, digital advertising, web design, SEO and AI automation.',
+    url: 'https://hypehouse.digital/services',
+    siteName: 'HypeHouse Digital',
+    type: 'website',
+    images: [{ url: '/og-image.jpg', width: 1200, height: 630, alt: 'HypeHouse Digital Services' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Services — HypeHouse Digital',
+    description: 'Six weapons. One agency. Full-service creative solutions.',
+    images: ['/og-image.jpg'],
+  },
 }
 
 const services = [

@@ -2,7 +2,9 @@ import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'Privacy Policy — HypeHouse Digital',
-  description: 'Privacy Policy for HypeHouse Digital.',
+  description: 'Privacy Policy for HypeHouse Digital. Learn how we collect, use and protect your data.',
+  alternates: { canonical: 'https://hypehouse.digital/privacy-policy' },
+  robots: { index: false, follow: false },
 }
 
 export default function PrivacyPolicy() {

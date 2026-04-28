@@ -5,6 +5,20 @@ export const metadata: Metadata = {
   description:
     'Ready to build something unforgettable? Contact HypeHouse Digital — AI-powered creative agency. Start your project, request a quote, or ask about our services.',
   alternates: { canonical: 'https://hypehouse.digital/contact' },
+  openGraph: {
+    title: 'Contact HypeHouse Digital',
+    description: 'Ready to build something unforgettable? Let\'s talk.',
+    url: 'https://hypehouse.digital/contact',
+    siteName: 'HypeHouse Digital',
+    type: 'website',
+    images: [{ url: '/og-image.jpg', width: 1200, height: 630, alt: 'Contact HypeHouse Digital' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Contact HypeHouse Digital',
+    description: 'Ready to build something unforgettable? Let\'s talk.',
+    images: ['/og-image.jpg'],
+  },
 }
 
 export default function ContactPage() {

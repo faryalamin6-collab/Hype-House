@@ -2,7 +2,9 @@ import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'Terms of Service — HypeHouse Digital',
-  description: 'Terms of Service for HypeHouse Digital.',
+  description: 'Terms of Service for HypeHouse Digital. Read our terms and conditions for using our services.',
+  alternates: { canonical: 'https://hypehouse.digital/terms-of-service' },
+  robots: { index: false, follow: false },
 }
 
 const terms = [
