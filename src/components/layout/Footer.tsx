@@ -112,7 +112,7 @@ export default function Footer() {
               Start a Project
             </a>
             <div className="flex flex-col gap-2">
-              <a href="https://wa.me/971509790412?text=Hi%20HypeHouse%2C%20I%27d%20like%20to%20discuss%20a%20project"
+              <a href="https://wa.me/923272777237?text=Hi%20HypeHouse%2C%20I%27d%20like%20to%20discuss%20a%20project"
                 target="_blank" rel="noopener noreferrer"
                 style={{ fontFamily: 'var(--font-poppins)', fontSize: '13px', color: 'rgba(37,211,102,0.75)', textDecoration: 'none' }}>
                 💬 WhatsApp us
@@ -129,7 +129,7 @@ export default function Footer() {
         {/* Mobile-only CTA row */}
         <div className="flex md:hidden items-center gap-6 pb-6" style={{ borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
           <a
-            href="https://wa.me/971509790412?text=Hi%20HypeHouse%2C%20I%27d%20like%20to%20discuss%20a%20project"
+            href="https://wa.me/923272777237?text=Hi%20HypeHouse%2C%20I%27d%20like%20to%20discuss%20a%20project"
             target="_blank" rel="noopener noreferrer"
             style={{ fontFamily: 'var(--font-poppins)', fontSize: '13px', color: 'rgba(37,211,102,0.85)', textDecoration: 'none' }}
           >

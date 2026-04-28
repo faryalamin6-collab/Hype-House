@@ -206,7 +206,7 @@ export default function AboutContent() {
               className="about-h1-line gradient-text"
               delay={80}
             >
-              We&apos;re the System Behind the Hype.
+              We&apos;re the System Behind the&nbsp;Hype.
             </ClipReveal>
           </div>
 
@@ -268,7 +268,7 @@ export default function AboutContent() {
             <FadeUp delay={80} style={{ marginBottom: '16px' }}>
               <p className="about-body">
                 We&apos;re architects of velocity, where design, storytelling, and AI collide to create
-                ecosystems that move at lightspeed and perform with precision.
+                ecosystems that move at lightspeed and perform with&nbsp;precision.
               </p>
             </FadeUp>
 
@@ -281,7 +281,7 @@ export default function AboutContent() {
             <FadeUp delay={80} style={{ marginBottom: '16px' }}>
               <p className="about-body">
                 Where every visual, every line, and every campaign is built to inspire
-                and engineered to perform.
+                and engineered to&nbsp;perform.
               </p>
             </FadeUp>
 
@@ -289,7 +289,7 @@ export default function AboutContent() {
               <p className="about-body">
                 At HypeHouse, we believe that modern brands need more than marketing.
                 They need systems that evolve. Stories that spread like wildfire.
-                Visuals that rewire perception.
+                Visuals that rewire&nbsp;perception.
               </p>
             </FadeUp>
           </div>
@@ -326,13 +326,13 @@ export default function AboutContent() {
             <FadeUp style={{ marginBottom: '16px' }}>
               <p className="about-body">
                 Powered by Tachyon, our AI backbone, we launch brands, scale performance,
-                and turn attention into revenue.
+                and turn attention into&nbsp;revenue.
               </p>
             </FadeUp>
             <FadeUp delay={120} style={{ marginBottom: '24px' }}>
               <p className="about-body">
                 Tachyon is an AI and automation engine we&apos;ve built, designed to help businesses
-                operate smarter, move faster, and scale without friction with AI business integrations.
+                operate smarter, move faster, and scale without friction with AI business&nbsp;integrations.
               </p>
             </FadeUp>
             <FadeUp delay={200}>

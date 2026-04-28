@@ -78,7 +78,7 @@ export default function TachyonHero() {
           </p>
 
           <a
-            href="https://wa.me/971509790412?text=Hi%20HypeHouse%2C%20I%27d%20like%20to%20know%20more%20about%20Tachyon"
+            href="https://wa.me/923272777237?text=Hi%20HypeHouse%2C%20I%27d%20like%20to%20know%20more%20about%20Tachyon"
             target="_blank"
             rel="noopener noreferrer"
             style={{

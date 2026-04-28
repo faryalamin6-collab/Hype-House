@@ -73,7 +73,7 @@ The site must feel like Apple product pages — cinematic scroll animations, wor
 - No fake testimonials, no fake clients, no fabricated results
 - No hello@hypehouse.digital — email does not exist yet
 - All Start a Project buttons link to: https://hypehouse-client-intake-form.netlify.app
-- WhatsApp: https://wa.me/971509790412
+- WhatsApp: https://wa.me/923272777237
 - Tachyon pricing: custom quote only — never show a number
 - Location language: Headquartered in Karachi, operating globally
 - No Karachi hammering — mention once maximum per page
