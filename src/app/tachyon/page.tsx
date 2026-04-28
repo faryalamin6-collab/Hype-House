@@ -191,7 +191,7 @@ export default function TachyonPage() {
             {capabilities.slice(0, 4).map((item, i) => (
               <ScrollReveal key={item.title} delay={i * 80}>
                 <HoverCard
-                  style={{ padding: '40px 32px', height: '100%', background: 'rgba(30,79,140,0.18)', animation: 'card-idle-glow-blue 4s ease-in-out infinite' }}
+                  style={{ padding: '40px 32px', height: '100%', background: 'rgba(30,79,140,0.18)', animation: 'none' }}
                   hoverStyle={{
                     borderColor: 'rgba(0,240,255,0.45)',
                     transform: 'translateY(-4px)',
@@ -234,7 +234,7 @@ export default function TachyonPage() {
           <div style={{ maxWidth: '420px', margin: '0 auto' }}>
             <ScrollReveal delay={320}>
               <HoverCard
-                style={{ padding: '40px 32px', background: 'rgba(30,79,140,0.18)', animation: 'card-idle-glow-blue 4s ease-in-out infinite' }}
+                style={{ padding: '40px 32px', background: 'rgba(30,79,140,0.18)', animation: 'none' }}
                 hoverStyle={{
                   borderColor: 'rgba(191,215,255,0.55)',
                   transform: 'translateY(-4px)',
@@ -409,11 +409,10 @@ export default function TachyonPage() {
         padding: '80px 24px',
         textAlign: 'center', overflow: 'hidden',
       }}>
-        {/* Plasma background */}
+        {/* Static glow — replaces expensive rotating conic-gradient */}
         <div style={{
-          position: 'absolute', inset: '-50%',
-          background: 'conic-gradient(from 0deg, transparent, rgba(0,240,255,0.05), transparent)',
-          animation: 'plasma-rotate 20s linear infinite',
+          position: 'absolute', inset: 0,
+          background: 'radial-gradient(ellipse at 50% 50%, rgba(0,240,255,0.05) 0%, transparent 70%)',
           pointerEvents: 'none',
         }} />
         <ScrollReveal>

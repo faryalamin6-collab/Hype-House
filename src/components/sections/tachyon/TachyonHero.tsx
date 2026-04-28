@@ -1,7 +1,7 @@
 'use client'
 
 import dynamic from 'next/dynamic'
-import { Spotlight } from '@/components/ui/spotlight'
+import { useState, useEffect } from 'react'
 
 const SplineScene = dynamic(
   () => import('@/components/ui/splite').then(mod => ({ default: mod.SplineScene })),
@@ -16,11 +16,35 @@ const SplineScene = dynamic(
 )
 
 export default function TachyonHero() {
+  const [splineReady, setSplineReady] = useState(false)
+
+  // Defer Spline until browser is idle — hero text paints first
+  useEffect(() => {
+    const cb = () => setSplineReady(true)
+    if (typeof requestIdleCallback !== 'undefined') {
+      const id = requestIdleCallback(cb, { timeout: 2000 })
+      return () => cancelIdleCallback(id)
+    } else {
+      const id = setTimeout(cb, 1200)
+      return () => clearTimeout(id)
+    }
+  }, [])
+
   return (
     <section className="page-top w-full relative overflow-hidden" style={{ minHeight: '600px', background: '#020008' }}>
-      <Spotlight
-        className="-top-40 left-0 md:left-60 md:-top-20"
-        fill="#5B5BFF"
+      {/* Lightweight CSS glow — replaces heavy SVG feGaussianBlur */}
+      <div
+        aria-hidden="true"
+        style={{
+          position: 'absolute',
+          top: '-120px',
+          left: '10%',
+          width: '600px',
+          height: '400px',
+          background: 'radial-gradient(ellipse at center, rgba(91,91,255,0.18) 0%, transparent 70%)',
+          pointerEvents: 'none',
+          zIndex: 1,
+        }}
       />
 
       <div className="flex flex-col md:flex-row h-full" style={{ minHeight: '600px' }}>
@@ -101,12 +125,18 @@ export default function TachyonHero() {
           </a>
         </div>
 
-        {/* Right — 3D Spline Scene */}
+        {/* Right — 3D Spline Scene (deferred) */}
         <div className="flex-1 relative overflow-hidden md:max-w-[50%] w-full" style={{ minHeight: '300px' }}>
-          <SplineScene
-            scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
-            className="w-full h-full absolute inset-0"
-          />
+          {splineReady ? (
+            <SplineScene
+              scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
+              className="w-full h-full absolute inset-0"
+            />
+          ) : (
+            <div className="w-full h-full flex items-center justify-center absolute inset-0">
+              <div className="w-8 h-8 rounded-full border-2 border-[#00F0FF] border-t-transparent animate-spin" />
+            </div>
+          )}
         </div>
       </div>
     </section>

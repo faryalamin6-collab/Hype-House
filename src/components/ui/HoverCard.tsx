@@ -29,11 +29,9 @@ export default function HoverCard({
     <div
       className={className}
       style={{
-        background: 'rgba(255,255,255,0.04)',
-        backdropFilter: 'blur(12px)',
+        background: 'rgba(10,6,30,0.75)',
         border: '1px solid rgba(255,255,255,0.10)',
         borderRadius: '16px',
-        animation: 'card-idle-glow 4s ease-in-out infinite',
         transition: 'border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease',
         ...style,
       }}
