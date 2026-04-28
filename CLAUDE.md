@@ -10,7 +10,7 @@ Always work in this directory.
 # HypeHouse Digital — Project Brief
 
 ## Live Site
-https://hype-house-bd6k.vercel.app
+https://hypehouse.digital
 
 ## Repository
 https://github.com/faryalamin6-collab/Hype-House

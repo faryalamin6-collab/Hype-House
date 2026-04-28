@@ -565,6 +565,10 @@ p, li, span:not(.gradient-text):not(.section-label) {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+  .hh-ticker {
+    animation-duration: 60s !important;
+    animation-iteration-count: infinite !important;
+  }
 }
 
 /* ── MOBILE TAP TARGETS (min 44×44 per WCAG) ────────────────────────────── */

@@ -9,9 +9,8 @@ const items = [
 
 export default function ServiceTicker() {
   const trackRef = useRef<HTMLDivElement>(null)
-  const isHovered = useRef(false)
 
-  const tickerItems = [...items, ...items] // double for seamless loop
+  const tickerItems = [...items, ...items]
 
   return (
     <section
@@ -24,13 +23,10 @@ export default function ServiceTicker() {
         borderBottom: '1px solid rgba(255,255,255,0.06)',
       }}
     >
-      {/* Gradient masks */}
       <div
         style={{
           position: 'absolute',
-          left: 0,
-          top: 0,
-          bottom: 0,
+          left: 0, top: 0, bottom: 0,
           width: '120px',
           background: 'linear-gradient(90deg, #020008 0%, transparent 100%)',
           zIndex: 2,
@@ -40,9 +36,7 @@ export default function ServiceTicker() {
       <div
         style={{
           position: 'absolute',
-          right: 0,
-          top: 0,
-          bottom: 0,
+          right: 0, top: 0, bottom: 0,
           width: '120px',
           background: 'linear-gradient(270deg, #020008 0%, transparent 100%)',
           zIndex: 2,
@@ -52,22 +46,18 @@ export default function ServiceTicker() {
 
       <div
         ref={trackRef}
+        className="hh-ticker"
         style={{
           display: 'flex',
           animation: 'ticker 32s linear infinite',
           width: 'max-content',
+          willChange: 'transform',
         }}
         onMouseEnter={() => {
-          isHovered.current = true
-          if (trackRef.current) {
-            trackRef.current.style.animationDuration = '90s'
-          }
+          if (trackRef.current) trackRef.current.style.animationDuration = '90s'
         }}
         onMouseLeave={() => {
-          isHovered.current = false
-          if (trackRef.current) {
-            trackRef.current.style.animationDuration = '32s'
-          }
+          if (trackRef.current) trackRef.current.style.animationDuration = '32s'
         }}
       >
         {tickerItems.map((item, i) => (
