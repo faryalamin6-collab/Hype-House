@@ -42,7 +42,7 @@ const services = [
       { item: 'Rebranding — When your brand outgrows its look, we evolve it. Modern, bold, and true to your DNA. We rebuild without erasing what made you great.' },
     ],
     reverse: true,
-    imageSrc: '/images/branding-header.png',
+    imageSrc: '/images/branding-header.jpg',
   },
   {
     id: 'copywriting',
@@ -61,7 +61,7 @@ const services = [
       { item: 'Special Formats — Podcasts, scripts, pitch decks, internal messaging. Words that adapt, align, and always sound unmistakably you.' },
     ],
     reverse: false,
-    imageSrc: '/images/copywriting-header.png',
+    imageSrc: '/images/copywriting-header.jpg',
   },
   {
     id: 'social-media',
@@ -83,7 +83,7 @@ const services = [
       { item: 'Consistency powered by strategy and reporting' },
     ],
     reverse: true,
-    imageSrc: '/images/social-media-header.png',
+    imageSrc: '/images/social-media-header.jpg',
   },
   {
     id: 'advertising',
@@ -102,7 +102,7 @@ const services = [
       { item: 'Paid Media Management — End-to-end campaign execution, optimisation, and scaling across Meta, Google, TikTok, and LinkedIn.' },
     ],
     reverse: false,
-    imageSrc: '/images/digital-adverts-header.png',
+    imageSrc: '/images/digital-adverts-header.jpg',
   },
   {
     id: 'web',
@@ -120,7 +120,7 @@ const services = [
       { item: 'Responsive Optimisation — Mobile-first performance tuning across all devices and screen sizes.' },
     ],
     reverse: true,
-    imageSrc: '/images/web-design-header.png',
+    imageSrc: '/images/web-design-header.jpg',
   },
   {
     id: 'seo',
@@ -140,7 +140,7 @@ const services = [
       { item: 'SEO Reporting — Clear insights, ranking progress, and growth tracking every month.' },
     ],
     reverse: false,
-    imageSrc: '/images/seo-header.png',
+    imageSrc: '/images/seo-header.jpg',
   },
 ]
 

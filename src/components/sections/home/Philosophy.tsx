@@ -29,7 +29,7 @@ export default function Philosophy() {
         {/* Philosophy header image */}
         <ScrollReveal delay={60}>
           <div style={{ position: 'relative', width: '100%', maxWidth: '900px', margin: '0 auto 48px', minHeight: '420px', borderRadius: '12px', overflow: 'hidden', border: '1px solid rgba(4,157,255,0.18)' }}>
-            <Image src="/images/our-philosophy-header.png" alt="Our Philosophy" fill style={{ objectFit: 'cover', objectPosition: 'center' }} />
+            <Image src="/images/our-philosophy-header.jpg" alt="Our Philosophy" fill style={{ objectFit: 'cover', objectPosition: 'center' }} />
           </div>
         </ScrollReveal>
 
