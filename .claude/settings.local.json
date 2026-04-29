@@ -37,7 +37,9 @@
       "Bash(node -e \"const icons = require\\('lucide-react'\\); const keys = Object.keys\\(icons\\); console.log\\('Total icons:', keys.length\\); console.log\\(keys.filter\\(k => /insta|linked|social|share/i.test\\(k\\)\\)\\)\")",
       "Bash(node -e \"const { MessageCircle } = require\\('lucide-react'\\); console.log\\(typeof MessageCircle\\)\")",
       "Bash(git show *)",
-      "Bash(git checkout *)"
+      "Bash(git checkout *)",
+      "Bash(sort -k5 -rh)",
+      "Bash(node -e ' *)"
     ]
   }
 }

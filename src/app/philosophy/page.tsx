@@ -75,7 +75,7 @@ export default function PhilosophyPage() {
 
       {/* ── PHILOSOPHY IMAGE — edge to edge ──────────────────────────────── */}
       <section style={{ position: 'relative', zIndex: 10, paddingBottom: '40px' }}>
-        <ImageReveal src="/images/our-philosophy-header.png" alt="Our Philosophy" priority sizes="100vw" />
+        <ImageReveal src="/images/our-philosophy-header.png" alt="Our Philosophy" priority sizes="100vw" quality={70} />
       </section>
 
       {/* ── BODY COPY ────────────────────────────────────────────────────── */}
