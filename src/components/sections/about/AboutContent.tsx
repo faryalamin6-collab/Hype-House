@@ -142,9 +142,10 @@ export default function AboutContent() {
   // When wrapper enters viewport, add .visible to its .about-clip-inner children.
   // .about-fade elements are observed directly (no transform offset issue).
   useEffect(() => {
+    const isMobile = window.matchMedia('(max-width: 768px)').matches
+
     const clipWraps = Array.from(document.querySelectorAll<HTMLElement>('.about-clip-wrap'))
     const fades     = Array.from(document.querySelectorAll<HTMLElement>('.about-fade'))
-    const vh = window.innerHeight
 
     const revealClip = (wrap: HTMLElement) => {
       wrap.querySelectorAll<HTMLElement>('.about-clip-inner')
@@ -152,11 +153,17 @@ export default function AboutContent() {
     }
     const revealFade = (el: HTMLElement) => el.classList.add('visible')
 
-    // Immediately reveal anything already in the viewport on mount
+    // Mobile: reveal everything immediately, no observer needed
+    if (isMobile) {
+      clipWraps.forEach(revealClip)
+      fades.forEach(revealFade)
+      return
+    }
+
+    const vh = window.innerHeight
     clipWraps.forEach((el) => { if (el.getBoundingClientRect().top < vh) revealClip(el) })
     fades    .forEach((el) => { if (el.getBoundingClientRect().top < vh) revealFade(el) })
 
-    // Observe everything else
     const obs = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -183,7 +190,7 @@ export default function AboutContent() {
         style={{
           position: 'relative', zIndex: 10,
           paddingLeft: '24px', paddingRight: '24px', paddingBottom: '56px',
-          textAlign: 'center', overflow: 'hidden',
+          textAlign: 'center',
         }}
       >
         <div className="about-hero-glow" aria-hidden="true" />
@@ -353,7 +360,7 @@ export default function AboutContent() {
         style={{
           position: 'relative', zIndex: 10,
           padding: '36px 24px 72px',
-          textAlign: 'center', overflow: 'hidden',
+          textAlign: 'center',
         }}
       >
         <div className="about-closing-glow" aria-hidden="true" />

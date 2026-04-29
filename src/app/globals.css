@@ -343,8 +343,8 @@ p, li, span:not(.gradient-text):not(.section-label) {
 /* Clip-reveal wrapper — hides the inner element until it animates up */
 .about-clip-wrap {
   display: block;
-  overflow: hidden; /* fallback for iOS ≤15 */
-  overflow: clip;   /* no scroll container created — fixes iOS touch-lock bug */
+  overflow: hidden;
+  overflow: clip;
   padding-bottom: 0.2em;
   line-height: 1.1;
 }
@@ -371,6 +371,25 @@ p, li, span:not(.gradient-text):not(.section-label) {
 .about-fade.visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* ── MOBILE: skip all about animations — show everything immediately ──────── */
+/* overflow:hidden/.clip on wrappers locks iOS scroll; removing it fixes it.  */
+@media (max-width: 768px) {
+  .about-clip-wrap {
+    overflow: visible;
+    padding-bottom: 0;
+  }
+  .about-clip-inner {
+    transform: translateY(0) !important;
+    opacity: 1 !important;
+    transition: none !important;
+  }
+  .about-fade {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+    transition: none !important;
+  }
 }
 
 /* ── TYPOGRAPHY ROLES ────────────────────────────────────────────────────── */
