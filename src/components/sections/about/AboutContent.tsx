@@ -192,7 +192,7 @@ export default function AboutContent() {
           ref={heroInnerRef}
           style={{
             maxWidth: '860px', margin: '0 auto', position: 'relative',
-            willChange: 'transform', transition: 'transform 0.12s linear',
+            transition: 'transform 0.12s linear',
           }}
         >
           <FadeUp>

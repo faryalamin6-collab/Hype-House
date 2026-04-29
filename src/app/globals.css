@@ -343,8 +343,9 @@ p, li, span:not(.gradient-text):not(.section-label) {
 /* Clip-reveal wrapper — hides the inner element until it animates up */
 .about-clip-wrap {
   display: block;
-  overflow: hidden;
-  padding-bottom: 0.2em; /* prevent descender clipping on g, y, p, etc */
+  overflow: hidden; /* fallback for iOS ≤15 */
+  overflow: clip;   /* no scroll container created — fixes iOS touch-lock bug */
+  padding-bottom: 0.2em;
   line-height: 1.1;
 }
 
@@ -355,7 +356,6 @@ p, li, span:not(.gradient-text):not(.section-label) {
   opacity: 0;
   transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1),
               opacity   0.55s ease;
-  will-change: transform, opacity;
 }
 .about-clip-inner.visible {
   transform: translateY(0);
@@ -367,7 +367,6 @@ p, li, span:not(.gradient-text):not(.section-label) {
   opacity: 0;
   transform: translateY(22px);
   transition: opacity 0.7s ease, transform 0.7s ease;
-  will-change: opacity, transform;
 }
 .about-fade.visible {
   opacity: 1;
