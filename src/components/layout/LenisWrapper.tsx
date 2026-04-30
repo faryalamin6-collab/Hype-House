@@ -19,6 +19,7 @@ export default function LenisWrapper({ children }: { children: ReactNode }) {
     let rafId: number = 0
 
     async function init() {
+      await new Promise(r => setTimeout(r, 150))
       const { default: Lenis } = await import('lenis')
       const { gsap, ScrollTrigger, registerGSAP } = await import('@/lib/gsap')
       registerGSAP()

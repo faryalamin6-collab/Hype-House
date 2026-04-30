@@ -29,7 +29,7 @@ export default function BackgroundCanvas() {
 
     // ── ORB DATA ─────────────────────────────────────────────────────────────
     // Orbs rendered as soft radial gradients (luminous nebula glow)
-    const orbCount = isMobile ? 5 : 8
+    const orbCount = isMobile ? 3 : 5
     interface OrbDatum {
       x: number; y: number
       radius: number
@@ -63,7 +63,7 @@ export default function BackgroundCanvas() {
     }
 
     // ── STAR DATA ────────────────────────────────────────────────────────────
-    const starCount = isMobile ? 150 : isTablet ? 200 : 300
+    const starCount = isMobile ? 50 : isTablet ? 65 : 80
     interface StarDatum {
       x: number; y: number; size: number; opacity: number
       twinkleSpeed: number; twinklePhase: number; driftX: number
@@ -83,7 +83,7 @@ export default function BackgroundCanvas() {
     const sparkleThreshold = sortedBySizeStar[Math.floor(starCount * 0.07)].size
 
     // ── DIAMOND SPARKLES ─────────────────────────────────────────────────────
-    const sparkleCount = 35
+    const sparkleCount = 12
     interface SparkleDatum {
       x: number; y: number; size: number
       pulseSpeed: number; pulsePhase: number
@@ -102,7 +102,7 @@ export default function BackgroundCanvas() {
     }
 
     // ── ENERGY NODES ─────────────────────────────────────────────────────────
-    const nodeCount = isMobile ? 0 : 7
+    const nodeCount = isMobile ? 0 : 4
     interface NodeDatum {
       x: number; y: number; vx: number; vy: number
       isPurple: boolean
@@ -120,7 +120,7 @@ export default function BackgroundCanvas() {
     }
 
     // ── FLOW LINES ───────────────────────────────────────────────────────────
-    const flowLineCount = isMobile ? 0 : 14
+    const flowLineCount = 0
     interface FlowLine {
       amplitude: number; frequency: number; phase: number
       y: number; speed: number; opacity: number; isPurple: boolean
@@ -389,11 +389,20 @@ export default function BackgroundCanvas() {
       t += 1
     }
 
-    function loop() {
+    let lastDraw = 0
+    const FRAME_MS = 1000 / 30
+
+    function loop(ts: number) {
       animFrameId = requestAnimationFrame(loop)
+      if (ts - lastDraw < FRAME_MS) return
+      lastDraw = ts
       draw()
     }
-    loop()
+
+    // Defer start — let hydration + JS parse finish first
+    const startTimer = setTimeout(() => {
+      animFrameId = requestAnimationFrame(loop)
+    }, 500)
 
     function onResize() {
       canvas.width = W()
@@ -406,6 +415,7 @@ export default function BackgroundCanvas() {
     window.addEventListener('resize', onResize)
 
     return () => {
+      clearTimeout(startTimer)
       window.removeEventListener('resize', onResize)
       cancelAnimationFrame(animFrameId)
       canvas.remove()

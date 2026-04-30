@@ -1,24 +1,29 @@
 'use client'
 
-import { AnimatePresence, motion } from 'framer-motion'
 import { usePathname } from 'next/navigation'
-import { ReactNode } from 'react'
+import { ReactNode, useEffect, useRef, useState } from 'react'
 
 export default function PageTransition({ children }: { children: ReactNode }) {
   const pathname = usePathname()
+  const [opacity, setOpacity] = useState(1)
+  const isFirst = useRef(true)
+
+  useEffect(() => {
+    if (isFirst.current) { isFirst.current = false; return }
+    setOpacity(0)
+    const t = setTimeout(() => setOpacity(1), 30)
+    return () => clearTimeout(t)
+  }, [pathname])
 
   return (
-    <AnimatePresence mode="popLayout" initial={false}>
-      <motion.div
-        key={pathname}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-        transition={{ duration: 0.18, ease: 'easeInOut' }}
-        style={{ minHeight: '100vh' }}
-      >
-        {children}
-      </motion.div>
-    </AnimatePresence>
+    <div
+      style={{
+        minHeight: '100vh',
+        opacity,
+        transition: 'opacity 0.18s ease-in-out',
+      }}
+    >
+      {children}
+    </div>
   )
 }
