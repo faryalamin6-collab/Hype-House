@@ -8,8 +8,6 @@ const PHRASES = ['Strategy first.', 'Built with intent.', 'Built to outperform.'
 
 export default function Hero() {
   const badgeRef    = useRef<HTMLDivElement>(null)
-  const line1Ref    = useRef<HTMLDivElement>(null)
-  const line2Ref    = useRef<HTMLDivElement>(null)
   const typeLineRef = useRef<HTMLDivElement>(null)
   const paraRef     = useRef<HTMLParagraphElement>(null)
   const btnsRef     = useRef<HTMLDivElement>(null)
@@ -24,11 +22,9 @@ export default function Hero() {
   useEffect(() => {
     const els = [
       { el: badgeRef.current,    delay: 0 },
-      { el: line1Ref.current,    delay: 100 },
-      { el: line2Ref.current,    delay: 200 },
-      { el: typeLineRef.current, delay: 360 },
-      { el: paraRef.current,     delay: 520 },
-      { el: btnsRef.current,     delay: 680 },
+      { el: typeLineRef.current, delay: 160 },
+      { el: paraRef.current,     delay: 320 },
+      { el: btnsRef.current,     delay: 480 },
     ]
     els.forEach(({ el, delay }) => {
       if (!el) return
@@ -100,10 +96,10 @@ export default function Hero() {
             marginBottom: '20px',
           }}
         >
-          <div ref={line1Ref} style={{ color: 'white' }}>
+          <div style={{ color: 'white' }}>
             We Don&apos;t Build Brands.
           </div>
-          <div ref={line2Ref} style={{ marginTop: '4px' }}>
+          <div style={{ marginTop: '4px' }}>
             <span className="gradient-text">We Engineer Hype.</span>
           </div>
         </h1>
